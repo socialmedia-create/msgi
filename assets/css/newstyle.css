@@ -1,0 +1,209 @@
+.euphoria-heading {
+  font-size: 5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #df1529 !important;
+  text-align: center;
+  letter-spacing: 8px;
+  animation: red-glow 3s infinite;
+    animation-delay: 1s;
+}
+
+@keyframes red-glow {
+  0% {
+    text-shadow: 0 0 5px #df1529, 0 0 10px #df1529;
+  }
+  50% {
+    text-shadow: 0 0 15px #df1529, 0 0 25px #df1529;
+  }
+  100% {
+    text-shadow: 0 0 1px #df1529, 0 0 1px #df1529;
+  }
+}
+.icon-container {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.icon-container i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show default icon initially */
+.default-icon {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Hide hover icon initially */
+.hover-icon {
+  opacity: 0;
+  z-index: 2;
+}
+
+/* On hover, swap visibility */
+.category-card:hover .default-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.category-card:hover .hover-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.category-card:hover .smallp{
+    color: #df1529 !important;
+}
+.nav-tabs {
+    border-bottom: 0px !important;
+}
+  .nav-tabs .nav-item {
+    display: flex;
+  }
+
+  .nav-tabs .nav-link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .category-card h4,
+  .category-card p {
+    margin: 0;
+    padding: 4px 0;
+    text-align: center;
+  }
+  .zoom-item{
+    overflow: hidden !important;
+  }
+
+.zoom-target {
+  transform: scale(1);
+  transition: transform 1s ease;
+}
+
+.zoom-target.active {
+  transform: scale(1.2);
+  z-index: 2;
+}
+.gallery-img {
+    height: 250px; /* Set your desired uniform height */
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  transform: scale(1);
+  transition: transform 1s ease;
+}
+
+.gallery-img.active {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.setheight {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+      height: 250px; /* Consistent height */
+    }
+@media screen and (min-width: 760px) {
+  .inner2 {
+    height: 500px !important;
+  }
+}
+
+
+    .carousel-item img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .setheight {
+        flex-direction: column;
+      }
+
+      .carousel,
+      .carousel-inner,
+      .carousel-item {
+        height: 200px;
+      }
+    }
+   .sports-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sport-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+.sport-card:hover {
+  background-color: #f8f9fa;
+  border-left: 4px solid #df1529;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.sport-card.active {
+  background-color: #f8f9fa;
+  border-left: 4px solid #df1529;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sport-card i {
+  font-size: 1.8rem;
+  color: #df1529;
+}
+
+.sport-image-container {
+  position: relative;
+  height: 400px;
+}
+
+.sport-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 0;
+}
+
+.sport-img.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}

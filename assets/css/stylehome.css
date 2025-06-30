@@ -546,11 +546,13 @@ body {
   position: relative;
 }
 
-.nav-links li:not(:last-child)::after {
-  content: "|";
-  position: absolute;
-  right: -10px;
-  color: #013483;
+/* Original rule with a fix to exclude dropdown */
+.nav-links li:not(:last-child):not(.noline)::after {
+    content: "|";
+    position: absolute;
+    right: -10px;
+    top: 0px;
+    color: #013483;
 }
 
 .nav-links a {
@@ -612,4 +614,95 @@ body {
   .numberlogo{
     width: 70px !important;
     height: 80px !important;
+  }
+.nav-links {
+  position: relative;
+  padding-left: 0;
+  display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+  list-style: none;
+  position: relative;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  /* padding: 10px; */
+  color: #013483;
+  position: relative;
+}
+
+.nav-links li:not(:last-child):not(.noline)::after {
+  content: "|";
+  position: absolute;
+  right: -10px;
+  color: #013483;
+}
+
+.custom-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  z-index: 1000;
+  list-style: none;
+  width: 200px;
+}
+
+.custom-dropdown-content li a {
+  display: block;
+  color: #013483;
+  text-decoration: none;
+}
+
+.custom-dropdown-content li a:hover {
+  background-color: #013483;
+}
+@media (max-width: 760px) {
+.styleheaderlogo{
+  height: 90vh;
+}
+}
+.ccode{
+  color: #df1529 !important;
+  font-size: 32px !important;
+}
+
+ .facilities-ticker-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .facilities-ticker {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 45s linear infinite;
+    gap: 20px;
+  }
+
+  .facilities-ticker img {
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-75%);
+    }
+  }
+
+  /* Duplicate content to simulate seamless loop */
+  .facilities-ticker-inner {
+    display: flex;
   }

@@ -17,6 +17,7 @@ const db = getFirestore(app);
 // Map department names to tab IDs
 const departmentTabMap = {
   "Department of Information Technology": "faculty--staff-tab-1",
+  "CSE": "faculty--staff-tab-2",
   "AI DS": "faculty--staff-tab-3",
   "ECE": "faculty--staff-tab-4",
   "Civil Engineering" : "faculty--staff-tab-7",

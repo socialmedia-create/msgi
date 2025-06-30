@@ -41,26 +41,60 @@
 </head>
 
 <body class="index-page">
-     <div class="top-bar d-none d-xl-block">
-    <ul class="nav-links">
-      <li><a href="/admission2025">Admissions 2025</a></li>
-      <li><a href="coe.html">COE</a></li>
-      <li><a href="academics.html">Departments</a></li>
-      <li><a href="placements.html">Placements</a></li>
-      <li><a href="Centerofexcellence.html">Center of Excellence</a></li>
-      <li><a href="alumni.html">Alumni</a></li>
-      <li><a href="students-life.html">Students Life</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="news.html">News and Events</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+     <div class="top-bar d-none d-lg-block">
+<ul class="nav-links">
+  <li><a href="/admission2025">Admissions 2025</a></li>
+
+  <!-- Academics Dropdown -->
+  <li class="custom-dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle" data-target="academicsDropdown">Academics</a>
+    <ul id="academicsDropdown" class="custom-dropdown-content">
+      <li class="noline"><a href="academics.html">Departments</a></li>
+      <li class="noline"><a href="autonomy.html">Autonomous</a></li>
+      <li class="noline"><a href="syllabus.html">Syllabus</a></li>
+      <li class="noline"><a href="calendar.html">Academic Calendar</a></li>
+      <li class="noline mb-2"><a href="coe.html">Controller of Examination</a></li>
     </ul>
+  </li>
+
+  <li><a href="placements.html">Placements</a></li>
+
+  <!-- Centres of Excellence Dropdown -->
+  <li class="custom-dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle" data-target="centresDropdown">Centres of Excellence</a>
+    <ul id="centresDropdown" class="custom-dropdown-content">
+      <li class="noline"><a href="msiic.html">MSIIC</a></li>
+      <li class="noline"><a href="msciic.html">MSCIIC</a></li>
+      <li class="noline"><a href="mscdc.html">MSCDC</a></li>
+      <li class="noline"><a href="research.html">Research</a></li>
+      <li class="noline mb-2"><a href="iic.html">IIC</a></li>
+    </ul>
+  </li>
+
+  <li><a href="alumni.html">Alumni</a></li>
+  <li class="custom-dropdown">
+  <a href="javascript:void(0);" class="dropdown-toggle" data-target="msec360Dropdown">MSEC360</a>
+  <ul id="msec360Dropdown" class="custom-dropdown-content">
+    <li class="noline"><a href="clubs.html">Clubs</a></li>
+    <li class="noline"><a href="students-life.html">Student Life</a></li>
+    <li class="noline"><a href="competitions.html">Competitions</a></li>
+    <li class="noline"><a href="sports.html">Sports</a></li>
+    <li class="noline mb-2"><a href="events.html">Events & Activities</a></li>
+  </ul>
+</li>
+
+  <li><a href="news.html">News and Events</a></li>
+  <li><a href="contact.html">Contact Us</a></li>
+</ul>
+
+
   </div>
 <header id="header" class="container-fluid header d-flex align-items-center">
   <div class="container-xl position-relative d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between">
 
     <!-- Logo Section -->
     <div class="d-flex flex-column flex-md-row align-items-center">
-            <button class="btn d-none d-lg-block bg-white rounded-3 mx-2 fw-bold">TNEA <br/> 1309</button>
+            <button class="btn d-none d-lg-block bg-white rounded-3 mx-2 fw-bold">TNEA <br/> <span class="ccode">1309</span></button>
       <img class="mseclogo" src="assets/img/mseclogo.png" alt="">
       <div class="d-flex flex-column align-items-center justify-content-center text-center">
         <a href="index.html" class="logo d-flex align-items-center justify-content-center text-center">
@@ -110,16 +144,22 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-submenu">
                   <a href="academics.html" class="dropdown-item" aria-expanded="false">Departments</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="academics.html">Computer Science</a></li>
-                    <li><a class="dropdown-item" href="ece.html">Electronics</a></li>
-                    <li><a class="dropdown-item" href="mech.html">Mechanical</a></li>
-                  </ul>
                 </li>
-                <li><a class="dropdown-item" href="coe.html">COE</a></li>
-                <li><a class="dropdown-item" href="Centerofexcellence.html">Center of Excellence</a></li>
-                <li><a class="dropdown-item" href="https://msiic-clubs.web.app/" target="_blank">Students Club</a></li>
-                <li><a class="dropdown-item" href="./ApplicationProjectGuidance.pdf" target="_blank">Project Guidance - Application</a></li>
+                <li><a class="dropdown-item" href="coe.html">Autonomous</a></li>
+                <li><a class="dropdown-item" href="https://msiic-clubs.web.app/" target="_blank">Syllabus</a></li>
+                <li><a class="dropdown-item" href="./ApplicationProjectGuidance.pdf" target="_blank">Academic Calendar</a></li>
+                <li><a class="dropdown-item" href="./ApplicationProjectGuidance.pdf" target="_blank">Controller Of Examination</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
+                Centres of Excellence </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="counselling.html">MSIIC</a></li>
+                <li><a class="dropdown-item" href="accolades.html">MSCIIC</a></li>
+                <li><a class="dropdown-item" href="MOU.html">MSCDC</a></li>
+                <li><a class="dropdown-item" href="MOU.html">IIC</a></li>
+                <li><a class="dropdown-item" href="MOU.html">Research</a></li>
               </ul>
             </li>
 
@@ -250,7 +290,7 @@
                 <!-- </div> -->
               <!-- </div>
             </div> -->
-            <div class="container d-lg-none d-lg-flex flex-column justify-content-end align-items-center my-4">
+            <div class="container d-lg-none d-lg-flex flex-column justify-content-start align-items-start my-4 styleheaderlogo">
           <div id="herocontent" class="hero-content text-center mx-auto" data-aos="zoom-out" data-aos-delay="100">
             <div class="cta-buttons overview">
               <button class="stylecodebtn px-5 shadow-lg fw-bold">TNEA <br/> 1309</button>
@@ -1605,6 +1645,26 @@ Email: principal@msec.edu.in</span></p>
 <script src="assets/js/script.js"></script>
 
 <script>
+document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function (event) {
+    event.stopPropagation(); // prevent immediate close
+    const dropdownId = this.getAttribute('data-target');
+    const dropdown = document.getElementById(dropdownId);
+
+    const isOpen = dropdown.style.maxHeight && dropdown.style.maxHeight !== "0px";
+    // Close all dropdowns first
+    document.querySelectorAll('.custom-dropdown-content').forEach(d => d.style.maxHeight = '0px');
+    // Toggle current one
+    dropdown.style.maxHeight = isOpen ? "0px" : dropdown.scrollHeight + "px";
+  });
+});
+
+// Close when clicking outside
+document.addEventListener('click', function () {
+  document.querySelectorAll('.custom-dropdown-content').forEach(drop => {
+    drop.style.maxHeight = '0px';
+  });
+});
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="JJLsl1Ox4f_8TgpXD8yGw";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 

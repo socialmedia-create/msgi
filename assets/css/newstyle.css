@@ -143,9 +143,9 @@
         flex-direction: column;
       }
 
-      .carousel,
-      .carousel-inner,
-      .carousel-item {
+      .carousel1,
+      .carousel1-inner,
+      .carousel1-item {
         height: 200px;
       }
     }
@@ -154,6 +154,25 @@
   flex-direction: column;
   gap: 15px;
 }
+
+.sports-tab-card {
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+.sports-tab-card:hover {
+    border: 2px solid #df1529;
+  background-color: #fef4f5;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+
 
 .sport-card {
   display: flex;
@@ -164,10 +183,11 @@
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   border-left: 4px solid transparent;
 }
 .sport-card:hover {
+  transform: translateY(-6px);
   background-color: #f8f9fa;
   border-left: 4px solid #df1529;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -185,25 +205,243 @@
 
 .sport-image-container {
   position: relative;
-  height: 400px;
+  /* height: 400px; */
 }
 
 .sport-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  /* width: 48%;
+  height: auto; */
   object-fit: cover;
   border-radius: 12px;
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  z-index: 0;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
 }
+.sport-img:hover {
+  transform: none;
+}
+
 
 .sport-img.active {
   opacity: 1;
   transform: scale(1);
   z-index: 1;
 }
+.sport-gallery {
+  opacity: 0;
+  transform: scale(0.95);
+  visibility: hidden;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 0.6s ease;
+}
+
+/* When a sport is selected, this class will be applied via JS */
+.sport-gallery.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  position: relative;
+}
+
+/* Individual image style */
+.sport-img {
+  margin-top: 4px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+@media (min-width: 760px) {
+.sport-img {
+  width: 48%;
+}
+}
+.imght{
+  height: 250px !important;
+}
+
+
+/* Optional: add staggered zoom-in effect */
+.sport-gallery.active .sport-img {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: zoomFadeIn 0.6s ease forwards;
+}
+
+.sport-gallery.active .sport-img:nth-child(1) { animation-delay: 0.1s; }
+.sport-gallery.active .sport-img:nth-child(2) { animation-delay: 0.2s; }
+.sport-gallery.active .sport-img:nth-child(3) { animation-delay: 0.3s; }
+.sport-gallery.active .sport-img:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes zoomFadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Sport image container wrapper */
+.sport-image-container {
+  position: relative;
+  /* min-height: 400px; */
+}
+
+/* Sport card styles remain same */
+.sport-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-left: 4px solid transparent;
+}
+
+.sport-card:hover {
+  transform: translateY(-6px);
+  background-color: #f8f9fa;
+  border-left: 4px solid #df1529;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sport-card.active {
+  background-color: #f8f9fa;
+  border-left: 4px solid #df1529;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sport-card i {
+  font-size: 1.8rem;
+  color: #df1529;
+}
+
+.sports-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+/*************/
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+}
+
+.icon-wrapper .default-icon,
+.icon-wrapper .hover-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.icon-wrapper .default-icon {
+  opacity: 1;
+  z-index: 1;
+}
+
+.icon-wrapper .hover-icon {
+  opacity: 0;
+  z-index: 2;
+}
+
+/* On card hover: show hover-icon */
+.sports-tab-card:hover .default-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.sports-tab-card:hover .hover-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.carousel-wrapper {
+  perspective: 2000px;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel1 {
+  width: 600px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 20s linear infinite;
+}
+
+.carousel1-item {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  background: #f4a261;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.carousel1-item:nth-child(1) {
+  transform: rotateY(0deg)  translateZ(250px);
+}
+.carousel1-item:nth-child(2) {
+  transform: rotateY(72deg)  translateZ(250px);
+}
+.carousel1-item:nth-child(3) {
+  transform: rotateY(144deg)  translateZ(250px);
+}
+.carousel1-item:nth-child(4) {
+  transform: rotateY(216deg)  translateZ(250px);
+}
+.carousel1-item:nth-child(5) {
+  transform: rotateY(288deg)  translateZ(250px);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+ .tab-card {
+      cursor: pointer;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .tab-card:hover,
+    .tab-card.active {
+      background-color: #f0f8ff;
+      border-color: #0d6efd;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    .tab-content-area {
+      margin-top: 30px;
+      padding: 25px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }

@@ -481,10 +481,8 @@
                       </div>
                       <div class="faculty-info">
                         <h4>Career Guidence - CSE</h4>
-                        <!-- <p class="faculty-title">MSCDC</p> -->
                         <div class="faculty-specialties">
                           <span>MSCDC</span>
-                          <!-- <span>Differential Equations</span> -->
                         </div>
                         <div class="faculty-contact">
                           <a href="mailto:tgrant@example.com"> MSEC</a>
@@ -497,64 +495,12 @@
               </div>
 
               <div class="tab-pane fade" id="faculty--staff-tab-3">
-                <!-- <div class="department-info mb-4">
-                  <h3>Physics Department</h3>
-                  <p>Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci.</p>
-                </div> -->
+
                 <div class="row g-4">
                   <div class="col">
                     <div id="faculty" class="">
-                        <div class="container">
-                            <h2 class="text-center mb-4">Faculty – B.E. Computer Science and Engineering</h2>
-
-                            <div class="table-responsive">
-                            <table class="table table-borderless table-striped align-middle">
-                                <thead class="table-danger faculty">
-                                <tr>
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">Faculty Name</th>
-                                    <th scope="col">Qualification</th>
-                                    <th scope="col">Designation</th>
-                                    <th scope="col">Areas of Interest</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr><td>1</td><td>Dr. S. Aarthi</td><td>M.E., Ph.D</td><td>HOD & Associate Professor</td><td>Data mining & warehousing, Data Analytics, Big Data, Image Processing</td></tr>
-                                <tr><td>2</td><td>Dr. M. K. Sandhya</td><td>M.E., Ph.D.</td><td>Professor</td><td>Cryptography and Network Security, Wireless Networks, IoT, Machine Learning</td></tr>
-                                <tr><td>3</td><td>Mrs. V. Sundari</td><td>M.E., (Ph.D.)</td><td>Associate Professor</td><td>Operating Systems</td></tr>
-                                <tr><td>4</td><td>Mrs. S. Yamuna</td><td>M.E.</td><td>Assistant Professor</td><td>Networks</td></tr>
-                                <tr><td>5</td><td>Mrs. P. Revathi</td><td>M.Tech.</td><td>Assistant Professor</td><td>Computer Networks, Network Security</td></tr>
-                                <tr><td>6</td><td>Mrs. M. R. Nithya</td><td>M.E.</td><td>Assistant Professor</td><td>Operating Systems</td></tr>
-                                <tr><td>7</td><td>Mrs. M. Sumithra</td><td>M.E.</td><td>Assistant Professor</td><td>Artificial Intelligence</td></tr>
-                                <tr><td>8</td><td>Mr. R. Suresh Kumar</td><td>M.E.</td><td>Assistant Professor</td><td>Computer Networks</td></tr>
-                                <tr><td>9</td><td>Mrs. M. Sowmiya</td><td>M.E.</td><td>Assistant Professor</td><td>Object Oriented Programming</td></tr>
-                                <tr><td>10</td><td>Mrs. T. Dhivya</td><td>M.E.</td><td>Assistant Professor</td><td>Computer Networks</td></tr>
-                                <tr><td>11</td><td>Mrs. N. Kasithangam</td><td>M.E.</td><td>Assistant Professor</td><td>Computer Networks</td></tr>
-                                <tr><td>12</td><td>Mrs. S. Punitha</td><td>M.E.</td><td>Assistant Professor</td><td>DBMS, Python Programming</td></tr>
-                                </tbody>
-                            </table>
-                            </div>
-
-                            <!-- <h2 class="text-center mt-5 mb-4">Faculty – M.E. Computer Science and Engineering</h2>
-
-                            <div class="table-responsive">
-                            <table class="table table-bordered table-striped align-middle">
-                                <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">S.No</th>
-                                    <th scope="col">Name of the Faculty</th>
-                                    <th scope="col">Qualification</th>
-                                    <th scope="col">Designation</th>
-                                    <th scope="col">Areas of Interest</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr><td>1</td><td>Dr. B. Monica Jenefer</td><td>M.E., Ph.D</td><td>Professor</td><td>Computational Intelligence, Image Processing, Data Analysis</td></tr>
-                                <tr><td>2</td><td>Mrs. C. Jerin Mahibha</td><td>M.E., (Ph.D.)</td><td>Associate Professor</td><td>Computer Graphics and Compilers</td></tr>
-                                <tr><td>3</td><td>Mrs. S. Suganya</td><td>M.E.</td><td>Assistant Professor</td><td>Computer Networks</td></tr>
-                                </tbody>
-                            </table>
-                            </div> -->
+                        <div class="container" id="csefaculty">
+                           
                         </div>
                     </div>
 
@@ -563,10 +509,6 @@
               </div>
 
               <div class="tab-pane fade" id="faculty--staff-tab-4">
-                <!-- <div class="department-info">
-                  <h3>Biology Department</h3>
-                  <p>Vivamus elementum semper nisi. Sed fringilla mauris sit amet nibh. In auctor lobortis lacus. Suspendisse non nisl sit amet velit hendrerit rutrum.</p>
-                </div> -->
                 <div class="campus-gallery-section" data-aos="fade-up" data-aos-delay="300">
                   <div class="gallery-grid row g-4">
                     <div class="col-md-6 col-lg-4 gallery-item large" data-aos="zoom-in" data-aos-delay="100">
@@ -742,6 +684,9 @@ Email: principal@msec.edu.in</span></p>
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/script.js"></script>
+<script type="module" src="assets/js/csefaculty.js"></script>
+
+
 
   <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="JJLsl1Ox4f_8TgpXD8yGw";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();

@@ -49,13 +49,13 @@ async function loadFaculty() {
               <img src="${photoUrl}" class="img-fluid" alt="Faculty Member">
             </div>
             <div class="faculty-info">
-              <h4>${staff.firstName || 'No Name'} ${staff.lastName || ''}</h4>
-              <p class="faculty-title">${staff.designation || ''}, ${staff.department || ''}</p>
+              <h4 Class="text-center">${staff.firstName || 'No Name'} ${staff.lastName || ''}</h4>
+              <p class="faculty-title text-center  text-danger">${staff.designation || ''}, ${staff.department || ''}</p>
               <div class="faculty-specialties">
                 ${(staff.specialties || []).map(spec => `<span>${spec}</span>`).join('')}
               </div>
               <div class="faculty-contact1 text-danger">
-                <i class="bi bi-envelope text-danger"></i> ${staff.email || 'Email'}
+              
                 <br/>
               </div>
             </div>

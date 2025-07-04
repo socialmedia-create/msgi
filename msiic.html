@@ -41,7 +41,63 @@
 </head>
 
 <body class="starter-page-page">
+       <div class="top-bar d-none d-lg-block">
+<ul class="nav-links">
+  <li><a href="/admission2025">Admissions 2025</a></li>
 
+  <!-- Academics Dropdown -->
+  <li class="custom-dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle" data-target="academicsDropdown">Academics</a>
+    <ul id="academicsDropdown" class="custom-dropdown-content content2">
+      <li class="noline"><a href="academics.html">Departments &#9662;</a></li>
+      <li class="noline"><a href="autonomy.html">Autonomous</a></li>
+      <li class="noline"><a href="syllabus.html">Syllabus</a></li>
+      <li class="noline"><a href="calendar.html">Academic Calendar</a></li>
+      <li class="noline mb-2"><a href="coe.html">Controller of Examination</a></li>
+    </ul>
+  </li>
+  <li class="custom-dropdown">
+  <a href="javascript:void(0);" class="dropdown-toggle" data-target="whymsec">Why MSEC</a>
+  <ul id="whymsec" class="custom-dropdown-content">
+    <li class="noline"><a href="counselling.html">Counselling</a></li>
+    <li class="noline"><a href="accolades.html">Accolades</a></li>
+    <li class="noline"><a href="MOU.html">Industrial Connect & MOU</a></li>
+    <li class="noline"><a href="gallery.html">Gallery</a></li>
+    <li class="noline mb-2"><a href="news.html">Campus 360</a></li>
+  </ul>
+</li>
+  <li><a href="placements.html">Placements</a></li>
+
+  <!-- Centres of Excellence Dropdown -->
+  <li class="custom-dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle" data-target="centresDropdown">Centres of Excellence</a>
+    <ul id="centresDropdown" class="custom-dropdown-content">
+      <li class="noline"><a href="msiic.html">MSIIC</a></li>
+      <li class="noline"><a href="msciic.html">MSCIIC</a></li>
+      <li class="noline"><a href="mscdc.html">MSCDC</a></li>
+      <li class="noline"><a href="research.html">Research</a></li>
+      <li class="noline mb-2"><a href="iic.html">IIC</a></li>
+    </ul>
+  </li>
+
+  <li><a href="alumni.html">Alumni</a></li>
+  <li class="custom-dropdown">
+  <a href="javascript:void(0);" class="dropdown-toggle" data-target="msec360Dropdown">MSEC360</a>
+  <ul id="msec360Dropdown" class="custom-dropdown-content">
+    <li class="noline"><a href="clubs.html">Clubs</a></li>
+    <li class="noline"><a href="students-life.html">Student Life</a></li>
+    <li class="noline"><a href="competitions.html">Competitions</a></li>
+    <li class="noline"><a href="sportsevents.html">Sports</a></li>
+    <li class="noline mb-2"><a href="news.html">News and Events</a></li>
+  </ul>
+</li>
+
+  <!-- <li><a href="news.html">News and Events</a></li> -->
+  <li><a href="contact.html">Contact Us</a></li>
+</ul>
+
+
+  </div>
 <header id="header" class="container-fluid header d-flex align-items-center">
   <div class="container-xl position-relative d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between">
 
@@ -707,7 +763,19 @@ hi
 
 
 
-
+<div class="social-icons-fixed">
+  <div class="social-icon">
+    <h6 class="icon-label text-center text-danger fw-bold">MSIIC</h6>
+    <a href="https://www.facebook.com/" target="_blank">
+      <img src="./assets/img/linkedin.png" alt="Facebook" />
+    </a>
+  </div>
+  <div class="social-icon">
+    <a href="https://www.linkedin.com/" target="_blank">
+      <img src="./assets/img/facebook.png" alt="LinkedIn" />
+    </a>
+  </div>
+</div>
 
 
 
@@ -838,6 +906,85 @@ Email: principal@msec.edu.in</span></p>
       });
     });
   </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = document.querySelectorAll(".dropdown-toggle");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", function () {
+      const targetId = toggle.getAttribute("data-target");
+      const dropdown = document.getElementById(targetId);
+
+      document.querySelectorAll(".custom-dropdown-content").forEach(menu => {
+        if (menu !== dropdown) menu.style.display = "none";
+      });
+
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // Add submenu for Departments with custom hrefs
+  const departmentsItem = document.querySelector('#academicsDropdown li a[href="academics.html"]');
+  if (departmentsItem) {
+    const subMenu = document.createElement("ul");
+    subMenu.style.display = "none";
+    subMenu.style.listStyle = "none";
+    subMenu.style.paddingLeft = "0";
+    subMenu.style.margin = "0";
+
+    const departments = [
+      { name: "B.E. Computer Science", href: "computerscience.html" },
+      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
+      { name: "B.E. Electronics and Communication", href: "ece.html" },
+      { name: "B.E. Electrical and Electronics", href: "eee.html" },
+      { name: "B.E. Mechanical", href: "mech.html" },
+      { name: "B.E. Civil", href: "civil.html" },
+      { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
+      { name: "Science and Humanities", href: "humanitiesscience.html" },
+      { name: "M.E. Computer Science", href: "csepostgraduate.html" },
+      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
+      { name: "M.E. Construction Engineering and Management", href: "civilpostgraduate.html" },
+      { name: "M.E. Energy Engineering", href: "mechpostgraduate.html" }
+    ];
+
+    departments.forEach(dep => {
+      const li = document.createElement("li");
+      li.style.margin = "0";
+      li.style.padding = "0";
+
+      const link = document.createElement("a");
+      link.href = dep.href;
+      link.textContent = dep.name;
+      link.style.display = "block";
+      link.style.padding = "6px 12px";
+      link.style.margin = "0";
+      link.style.textDecoration = "none";
+      link.style.color = "black";
+
+// On click, make this link white and reset others
+link.addEventListener("click", function () {
+  subMenu.querySelectorAll("a").forEach(l => {
+    l.style.color = "black";
+  });
+  this.style.color = "white";
+});
+
+
+      li.appendChild(link);
+      subMenu.appendChild(li);
+    });
+
+    departmentsItem.addEventListener("click", function (e) {
+      e.preventDefault();
+      subMenu.style.display = subMenu.style.display === "block" ? "none" : "block";
+    });
+
+    departmentsItem.parentElement.appendChild(subMenu);
+  }
+});
+
+</script>
+
 
 </body>
 

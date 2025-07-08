@@ -783,3 +783,61 @@ body {
     .submenu a:hover {
     color: white !important;
   }
+  .smallcontent{
+    font-size: 13px ;
+    color: #333;
+  }
+  .stylemidpoint
+  {
+    color: #b31222;
+    font-style: italic;
+    font-size: 25px !important;
+    line-height: 40px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .benefit-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 3rem 2rem;
+    }
+
+    .benefit-left {
+      flex: 1;
+      max-height: 100vh;
+      overflow-y: auto;
+      padding-right: 1rem;
+    }
+
+    .benefit-item {
+      margin-bottom: 3rem;
+    }
+
+    .benefit-item h4 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .benefit-item p {
+      color: #555;
+    }
+
+    .benefit-right {
+      flex: 1;
+      position: sticky;
+      top: 100px;
+    }
+
+    .benefit-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      position: absolute;
+    }
+
+    .benefit-img.active {
+      opacity: 1;
+      position: relative;
+    }

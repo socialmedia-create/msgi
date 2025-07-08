@@ -2,82 +2,191 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Staff Management</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Floating Badges</title>
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.17.1/build/matter.min.js"></script>
   <style>
-    .staff-card {
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: sans-serif;
     }
-    .staff-photo {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 50%;
+
+    .badgestyle {
+      position: relative;
+      height: 100vh;
+      background-color: #0f1116;
+      overflow: hidden;
     }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .badge {
+      position: absolute;
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 999;
+    }
+
+    .red { background-color: #f44336; color: #fff; }
+    .blue { background-color: #00bcd4; color: #fff; }
+    .orange { background-color: #ff9800; color: #000; }
   </style>
 </head>
-<body class="bg-light">
-  <div class="container mt-5">
-    <h2 class="mb-4">Staff Profile Management System</h2>
-    <div class="row" id="staffContainer"></div>
+<body>
+
+<div class="badgestyle">
+  <div class="hero">
+    <h1>Ready to build</h1>
+    <p>your stack to success?</p>
+    <button>Enquire Now</button>
   </div>
+  <canvas id="canvas"></canvas>
+</div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+<script>
+  const { Engine, Render, Runner, Bodies, World, Mouse, MouseConstraint } = Matter;
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAJm0LiLJchN86HzeCJHn3qKqdOhv0H_DE",
-      authDomain: "niranjan-58d39.firebaseapp.com",
-      projectId: "niranjan-58d39",
-      storageBucket: "niranjan-58d39.firebasestorage.app",
-      messagingSenderId: "686044853285",
-      appId: "1:686044853285:web:5b08fbac20d2c80bdd7bcc",
-      measurementId: "G-L30Y7NK061"
-    };
+  const engine = Engine.create();
+  const world = engine.world;
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+  const container = document.querySelector('.badgestyle');
+  const canvas = container.querySelector('#canvas');
 
-    const querySnapshot = await getDocs(collection(db, "staff"));
-    const container = document.getElementById("staffContainer");
+  const bounds = container.getBoundingClientRect();
+  canvas.width = bounds.width;
+  canvas.height = bounds.height;
 
-    querySnapshot.forEach((doc) => {
-      const staff = doc.data();
-      console.log(staff);
-      
-      // Optional: Default image if none provided
-      const photoUrl = staff.imageUrl
- || "https://via.placeholder.com/80";
+  const render = Render.create({
+    canvas: canvas,
+    engine: engine,
+    options: {
+      width: bounds.width,
+      height: bounds.height,
+      background: 'transparent',
+      wireframes: false
+    }
+  });
 
-      const card = `
-        <div class="col-md-4">
-          <div class="staff-card bg-white">
-            <div class="d-flex align-items-center mb-3">
-              <img src="${photoUrl}" class="staff-photo me-3" alt="Staff">
-              <div>
-                <h5 class="mb-0">${staff.firstName || 'No Name'}</h5>
-                <small>ID: ${staff.staffid || '-'}</small>
-              </div>
-            </div>
-            <p><strong>${staff.designation || ''}</strong></p>
-            <p>${staff.department || ''}</p>
-            <p><i class="bi bi-envelope"></i> ${staff.email || ''}</p>
-            <p>Date of Birth: ${staff.dob || ''}</p>
-            <span class="badge bg-success">Active</span>
-          </div>
-        </div>
-      `;
+  Render.run(render);
+  Runner.run(Runner.create(), engine);
 
-      container.innerHTML += card;
+  // Walls
+  const boundaries = [
+    Bodies.rectangle(bounds.width / 2, bounds.height + 50, bounds.width, 100, { isStatic: true }),
+    Bodies.rectangle(bounds.width / 2, -50, bounds.width, 100, { isStatic: true }),
+    Bodies.rectangle(-50, bounds.height / 2, 100, bounds.height, { isStatic: true }),
+    Bodies.rectangle(bounds.width + 50, bounds.height / 2, 100, bounds.height, { isStatic: true })
+  ];
+  World.add(world, boundaries);
+
+  // Labels
+  const labels = [
+    { text: "Creativity", color: "orange" },
+    { text: "Photoshoot", color: "orange" },
+    { text: "SEO", color: "red" },
+    { text: "Social Media", color: "red" },
+    { text: "PR", color: "blue" },
+    { text: "Apps", color: "orange" },
+    { text: "Technology", color: "orange" },
+    { text: "Websites", color: "blue" },
+    { text: "Brand Identity", color: "red" },
+    { text: "Branding", color: "red" },
+    { text: "UI/UX", color: "red" },
+    { text: "Launches", color: "blue" },
+    { text: "Influencers", color: "orange" },
+    { text: "Logo Design", color: "orange" },
+    { text: "Ads", color: "blue" },
+    { text: "Marketing", color: "blue" }
+  ];
+
+  labels.forEach((label, index) => {
+    const width = label.text.length * 10 + 30;
+    const height = 40;
+    const x = Math.random() * bounds.width * 0.8 + 50;
+    const y = Math.random() * bounds.height * 0.3 + 50;
+
+    const body = Bodies.rectangle(x, y, width, height, {
+      restitution: 0.9,
+      frictionAir: 0.03,
+      render: { fillStyle: 'transparent' }
     });
-  </script>
 
-  <!-- Optional Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    const div = document.createElement('div');
+    div.className = `badge ${label.color}`;
+    div.innerText = label.text;
+    container.appendChild(div);
+
+    body.element = div;
+    World.add(world, body);
+  });
+
+  // Mouse Drag
+  const mouse = Mouse.create(canvas);
+  const mouseConstraint = MouseConstraint.create(engine, {
+    mouse: mouse,
+    constraint: {
+      stiffness: 0.2,
+      render: { visible: false }
+    }
+  });
+  World.add(world, mouseConstraint);
+  render.mouse = mouse;
+
+  // Sync DOM with physics
+  (function update() {
+    world.bodies.forEach(body => {
+      if (body.element) {
+        const { x, y } = body.position;
+        body.element.style.transform = `translate(${x - body.element.offsetWidth / 2}px, ${y - body.element.offsetHeight / 2}px)`;
+      }
+    });
+    requestAnimationFrame(update);
+  })();
+</script>
+
 </body>
 </html>

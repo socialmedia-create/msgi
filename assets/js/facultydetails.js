@@ -22,6 +22,8 @@ const departmentTabMap = {
   "ECE": "faculty--staff-tab-4",
   "Civil Engineering" : "faculty--staff-tab-7",
    "Mechanical Engineering" : "faculty--staff-tab-6",
+   "EEE" : "faculty--staff-tab-5",
+
   // Add more departments here if needed
 };
 
@@ -42,27 +44,29 @@ async function loadFaculty() {
     const photoUrl = staff.imageUrl || "https://via.placeholder.com/80";
 
     const card = `
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-        <a href="https://staff-management-msec.web.app/" target="_blank" style="text-decoration: none; color: inherit;">
-          <div class="faculty-card m-1 row align-items-center justify-content-center">
-            <div class="faculty-image1">
-              <img src="${photoUrl}" class="img-fluid" alt="Faculty Member">
-            </div>
-            <div class="faculty-info">
-              <h4 Class="text-center">${staff.firstName || 'No Name'} ${staff.lastName || ''}</h4>
-              <p class="faculty-title text-center  text-danger">${staff.designation || ''}, ${staff.department || ''}</p>
-              <div class="faculty-specialties">
-                ${(staff.specialties || []).map(spec => `<span>${spec}</span>`).join('')}
-              </div>
-              <div class="faculty-contact1 text-danger">
-              
-                <br/>
-              </div>
-            </div>
+  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+    <a href="https://staff-management-msec.web.app/" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="faculty-card m-1 row align-items-center justify-content-center">
+        <div class="faculty-image1 d-flex align-items-center justify-content-center" style="height: 120px; width: 120px; background-color: #f8f9fa; border-radius: 50%;">
+          ${
+            staff.imageUrl
+              ? `<img src="${staff.imageUrl}" class="img-fluid" alt="" style="max-height: 100%; max-width: 100%; object-fit: cover; border-radius: 50%;">`
+              : `<div class="initials" style="font-size: 36px; font-weight: bold; color: red;">
+                  ${staff.firstName?.charAt(0) || ''}${staff.lastName?.charAt(0) || ''}
+                </div>`
+          }
+        </div>
+        <div class="faculty-info">
+          <h4 class="text-center">${staff.firstName || 'No Name'} ${staff.lastName || ''}</h4>
+          <p class="faculty-title text-center text-danger">${staff.designation || ''}, ${staff.department || ''}</p>
+          <div class="faculty-specialties text-center">
+            ${(staff.specialties || []).map(spec => `<span>${spec}</span>`).join('')}
           </div>
-        </a>
+        </div>
       </div>
-    `;
+    </a>
+  </div>
+`;
 
     tabContainer.innerHTML += card;
   });

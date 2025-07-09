@@ -23,6 +23,10 @@ const departmentTabMap = {
   "Civil Engineering" : "faculty--staff-tab-7",
    "Mechanical Engineering" : "faculty--staff-tab-6",
    "EEE" : "faculty--staff-tab-5",
+     "Physics": "faculty--staff-tab-8",
+  "Mathematics": "faculty--staff-tab-8",
+  "English": "faculty--staff-tab-8",
+  "Tamil": "faculty--staff-tab-8"
 
   // Add more departments here if needed
 };
@@ -32,7 +36,6 @@ async function loadFaculty() {
 
   querySnapshot.forEach((doc) => {
     const staff = doc.data();
-    console.log(staff);
 
     const department = staff.department?.trim();
     const tabId = departmentTabMap[department];

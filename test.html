@@ -1,192 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Floating Badges</title>
-  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.17.1/build/matter.min.js"></script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body, html {
-      height: 100%;
-      font-family: sans-serif;
-    }
-
-    .badgestyle {
-      position: relative;
-      height: 100vh;
-      background-color: #0f1116;
-      overflow: hidden;
-    }
-
-    .hero {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 100%;
-      color: white;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 900;
-    }
-
-    .hero p {
-      font-size: 1.5rem;
-      font-style: italic;
-      margin-top: 0.5rem;
-    }
-
-    .hero button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: transparent;
-      border: 1px solid #fff;
-      color: #fff;
-      font-size: 1rem;
-      border-radius: 25px;
-      cursor: pointer;
-    }
-
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-
-    .badge {
-      position: absolute;
-      padding: 5px 15px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: bold;
-      pointer-events: none;
-      white-space: nowrap;
-      z-index: 999;
-    }
-
-    .red { background-color: #f44336; color: #fff; }
-    .blue { background-color: #00bcd4; color: #fff; }
-    .orange { background-color: #ff9800; color: #000; }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.8/index.global.min.js"></script>
 </head>
 <body>
+  <div id="calendar"></div>
 
-<div class="badgestyle">
-  <div class="hero">
-    <h1>Ready to build</h1>
-    <p>your stack to success?</p>
-    <button>Enquire Now</button>
-  </div>
-  <canvas id="canvas"></canvas>
-</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const calendarEl = document.getElementById("calendar");
 
-<script>
-  const { Engine, Render, Runner, Bodies, World, Mouse, MouseConstraint } = Matter;
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: "dayGridMonth",
+        googleCalendarApiKey: "AIzaSyAopuRwGvHYNw5SccRfp7oecsnG2-5s0e8",
+events: {
+  googleCalendarId: "en.indian#holiday@group.v.calendar.google.com"
+}
 
-  const engine = Engine.create();
-  const world = engine.world;
+      //   eventsSet: function (events) {
+      //     console.log("Fetched Events:", events);
+      //     alert("Fetched " + events.length + " events.");
+      //   }
+      });
 
-  const container = document.querySelector('.badgestyle');
-  const canvas = container.querySelector('#canvas');
-
-  const bounds = container.getBoundingClientRect();
-  canvas.width = bounds.width;
-  canvas.height = bounds.height;
-
-  const render = Render.create({
-    canvas: canvas,
-    engine: engine,
-    options: {
-      width: bounds.width,
-      height: bounds.height,
-      background: 'transparent',
-      wireframes: false
-    }
-  });
-
-  Render.run(render);
-  Runner.run(Runner.create(), engine);
-
-  // Walls
-  const boundaries = [
-    Bodies.rectangle(bounds.width / 2, bounds.height + 50, bounds.width, 100, { isStatic: true }),
-    Bodies.rectangle(bounds.width / 2, -50, bounds.width, 100, { isStatic: true }),
-    Bodies.rectangle(-50, bounds.height / 2, 100, bounds.height, { isStatic: true }),
-    Bodies.rectangle(bounds.width + 50, bounds.height / 2, 100, bounds.height, { isStatic: true })
-  ];
-  World.add(world, boundaries);
-
-  // Labels
-  const labels = [
-    { text: "Creativity", color: "orange" },
-    { text: "Photoshoot", color: "orange" },
-    { text: "SEO", color: "red" },
-    { text: "Social Media", color: "red" },
-    { text: "PR", color: "blue" },
-    { text: "Apps", color: "orange" },
-    { text: "Technology", color: "orange" },
-    { text: "Websites", color: "blue" },
-    { text: "Brand Identity", color: "red" },
-    { text: "Branding", color: "red" },
-    { text: "UI/UX", color: "red" },
-    { text: "Launches", color: "blue" },
-    { text: "Influencers", color: "orange" },
-    { text: "Logo Design", color: "orange" },
-    { text: "Ads", color: "blue" },
-    { text: "Marketing", color: "blue" }
-  ];
-
-  labels.forEach((label, index) => {
-    const width = label.text.length * 10 + 30;
-    const height = 40;
-    const x = Math.random() * bounds.width * 0.8 + 50;
-    const y = Math.random() * bounds.height * 0.3 + 50;
-
-    const body = Bodies.rectangle(x, y, width, height, {
-      restitution: 0.9,
-      frictionAir: 0.03,
-      render: { fillStyle: 'transparent' }
+      calendar.render();
     });
-
-    const div = document.createElement('div');
-    div.className = `badge ${label.color}`;
-    div.innerText = label.text;
-    container.appendChild(div);
-
-    body.element = div;
-    World.add(world, body);
-  });
-
-  // Mouse Drag
-  const mouse = Mouse.create(canvas);
-  const mouseConstraint = MouseConstraint.create(engine, {
-    mouse: mouse,
-    constraint: {
-      stiffness: 0.2,
-      render: { visible: false }
-    }
-  });
-  World.add(world, mouseConstraint);
-  render.mouse = mouse;
-
-  // Sync DOM with physics
-  (function update() {
-    world.bodies.forEach(body => {
-      if (body.element) {
-        const { x, y } = body.position;
-        body.element.style.transform = `translate(${x - body.element.offsetWidth / 2}px, ${y - body.element.offsetHeight / 2}px)`;
-      }
-    });
-    requestAnimationFrame(update);
-  })();
-</script>
-
+  </script>
 </body>
 </html>

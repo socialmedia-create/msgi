@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Starter Page - Meenakshi Sundararjan Engineering College</title>
+  <title>MSCIIC - Meenakshi Sundararjan Engineering College</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -23,11 +23,15 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css" />
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
   <link href="assets/css/stylehome.css" rel="stylesheet">
   <link href="assets/css/msiicstyle.css" rel="stylesheet">
+  <link href="assets/css/centersstyle.css" rel="stylesheet">
+
 
 
 
@@ -213,7 +217,7 @@
 
 
 
-    <div class="page-title dark-background" style="background-image: url(assets/img/education/showcase-1.webp);">
+    <div class="page-title dark-background" style="background-image: url(assets/img/campus.jpeg);">
       <div class="container position-relative">
         <h1>MSCIIC</h1>
         <nav class="breadcrumbs">
@@ -227,38 +231,40 @@
 <div class="social-icons-fixed">
   <div class="social-icon">
     <h6 class="icon-label text-center text-danger fw-bold">MSCIIC</h6>
-    <a href="https://www.facebook.com/" target="_blank">
+    <a href="https://www.linkedin.com/company/ms-ciic/posts/?feedView=all" target="_blank">
       <img src="./assets/img/linkedin.png" alt="Facebook" />
     </a>
   </div>
-  <div class="social-icon">
+  <!-- <div class="social-icon">
     <a href="https://www.linkedin.com/" target="_blank">
       <img src="./assets/img/facebook.png" alt="LinkedIn" />
     </a>
-  </div>
+  </div> -->
 </div>
 
     <div class="container my-4">
   <div class="row text-center align-items-center justify-content-center">
 <h2 class="section-heading">Meenakshi Sundararajan Centre for Industrial & Institute Collaboration (MSCIIC)</h2>
-
+<div class="col-12 col-md-6 col-lg-3 col-xl-2">
+<img src="./assets/img/mciic.jpg" alt="msciic logo" class="img-fluid">
+</div>
 </div>
 <section id="students-life" class="students-life  section py-0">
-  <div class="container " data-aos="fade-up" data-aos-delay="100">
+  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
     <div class="life-categories mt-5 ">
       <ul class="nav nav-tabs row g-4 border-0 justify-content-center" role="tablist">
-        <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="100">
+        <li class="nav-item col-md-4 col-lg-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="100">
           <button class="nav-link active w-100 category-card d-flex flex-column" id="banner-tab" data-bs-toggle="tab" data-bs-target="#banner" type="button" role="tab" aria-controls="banner" aria-selected="true">
             <div class="icon-container">
               <i class="bi bi-easel-fill default-icon"></i>
               <i class="bi bi-image-fill hover-icon"></i>
             </div>
             <h4>About Us</h4>
-            <p class="smallp">Learn more about MSCIIIC</p>
+            <p class="smallp">Learn more about MSCIIC</p>
           </button>
         </li>
 
-        <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="200">
+        <li class="nav-item col-md-4 col-lg-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="300">
           <button class="nav-link w-100 category-card d-flex flex-column" id="prize-tab" data-bs-toggle="tab" data-bs-target="#prize" type="button" role="tab" aria-controls="prize" aria-selected="false">
             <div class="icon-container">
               <i class="bi bi-kanban-fill default-icon"></i>
@@ -268,42 +274,34 @@
             <p class="smallp">Industry Engagement Programs &Technical Excellence Training.</p>
           </button>
         </li>
-
-<li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="300">
-  <button class="nav-link category-card d-flex flex-column"
-          id="performance-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#performance"
-          type="button"
-          role="tab"
-          aria-controls="performance"
-          aria-selected="false">
-    <div class="icon-container">
-      <i class="bi bi-clock-fill default-icon"></i>
-      <i class="bi bi-rocket-takeoff-fill hover-icon"></i>
-    </div>
-    <h4>Career Development</h4>
-    <p class="smallp"> Skill Development & Career Readiness</p>
-  </button>
-</li>
-        <!-- <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="300">
-          <button class="nav-link category-card d-flex flex-column" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab" aria-controls="performance" aria-selected="false">
-            <div class="icon-container">
-              <i class="bi bi-people-fill default-icon"></i>
-              <i class="bi bi-chat-dots-fill hover-icon"></i>
-            </div>
-            <h4></h4>
-            <p class="smallp"></p>
-          </button>
-        </li> -->
-        <li class="nav-item col-md-3 col-sm-6" role="certification" data-aos="fade-up" data-aos-delay="300">
+        <li class="nav-item col-md-4 col-lg-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="300">
           <button class="nav-link category-card d-flex flex-column" id="certification-tab" data-bs-toggle="tab" data-bs-target="#certification" type="button" role="tab" aria-controls="certification" aria-selected="false">
             <div class="icon-container">
               <i class="bi bi-people-fill default-icon"></i>
               <i class="bi bi-chat-dots-fill hover-icon"></i>
             </div>
             <h4>Certifications</h4>
-            <p class="smallp">Workshops & Certifications</p>
+            <p class="smallp">Hands-on workshops and certification programs to boost practical skills and career growth. </p></p>
+          </button>
+        </li>
+        <li class="nav-item col-md-4 col-lg-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="300">
+          <button class="nav-link category-card d-flex flex-column" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab" aria-controls="performance" aria-selected="false">
+            <div class="icon-container">
+                <i class="bi bi-briefcase-fill default-icon"></i>
+                <i class="bi bi-rocket-takeoff-fill hover-icon"></i>
+            </div>
+            <h4>Placements</h4>
+            <p class="smallp">Empowering students with industry-ready skills for successful career placements.</p></p>
+          </button>
+        </li>
+        <li class="nav-item col-md-4 col-lg-3 col-sm-6" role="news" data-aos="fade-up" data-aos-delay="300">
+          <button class="nav-link category-card d-flex flex-column" id="news-tab" data-bs-toggle="tab" data-bs-target="#news" type="button" role="tab" aria-controls="news" aria-selected="false">
+            <div class="icon-container">
+                <i class="bi bi-newspaper default-icon"></i>
+                <i class="bi bi-megaphone-fill hover-icon"></i>
+            </div>
+            <h4>News and Events</h4>
+            <p class="smallp">Stay updated with the latest MSCIIC news, achievements, and milestones.</p>
           </button>
         </li>
       </ul>
@@ -321,7 +319,7 @@
     <div class="container" data-aos="fade-up">
         <h2 class="text-center text-danger fw-bold">MSCIIC – Vision</h2>
         <p class="lead text-center">
-        The Meenakshi Sundararajan Centre for Industrial & Institute Collaboration (MSCIIC) aims to bridge the gap between academia and industry by fostering innovation, research, and skill development. It creates a dynamic ecosystem that enables students and faculty to engage in real-world projects, enhancing employability and entrepreneurial capabilities through training and partnerships.
+        The <strong class="text-danger fs-3">Meenakshi Sundararajan Centre for Industrial & Institute Collaboration (MSCIIC)</strong>  aims to bridge the gap between academia and industry by fostering innovation, research, and skill development. It creates a dynamic ecosystem that enables students and faculty to engage in real-world projects, enhancing employability and entrepreneurial capabilities through training and partnerships.
         </p>
         <ul class="list-group list-group-flush fs-6">
         <li class="list-group-item">🔬 To bridge the gap between academia and industry by fostering innovation, research, and skill development.</li>
@@ -425,6 +423,33 @@
               <p class="mb-0 text-muted small">BA and SAP Upskilling program. Gain in-demand skills in Business Analysis and ERP solutions to excel in today’s tech-driven industries</p>
             </div>
           </div>
+
+          <div class="p-3 rounded stylecard shadow-lg d-flex align-items-start bg-white border-start border-4 border-danger program-card cursor-pointer" data-target="visit1">
+            <i class="bi bi-building-fill fs-3 text-danger me-3"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Industry - Mock Interview</h6>
+              <p class="mb-0 text-muted small">Practice. Perform. Perfect.
+            Our industry mock interviews prepare you for placement success.</p>
+            </div>
+          </div>
+
+          <div class="p-3 rounded stylecard shadow-lg d-flex align-items-start bg-white border-start border-4 border-danger program-card cursor-pointer" data-target="training1">
+            <i class="bi bi-tools fs-3 text-danger me-3"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Upskill/ Corporate Training</h6>
+              <p class="mb-0 text-muted small">Learn the skills that top companies look for.
+          Upskill training bridges the gap between campus and career.</p>
+            </div>
+          </div>
+
+          <div class="p-3 rounded stylecard shadow-lg d-flex align-items-start bg-white border-start border-4 border-danger program-card cursor-pointer" data-target="resume1">
+            <i class="bi bi-file-earmark-person-fill fs-3 text-danger me-3"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Japanese Overseas Drive</h6>
+              <p class="mb-0 text-muted small">Explore global career opportunities with top Japanese companies.
+                  Get trained in language, culture, and corporate readiness.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -434,6 +459,8 @@
 
           <div class="program-images" id="visit" style="display: block;">
             <div class="row g-3">
+              <h4 class="text-center text-danger fw-bold">German Guidance
+world-class education and global exposure with our Overseas Campus Opportunity programs</h4>
               <div class="col-md-6 msciic"><img src="./assets/img/german.webp" class="img-fluid rounded" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/german3.webp" class="img-fluid rounded" alt=""></div>
                 <div class="col-md-6 msciic"><img src="./assets/img/german2.webp" class="img-fluid rounded" alt=""></div>
@@ -444,6 +471,8 @@
 
           <div class="program-images" id="training" style="display: none;">
             <div class="row g-3">
+      <h4 class="text-center text-danger fw-bold">Game Development Program
+Skill-enhancement sessions guided by industry mentors.</h4>
               <div class="col-md-6 msciic"><img src="./assets/img/gallery1.webp" class="img-fluid rounded h-100" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/gallery2.webp" class="img-fluid rounded" alt=""></div>
             </div>
@@ -451,80 +480,31 @@
 
           <div class="program-images" id="resume" style="display: none;">
             <div class="row g-3">
+                    <h4 class="text-center text-danger fw-bold">BA and SAP Upskilling program. Gain in-demand skills in Business Analysis and ERP solutions to excel in today’s tech-driven industries</h4>
               <div class="col-md-6 msciic"><img src="./assets/img/BAand sap.webp" class="img-fluid rounded" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/basap.png" class="img-fluid rounded" alt=""></div>
             </div>
           </div>
-
+<!-- 
           <div class="program-images" id="gd" style="display: none;">
             <div class="row g-3">
               <div class="col-md-6"><img src="./assets/img/gd1.jpg" class="img-fluid rounded" alt=""></div>
               <div class="col-md-6"><img src="./assets/img/gd2.jpg" class="img-fluid rounded" alt=""></div>
             </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-  </div>
-<div class="tab-pane fade py-5" id="performance" role="tabpanel" aria-labelledby="performance-tab">
-    <div class="container">
-    <h2 class="text-center text-danger fw-bold mb-5">MSCIIC Skill Development</h2>
-    <div class="row g-4 align-items-center justify-content-center">
-
-      <!-- Left Section: Program List -->
-      <div class="col-md-4">
-        <div class="d-flex flex-column gap-3" id="programList">
-
-          <div class="p-3 rounded stylecard shadow-lg d-flex align-items-start bg-white border-start border-4 border-danger program-card active cursor-pointer" data-target="visit">
-            <i class="bi bi-building-fill fs-3 text-danger me-3"></i>
-            <div>
-              <h6 class="fw-bold mb-1">Industry - Mock Interview</h6>
-              <p class="mb-0 text-muted small">Practice. Perform. Perfect.
-Our industry mock interviews prepare you for placement success.</p>
-            </div>
-          </div>
-
-          <div class="p-3 rounded stylecard shadow-lg d-flex align-items-start bg-white border-start border-4 border-danger program-card cursor-pointer" data-target="training">
-            <i class="bi bi-tools fs-3 text-danger me-3"></i>
-            <div>
-              <h6 class="fw-bold mb-1">Upskill/ Corporate Training</h6>
-              <p class="mb-0 text-muted small">Learn the skills that top companies look for.
-Upskill training bridges the gap between campus and career.</p>
-            </div>
-          </div>
-
-          <div class="p-3 rounded stylecard shadow-lg d-flex align-items-start bg-white border-start border-4 border-danger program-card cursor-pointer" data-target="resume">
-            <i class="bi bi-file-earmark-person-fill fs-3 text-danger me-3"></i>
-            <div>
-              <h6 class="fw-bold mb-1">Japanese Overseas Drive</h6>
-              <p class="mb-0 text-muted small">Explore global career opportunities with top Japanese companies.
-Get trained in language, culture, and corporate readiness.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Section: Image Galleries -->
-      <div class="col-md-8">
-        <div class="program-gallery">
-
-          <div class="program-images" id="visit" style="display: block;">
+          </div> -->
+          <div class="program-images" id="visit1" style="display: none;">
             <div class="row g-3 justify-content-center">
+                    <h4 class="text-center text-danger fw-bold">Industry Ready - Mock Interview Face-to-Face Confidence-Building Interviews with Alumni and Corporate HRS as part of the End-Semester Assessment for the Interpersonal Communication Lab</h4>
               <div class="col-md-6 msciic"><img src="./assets/img/mockinterview.webp" class="img-fluid rounded" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/industrytraining.webp" class="img-fluid rounded" alt=""></div>
-                <!-- <div class="col-md-6 msciic"><img src="./assets/img/industrytraining2.webp" class="img-fluid rounded" alt=""></div> -->
+                <div class="col-md-6 msciic"><img src="./assets/img/industrytraining2.webp" class="img-fluid rounded" alt=""></div>
 
             </div>
           </div>
 
-          <div class="program-images" id="training" style="display: none;">
+          <div class="program-images" id="training1" style="display: none;">
             <div class="row g-3">
+                    <h4 class="text-center text-danger fw-bold">Upskill Corporate Training from best in Industry - Presidio, yespanchi and more</h4>
               <div class="col-md-6 msciic"><img src="./assets/img/upskilling.webp" class="img-fluid rounded h-100" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/yespanchitraining.webp" class="img-fluid rounded" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/presidotraining.webp" class="img-fluid rounded" alt=""></div>
@@ -533,19 +513,68 @@ Get trained in language, culture, and corporate readiness.</p>
             </div>
           </div>
 
-          <div class="program-images" id="resume" style="display: none;">
+          <div class="program-images" id="resume1" style="display: none;">
             <div class="row g-3">
+                    <h4 class="text-center text-danger fw-bold">Explore global career opportunities with top Japanese companies. Get trained in language, culture, and corporate readiness.</h4>
               <div class="col-md-6 msciic"><img src="./assets/img/overseasdrive1.webp" class="img-fluid rounded" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/overseasdrive2.webp" class="img-fluid rounded" alt=""></div>
+              <div class="col-md-6 msciic"><img src="./assets/img/overseasdrive3.webp" class="img-fluid rounded" alt=""></div>
             </div>
           </div>
-
 
         </div>
       </div>
 
     </div>
+</section>
+
+
   </div>
+<div class="tab-pane fade py-5" id="performance" role="tabpanel" aria-labelledby="performance-tab">
+        <div class="container">
+        <h2 class="text-center text-danger fw-bold mb-5">MSCIIC Placement</h2>
+        <div class="text-center my-4">
+      <a href="placements.html" class="btn btn-danger btn-lg px-4 py-2 shadow rounded-pill">
+        <i class="bi bi-briefcase-fill me-2"></i> Click to Know More About Placement
+      </a>
+    </div>
+      <div class="company-ticker-container py-4 bg-light">
+        <div class="company-ticker d-flex">
+          <img src="assets/img/cmpylogo02 (1).png" alt="TCS" class="company-logo" />
+          <img src="assets/img/cmpylogo03 (1).png" alt="Infosys" class="company-logo" />
+          <img src="assets/img/cmpylogo06 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo07 (1).png" alt="Accenture" class="company-logo" />
+          <img src="assets/img/cmpylogo08 (1).png" alt="HCL" class="company-logo" />
+          <img src="assets/img/cmpylogo09 (1).png" alt="Cognizant" class="company-logo" />
+          <img src="assets/img/cmpylogo10 (1).png" alt="Capgemini" class="company-logo" />
+          <img src="assets/img/cmpylogo11 (1).png" alt="TCS" class="company-logo" />
+          <img src="assets/img/cmpylogo12 (1).png" alt="Infosys" class="company-logo" />
+          <img src="assets/img/cmpylogo13 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo14 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo15 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo16 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo17 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo18 (1).jpg" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo19 (1).webp" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo20 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo21 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo22 (1).png" alt="Wipro" class="company-logo" />
+          <img src="assets/img/cmpylogo32 (1).png" alt="Wipro" class="company-logo" />
+        </div>
+      </div>
+      <section class="placement-statistics-section py-5 bg-white">
+        <div class="container text-center">
+          <h2 class="text-danger fw-bold mb-4">Placement Statistics - 2024 - 2025</h2>
+          <p class="text-muted mb-4 fs-5">
+            An overview of our students' successful placements across top companies during the previous academic year.
+          </p>
+          <div class="stat-image-wrapper">
+            <img src="./assets/img/2025.jpg" alt="Placement Statistics 2023" class="img-fluid rounded shadow-lg">
+          </div>
+        </div>
+      </section>
+
+      </div>
 </div>
 
   <div class="tab-pane fade py-5" id="certification" role="tabpanel" aria-labelledby="certification-tab">
@@ -593,15 +622,17 @@ Use theatre techniques to boost self-confidence in social settings.</p>
 
           <div class="program-images" id="visit" style="display: block;">
             <div class="row g-3 justify-content-center">
-              <div class="col-md-6 msciic"><img src="./assets/img/aiarworkshop.webp" class="img-fluid rounded" alt=""></div>
-              <div class="col-md-6 msciic"><img src="./assets/img/aiarworkshop2.webp" class="img-fluid rounded" alt=""></div>
-                <!-- <div class="col-md-6 msciic"><img src="./assets/img/industrytraining2.webp" class="img-fluid rounded" alt=""></div> -->
+              <h4 class="text-center fw-bold text-danger">Integrating AI into AR/VR Application Workshop</h4>
+              <div class="col-md-6 msciic"><img src="./assets/img/msciicarvr1.png" class="img-fluid rounded" alt=""></div>
+              <div class="col-md-6 msciic"><img src="./assets/img/msciicarvr2.png" class="img-fluid rounded" alt=""></div>
+                <div class="col-md-6 msciic"><img src="./assets/img/aiarworkshop2.webp" class="img-fluid rounded" alt=""></div>
 
             </div>
           </div>
 
           <div class="program-images" id="training" style="display: none;">
             <div class="row g-3">
+                            <h4 class="text-center fw-bold text-danger">Hydrogen plane in Collaboration ith BMW</h4>
               <div class="col-md-6 msciic"><img src="./assets/img/bmwcollab.webp" class="img-fluid rounded h-100" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/bmwcollab2.webp" class="img-fluid rounded" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/bmw3.png" class="img-fluid rounded h-100" alt=""></div>
@@ -612,6 +643,7 @@ Use theatre techniques to boost self-confidence in social settings.</p>
 
           <div class="program-images" id="resume" style="display: none;">
             <div class="row g-3">
+              <h4 class="text-center fw-bold text-danger">Theatre Workshop by the Training and Placement Cell - American Center</h4>
               <div class="col-md-6 msciic"><img src="./assets/img/theatre.webp" class="img-fluid rounded" alt=""></div>
               <div class="col-md-6 msciic"><img src="./assets/img/theatre2.png" class="img-fluid rounded" alt=""></div>
             </div>
@@ -624,6 +656,107 @@ Use theatre techniques to boost self-confidence in social settings.</p>
     </div>
   </div>
   </div>
+  <div class="tab-pane fade py-5" id="news" role="tabpanel" aria-labelledby="news-tab">
+ <section id="events-2" class="events-2 section">
+  <h2 class="text-center fw-bold fs-2 my-4">MSCIIC News</h2>
+    <div class="container my-3">
+      <div class="row align-items-center justify-content-center">
+<div class="col-12 col-lg-7">
+<div class="ticker-wrapper overflow-hidden py-3">
+  <div class="ticker d-flex gap-4">
+    
+    <div class="card" style="min-width: 18rem;">
+      <img src="./assets/img/cmpylogo20 (1).png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text text-danger fw-bold">Presidio Campus Drive for 2026 Batch happened on MSEC</p>
+      </div>
+    </div>
+
+    <div class="card" style="min-width: 18rem;">
+      <img src="./assets/img/cmpylogo22 (1).png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text text-danger fw-bold">Embed UR Campus on campus drive happened on MSEC</p>
+      </div>
+    </div>
+
+    <div class="card" style="min-width: 18rem;">
+      <img src="./assets/img/cmpylogo28 (1).png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text text-danger fw-bold">JMAN - On Campus Drive will be on 23/25 - July </p>
+      </div>
+    </div>
+
+    <!-- Duplicate cards to create infinite scroll effect -->
+    <div class="card" style="min-width: 18rem;">
+      <img src="./assets/img/cmpylogo20 (1).png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Infosys Campus Drive</p>
+      </div>
+    </div>
+
+    <div class="card" style="min-width: 18rem;">
+      <img src="./assets/img/cmpylogo22 (1).png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">TCS Ninja Hiring</p>
+      </div>
+    </div>
+
+    <div class="card" style="min-width: 18rem;">
+      <img src="./assets/img/cmpylogo28 (1).png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Wipro Turbo Recruitment</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+      </div>
+    </div>
+
+
+        <h2 class="text-center fw-bold fs-2 my-4">MSCIIC Events</h2>
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row g-6 align-items-start justify-content-center">
+            <!-- Calendar -->
+            <div class="col-xl-6 p-3">
+              <div id="calendar"></div>
+            </div>
+
+            <!-- Scrolling Event Ticker -->
+            <div class="col-xl-6 mt-3">
+              <div class="event-ticker-container">
+                <div class="event-ticker-list events-list">
+                  <!-- Repeatable Event Item -->
+                  <div class="event-item" data-aos="fade-up">
+                    <div class="event-date">
+                      <span class="day">15</span>
+                      <span class="month">JUN</span>
+                    </div>
+                    <div class="event-content">
+                      <h3>Annual Science Fair Exhibition</h3>
+                      <div class="event-meta">
+                        <p><i class="bi bi-clock"></i> 09:00 AM - 04:00 PM</p>
+                        <p><i class="bi bi-geo-alt"></i> Main Campus Auditorium</p>
+                      </div>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua.
+                      </p>
+                      <a href="#" class="btn-event">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+
+                  <!-- Repeat more .event-item blocks or dynamically render via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 </div>
 
 
@@ -729,10 +862,15 @@ Email: principal@msec.edu.in</span></p>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-  <!-- Main JS File -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<!-- FullCalendar JS in <body> before your calendar JS file -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.8/index.global.min.js"></script>  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/msiicscript.js"></script>
+  <!-- <script src="assets/js/msiicscript.js"></script> -->
+  <script src="assets/js/googlecalendar.js"></script>
+  
 <script>
   document.querySelectorAll('.container').forEach(section => {
     const cards = section.querySelectorAll('.program-card');
@@ -766,7 +904,22 @@ Email: principal@msec.edu.in</span></p>
     });
   });
 </script>
+<script>
+  // Scroll to corresponding section when tab is clicked
+  document.querySelectorAll('[data-bs-toggle="tab"]').forEach((tabButton) => {
+    tabButton.addEventListener('shown.bs.tab', function (e) {
+      const targetSelector = e.target.getAttribute('data-bs-target');
+      const section = document.querySelector(targetSelector);
 
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+  <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="JJLsl1Ox4f_8TgpXD8yGw";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
 
 
 

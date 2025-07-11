@@ -1,0 +1,86 @@
+.zoom-image-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.zoom-img {
+  transition: transform 0.4s ease, filter 0.3s ease;
+  display: block;
+  width: 100%;
+}
+
+.zoom-img:hover {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+ .company-ticker-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.company-ticker {
+  animation: scrollTicker2 30s linear infinite;
+  white-space: nowrap;
+}
+
+.company-logo {
+  height: 60px;
+  margin: 0 30px;
+  object-fit: contain;
+}
+
+@keyframes scrollTicker2 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-80%);
+  }
+}
+.stat-image-wrapper img {
+  transition: transform 0.3s ease;
+  width:50%;
+  height: 50%;
+  /* max-width: 100%;
+  height: auto; */
+}
+
+.stat-image-wrapper img:hover {
+  transform: scale(1.5);
+}
+.cmpy-visited{
+    width: 50%;
+    height: 50%;
+}
+.ticker-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+
+.ticker {
+  animation: scroll-left1 20s linear infinite;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+@keyframes scroll-left1 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.card {
+  flex: 0 0 auto;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.03);
+}
+

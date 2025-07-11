@@ -23,6 +23,8 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css" />
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -269,7 +271,7 @@
 
 
 
-    <div class="page-title dark-background" style="background-image: url(assets/img/education/showcase-1.webp);">
+    <div class="page-title dark-background" style="background-image: url(assets/img/campus.jpeg);">
       <div class="container position-relative">
         <h1>MSIIC</h1>
         <nav class="breadcrumbs">
@@ -282,8 +284,11 @@
     </div>
 
     <div class="container my-4">
-  <div class="row text-center">
+  <div class="row text-center justify-content-center">
 <h2 class="section-heading">Meenakshi Sundararajan Innovation Incubation Centre (MSIIC)</h2>
+<div class="col-12 col-md-6 col-lg-3 col-xl-2">
+<img src="./assets/img/msiic.jpg" alt="msciic logo" class="img-fluid">
+</div>
 <div class="container"></div>
 <section id="students-life" class="students-life  section py-0" >
   <div class="container " data-aos="fade-up" data-aos-delay="100">
@@ -296,39 +301,49 @@
               <i class="bi bi-image-fill hover-icon"></i>
             </div>
             <h4>About Us</h4>
-            <p class="smallp">Learn more about MSIIIC</p>
+            <p class="smallp">Learn more about MSIIC</p>
           </button>
+        </li>
+
+        <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="200">
+          <a href="https://msiic-clubs.web.app/" class="nav-link w-100 category-card d-flex flex-column">
+            <div class="icon-container">
+              <i class="bi bi-kanban-fill default-icon"></i>
+              <i class="bi bi-lightbulb-fill hover-icon"></i>
+            </div>
+            <h4>Clubs</h4>
+            <p class="smallp">Adyant, EDI, IOT...</p>
+          </a>
         </li>
 
         <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="200">
           <button class="nav-link w-100 category-card d-flex flex-column" id="prize-tab" data-bs-toggle="tab" data-bs-target="#prize" type="button" role="tab" aria-controls="prize" aria-selected="false">
             <div class="icon-container">
-              <i class="bi bi-kanban-fill default-icon"></i>
-              <i class="bi bi-lightbulb-fill hover-icon"></i>
-            </div>
-            <h4>Projects</h4>
-            <p class="smallp">Sustain X, Elevate X, Torque X...</p>
-          </button>
-        </li>
-
-        <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="300">
-          <button class="nav-link category-card d-flex flex-column" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab" aria-controls="performance" aria-selected="false">
-            <div class="icon-container">
               <i class="bi bi-clock-fill default-icon"></i>
               <i class="bi bi-rocket-takeoff-fill hover-icon"></i>
             </div>
-            <h4>Upcoming Projects</h4>
-            <p class="smallp">New launches and ideas in pipeline</p>
+            <h4>FlagShip Projects</h4>
+            <p class="smallp">Sustain X, Elevate X, SloveSquad...</p>
           </button>
         </li>
-                <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="400">
-          <button class="nav-link category-card d-flex flex-column" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab" aria-controls="performance" aria-selected="false">
+          <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="400">
+          <button class="nav-link category-card d-flex flex-column" id="meeting-tab" data-bs-toggle="tab" data-bs-target="#meeting" type="button" role="tab" aria-controls="meeting" aria-selected="false">
             <div class="icon-container">
               <i class="bi bi-people-fill default-icon"></i>
               <i class="bi bi-chat-dots-fill hover-icon"></i>
             </div>
             <h4>Collaborations & Meetings</h4>
             <p class="smallp">Faculty & industry joint efforts.</p>
+          </button>
+        </li>
+        <li class="nav-item col-md-3 col-sm-6" role="presentation" data-aos="fade-up" data-aos-delay="300">
+          <button class="nav-link category-card d-flex flex-column" id="performance-tab" data-bs-toggle="tab" data-bs-target="#performance" type="button" role="tab" aria-controls="performance" aria-selected="false">
+            <div class="icon-container">
+            <i class="bi bi-megaphone-fill default-icon"></i>
+            <i class="bi bi-calendar-event-fill hover-icon"></i>
+            </div>
+            <h4>News & Events</h4>
+            <p class="smallp">Stay updated with the latest news and events MSIIC</p>
           </button>
         </li>
       </ul>
@@ -346,10 +361,83 @@
   <div class="container">
     <h2 class="text-center text-danger fw-bold">MSIIC – Purpose & Vision</h2>
     <p class="lead text-center">
-      The Meenakshi Sundararajan Innovation Incubation Center (MSIIC) is established with the vision to foster an environment where young minds can transform innovative ideas into reality, driving entrepreneurship and technological advancement. MSIIC aims to be a catalyst for creating sustainable business solutions and fostering collaborations between academia, industry, and entrepreneurial ecosystems.
+      The <span class="text-danger fs-3 fw-bold">Meenakshi Sundararajan Innovation Incubation Center (MSIIC)</span>  is established with the vision to foster an environment where young minds can transform innovative ideas into reality, driving entrepreneurship and technological advancement. MSIIC aims to be a catalyst for creating sustainable business solutions and fostering collaborations between academia, industry, and entrepreneurial ecosystems.
     </p>
   </div>
 </section>
+<section class="msiic-section">
+  <div class="container">
+    <h2 class="section-title text-danger">Explore MSIIC</h2>
+
+    <!-- Custom Tab Nav -->
+    <div class="msiic-tab-nav">
+      <button class="msiic-tab-btn active" data-target="#edi">📘 EDI Curriculum</button>
+      <button class="msiic-tab-btn" data-target="#startup">🚀 Startups</button>
+      <button class="msiic-tab-btn" data-target="#campus">🏫 Campus Projects</button>
+      <button class="msiic-tab-btn" data-target="#iic">🧩 IIC Projects</button>
+      <button class="msiic-tab-btn" data-target="#external">🌍 Collaborations</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="msiic-tab-content">
+      <div class="msiic-tab-pane active" id="edi">
+        <h4>EDI Curriculum — Powered by Wadhwani Foundation</h4>
+        <p>MSIIC integrates a 6-Semester EDI curriculum to groom students as real-world innovators.</p>
+        <ul>
+          <li>✔️ Practical entrepreneurship education</li>
+          <li>✔️ Startup ideation-to-execution model</li>
+          <li>✔️ Team-based innovation projects</li>
+          <li>✔️ Continuous mentorship & evaluation</li>
+          <li>✔️ Market-driven problem solving</li>
+        </ul>
+        <strong>💡 Students don’t just learn business — they build it.</strong>
+      </div>
+
+      <div class="msiic-tab-pane" id="startup">
+        <h4>Startup Enablement</h4>
+        <ul>
+          <li>✔️ Idea validation, prototyping & scaling</li>
+          <li>✔️ Pitch decks, demo days & investor readiness</li>
+          <li>✔️ Funding, legal & tech advisory</li>
+          <li>✔️ Alumni startup success stories</li>
+        </ul>
+        <strong>🚀 Dream it. Build it. Launch it.</strong>
+      </div>
+
+      <div class="msiic-tab-pane" id="campus">
+        <h4>Campus Benefit Projects</h4>
+        <ul>
+          <li>✔️ Tech-enabled sustainability & safety</li>
+          <li>✔️ Infrastructure-enhancing student projects</li>
+          <li>✔️ SDG-aligned innovation</li>
+        </ul>
+        <strong>🏫 Innovation that gives back to where it began.</strong>
+      </div>
+
+      <div class="msiic-tab-pane" id="iic">
+        <h4>IIC Portal Projects</h4>
+        <ul>
+          <li>✔️ MHRD-aligned submissions</li>
+          <li>✔️ Smart tech to social impact projects</li>
+          <li>✔️ National-level recognition</li>
+        </ul>
+        <strong>🏆 From campus portal to national podium.</strong>
+      </div>
+
+      <div class="msiic-tab-pane" id="external">
+        <h4>External Collaborations</h4>
+        <ul>
+          <li>✔️ Ties with Startup India, AIM, MSME</li>
+          <li>✔️ Global exchange programs</li>
+          <li>✔️ Collaborative R&D with industry & academia</li>
+        </ul>
+        <strong>🌍 Innovation meets the world — right here.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- OKRs -->
 <section class="py-5" data-aos="fade-left" data-aos-delay="200">
@@ -358,19 +446,19 @@
     <div class="row g-4">
       <div class="col-md-6">
         <h5>Fostering Innovation</h5>
-        <p>MSIIC seeks to encourage and nurture innovative ideas that have the potential to create social, technological, or economic impact.</p>
+        <p>Empowering breakthrough ideas with real-world impact — socially, technologically, and economically</p>
       </div>
       <div class="col-md-6">
-        <h5>Entrepreneurial Development</h5>
-        <p>It provides essential resources such as mentorship, infrastructure, funding, and networking opportunities to students, researchers, and startups.</p>
+        <h5>Fuel Entrepreneurship</h5>
+        <p>Offering mentorship, funding, and infrastructure to turn bold ideas into scalable ventures.</p>
       </div>
       <div class="col-md-6">
-        <h5>Industry Collaboration</h5>
-        <p>MSIIC serves as a bridge between academia and industry, ensuring that academic research and student projects meet real-world market needs.</p>
+        <h5>Bridge with Industry</h5>
+        <p>Connecting academia to industry to ensure every innovation meets market needs.</p>
       </div>
       <div class="col-md-6">
-        <h5>Skill Development & Capacity Building</h5>
-        <p>The center aims to enhance the entrepreneurial and technical skill sets of students, faculty, and local entrepreneurs through workshops, training programs, and industry partnerships. A formal curriculum spanning across six semesters on EDI (Entrepreneurship Development & Innovation) is put in place and practice to nurture Start-Ups focusing on Innovative Products and Services with Societal, Industry and Campus Benefits.</p>
+        <h5>Build Skills</h5>
+        <p>Equipping students and startups with entrepreneurial and tech skills through workshops, training, and a structured 6-Semester EDI Curriculum developed in collaboration with the Wadhwani Foundation — focusing on real-world startup creation, product development, and business innovation.</p>
       </div>
     </div>
   </div>
@@ -384,40 +472,40 @@
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#board">
-            Board Members
+           Board of Directors
           </button>
         </h2>
         <div id="board" class="accordion-collapse collapse show">
           <div class="accordion-body">
-            The Board of Directors plays a crucial role in overseeing the strategic direction and governance of MSIIC. They bring a wealth of industry knowledge, academic expertise, and entrepreneurial insight. Key responsibilities include approving policies, budgets, and partnerships, as well as ensuring that MSIIC’s activities align with its long-term goals.
+            Visionaries shaping strategy, governance, and long-term impact through academic and industry expertise.
           </div>
         </div>
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#management">
-            Management
+           Industry Partners
           </button>
         </h2>
         <div id="management" class="accordion-collapse collapse">
           <div class="accordion-body">
-            The Management team is responsible for the day-to-day operations and execution of MSIIC’s objectives. This includes coordinating with various stakeholders, organizing events, providing mentorship, and handling administrative tasks. Management ensures that resources are allocated efficiently, programs are executed effectively, and feedback from stakeholders is incorporated into future strategies.
+            Mentors and collaborators offering real-world insight, R&D opportunities, internships, and investments.
           </div>
         </div>
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#industry">
-            Industry Partners
+            Students & Entrepreneurs
           </button>
         </h2>
         <div id="industry" class="accordion-collapse collapse">
           <div class="accordion-body">
-            MSIIC collaborates with industry players to ensure that the startups nurtured at the center are addressing current challenges and are market-ready. These partnerships include mentoring, joint research, internship opportunities, and potential investment. Industry partners provide insights into emerging trends, technological advancements, and potential commercial opportunities for student ventures.
+           The heartbeat of MSIIC — turning academic brilliance into viable, scalable ventures.
           </div>
         </div>
       </div>
-      <div class="accordion-item">
+      <!-- <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#students">
             Students & Entrepreneurs
@@ -428,7 +516,7 @@
             The primary beneficiaries of MSIIC’s resources, students, and budding entrepreneurs, receive support through incubation programs that provide a range of services from idea validation to prototype development and business scaling. The center helps students bridge the gap between academic knowledge and practical application, enabling them to turn their academic projects or ideas into viable businesses.
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
@@ -436,31 +524,42 @@
 <!-- Support from MSIIC -->
 <section class="py-5" data-aos="fade-up" data-aos-delay="100">
   <div class="container">
-    <h3 class="text-center text-danger fw-bold mb-4">Support from MSIIC</h3>
+    <h3 class="text-center text-danger fw-bold mb-4">MSIIC Support Ecosystem</h3>
     <div class="row g-4">
       <div class="col-md-6">
-        <h5>Infrastructure</h5>
-        <p>Access to co-working spaces, laboratories, prototyping facilities, and meeting rooms to develop and refine innovative ideas. (With Industry Institute Interface, MS Institutions Support Infrastructure for Robotics, Cloud Computing, Full Stack Development, AI Augmented & Virtual Reality With Game Development, Azure, AWS, IOT, 5G, Renewable / Sustainability, EV & Manufacturing)</p>
+        <h5>Smart Infrastructure</h5>
+        <p>Cutting-edge labs and co-working spaces in:	AI, AR/VR, Game Dev
+Cloud, Full Stack, Robotics
+	IoT, 5G, Azure, AWS
+	EV, Sustainability, Manufacturing
+</p>
       </div>
       <div class="col-md-6">
-        <h5>Mentorship</h5>
-        <p>A strong network of mentors from academia, business, and industry to guide students and startups in various aspects of entrepreneurship. A detailed SOP for Mentoring is put in place with operationalization forms supported by Software Application Modules.</p>
+        <h5>Expert Mentorship</h5>
+        <p>Top-tier mentors from academia and industry backed by a structured SOP and digital tracking system.</p>
       </div>
       <div class="col-md-6">
-        <h5>Funding</h5>
-        <p>Opportunities for funding through grants, competitions, angel investors, and venture capital connections to support early-stage ventures. (Torque-X, MSEC Mechanical Engineering Team has the honor of being the debut team to manufacture the first ATV of MS Institutions to participate in BAJA SAE INDIA 2025 Series. The project plan executed meticulously in practice to design & manufacture a vehicle for a racing event. A predominant percentage of funding to meet the overall approximate budget of INR10 Lakhs was supported by the MS Institution Management.)</p>
+        <h5>Startup Funding</h5>
+        <p>Funding access through grants, investors, and competitions.
+Highlight: Torque-X — INR 10 Lakhs+ funded for MS Institutions’ debut ATV for BAJA SAE INDIA 2025.
+</p>
       </div>
       <div class="col-md-6">
-        <h5>Workshops and Training</h5>
-        <p>Regular sessions on design thinking, innovation, problem solving, decision making, strategy execution, go-to-market strategy business development, intellectual property, leadership, marketing strategies, and other essential skills required to run successful startups.</p>
+        <h5>Power-Packed Workshops</h5>
+        <p>Training in:
+	Design Thinking, IP, GTM
+	Leadership, Strategy, Business Dev
+	Innovation, Problem Solving, Marketing
+</p>
       </div>
       <div class="col-md-6">
-        <h5>Networking Opportunities</h5>
-        <p>Connecting innovators with potential investors, industry experts, and potential collaborators to accelerate growth and market entry.</p>
+        <h5> Real Networking</h5>
+        <p>Direct access to investors, VCs, startup founders, and global experts to accelerate growth</p>
       </div>
     </div>
   </div>
 </section>
+
 
   </div>
 
@@ -469,23 +568,29 @@
         <div class="carousel">
         <div class="list">
             <div class="item">
-                <img src="./images/projectinnovator1.jpg">
+                <img src="./images/hydro.png">
                 <div class="introduce">
-                    <div class="title">DESIGN SLIDER</div>
-                    <div class="topic">Aerphone</div>
+                    <div class="title">Innovators day Project</div>
+                    <div class="topic">Hydrophonics</div>
                     <div class="des">
                         <!-- 20 lorem -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                        Hydroponics is a soil-less farming technique that uses nutrient-rich water to grow plants efficiently.
                     </div>
                     <button class="seeMore">SEE MORE &#8599</button>
                 </div>
                 <div class="detail">
-                    <div class="title">Aerphone GHTK</div>
+                    <div class="title text-danger">Hydrophonics</div>
                     <div class="des">
                         <!-- lorem 50 -->
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+                        Hydroponics is a soil-less farming technique that uses nutrient-rich water to grow plants efficiently.
+
+It conserves up to 90% more water than traditional farming and allows year-round cultivation.
+
+The system is ideal for urban spaces, ensuring fresh produce with minimal environmental impact.
+
+
                     </div>
-                    <div class="specifications">
+                    <!-- <div class="specifications">
                         <div>
                             <p>Used Time</p>
                             <p>6 hours</p>
@@ -506,7 +611,7 @@
                             <p>Controlled</p>
                             <p>Touch</p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="checkout">
                         <button>ADD TO CART</button>
                         <button>CHECKOUT</button>
@@ -515,7 +620,7 @@
             </div>
 
             <div class="item">
-                <img src="images/baja.png">
+                <img src="images/baja.jpg">
                 <div class="introduce">
                     <div class="title">Funding Potential</div>
                     <div class="topic">Elevate X</div>
@@ -526,12 +631,11 @@
                     <button class="seeMore">SEE MORE &#8599</button>
                 </div>
                 <div class="detail">
-                    <div class="title">Elevate X</div>
+                    <div class="title text-danger">Elevate X - Baja</div>
                     <div class="des">
-                        <!-- lorem 50 -->
                         ElevateX is our flagship platform that empowers student innovators by identifying and mapping them to high-impact national and global competitions. Through ElevateX, students gain exclusive access to innovation funding, expert mentorship, cutting-edge infrastructure, and direct industry linkages.
                     </div>
-                    <div class="specifications">
+                    <!-- <div class="specifications p-2">
                         <div>
                             <p>Used Time</p>
                             <p>6 hours</p>
@@ -552,7 +656,7 @@
                             <p>Controlled</p>
                             <p>Touch</p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="checkout">
                         <button>ADD TO CART</button>
                         <button>CHECKOUT</button>
@@ -561,23 +665,26 @@
             </div>
 
             <div class="item">
-                <img src="images/sccoerrobot.png">
+                <img src="images/sccoerrobot.jpg">
                 <div class="introduce">
-                    <div class="title">DESIGN SLIDER</div>
-                    <div class="topic">Aerphone</div>
+                    <div class="title">Innovation Project</div>
+                    <div class="topic">Soccer Robot</div>
                     <div class="des">
                         <!-- 20 lorem -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                        The Soccer Robot is an autonomous or semi-autonomous machine designed to play soccer using sensors, motors, and strategic algorithms.
                     </div>
                     <button class="seeMore">SEE MORE &#8599</button>
                 </div>
                 <div class="detail">
-                    <div class="title">Aerphone GHTK</div>
+                    <div class="title text-danger">Soccer Robot</div>
                     <div class="des">
                         <!-- lorem 50 -->
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
-                    </div>
-                    <div class="specifications">
+The Soccer Robot is an autonomous or semi-autonomous machine designed to play soccer using sensors, motors, and strategic algorithms.
+
+It detects the ball, navigates the field, and attempts goals using real-time object tracking and motion control.
+
+Soccer robots promote hands-on learning in robotics, AI, and teamwork through competitive and educational platforms like RoboCup.                    </div>
+                    <!-- <div class="specifications">
                         <div>
                             <p>Used Time</p>
                             <p>6 hours</p>
@@ -598,7 +705,7 @@
                             <p>Controlled</p>
                             <p>Touch</p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="checkout">
                         <button>ADD TO CART</button>
                         <button>CHECKOUT</button>
@@ -607,23 +714,26 @@
             </div>
 
             <div class="item">
-                <img src="images/landrover1.png">
+                <img src="images/landrover1.jpg">
                 <div class="introduce">
-                    <div class="title">DESIGN SLIDER</div>
-                    <div class="topic">Aerphone</div>
+                    <div class="title">Innovators day Project</div>
+                    <div class="topic">LandRover</div>
                     <div class="des">
                         <!-- 20 lorem -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                        The Land Rover Project is a terrain-adaptive robotic vehicle designed to navigate rough and uneven surfaces.
                     </div>
                     <button class="seeMore">SEE MORE &#8599</button>
                 </div>
                 <div class="detail">
-                    <div class="title">Aerphone GHTK</div>
+                    <div class="title text-danger">LandRover</div>
                     <div class="des">
-                        <!-- lorem 50 -->
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+                        The Land Rover Project is a terrain-adaptive robotic vehicle designed to navigate rough and uneven surfaces.
+
+Equipped with suspension systems and obstacle sensors, it ensures stability and mobility across challenging landscapes.
+
+Ideal for exploration, rescue operations, and educational robotics, it showcases real-world applications of mechanical and embedded systems.
                     </div>
-                    <div class="specifications">
+                    <!-- <div class="specifications">
                         <div>
                             <p>Used Time</p>
                             <p>6 hours</p>
@@ -644,7 +754,7 @@
                             <p>Controlled</p>
                             <p>Touch</p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="checkout">
                         <button>ADD TO CART</button>
                         <button>CHECKOUT</button>
@@ -653,23 +763,28 @@
             </div>
 
             <div class="item">
-                <img src="images/ecycleproject.png">
+                <img src="images/ecycleproject (2).png">
                 <div class="introduce">
-                    <div class="title">DESIGN SLIDER</div>
-                    <div class="topic">Aerphone</div>
+                    <div class="title">Innovators day Project</div>
+                    <div class="topic">E Cycle</div>
                     <div class="des">
                         <!-- 20 lorem -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
+                        The E-Cycle is an eco-friendly electric bicycle designed for sustainable urban commuting.
                     </div>
                     <button class="seeMore">SEE MORE &#8599</button>
                 </div>
                 <div class="detail">
-                    <div class="title">Aerphone GHTK</div>
+                    <div class="title text-danger">E Cycle</div>
                     <div class="des">
                         <!-- lorem 50 -->
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
+The E-Cycle is an eco-friendly electric bicycle designed for sustainable urban commuting.
+
+Powered by a rechargeable battery, it offers pedal-assist and throttle modes for effortless riding.
+
+Promotes green mobility while integrating smart tech for real-time monitoring and efficiency.
+
                     </div>
-                    <div class="specifications">
+                    <!-- <div class="specifications">
                         <div>
                             <p>Used Time</p>
                             <p>6 hours</p>
@@ -690,7 +805,7 @@
                             <p>Controlled</p>
                             <p>Touch</p>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="checkout">
                         <button>ADD TO CART</button>
                         <button>CHECKOUT</button>
@@ -698,13 +813,13 @@
                 </div>
             </div>
 
-            <div class="item">
+             <!-- <div class="item">
                 <img src="images/img6.png">
                 <div class="introduce">
                     <div class="title">DESIGN SLIDER</div>
                     <div class="topic">Aerphone</div>
                     <div class="des">
-                        <!-- 20 lorem -->
+
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, laborum cumque dignissimos quidem atque et eligendi aperiam voluptates beatae maxime.
                     </div>
                     <button class="seeMore">SEE MORE &#8599</button>
@@ -712,7 +827,6 @@
                 <div class="detail">
                     <div class="title">Aerphone GHTK</div>
                     <div class="des">
-                        <!-- lorem 50 -->
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, reiciendis suscipit nobis nulla animi, modi explicabo quod corrupti impedit illo, accusantium in eaque nam quia adipisci aut distinctio porro eligendi. Reprehenderit nostrum consequuntur ea! Accusamus architecto dolores modi ducimus facilis quas voluptatibus! Tempora ratione accusantium magnam nulla tenetur autem beatae.
                     </div>
                     <div class="specifications">
@@ -737,27 +851,94 @@
                             <p>Touch</p>
                         </div>
                     </div>
-                    <!-- <div class="checkout">
-                        <button>ADD TO CART</button>
-                        <button>CHECKOUT</button>
-                    </div> -->
+
                 </div>
-            </div>
+            </div>  -->
         </div>
         <div class="arrows">
-            <button id="prev"><</button>
-            <button id="next">></button>
+            <button id="prev" class="text-danger"><</button>
+            <button id="next" class="text-danger">></button>
             <button id="back">Back  &#8599</button>
         </div>
     </div>
 </div>
   </div>
-    <div class="tab-pane fade " id="presentation" role="tabpanel" aria-labelledby="presntation-tab">
-hi
+    <div class="tab-pane fade " id="meeting" role="tabpanel" aria-labelledby="meeting-tab">
+<section class="ignite-launch-section">
+  <div class="ignite-header">
+    <h2>MS-IIC Launches IGNITE Course in Entrepreneurship</h2>
+    <p>
+      In collaboration with <strong>Wadhwani Foundation</strong>, MS-IIC empowers students to think boldly, build bravely, and launch confidently.
+    </p>
+  </div>
+
+  <div class="ignite-grid">
+    <div class="ignite-card">
+      <img src="assets/img/wadwani3.webp" alt="Dr. R. Sujatha">
+      <h4>Dr. R. Sujatha</h4>
+      <p>Principal – Entrepreneur Education,<br>Wadhwani Entrepreneur</p>
+    </div>
+
+    <div class="ignite-card">
+      <img src="assets/img/wadwani2.webp" alt="Mr. Naved Ahmed Ansari">
+      <h4>Mr. Naved Ahmed Ansari</h4>
+      <p>Sr. Manager & Regional Head,<br>Wadhwani Foundation</p>
+    </div>
+
+    <div class="ignite-card">
+      <img src="assets/img/wadwani1.webp" alt="Student session">
+      <h4>Empowering Students</h4>
+      <p>
+        Engaging sessions to ignite innovation and equip students with real-world entrepreneurial skills.
+      </p>
+    </div>
+  </div>
+</section>
+
   </div>
 
   <div class="tab-pane fade" id="performance" role="tabpanel" aria-labelledby="performance-tab">
+ <section id="events-2" class="events-2 section">
+        <h2 class="text-center fw-bold fs-2 my-4">MSIIC News & Events</h2>
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row g-6 align-items-start justify-content-center">
+            <!-- Calendar -->
+            <div class="col-xl-6 p-3">
+              <div id="calendar"></div>
+            </div>
 
+            <!-- Scrolling Event Ticker -->
+            <div class="col-xl-6 mt-3">
+              <div class="event-ticker-container">
+                <div class="event-ticker-list events-list">
+                  <!-- Repeatable Event Item -->
+                  <div class="event-item" data-aos="fade-up">
+                    <div class="event-date">
+                      <span class="day">15</span>
+                      <span class="month">JUN</span>
+                    </div>
+                    <div class="event-content">
+                      <h3>Annual Science Fair Exhibition</h3>
+                      <div class="event-meta">
+                        <p><i class="bi bi-clock"></i> 09:00 AM - 04:00 PM</p>
+                        <p><i class="bi bi-geo-alt"></i> Main Campus Auditorium</p>
+                      </div>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua.
+                      </p>
+                      <a href="#" class="btn-event">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                  </div>
+
+                  <!-- Repeat more .event-item blocks or dynamically render via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
   </div>
 </div>
 
@@ -766,7 +947,7 @@ hi
 <div class="social-icons-fixed">
   <div class="social-icon">
     <h6 class="icon-label text-center text-danger fw-bold">MSIIC</h6>
-    <a href="https://www.facebook.com/" target="_blank">
+    <a href="https://www.linkedin.com/company/ms-iic/posts/?feedView=all" target="_blank">
       <img src="./assets/img/linkedin.png" alt="Facebook" />
     </a>
   </div>
@@ -876,10 +1057,16 @@ Email: principal@msec.edu.in</span></p>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<!-- FullCalendar JS in <body> before your calendar JS file -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.8/index.global.min.js"></script>  <!-- Main JS File -->
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/msiicscript.js"></script>
+  <script src="assets/js/msiiccalendar.js"></script>
 <script>
   document.querySelectorAll('.msec-tab-trigger').forEach(trigger => {
     trigger.addEventListener('click', function(e) {
@@ -893,6 +1080,26 @@ Email: principal@msec.edu.in</span></p>
       document.getElementById(targetId).classList.add('active');
     });
   });
+  document.addEventListener("DOMContentLoaded", function () {
+  const tabButtons = document.querySelectorAll(".msiic-tab-btn");
+  const tabPanes = document.querySelectorAll(".msiic-tab-pane");
+
+  tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Remove active from all buttons and panes
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+      tabPanes.forEach(pane => pane.classList.remove("active"));
+
+      // Add active to current
+      button.classList.add("active");
+      const targetPane = document.querySelector(button.dataset.target);
+      if (targetPane) {
+        targetPane.classList.add("active");
+      }
+    });
+  });
+});
+
 </script>
  <script>
     document.querySelectorAll('.nav-link i').forEach(icon => {
@@ -983,6 +1190,22 @@ link.addEventListener("click", function () {
   }
 });
 
+</script>
+<script>
+  // Scroll to corresponding section when tab is clicked
+  document.querySelectorAll('[data-bs-toggle="tab"]').forEach((tabButton) => {
+    tabButton.addEventListener('shown.bs.tab', function (e) {
+      const targetSelector = e.target.getAttribute('data-bs-target');
+      const section = document.querySelector(targetSelector);
+
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+  <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="JJLsl1Ox4f_8TgpXD8yGw";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 
 

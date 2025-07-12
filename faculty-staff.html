@@ -40,13 +40,82 @@
 
 <body class="faculty-staff-page">
 
+       <div class="top-bar d-none d-lg-block">
+<ul class="nav-links">
+  <li><a href="/admission2025">Admissions 2025</a></li>
+
+  <!-- Academics Dropdown -->
+  <li class="custom-dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle" data-target="academicsDropdown">Academics</a>
+    <ul id="academicsDropdown" class="custom-dropdown-content content2">
+      <li class="noline"><a href="academics.html">Departments &#9662;</a></li>
+      <li class="noline"><a href="autonomous.html">Autonomous</a></li>
+      <!-- <li class="noline"><a href="syllabus.html">Syllabus</a></li> -->
+      <li class="noline"><a href="coeacademics.html">Academics - Curriculum, Regulations</a></li>
+      <li class="noline mb-2"><a href="coe.html">Controller of Examinations</a></li>
+    </ul>
+  </li>
+
+  <li><a href="placements.html">Placements</a></li>
+    <li class="custom-dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle" data-target="whymsec">Explore MSEC</a>
+    <ul id="whymsec" class="custom-dropdown-content">
+      <li class="noline"><a href="counselling.html">Counselling</a></li>
+      <li class="noline"><a href="accolades.html">Accolades</a></li>
+      <li class="noline"><a href="gallery.html">Gallery</a></li>
+      <li class="noline"><a href="campus">Campus 360</a></li>
+    </ul>
+  </li>
+
+  <!-- Centres of Excellence Dropdown -->
+  <li class="custom-dropdown">
+    <a href="javascript:void(0);" class="dropdown-toggle" data-target="centresDropdown">Centres of Excellence</a>
+    <ul id="centresDropdown" class="custom-dropdown-content">
+      <li class="noline"><a href="msiic.html">MSIIC</a></li>
+      <li class="noline"><a href="msciic.html">MSCIIC</a></li>
+      <li class="noline"><a href="mscdc.html">MSCDC</a></li>
+      <li class="noline"><a href="research.html">Research</a></li>
+      <li class="noline mb-2"><a href="IIC.html">IIC</a></li>
+    </ul>
+  </li>
+
+                <li class="custom-dropdown">
+              <a class="dropdown-toggle"  href="javascript:void(0);" data-target="erp">
+                ERP
+              </a>
+              <ul id="erp" class="custom-dropdown-content">
+                <li><a class="dropdown-item" href="https://erp.msec.edu.in/studentlogin/" target="_blank">ERP Student Login</a></li>
+                <li><a class="dropdown-item" href="https://erp.msec.edu.in/erp/" target="_blank">ERP Staff Login</a></li>
+              </ul>
+            </li>
+              <li><a href="alumni.html">Alumni</a></li>
+
+  <li class="custom-dropdown">
+  <a href="javascript:void(0);" class="dropdown-toggle" data-target="msec360Dropdown">Student Activities</a>
+  <ul id="msec360Dropdown" class="custom-dropdown-content">
+    <li class="noline"><a href="https://msiic-clubs.web.app/">Clubs</a></li>
+    <li class="noline"><a href="students-life.html">Student Life</a></li>
+    <li class="noline"><a href="competitions.html">Competitions</a></li>
+    <li class="noline"><a href="sportsevents.html">Sports</a></li>
+    <li class="noline mb-2"><a href="news.html">News and Events</a></li>
+  </ul>
+</li>
+
+  <!-- <li><a href="news.html">News and Events</a></li> -->
+
+</ul>
+
+
+  </div>
 <header id="header" class="container-fluid header d-flex align-items-center">
   <div class="container-xl position-relative d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-between">
 
     <!-- Logo Section -->
     <div class="d-flex flex-column flex-md-row align-items-center">
-            <button class="btn d-none d-lg-block bg-white rounded-3 mx-2 fw-bold">TNEA <br/> 1309</button>
-      <img class="mseclogo" src="assets/img/mseclogo.png" alt="">
+            <button class="btn d-none d-lg-block bg-white rounded-3 mx-2 fw-bold">TNEA <br/> <span class="ccode">1309</span></button>
+     <a href="index.html">
+        <img class="mseclogo" src="assets/img/mseclogo.png" alt="MSEC Logo">
+      </a>
       <div class="d-flex flex-column align-items-center justify-content-center text-center">
         <a href="index.html" class="logo d-flex align-items-center justify-content-center text-center">
           <h1 class="sitename fs-1 fw-bold mt-lg-3 text-center">Meenakshi Sundararajan Engineering College</h1>
@@ -95,26 +164,33 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-submenu">
                   <a href="academics.html" class="dropdown-item" aria-expanded="false">Departments</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="academics.html">Computer Science</a></li>
-                    <li><a class="dropdown-item" href="ece.html">Electronics</a></li>
-                    <li><a class="dropdown-item" href="mech.html">Mechanical</a></li>
-                  </ul>
                 </li>
-                <li><a class="dropdown-item" href="coe.html">COE</a></li>
-                <li><a class="dropdown-item" href="Centerofexcellence.html">Center of Excellence</a></li>
-                <li><a class="dropdown-item" href="https://msiic-clubs.web.app/" target="_blank">Students Club</a></li>
-                <li><a class="dropdown-item" href="./ApplicationProjectGuidance.pdf" target="_blank">Project Guidance - Application</a></li>
+                <li><a class="dropdown-item" href="autonomous.html">Autonomous</a></li>
+                <!-- <li><a class="dropdown-item" href="https://msiic-clubs.web.app/" target="_blank">Syllabus</a></li> -->
+                <li><a class="dropdown-item" href="./coeacademics.html" target="_blank">Academics - Curriculum, Regulation</a></li>
+                <li><a class="dropdown-item" href="./coe.html" target="_blank">Controller Of Examinations</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
+                Centres of Excellence </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="counselling.html">MSIIC</a></li>
+                <li><a class="dropdown-item" href="accolades.html">MSCIIC</a></li>
+                <li><a class="dropdown-item" href="MOU.html">MSCDC</a></li>
+                <li><a class="dropdown-item" href="MOU.html">IIC</a></li>
+                <li><a class="dropdown-item" href="MOU.html">Research</a></li>
               </ul>
             </li>
 
               <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
-                Why MSEC             </a>
+                Explore MSEC         </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="counselling.html">Counselling</a></li>
                 <li><a class="dropdown-item" href="accolades.html">Accolades</a></li>
-                <li><a class="dropdown-item" href="MOU.html">Industrial Connect & MOU</a></li>
+                <li><a class="dropdown-item" href="accolades.html">Gallery</a></li>
+                <li><a class="dropdown-item" href="accolades.html">Campus 360</a></li>
 
               </ul>
             </li>
@@ -143,44 +219,23 @@
                 <li><a class="dropdown-item" href="./College_Brochure_2025-26.pdf" target="_blank">Brouchure</a></li>
               </ul>
             </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
+                Student Activities         </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="./https://msiic-clubs.web.app/">Clubs</a></li>
+                <li><a class="dropdown-item" href="./students-life.html">Students Life</a></li>
+                <li><a class="dropdown-item" href="./competitions.html">Competitions</a></li>
+                <li><a class="dropdown-item" href="./sportsevents.html">Sports</a></li>
+                <li><a class="dropdown-item" href="./news.html">News & Events</a></li>
 
-           <li><a href="research.html" class="nav-link">Research</a></li>
-            <li><a href="students-life.html" class="nav-link">Students Life</a></li>
-            <li><a href="news.html" class="nav-link">News & Events</a></li>
+
+              </ul>
+            </li>
+
             <li><a href="placements.html" class="nav-link">Placements</a></li>
             <li><a href="alumni.html" class="nav-link">Alumni</a></li>
 
-             <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
-                More Pages
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="news-details.html">News Details</a></li>
-                <li><a class="dropdown-item" href="event-details.html">Event Details</a></li>
-                <li><a class="dropdown-item" href="privacy.html">Privacy</a></li>
-                <li><a class="dropdown-item" href="terms-of-service.html">Terms of Service</a></li>
-                <li><a class="dropdown-item" href="404.html">Error 404</a></li>
-                <li><a class="dropdown-item" href="starter-page.html">Starter Page</a></li>
-              </ul>
-            </li> -->
-
-             <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Dropdown 1</a></li> -->
-                <!-- <li class="dropdown-submenu dropdown">
-                  <a class="dropdown-item dropdown-toggle" href="#">Deep Dropdown</a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Deep Dropdown 1</a></li>
-                    <li><a class="dropdown-item" href="#">Deep Dropdown 2</a></li>
-                    <li><a class="dropdown-item" href="#">Deep Dropdown 3</a></li>
-                  </ul>
-                </li> -->
-                <!-- <li><a class="dropdown-item" href="#">Dropdown 2</a></li>
-              </ul>
-            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
                 ERP
@@ -190,15 +245,10 @@
                 <li><a class="dropdown-item" href="https://erp.msec.edu.in/erp/" target="_blank">ERP Staff Login</a></li>
               </ul>
             </li>
-                        <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
-                Others
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./StudentVerificationForm.pdf" target="_blank">Students Verification form</a></li>
-                <li><a class="dropdown-item" href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=2462563" target="_blank">All Fees Payment Link</a></li>
-              </ul>
-            </li>
+                <li><a class="nav-link"  href="./StudentVerificationForm.pdf" target="_blank">Students Verification form</a></li>
+                <li><a class="nav-link" href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=2462563" target="_blank">All Fees Payment Link</a></li>
+
+            <!-- </li> -->
             <li><a href="contact.html" class="nav-link">Contact</a></li>
 
           </ul>
@@ -553,6 +603,85 @@ Email: principal@msec.edu.in</span></p>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="JJLsl1Ox4f_8TgpXD8yGw";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = document.querySelectorAll(".dropdown-toggle");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", function () {
+      const targetId = toggle.getAttribute("data-target");
+      const dropdown = document.getElementById(targetId);
+
+      document.querySelectorAll(".custom-dropdown-content").forEach(menu => {
+        if (menu !== dropdown) menu.style.display = "none";
+      });
+
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // Add submenu for Departments with custom hrefs
+  const departmentsItem = document.querySelector('#academicsDropdown li a[href="academics.html"]');
+  if (departmentsItem) {
+    const subMenu = document.createElement("ul");
+    subMenu.classList.add("submenu");
+    subMenu.style.display = "none";
+    subMenu.style.listStyle = "none";
+    subMenu.style.paddingLeft = "0";
+    subMenu.style.margin = "0";
+
+    const departments = [
+      { name: "B.E. Computer Science", href: "computerscience.html" },
+      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
+      { name: "B.E. Electronics and Communication", href: "ece.html" },
+      { name: "B.E. Electrical and Electronics", href: "eee.html" },
+      { name: "B.E. Mechanical", href: "mech.html" },
+      { name: "B.E. Civil", href: "civil.html" },
+      { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
+      { name: "Science and Humanities", href: "humanitiesscience.html" },
+      { name: "M.E. Computer Science", href: "csepostgraduate.html" },
+      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
+      { name: "M.E. Construction Engineering and Management", href: "civilpostgraduate.html" },
+      { name: "M.E. Energy Engineering", href: "mechpostgraduate.html" }
+    ];
+
+    departments.forEach(dep => {
+      const li = document.createElement("li");
+      li.style.margin = "0";
+      li.style.padding = "0";
+
+      const link = document.createElement("a");
+      link.href = dep.href;
+      link.textContent = dep.name;
+      link.style.display = "block";
+      link.style.padding = "6px 12px";
+      link.style.margin = "0";
+      link.style.textDecoration = "none";
+      link.style.color = "black";
+
+// On click, make this link white and reset others
+link.addEventListener("click", function () {
+  subMenu.querySelectorAll("a").forEach(l => {
+    l.style.color = "black";
+  });
+  this.style.color = "black";
+});
+
+
+      li.appendChild(link);
+      subMenu.appendChild(li);
+    });
+
+    departmentsItem.addEventListener("click", function (e) {
+      e.preventDefault();
+      subMenu.style.display = subMenu.style.display === "block" ? "none" : "block";
+    });
+
+    departmentsItem.parentElement.appendChild(subMenu);
+  }
+});
+
+</script>
 
 </body>
 

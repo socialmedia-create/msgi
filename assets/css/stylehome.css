@@ -1078,3 +1078,107 @@ transition: all 0.2s ease-in-out;
   88.88%  { transform: translateX(-4900px); }
   100%   { transform: translateX(0); }
 }
+  .share-wrapper {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      z-index: 999;
+    }
+
+    .share-toggle {
+      background-color: #ffc107;
+      padding: 12px 18px;
+      cursor: pointer;
+      border-radius: 30px 0 0 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-right: 10px;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+      transform: translateX(100%);
+      opacity: 0;
+      pointer-events: none;
+      flex-direction: row;
+    }
+
+    .social-icons.show {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .social-icons a {
+       background-color: none;
+      /*padding: 12px;
+      border-radius: 50%; */
+      text-decoration: none;
+      color: #333;
+      border: none;
+      font-size: 20px;
+      /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+      transition: transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    /* ===== MOBILE RESPONSIVE (Icons above button) ===== */
+    @media (max-width: 768px) {
+      .share-wrapper {
+        top: 30%;
+        right: 0;
+        transform: translateY(-50%);
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .social-icons {
+        flex-direction: column;
+        margin: 0 0 10px 0;
+        transform: translateY(20px);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .social-icons.show {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .share-toggle {
+        border-radius: 30px 0 0 30px;
+      }
+    }
+    .stylesociallogo{
+      width: 50px;
+      height: 50px;
+    }
+     .campus-tour-btn {
+      position: fixed;
+      left: 20px;       /* distance from left edge */
+      bottom: 20px;     /* distance from bottom edge */
+      background-color: #df1529; /* bootstrap blue color */
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      z-index: 1000; /* above most other content */
+    }
+    .campus-tour-btn:hover {
+      background-color: #b31222;
+    }

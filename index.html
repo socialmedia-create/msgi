@@ -1713,7 +1713,21 @@ Build future-ready solutions through hands-on coding and industry-led learning a
   </div>
 </div>
 
-  </main>
+  <div class="share-wrapper">
+    <!-- Social Icons (hidden by default) -->
+    <div class="social-icons" id="socialIcons">
+      <a href="https://www.facebook.com/MSECADMIN/" target="_blank" title="Facebook"><img src="./assets/img/facebook.png" class="img-fluid stylesociallogo" /></a>
+      <a href="https://www.instagram.com/msecofficial_chennai24/" target="_blank" title="instagram"><img src="./assets/img/instalogo.png" class="img-fluid " style="width: 45px; height: 45px;" /></a>
+      <a href="https://www.youtube.com/@meenakshisundararajanenggmsec" target="_blank" title="YouTube"><img src="./assets/img/youtube.png"class="img-fluid " style="width: 45px; height: 45px;" /></a>
+      <a href="https://www.linkedin.com/school/meenakshi-sundararajan-engineering-college/posts/?feedView=all" target="_blank" title="LinkedIn"><img src="./assets/img/linkedin.png"class="img-fluid stylesociallogo" /></a>
+    </div>
+
+    <!-- Main Share Button -->
+    <div class="share-toggle" onclick="toggleShare()">
+      📢 Social Media
+    </div>
+  </div>
+<button class="campus-tour-btn" onclick="window.open('./app-files', '_blank')">Campus Tour</button>
 
 
   <footer id="footer" class="footer position-relative dark-background">
@@ -1908,6 +1922,14 @@ link.addEventListener("click", function () {
 });
 
 </script>
+  <script>
+    function toggleShare() {
+      const icons = document.getElementById("socialIcons");
+      icons.classList.toggle("show");
+    }
+  </script>
+
+
 
 
 </body>

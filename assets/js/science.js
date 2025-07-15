@@ -47,7 +47,8 @@ async function loadFacultyByDepartments() {
     "Mathematics": "mathsfaculty",
     "Physics": "physicsfaculty",
     "English": "englishfaculty",
-    "Tamil": "tamilfaculty"
+    "Tamil": "tamilfaculty",
+    "Chemistry": "chemistryfaculty"
   };
 
   // Group staff
@@ -73,7 +74,7 @@ async function loadFacultyByDepartments() {
     container.appendChild(heading);
 
     const cardRow = document.createElement("div");
-    cardRow.className = "row g-4 mb-5";
+    cardRow.className = "row g-4 mb-5 justify-content-center";
 
     const sortedFaculty = (groupedFaculty[deptName] || []).sort(
       (a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation)

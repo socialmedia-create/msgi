@@ -1,16 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Campus Virtual Tour</title>
-  <link rel="stylesheet" href="./assets/css/campus.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FullCalendar Fix</title>
+
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+  <!-- Tippy.js for tooltips -->
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #calendar {
+      max-width: 900px;
+      margin: 40px auto;
+    }
+    .event-ticker-list {
+      max-width: 900px;
+      margin: 20px auto;
+    }
+    .event-item {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      background: #f9f9f9;
+    }
+    .event-date {
+      font-weight: bold;
+      color: #d80000;
+    }
+  </style>
 </head>
 <body>
-  <div id="scene">
-    <img id="scene-image" src="./images/camp1.jpg" alt="Campus Scene">
-    <button id="next-btn">➡️ Next</button>
-  </div>
 
-  <script src="./assets/js/campus.js"></script>
+  <h2 style="text-align: center;">MSIIC News & Events</h2>
+
+  <div id="calendar"></div>
+  <div class="event-ticker-list"></div>
+
+  <!-- FullCalendar & Tippy.js Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const calendarEl = document.getElementById("calendar");
+
+      if (calendarEl) {
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridMonth",
+          headerToolbar: {
+            left: "prev,next today",
+            center: "title",
+            right: "dayGridMonth,timeGridWeek,listWeek"
+          },
+          googleCalendarApiKey: "AIzaSyAopuRwGvHYNw5SccRfp7oecsnG2-5s0e8",
+          events: {
+            googleCalendarId:
+              "9929ff772c36b25ac7cc532ff3dd094b7fe502776c9932d689e8b026d6e426ba@group.calendar.google.com"
+          },
+
+          eventDidMount: function (info) {
+            tippy(info.el, {
+              content: `<strong>${info.event.title}</strong><br>${info.event.extendedProps.description || ""}`,
+              allowHTML: true,
+              theme: "light-border"
+            });
+          },
+
+          eventsSet: function (events) {
+            const container = document.querySelector(".event-ticker-list");
+            if (!container) return;
+
+            container.innerHTML = "";
+
+            const now = new Date();
+            now.setHours(0, 0, 0, 0);
+
+            const upcomingEvents = events
+              .filter(event => {
+                const date = new Date(event.start);
+                date.setHours(0, 0, 0, 0);
+                return date >= now;
+              })
+              .sort((a, b) => new Date(a.start) - new Date(b.start));
+
+            if (upcomingEvents.length === 0) {
+              container.innerHTML = "<p class='text-center'>No upcoming events.</p>";
+            } else {
+              for (let i = 0; i < 2; i++) {
+                upcomingEvents.forEach(event => renderEvent(event, container));
+              }
+            }
+          },
+
+          eventClick: function (info) {
+            info.jsEvent.preventDefault(); // disable redirect
+          }
+        });
+
+        // Fix: Render + Update size to avoid initial glitch
+        calendar.render();
+        setTimeout(() => {
+          calendar.updateSize();
+        }, 200);
+      }
+
+      function renderEvent(event, container) {
+        const date = new Date(event.start);
+        const day = String(date.getDate()).padStart(2, "0");
+        const month = date.toLocaleString("default", { month: "short" }).toUpperCase();
+        const time = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        const location = event.extendedProps.location || "Campus";
+        const description = event.extendedProps.description || "No description available.";
+
+        const eventHTML = `
+          <div class="event-item">
+            <div class="event-date">
+              <span class="day">${day}</span> <span class="month">${month}</span>
+            </div>
+            <div class="event-content">
+              <h3>${event.title}</h3>
+              <div class="event-meta">
+                <p><i class="bi bi-clock"></i> ${time}</p>
+                <p><i class="bi bi-geo-alt"></i> ${location}</p>
+              </div>
+              <p>${description}</p>
+            </div>
+          </div>
+        `;
+
+        container.insertAdjacentHTML("beforeend", eventHTML);
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1089,7 +1089,7 @@ transition: all 0.2s ease-in-out;
     }
 
     .share-toggle {
-      background-color: #ffc107;
+      background-color: #df1529;
       padding: 12px 18px;
       cursor: pointer;
       border-radius: 30px 0 0 30px;
@@ -1166,10 +1166,11 @@ transition: all 0.2s ease-in-out;
     }
      .campus-tour-btn {
       position: fixed;
-      left: 20px;       /* distance from left edge */
-      bottom: 20px;     /* distance from bottom edge */
+      left: 0;       
+      bottom: 10px;     /* distance from bottom edge */
       background-color: #df1529; /* bootstrap blue color */
       color: white;
+      font-weight: 800;
       padding: 12px 24px;
       border: none;
       border-radius: 8px;
@@ -1182,3 +1183,130 @@ transition: all 0.2s ease-in-out;
     .campus-tour-btn:hover {
       background-color: #b31222;
     }
+.custom-tabs .nav-link.active {
+  background-color: #df1529;
+  color: #fff !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.accolades-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.accolade-card {
+  background: white;
+  border-left: 6px solid #df1529;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.accolade-card:hover {
+  transform: translateY(-5px);
+}
+
+.accolade-card h4 {
+  margin-top: 0;
+  color: #df1529;
+  font-weight: bold;
+}
+
+.accolade-card p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+.research-container {
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.research-container h3 {
+  text-align: center;
+  color: #df1529;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  text-align: justify;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.research-card {
+  background: #ffffff;
+  border-left: 5px solid #df1529;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+}
+
+.research-card h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.research-card ul {
+  padding-left: 20px;
+}
+
+.research-card li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.phd-section {
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+}
+
+.phd-section h3 {
+  color: #df1529;
+  margin-top: 30px;
+  text-align: left;
+  border-left: 5px solid #df1529;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.phd-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.phd-card {
+  background: #ffffff;
+  border: 2px solid #df1529;
+  border-radius: 8px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.phd-card:hover {
+  transform: translateY(-4px);
+  background-color: #eaf1ff;
+}

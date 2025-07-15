@@ -26,6 +26,7 @@ const departmentTabMap = {
      "Physics": "faculty--staff-tab-8",
   "Mathematics": "faculty--staff-tab-8",
   "English": "faculty--staff-tab-8",
+   "Chemistry": "faculty--staff-tab-8",
   "Tamil": "faculty--staff-tab-8"
 
   // Add more departments here if needed

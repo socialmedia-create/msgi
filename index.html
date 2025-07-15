@@ -162,7 +162,7 @@
               <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
                 Academics
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu" id="academicsDropdown">
                 <li class="dropdown-submenu">
                   <a href="academics.html" class="dropdown-item" aria-expanded="false">Departments</a>
                 </li>
@@ -176,11 +176,11 @@
               <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
                 Centres of Excellence </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="counselling.html">MSIIC</a></li>
-                <li><a class="dropdown-item" href="accolades.html">MSCIIC</a></li>
-                <li><a class="dropdown-item" href="MOU.html">MSCDC</a></li>
-                <li><a class="dropdown-item" href="MOU.html">IIC</a></li>
-                <li><a class="dropdown-item" href="MOU.html">Research</a></li>
+                <li><a class="dropdown-item" href="msiic.html">MSIIC</a></li>
+                <li><a class="dropdown-item" href="msciic.html">MSCIIC</a></li>
+                <li><a class="dropdown-item" href="mscdc.html">MSCDC</a></li>
+                <li><a class="dropdown-item" href="IIC.html">IIC</a></li>
+                <li><a class="dropdown-item" href="research.html">Research</a></li>
               </ul>
             </li>
 
@@ -1723,8 +1723,8 @@ Build future-ready solutions through hands-on coding and industry-led learning a
     </div>
 
     <!-- Main Share Button -->
-    <div class="share-toggle" onclick="toggleShare()">
-      📢 Social Media
+    <div class="share-toggle text-white" onclick="toggleShare()">
+     Social Media
     </div>
   </div>
 <button class="campus-tour-btn" onclick="window.open('./app-files', '_blank')">Campus Tour</button>
@@ -1919,6 +1919,9 @@ link.addEventListener("click", function () {
 
     departmentsItem.parentElement.appendChild(subMenu);
   }
+  else {
+  console.warn('departmentsItem not found!');
+}
 });
 
 </script>

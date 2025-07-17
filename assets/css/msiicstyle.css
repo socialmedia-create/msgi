@@ -651,3 +651,25 @@
   .news-card:hover .news-image-container img {
     transform: scale(1.1);
   }
+  .tab-card {
+      cursor: pointer;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .tab-card:hover,
+    .tab-card.active {
+      background-color: #fcebed;
+      border-color: #df1529;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+    .tab-content-area {
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }

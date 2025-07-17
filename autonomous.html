@@ -679,30 +679,33 @@
 <div class="container py-5">
     <div class="row g-4">
       <!-- 1 -->
+      <!-- 1. Entrepreneurship Card -->
       <div class="col-12 col-sm-6 col-lg-4">
-        <div class="card card-custom p-4 text-center h-100">
+        <div class="card card-custom p-4 text-center h-100" data-bs-toggle="modal" data-bs-target="#entrepreneurModal" style="cursor:pointer;">
           <div class="icon-circle">🚀</div>
           <div class="card-title">Entrepreneurship Development & Innovation</div>
-          <small class="text-muted">Tie-up with Wadhwani Foundations</small>
-          <small>Framed by MSIIC
-6 Subjects over 6 Sems – 3 Credits to CGPA
-Ideation to Market – Product Development in TEAMS
-Promoting Collaboration & Entrepreneurship
+          <small class="text-muted">Tie-up with Wadhwani Foundations</small><br>
+          <small>Framed by MSIIC<br>
+            6 Subjects over 6 Sems – 3 Credits to CGPA<br>
+            Ideation to Market – Product Development in TEAMS<br>
+            Promoting Collaboration & Entrepreneurship
           </small>
         </div>
       </div>
-      <!-- 2 -->
+
+      <!-- 2. Research Card -->
       <div class="col-12 col-sm-6 col-lg-4">
-        <div class="card card-custom p-4 text-center h-100">
+        <div class="card card-custom p-4 text-center h-100" data-bs-toggle="modal" data-bs-target="#researchModal" style="cursor:pointer;">
           <div class="icon-circle">📊</div>
           <div class="card-title">Research & Problem Solving</div>
-          <small>5 Subjects – 3 Credits towards CGPA
-Framed by Scientists in Department BOS
-Problem Solving Approach
-Objective :- Research Publication
-</small>
+          <small>5 Subjects – 3 Credits towards CGPA<br>
+            Framed by Scientists in Department BOS<br>
+            Problem Solving Approach<br>
+            Objective :- Research Publication
+          </small>
         </div>
       </div>
+
       <!-- 3 -->
       <div class="col-12 col-sm-6 col-lg-4">
         <div class="card card-custom p-4 text-center h-100">
@@ -990,6 +993,133 @@ RESEARCH METHODOLOGY COURSES (3RD TO 7TH SEMESTERS)</p>
     </section><!-- /Starter Section Section -->
 
   </main>
+<!-- Modal for Entrepreneurship -->
+<div class="modal fade" id="entrepreneurModal" tabindex="-1" aria-labelledby="entrepreneurModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-danger ">
+        <h5 class="modal-title text-white" id="entrepreneurModalLabel">EDIC – Entrepreneurial Development and Innovation Courses</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <p class="lead">Structured pathway to foster entrepreneurial skills & innovation from 1st to 6th semester.</p>
+
+        <div class="mb-4">
+          <h5>🧭 Five-Stage Innovation Journey</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <strong>1. Empathy</strong>
+              <ul>
+                <li>Understand stakeholders</li>
+                <li>Empathy with Society, Institutions, Corporates</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <strong>2. Define</strong>
+              <ul>
+                <li>Problem, Feasibility & Viability checks</li>
+                <li>Well-defined challenge</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <strong>3. Ideation</strong>
+              <ul>
+                <li>Invention & Innovation</li>
+                <li>Creative idea generation</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <strong>4. Prototyping & Modeling</strong>
+              <ul>
+                <li>Prototyping & Experimentation</li>
+                <li>Functional prototypes</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <strong>5. Testing & Data Collection</strong>
+              <ul>
+                <li>User Testing & Iteration</li>
+                <li>Market-validated solution</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h5>📚 Semester-wise Course Modules</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Semester 1: Design Thinking – Building Innovation</li>
+            <li class="list-group-item">Semester 2: Design Thinking – Decoding Opportunity</li>
+            <li class="list-group-item">Semester 3: Innovation Toolkits</li>
+            <li class="list-group-item">Semester 4: Idea & Simulation Lab</li>
+            <li class="list-group-item">Semester 5: Prototype Development & Market Validation</li>
+            <li class="list-group-item">Semester 6: Business Management – Go-To-Market Strategy</li>
+          </ul>
+        </div>
+
+        <div class="mb-2">
+          <h5>🎯 Program Highlights</h5>
+          <ul>
+            <li>Strategic partnership with Wadhwani Foundation</li>
+            <li>40-hour certified training</li>
+            <li>IGNITE – Entrepreneurship & New Venture Creation program</li>
+            <li>Offered to 1st & 3rd semester students</li>
+            <li>Faculty trained by Wadhwani experts</li>
+            <li>Equips students with real-world innovation tools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Research -->
+<div class="modal fade" id="researchModal" tabindex="-1" aria-labelledby="researchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger ">
+        <h5 class="modal-title text-white" id="researchModalLabel">RMC – Research and Problem Solving</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4">
+            <h5 class="card-title mb-3">RESEARCH METHODOLOGY COURSES <small class="text-muted">(3rd to 7th Semesters)</small></h5>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                                <img src="./assets/img/problem sloving.png" alt="" class="img-fluid" style="width: 50px; height: 50px;">
+ Introduction to Problem Solving
+              </li>
+              <li class="list-group-item">
+                                <img src="./assets/img/hypothesis.png" alt=""  class=" img-fluid" style="width: 50px; height: 50px;">
+ Hypothesis
+              </li>
+              <li class="list-group-item">
+                <img src="./assets/img/experiment.png" alt=""  class=" img-fluid" style="width: 50px; height: 50px;"> Domain-specific Experiments / Methodology / Algorithms
+              </li>
+              <li class="list-group-item">
+<img src="./assets/img/data analysis.png" alt=""  class=" img-fluid" style="width: 50px; height: 50px;"> Data Collection, Analysis and Interpretation
+              </li>
+              <li class="list-group-item">
+                <img src="./assets/img/resume riting.png" alt=""  class=" img-fluid" style="width: 50px; height: 50px;"> Technical Writing and Research Ethics
+              </li>
+            </ul>
+
+            <div class="mt-4">
+              <p class="text-muted">
+                The RMC program equips students with a structured approach to identify real-world problems, validate hypotheses, and publish their research with strong ethical foundations.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 
   <footer id="footer" class="footer position-relative dark-background">

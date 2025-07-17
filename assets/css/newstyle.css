@@ -434,14 +434,13 @@
     }
     .tab-card:hover,
     .tab-card.active {
-      background-color: #f0f8ff;
-      border-color: #0d6efd;
+      background-color: #fcebed;
+      border-color: #df1529;
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
     .tab-content-area {
       margin-top: 30px;
       padding: 25px;
-      background: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }

@@ -1,3 +1,4 @@
+
 /**
 * Template Name: NiceSchool
 * Template URL: https://bootstrapmade.com/nice-school-bootstrap-education-template/
@@ -1048,22 +1049,19 @@ section,
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; /* Full height of screen */
   overflow: hidden;
   z-index: 0;
 }
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: calc(100vw * 9 / 16);
-  transform: translate(-50%, -50%);
+.homepage-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ Prevents cropping */
+  object-position: center;
+  display: block;
   pointer-events: none;
-  border: none;
 }
-
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/

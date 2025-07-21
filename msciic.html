@@ -718,6 +718,13 @@ Use theatre techniques to boost self-confidence in social settings.</p>
 <div class="ticker-wrapper overflow-hidden py-3">
   <div class="ticker d-flex gap-4">
     
+
+        <div class="card" style="min-width: 18rem;">
+      <img src="./assets/img/embedur placement poster.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text text-danger fw-bold">We are proud to celebrate your outstanding achievement!</p>
+      </div>
+    </div>
     <div class="card" style="min-width: 18rem;">
       <img src="./assets/img/cmpylogo20 (1).png" class="card-img-top" alt="...">
       <div class="card-body">
@@ -741,7 +748,13 @@ Use theatre techniques to boost self-confidence in social settings.</p>
 
     <!-- Duplicate cards to create infinite scroll effect -->
     <div class="card" style="min-width: 18rem;">
-      <img src="./assets/img/cmpylogo20 (1).png" class="card-img-top" alt="...">
+      <img src="./assets/img/embedur placement poster.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">We are proud to celebrate your outstanding achievement!</p>
+      </div>
+    </div>
+        <div class="card" style="min-width: 18rem;">
+      <img src="./assets/img/embedur placement poster.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <p class="card-text">Infosys Campus Drive</p>
       </div>
@@ -812,7 +825,20 @@ Use theatre techniques to boost self-confidence in social settings.</p>
       </section>
 </div>
 
-
+<div class="modal fade" id="congratsModal" tabindex="-1" aria-labelledby="congratsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content popup-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100 text-danger fw-bold" id="congratsLabel">🎉 Heartiest Congratulations!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="lead">We are proud to celebrate your outstanding achievement!</p>
+        <img src="./assets/img/embedur placement poster.jpg" alt="Congratulations" class="popup-imageembed">
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -865,7 +891,7 @@ Email: principal@msec.edu.in</span></p>
           <h4>Important Links</h4>
           <ul>
             <li><a href="./helpdesk.html">Help Desk</a></li>
-            <li><a href="./MandatoryDisclosureMSEC.pdf">Mandatory Disclosure</a></li>
+            <li><a href="./madatorydisclosure.html">Mandatory Disclosure</a></li>
             <li><a href="#">Privacy policy</a></li>
             <!-- <li><a href="#">Marketing</a></li>
             <li><a href="#">Graphic Design</a></li> -->
@@ -1055,7 +1081,12 @@ link.addEventListener("click", function () {
 });
 
 </script>
-
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const modal = new bootstrap.Modal(document.getElementById('congratsModal'));
+    modal.show();
+  });
+</script>
 
 
 

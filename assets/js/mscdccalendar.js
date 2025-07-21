@@ -45,7 +45,16 @@ document.addEventListener("DOMContentLoaded", function () {
               .sort((a, b) => new Date(a.start) - new Date(b.start));
 
             if (upcomingEvents.length === 0) {
-              container.innerHTML = "<p class='text-center'>No upcoming events.</p>";
+              container.innerHTML = `
+                <div class="w-100 text-danger fw-bold fs-2">
+                  No upcoming events.
+                </div>
+              `;
+              container.style.display = "flex";
+              container.style.alignItems = "center";
+              container.style.justifyContent = "center";
+              container.style.minHeight = "250px";
+              container.style.textAlign = "center";
             } else {
               for (let i = 0; i < 2; i++) {
                 upcomingEvents.forEach(event => renderEvent(event, container));

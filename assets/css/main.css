@@ -154,7 +154,7 @@ h6 {
 --------------------------------------------------------------*/
 
 .header {
-  --background-color: rgba(255, 255, 255, 0);
+  --background-color: #013483;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);

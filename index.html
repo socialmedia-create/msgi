@@ -26,8 +26,9 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
+  <link href="assets/css/stylehome.css" rel="stylesheet">
   <link href="assets/css/main.min.css" rel="stylesheet">
-    <link href="assets/css/stylehome.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/stylehome.min.css" rel="stylesheet"> -->
 
 
 
@@ -269,8 +270,14 @@
 
 
   <main class="main">
-    <a href="/admission2025" class="admission-label" target="_blank">Admission 2025</a>
-    <!-- Hero Section -->
+<div class="admission-toggle" id="admissionToggle">
+  <a href="/admission2025" class="admission-label" id="admissionToggleBtn">
+    <i class="bi bi-info-circle me-2 icon-only"></i>
+    <span class="label-text">Admission 2025</span>
+  </a>
+</div>
+ 
+ <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
       <div class="hero-container">
@@ -1223,155 +1230,6 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                 </div>
               </div>
             </div>
-            <!-- <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="100">
-              <div class="program-item">
-                <div class="program-badge">Bachelor's Degree</div>
-                <div class="row g-0 setdegreecontainer">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/itdepart.webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3 class="pt-3">Information Technology</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 4 Years</span>
-                        <span><i class="bi bi-book"></i> 40+ papers</span>
-                        <span><i class="bi bi-kanban"></i> 10+ Practical Projects</span>
-                      </div>
-                      <p class="coursetext">Produce technically savvy students, encourage innovative skills and inculcate moral and professional values.</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="100">
-              <div class="program-item">
-                <div class="program-badge">Bachelor's Degree</div>
-                <div class="row g-0 setdegreecontainer">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/ece.webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3 class="pt-3">Electronics and Communication Engineering</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 4 Years</span>
-                        <span><i class="bi bi-book"></i> 40+ papers</span>
-                        <span><i class="bi bi-kanban"></i> 10+ Practical Projects</span>
-                      </div>
-                      <p class="coursetext">To emerge as a Centre of excellence in offering quality education to produce students technically competent,
-                         socially responsible and industry ready graduates in electronics and communication engineering.</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="100">
-              <div class="program-item">
-                <div class="program-badge">Bachelor's Degree</div>
-                <div class="row g-0 setdegreecontainer">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/eeedepart.webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3 class="pt-3">Electrical and Electronics Engineering</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 4 Years</span>
-                        <span><i class="bi bi-book"></i> 40+ papers</span>
-                        <span><i class="bi bi-kanban"></i> 10+ Practical Projects</span>
-                      </div>
-                      <p class="coursetext">To impart qualitative Education, to produce competent graduates in Electrical and Electronics
-                         Engineering with innovative research abilities and best suited to meet the industrial needs.</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="100">
-              <div class="program-item">
-                <div class="program-badge">Bachelor's Degree</div>
-                <div class="row g-0 setdegreecontainer">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/mechdept.webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3 class="pt-3">Mechanical Engineering</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 4 Years</span>
-                        <span><i class="bi bi-book"></i> 40+ papers</span>
-                        <span><i class="bi bi-kanban"></i> 10+ Practical Projects</span>
-                      </div>
-                      <p class="coursetext">To develop creative mechanical engineers by providing quality education, research and ethical values.</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="100">
-              <div class="program-item">
-                <div class="program-badge">Bachelor's Degree</div>
-                <div class="row g-0 setdegreecontainer">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/civildept.webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3 class="pt-3">Civil Engineering</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 4 Years</span>
-                        <span><i class="bi bi-book"></i> 40+ papers</span>
-                        <span><i class="bi bi-kanban"></i> 10+ Practical Projects</span>
-                      </div>
-                      <p class="coursetext">To develop technical man power by facing challenges in emerging technologies through
-                         excellence in education, research and scientific training with socio-economic involvement.</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="200">
-              <div class="program-item">
-                <div class="program-badge">Bachelor's Degree</div>
-                <div class="row g-0 setdegreecontainer">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/humanscience (2).webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3 class="pt-3">Humanities and Science</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 3 Years</span>
-                        <span><i class="bi bi-book"></i> 90 Credits</span>
-                        <span><i class="bi bi-kanban"></i> Fall Only</span>
-                      </div>
-                      <p class="coursetext">The department of Humanities and Science was established with vision to foster innovative ideas
-                        and research among the students and faculty members. It serves as the basis of liberal arts education and provides a platform to explore new horizons in the world of science.</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- End Program Item -->
 
             <div class="col-lg-6 isotope-item filter-bachelor" data-aos="zoom-in" data-aos-delay="100">
               <div class="program-item">
@@ -1387,8 +1245,6 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                       <h3 class="pt-3">Construction Engineering and Management</h3>
                       <div class="program-highlights">
                         <span><i class="bi bi-clock"></i> 2 Years</span>
-                        <!-- <span><i class="bi bi-book"></i> 60 Credits</span>
-                        <span><i class="bi bi-kanban"></i> Spring Only</span> -->
                       </div>
                       <p class="coursetext">Learn to lead complex infrastructure projects from concept to completion with precision.
 Gain skills in planning, execution, and resource optimization to shape tomorrow's built environment.</p>
@@ -1412,8 +1268,6 @@ Gain skills in planning, execution, and resource optimization to shape tomorrow'
                       <h3 class="pt-3">Computer Science and Engineering</h3>
                       <div class="program-highlights">
                         <span><i class="bi bi-clock"></i> 2 Years</span>
-                        <!-- <span><i class="bi bi-book"></i> 60 Credits</span>
-                        <span><i class="bi bi-kanban"></i> Spring Only</span> -->
                       </div>
                       <p class="coursetext">Dive into algorithms, AI, and next-gen computing technologies.
 Build future-ready solutions through hands-on coding and industry-led learning at MSEC</p>
@@ -1432,80 +1286,6 @@ Build future-ready solutions through hands-on coding and industry-led learning a
                 </a>            
               </div>
             </div>
-           <!-- <div class="col-lg-6 isotope-item filter-master" data-aos="zoom-in" data-aos-delay="100">
-              <div class="program-item">
-                <div class="program-badge">Master's Degree</div>
-                <div class="row g-0 setdegreecontainer">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/education/education-7.webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3 class="pt-3">Embedded System Technologies</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 2 Years</span>
-                        <span><i class="bi bi-book"></i> 60 Credits</span>
-                        <span><i class="bi bi-kanban"></i> Spring Only</span>
-                      </div>
-                      <p class="coursetext">Aenean imperdiet, erat vel consequat mollis, nunc risus aliquam nunc, eget condimentum urna dui et metus.</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="col-lg-6 isotope-item filter-master" data-aos="zoom-in" data-aos-delay="200">
-              <div class="program-item">
-                <div class="program-badge">Master's Degree</div>
-                <div class="row g-0 setdegreecontainer">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/education/education-9.webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3 class="pt-3">Energy Engineering</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 2 Years</span>
-                        <span><i class="bi bi-book"></i> 64 Credits</span>
-                        <span><i class="bi bi-kanban"></i> 10+ Practical Projects</span>
-                      </div>
-                      <p class="coursetext">Praesent tincidunt, massa et porttitor imperdiet, lorem ex ultricies ipsum, a tempus metus eros non tortor.</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>  -->
-           
-
-            <!-- <div class="col-lg-6 isotope-item filter-certificate" data-aos="zoom-in" data-aos-delay="100">
-              <div class="program-item">
-                <div class="program-badge">Certificate</div>
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <div class="program-image-wrapper">
-                      <img src="assets/img/education/education-2.webp" class="img-fluid" alt="Program">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="program-content">
-                      <h3>Data Science</h3>
-                      <div class="program-highlights">
-                        <span><i class="bi bi-clock"></i> 6 Months</span>
-                        <span><i class="bi bi-book"></i> 24 Credits</span>
-                        <span><i class="bi bi-kanban"></i> Year-round</span>
-                      </div>
-                      <p>Mauris sed erat in mi vestibulum commodo. Donec a purus at justo facilisis imperdiet tnteger pell</p>
-                      <a href="#" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>End Program Item -->
 
           </div>
         </div>
@@ -1732,8 +1512,8 @@ Build future-ready solutions through hands-on coding and industry-led learning a
     </div>
 
     <!-- Main Share Button -->
-    <div class="share-toggle text-white" onclick="toggleShare()">
-     Social Media
+    <div class="share-toggle text-white" id="shareToggleBtn" onclick="toggleShare()">
+       <i class="bi bi-share-fill me-2 icon-only"></i> Social Media
     </div>
   </div>
 <button class="campus-tour-btn" onclick="window.open('./app-files', '_blank')">Campus Tour</button>
@@ -1935,12 +1715,37 @@ link.addEventListener("click", function () {
 });
 
 </script>
-  <script>
-    function toggleShare() {
-      const icons = document.getElementById("socialIcons");
-      icons.classList.toggle("show");
-    }
-  </script>
+<script>
+  function toggleShare() {
+    const icons = document.getElementById("socialIcons");
+    const toggleBtn = document.getElementById("shareToggleBtn");
+
+    icons.classList.toggle("show");
+    toggleBtn.classList.toggle("collapsed"); // hide the button partially
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("admissionToggleBtn");
+    const toggleWrapper = document.getElementById("admissionToggle");
+
+    toggleBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Toggle the collapsed state (slide in/out)
+      toggleWrapper.classList.toggle("collapsed");
+
+      // Delay redirection so animation can be seen
+      setTimeout(() => {
+        window.open("/admission2025", "_blank");
+      }, 300); // adjust delay if animation is slower/faster
+    });
+  });
+</script>
+
+
+
+
 
 
 

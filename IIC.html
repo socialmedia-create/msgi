@@ -265,7 +265,7 @@
 
 
 
-    <div class="page-title dark-background" style="background-image: url(assets/img/education/showcase-1.webp);">
+    <div class="page-title dark-background" style="background-image: url(assets/img/campus.jpeg);">
       <div class="container position-relative">
         <h1>IIC</h1>
         <nav class="breadcrumbs">
@@ -471,6 +471,7 @@ Email: principal@msec.edu.in</span></p>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/script.js"></script>
   <script src="assets/js/msiicscript.js"></script>
 <script>
   document.querySelectorAll('.msec-tab-trigger').forEach(trigger => {
@@ -486,18 +487,6 @@ Email: principal@msec.edu.in</span></p>
     });
   });
 </script>
- <script>
-    document.querySelectorAll('.nav-link i').forEach(icon => {
-      icon.closest('.nav-link').addEventListener('mouseenter', () => {
-        icon.classList.remove(icon.getAttribute('data-default'));
-        icon.classList.add(icon.getAttribute('data-hover'));
-      });
-      icon.closest('.nav-link').addEventListener('mouseleave', () => {
-        icon.classList.remove(icon.getAttribute('data-hover'));
-        icon.classList.add(icon.getAttribute('data-default'));
-      });
-    });
-  </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const toggles = document.querySelectorAll(".dropdown-toggle");
@@ -519,6 +508,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const departmentsItem = document.querySelector('#academicsDropdown li a[href="academics.html"]');
   if (departmentsItem) {
     const subMenu = document.createElement("ul");
+    subMenu.classList.add("submenu");
     subMenu.style.display = "none";
     subMenu.style.listStyle = "none";
     subMenu.style.paddingLeft = "0";
@@ -558,7 +548,7 @@ link.addEventListener("click", function () {
   subMenu.querySelectorAll("a").forEach(l => {
     l.style.color = "black";
   });
-  this.style.color = "white";
+  this.style.color = "black";
 });
 
 

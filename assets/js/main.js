@@ -164,8 +164,13 @@
   /**
    * Initiate glightbox
    */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+ if (document.querySelector('.glightbox')) {
+    const script = document.createElement('script');
+    script.src = 'assets/vendor/glightbox/js/glightbox.min.js';
+    script.onload = () => {
+      GLightbox({ selector: '.glightbox' });
+    };
+    document.body.appendChild(script);
+  }
 
 })();

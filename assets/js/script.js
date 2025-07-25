@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((reviews) => {
       const carouselInner = document.querySelector("#google-carousel-inner");
       if (!carouselInner) return;
-      console.log(carouselInner.innerHTML);
+      // console.log(carouselInner.innerHTML);
 
       carouselInner.innerHTML = ""; // Clear existing content
 

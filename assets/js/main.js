@@ -118,14 +118,14 @@
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
     let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
+    // imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+    //   initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+    //     itemSelector: '.isotope-item',
+    //     layoutMode: layout,
+    //     filter: filter,
+    //     sortBy: sort
+    //   });
+    // });
 
     isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
       filters.addEventListener('click', function() {

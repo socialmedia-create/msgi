@@ -57,14 +57,15 @@
 .ticker-wrapper {
   position: relative;
   width: 100%;
-  background-color: #f8f9fa;
+  background-color: #faf9f8;
 }
 
 .ticker {
-  animation: scroll-left1 20s linear infinite;
+  animation: scroll-left1 30s linear infinite;
   display: flex;
   align-items: center;
   white-space: nowrap;
+    width: max-content;
 }
 
 @keyframes scroll-left1 {
@@ -72,7 +73,7 @@
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 

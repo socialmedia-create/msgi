@@ -1460,6 +1460,17 @@ Email: principal@msec.edu.in</span></p>
     </div>
 
   </footer>
+<div id="popup" class="popup-overlay">
+  <a href="coe.html" class="popup-link">
+    <div class="popup-content">
+      <div class="popup-image-wrapper">
+        <img src="./assets/img/result announcement (1).jpg" alt="Popup Image" class="img-fluid rounded" />
+        <button class="close-btn btn btn-dark">×</button>
+      </div>
+    </div>
+  </a>
+</div>
+
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -1597,6 +1608,18 @@ link.addEventListener("click", function () {
       setTimeout(() => {
         window.open("/admission2025", "_blank");
       }, 300); // adjust delay if animation is slower/faster
+    });
+  });
+</script>
+<script>
+  window.addEventListener('load', () => {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'flex';
+
+    document.querySelector('.close-btn').addEventListener('click', (e) => {
+      e.preventDefault(); // Stop anchor redirect
+      e.stopPropagation(); // Stop bubbling to anchor
+      popup.style.display = 'none';
     });
   });
 </script>

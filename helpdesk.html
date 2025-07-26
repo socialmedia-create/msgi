@@ -169,7 +169,7 @@
 
     <!-- Logo Section -->
     <div class="d-flex flex-column flex-md-row align-items-center">
-            <button class="btn d-none d-lg-block bg-white rounded-3 mx-2 fw-bold">TNEA <br/> <span class="ccode">1309</span></button>
+            <button class="btn d-none d-lg-block bg-white rounded-3 mx-2 fw-bold">TNEA code<br/> <span class="ccode">1309</span></button>
      <a href="index.html">
         <img class="mseclogo" src="assets/img/mseclogo.png" alt="MSEC Logo">
       </a>
@@ -181,6 +181,10 @@
         <span class="styleheaderspan py-lg-2">Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai</span>
         <span class="styleheaderspan">A Recognized Research Center by Anna University</span>
       </div>
+      <a href="/admission2025" class="btn ms-5 d-none d-lg-block bg-white rounded-3  fw-bold" id="admissionToggleBtn">
+    <span class="label-text">Admission <br />
+       <span class="ccode">2025</span></span>
+    </a>
     </div>
 
     <!-- Offcanvas Navigation -->
@@ -445,7 +449,85 @@ Email: principal@msec.edu.in</span></p>
   <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="JJLsl1Ox4f_8TgpXD8yGw";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = document.querySelectorAll(".dropdown-toggle");
 
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", function () {
+      const targetId = toggle.getAttribute("data-target");
+      const dropdown = document.getElementById(targetId);
+
+      document.querySelectorAll(".custom-dropdown-content").forEach(menu => {
+        if (menu !== dropdown) menu.style.display = "none";
+      });
+
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // Add submenu for Departments with custom hrefs
+  const departmentsItem = document.querySelector('#academicsDropdown li a[href="academics.html"]');
+  if (departmentsItem) {
+    const subMenu = document.createElement("ul");
+    subMenu.classList.add("submenu");
+    subMenu.style.display = "none";
+    subMenu.style.listStyle = "none";
+    subMenu.style.paddingLeft = "0";
+    subMenu.style.margin = "0";
+
+    const departments = [
+      { name: "B.E. Computer Science and Engineering", href: "computerscience.html" },
+      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
+      { name: "B.E. Electronics and Communication Engineering", href: "ece.html" },
+      { name: "B.E. Electrical and Electronics Engineering", href: "eee.html" },
+      { name: "B.E. Mechanical Engineering", href: "mech.html" },
+      { name: "B.E. Civil Engineering", href: "civil.html" },
+      { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
+      { name: "Science and Humanities", href: "humanitiesscience.html" },
+      { name: "M.E. Computer Science", href: "csepostgraduate.html" },
+      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
+      { name: "M.E. Construction Engineering and Management", href: "civilpostgraduate.html" },
+      { name: "M.E. Energy Engineering", href: "mechpostgraduate.html" }
+    ];
+
+    departments.forEach(dep => {
+      const li = document.createElement("li");
+      li.style.margin = "0";
+      li.style.padding = "0";
+
+      const link = document.createElement("a");
+      link.href = dep.href;
+      link.textContent = dep.name;
+      link.style.display = "block";
+      link.style.padding = "6px 12px";
+      link.style.margin = "0";
+      link.style.textDecoration = "none";
+      link.style.color = "black";
+
+// On click, make this link white and reset others
+link.addEventListener("click", function () {
+  subMenu.querySelectorAll("a").forEach(l => {
+    l.style.color = "black";
+  });
+  this.style.color = "black";
+});
+
+
+      li.appendChild(link);
+      subMenu.appendChild(li);
+    });
+
+    departmentsItem.addEventListener("click", function (e) {
+      e.preventDefault();
+      subMenu.style.display = subMenu.style.display === "block" ? "none" : "block";
+    });
+
+    departmentsItem.parentElement.appendChild(subMenu);
+  }
+});
+
+</script>
 </body>
 
 </html>

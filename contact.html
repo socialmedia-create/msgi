@@ -171,7 +171,7 @@
 
     <!-- Logo Section -->
     <div class="d-flex flex-column flex-md-row align-items-center">
-            <button class="btn d-none d-lg-block bg-white rounded-3 mx-2 fw-bold">TNEA <br/> <span class="ccode">1309</span></button>
+            <button class="btn d-none d-lg-block bg-white rounded-3 mx-2 fw-bold">TNEA code <br/> <span class="ccode">1309</span></button>
      <a href="index.html">
         <img class="mseclogo" src="assets/img/mseclogo.png" alt="MSEC Logo">
       </a>
@@ -183,6 +183,10 @@
         <span class="styleheaderspan py-lg-2">Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai</span>
         <span class="styleheaderspan">A Recognized Research Center by Anna University</span>
       </div>
+      <a href="/admission2025" class="btn ms-5 d-none d-lg-block bg-white rounded-3  fw-bold" id="admissionToggleBtn">
+    <span class="label-text">Admission <br />
+       <span class="ccode">2025</span></span>
+    </a>
     </div>
 
     <!-- Offcanvas Navigation -->
@@ -383,12 +387,6 @@
         </div>
 
       </div>
-
-      <!-- Google Maps (Full Width) -->
-      <!-- <div class="map-section" data-aos="fade-up" data-aos-delay="200">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div> -->
-
       <!-- Contact Form Section (Overlapping) -->
       <div class="container form-container-overlap">
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
@@ -420,7 +418,7 @@
                     <div class="form-group">
                       <div class="input-with-icon">
                         <i class="bi bi-text-left"></i>
-                        <input type="number" class="form-control" name="phone" placeholder="Phone Number" required="">
+                        <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required="">
                       </div>
                     </div>
                   </div>
@@ -473,12 +471,6 @@
 Admission Email: admission@msec.edu.in<br/>
 Email: principal@msec.edu.in</span></p>
           </div>
-          <!-- <div class="social-links d-flex mt-4">
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-          </div> -->
         </div>
 
        
@@ -505,8 +497,6 @@ Email: principal@msec.edu.in</span></p>
             <li><a href="./helpdesk.html">Help Desk</a></li>
             <li><a href="./madatorydisclosure.html">Mandatory Disclosure</a></li>
             <li><a href="#">Privacy policy</a></li>
-            <!-- <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li> -->
           </ul>
         </div>
 
@@ -516,8 +506,6 @@ Email: principal@msec.edu.in</span></p>
             <li><a href="https://www.facebook.com/MeenakshiSundararajanEngineeringCollege/" target="_blank"><i class="bi bi-facebook fs-3 me-2"></i></a></li>
             <li><a href="https://www.instagram.com/msecofficial_chennai24/?hl=en" target="_blank"><i class="bi bi-instagram  fs-3 me-2"></i></a></li>
             <li><a href="https://www.linkedin.com/school/meenakshi-sundararajan-engineering-college/?originalSubdomain=in" target="_blank"><i class="bi bi-linkedin fs-3 me-2"></i></a></li>
-            <!-- <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li> -->
           </ul>
         </div>
 
@@ -528,11 +516,6 @@ Email: principal@msec.edu.in</span></p>
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> Meenakshi Sundararajan Engineering College <span>All Rights Reserved</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
       </div>
     </div>
 
@@ -585,12 +568,12 @@ document.addEventListener("DOMContentLoaded", function () {
     subMenu.style.margin = "0";
 
     const departments = [
-      { name: "B.E. Computer Science", href: "computerscience.html" },
+      { name: "B.E. Computer Science and Engineering", href: "computerscience.html" },
       { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
-      { name: "B.E. Electronics and Communication", href: "ece.html" },
-      { name: "B.E. Electrical and Electronics", href: "eee.html" },
-      { name: "B.E. Mechanical", href: "mech.html" },
-      { name: "B.E. Civil", href: "civil.html" },
+      { name: "B.E. Electronics and Communication Engineering", href: "ece.html" },
+      { name: "B.E. Electrical and Electronics Engineering", href: "eee.html" },
+      { name: "B.E. Mechanical Engineering", href: "mech.html" },
+      { name: "B.E. Civil Engineering", href: "civil.html" },
       { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
       { name: "Science and Humanities", href: "humanitiesscience.html" },
       { name: "M.E. Computer Science", href: "csepostgraduate.html" },
@@ -636,7 +619,6 @@ link.addEventListener("click", function () {
 });
 
 </script>
-
 
 </body>
 

@@ -1367,3 +1367,6 @@ transition: all 0.2s ease-in-out;
     color: white;
     cursor: pointer;
   }
+  .hoverhide:hover{
+    color:black;
+  }

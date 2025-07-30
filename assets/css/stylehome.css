@@ -1370,3 +1370,9 @@ transition: all 0.2s ease-in-out;
   .hoverhide:hover{
     color:black;
   }
+
+  @media screen and (min-width: 1020px) and (max-width: 1400px) {
+  .nav-links li a{
+    font-size: 10px;
+  }
+}

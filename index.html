@@ -1505,10 +1505,25 @@ Email: principal@msec.edu.in</span></p>
   const mainBtn = document.getElementById('mainBrochureBtn');
   const options = document.getElementById('brochureOptions');
 
-  mainBtn.addEventListener('click', () => {
+  // Toggle on button click
+  mainBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent the event from bubbling up to document
     options.classList.toggle('d-none');
   });
+
+  // Prevent hiding when clicking inside the options
+  options.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // Hide when clicking anywhere else
+  document.addEventListener('click', () => {
+    if (!options.classList.contains('d-none')) {
+      options.classList.add('d-none');
+    }
+  });
 </script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const toggles = document.querySelectorAll(".dropdown-toggle");
@@ -1597,9 +1612,26 @@ link.addEventListener("click", function () {
     const toggleBtn = document.getElementById("shareToggleBtn");
 
     icons.classList.toggle("show");
-    toggleBtn.classList.toggle("collapsed"); // hide the button partially
+    toggleBtn.classList.toggle("collapsed");
   }
+
+  // Optional: Hide icons when clicking outside
+  document.addEventListener("click", function (event) {
+    const icons = document.getElementById("socialIcons");
+    const toggleBtn = document.getElementById("shareToggleBtn");
+
+    if (
+      icons.classList.contains("show") &&
+      !icons.contains(event.target) &&
+      !toggleBtn.contains(event.target)
+    ) {
+      icons.classList.remove("show");
+      toggleBtn.classList.add("collapsed");
+    }
+  });
 </script>
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("admissionToggleBtn");

@@ -1504,10 +1504,20 @@ Email: principal@msec.edu.in</span></p>
 <script>
   const mainBtn = document.getElementById('mainBrochureBtn');
   const options = document.getElementById('brochureOptions');
+  const icons = document.getElementById("socialIcons");
+  const toggleBtn = document.getElementById("shareToggleBtn");
 
-  // Toggle on button click
+  // Toggle brochure options on button click
   mainBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // prevent the event from bubbling up to document
+    e.stopPropagation(); // prevent event from bubbling up
+
+    // Hide social icons if visible
+    if (icons && icons.classList.contains("show")) {
+      icons.classList.remove("show");
+      toggleBtn.classList.add("collapsed");
+    }
+
+    // Toggle brochure options
     options.classList.toggle('d-none');
   });
 
@@ -1523,6 +1533,7 @@ Email: principal@msec.edu.in</span></p>
     }
   });
 </script>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1615,11 +1626,18 @@ link.addEventListener("click", function () {
     toggleBtn.classList.toggle("collapsed");
   }
 
-  // Optional: Hide icons when clicking outside
+  function toggleBrochure() {
+    const options = document.getElementById("brochureOptions");
+    options.classList.toggle("d-none");
+  }
+
   document.addEventListener("click", function (event) {
     const icons = document.getElementById("socialIcons");
     const toggleBtn = document.getElementById("shareToggleBtn");
+    const brochureBtn = document.getElementById("mainBrochureBtn");
+    const brochureOptions = document.getElementById("brochureOptions");
 
+    // Hide social icons if clicking outside or on brochure button
     if (
       icons.classList.contains("show") &&
       !icons.contains(event.target) &&
@@ -1628,8 +1646,36 @@ link.addEventListener("click", function () {
       icons.classList.remove("show");
       toggleBtn.classList.add("collapsed");
     }
+
+    if (
+      icons.classList.contains("show") &&
+      brochureBtn &&
+      brochureBtn.contains(event.target)
+    ) {
+      icons.classList.remove("show");
+      toggleBtn.classList.add("collapsed");
+    }
+
+    // Hide brochure options if clicking outside or on share button
+    if (
+      brochureOptions &&
+      !brochureOptions.classList.contains("d-none") &&
+      !brochureOptions.contains(event.target) &&
+      !brochureBtn.contains(event.target)
+    ) {
+      brochureOptions.classList.add("d-none");
+    }
+
+    if (
+      !brochureOptions.classList.contains("d-none") &&
+      toggleBtn.contains(event.target)
+    ) {
+      brochureOptions.classList.add("d-none");
+    }
   });
 </script>
+
+
 
 
 <script>

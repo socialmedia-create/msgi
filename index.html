@@ -23,10 +23,14 @@
 
 
 
-<!-- Fonts Optimization -->
+<!-- Font Performance Optimization -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"></noscript>
+
 
 <!-- Vendor CSS (deferred loading using preload) -->
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -374,7 +378,7 @@
                       <i class="bi bi-trophy-fill"></i>
                     </div>
                     <div class="stat-content">
-                      <h4>90.58%</h4>
+                      <h3>90.58%</h3>
                       <p>Placement Records</p>
                     </div>
                   </div>
@@ -383,7 +387,7 @@
                       <i class="bi bi-globe"></i>
                     </div>
                     <div class="stat-content">
-                      <h4>22</h4>
+                      <h3>22</h3>
                       <p>Highest LPA</p>
                     </div>
                   </div>
@@ -392,7 +396,7 @@
                       <i class="bi bi-mortarboard"></i>
                     </div>
                     <div class="stat-content">
-                      <h4>368+</h4>
+                      <h3>368+</h3>
                       <p>Total Offers</p>
                     </div>
                   </div>
@@ -401,7 +405,7 @@
                       <i class="bi bi-building"></i>
                     </div>
                     <div class="stat-content">
-                      <h4>53+</h4>
+                      <h3>53+</h3>
                       <p>Dream Offers</p>
                     </div>
                   </div>
@@ -582,7 +586,7 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                           <div class="event-actions">
                             <a href="https://erp.msec.edu.in/msecstudentresult/"
                             target="_blank"
-                            class="btn-learn-more">Click Here</a>
+                            class="btn-learn-more">View Student Results on ERP Portal</a>
                           </div>
                         </div>
                       </div>
@@ -1253,7 +1257,6 @@ Build future-ready solutions through hands-on coding and industry-led learning a
 
               <div class="row g-4 mb-4">
                 <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                  <a href="" class="text-decoration-none text-dark">
                     <div class="student-activity-item">
                       <div class="icon-box">
                         <i class="bi bi-people"></i>
@@ -1261,7 +1264,6 @@ Build future-ready solutions through hands-on coding and industry-led learning a
                       <h4>Centers Of Excellence</h4>
                       <p>MSCIIC, MSIIC, MSCDC, Research Center.</p>
                     </div>
-                  </a>
                 </div>
                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="300">
                   <a href="sportsevents.html" class="text-decoration-none text-dark">
@@ -1287,7 +1289,6 @@ Build future-ready solutions through hands-on coding and industry-led learning a
                 </div>
 
                 <div class="col-md-6" data-aos="zoom-in" data-aos-delay="500">
-                  <a href="" class="text-decoration-none text-dark">
                   <div class="student-activity-item">
                     <div class="icon-box">
                       <i class="bi bi-globe-americas"></i>
@@ -1296,7 +1297,7 @@ Build future-ready solutions through hands-on coding and industry-led learning a
                     <p>Placements across countries, Ineracting with German University tutors and More</p>
                   </div>
                 </div>
-              </a>
+
               </div>
             </div>
           </div>

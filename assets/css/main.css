@@ -976,7 +976,7 @@ section,
   flex-shrink: 0;
 }
 
-.hero .hero-container .stats-card .stats-grid .stat-item .stat-content h4 {
+.hero .hero-container .stats-card .stats-grid .stat-item .stat-content h3 {
   font-size: 1.6rem;
   font-weight: 800;
   margin: 0;

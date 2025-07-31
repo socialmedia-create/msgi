@@ -94,7 +94,8 @@
   /**
    * Animation on scroll function and init
    */
-  function aosInit() {
+function aosInit() {
+  if (typeof AOS !== 'undefined') {
     AOS.init({
       duration: 600,
       easing: 'ease-in-out',
@@ -102,13 +103,14 @@
       mirror: false
     });
   }
-  window.addEventListener('load', aosInit);
-
+}
+window.addEventListener('load', aosInit);
   /**
    * Initiate Pure Counter
    */
-  new PureCounter();
-
+// if (typeof PureCounter !== 'undefined') {
+//   new PureCounter();
+// }
   /**
    * Init isotope layout and filters
    */

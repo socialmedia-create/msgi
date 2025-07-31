@@ -22,30 +22,25 @@
 <!-- Fonts Optimization -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
 
-<!-- Google Fonts Preload -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:...&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:...&display=swap"></noscript>
+<!-- Vendor CSS (deferred loading using preload) -->
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"></noscript>
 
-<!-- Vendor CSS Files (Preload Async) -->
-<link rel="preload" href="assets/vendor/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="assets/vendor/aos/aos.css" rel="stylesheet"></noscript>
-
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet"></noscript>
+<!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet"></noscript> -->
 
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"></noscript>
 
-<!-- Bootstrap 5 CSS -->
+<!-- Bootstrap -->
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
 
-<!-- Your Main CSS Files -->
-<link href="assets/css/stylehome.min.css" rel="stylesheet">
-
-<link href="assets/css/main.min.css" rel="stylesheet">
-  <!-- Google Site Verification -->
+<!-- Your local CSS -->
+<link rel="stylesheet" href="assets/css/stylehome.min.css">
+<link rel="stylesheet" href="assets/css/main.min.css">
   <meta name="google-site-verification" content="nFdybGHpuxH6Qe5Wrc8i4ZdkA9iamTv2popZdaBYq6s">
 
   <!-- Google Tag Manager -->
@@ -366,7 +361,7 @@
             <div class="col-lg-5 d-none d-md-block my-4 my-md-0" data-aos="zoom-out" data-aos-delay="200">
               <div class="stats-card">
                 <div class="stats-header">
-                  <h3>Why Choose Us</h3>
+                  <h2>Why Choose Us</h2>
                   <div class="decoration-line"></div>
                 </div>
                 <div class="stats-grid">
@@ -674,14 +669,10 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
 
         <div class="row gy-4 align-items-center justify-content-center">
           <div class="col-12 col-lg-6">
-            <div class="ratio ratio-16x9">
-              <iframe 
-                 src="https://www.youtube.com/embed/NvNpwzxoOr0?enablejsapi=1" 
-                title="YouTube video player" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-              </iframe>
-            </div>
+              <div class="youtube-lazy" data-id="NvNpwzxoOr0" role="button" aria-label="Play Video">
+                <img src="https://img.youtube.com/vi/NvNpwzxoOr0/hqdefault.jpg" alt="YouTube Video Thumbnail" loading="lazy" style="width:100%; height:auto;">
+                <div class="play-button"></div>
+              </div>
           </div>
 
 
@@ -695,7 +686,7 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                     <div class="post-img">
                       <img src="assets/img/msecmedia1.webp" alt="msec media" class="img-fluid w-100">
                     </div>
-                    <p class="post-category">Proud Alumni of MSEC</p>
+                    <p class="post-category text-danger">Proud Alumni of MSEC</p>
                     <h2 class="title">
                       <a href="#">Newborn Care Startup NeoLight Scores $2.5 Million From NFL Quarterback Ben Roethlisberger</a>
                     </h2>
@@ -703,7 +694,7 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                       <img src="assets/img/alumni2.webp" alt="msec alumni" class="img-fluid post-author-img flex-shrink-0">
                       <div class="post-meta">
                         <p class="post-author">Vivek Kopparthi</p>
-                        <p class="post-date"><time datetime="2025-06-01">2017</time></p>
+                        <p class="post-date text-danger"><time datetime="2025-06-01">2017</time></p>
                       </div>
                     </div>
                   </article>
@@ -717,15 +708,15 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                     <div class="post-img">
                       <img src="assets/img/msecmedia2.webp" alt="msec media" class="img-fluid w-100">
                     </div>
-                    <p class="post-category">Proud Alumni of MSEC</p>
+                    <p class="post-category text-danger">Proud Alumni of MSEC</p>
                     <h2 class="title">
                       <a href="#">Forbes list 30 Under 30" list in the healthcare category for her work in developing a device to help smokers quit</a>
                     </h2>
                     <div class="d-flex align-items-center">
-                      <img src="assets/img/alumni1.webp" alt="msec alumni" class="img-fluid post-author-img flex-shrink-0">
+                      <img src="assets/img/alumni1.webp" alt="msec alumni" loading="lazy" class="img-fluid post-author-img flex-shrink-0">
                       <div class="post-meta">
                         <p class="post-author">Akshaya Shanmugam</p>
-                        <p class="post-date"><time datetime="2025-06-05">2018</time></p>
+                        <p class="post-date text-danger"><time datetime="2025-06-05">2018</time></p>
                       </div>
                     </div>
                   </article>
@@ -739,7 +730,7 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                     <div class="post-img">
                       <img src="assets/img/msecmedia3.webp" alt="msec media" class="img-fluid w-100">
                     </div>
-                    <p class="post-category">Events</p>
+                    <p class="post-category text-danger">Events</p>
                     <h2 class="title">
                       <a href="#">News Talk - Times of India</a>
                     </h2>
@@ -752,7 +743,7 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                     <div class="post-img">
                       <img src="assets/img/msecmdia4.webp" alt="msec media" class="img-fluid w-100">
                     </div>
-                    <p class="post-category">Events</p>
+                    <p class="post-category text-danger">Events</p>
                     <h2 class="title">
                       <a href="#">Times of India</a>
                     </h2>
@@ -765,7 +756,7 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                     <div class="post-img">
                       <img src="assets/img/msecmdia5.webp" alt="msec media" class="img-fluid w-100">
                     </div>
-                    <p class="post-category">Events</p>
+                    <p class="post-category text-danger">Events</p>
                     <h2 class="title">
                       <a href="#">News Talk - Times of India</a>
                     </h2>
@@ -1124,7 +1115,10 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                          encouraging research activities and innovation, inculcating ethical values and preparing the students to face industrial demands,
                           societal needs and technical challenges</p>
                       <div class="mt-auto">
-                        <a href="computerscience.html" target="_blank" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
+                        <a href="computerscience.html" target="_blank" class="program-btn">
+                            <span>Learn More<span class="visually-hidden"> about Computer Science Engineering</span></span> 
+                            <i class="bi bi-arrow-right"></i>
+                          </a>
                       </div>
                     </div>
                   </div>
@@ -1150,7 +1144,10 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                       </div>
                       <p class="coursetext">To achieve academic excellence by imparting state of the art technical education to mould engineers
                          who contribute to the society through innovation and research in the field of Artificial intelligence and Data science.</p>
-                      <a href="aids.html" target="_blank" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
+                      <a href="aids.html" target="_blank" class="program-btn">
+                          <span>Learn More<span class="visually-hidden"> about B.Tech Artificial Intelligence and Data Science</span></span> 
+                          <i class="bi bi-arrow-right"></i>
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -1174,7 +1171,10 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
                       </div>
                       <p class="coursetext">Learn to lead complex infrastructure projects from concept to completion with precision.
 Gain skills in planning, execution, and resource optimization to shape tomorrow's built environment.</p>
-                      <a href="civilpostgraduate.html" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
+                      <a href="civilpostgraduate.html" class="program-btn">
+                        <span>Learn More<span class="visually-hidden"> about M.E. Civil Engineering (Postgraduate)</span></span>
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1197,7 +1197,10 @@ Gain skills in planning, execution, and resource optimization to shape tomorrow'
                       </div>
                       <p class="coursetext">Dive into algorithms, AI, and next-gen computing technologies.
 Build future-ready solutions through hands-on coding and industry-led learning at MSEC</p>
-                      <a href="csepostgraduate.html" class="program-btn"><span>Learn More</span> <i class="bi bi-arrow-right"></i></a>
+                      <a href="csepostgraduate.html" class="program-btn">
+                        <span>Learn More<span class="visually-hidden"> about M.E. Computer Science and Engineering</span></span> 
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1372,7 +1375,7 @@ Build future-ready solutions through hands-on coding and industry-led learning a
     </section>
     <!-- Floating Brochure Button -->
 <div class="brochure-container">
-  <button id="mainBrochureBtn" class="brochure-btn">
+  <button id="mainBrochureBtn" class="brochure-btn" aria-label="Download Brochure">
     <i class="bi bi-file-earmark-text"></i> <span class="d-none d-lg-inline">Brochures</span>
   </button>
 
@@ -1387,9 +1390,9 @@ Build future-ready solutions through hands-on coding and industry-led learning a
     <!-- Social Icons (hidden by default) -->
     <div class="social-icons d-flex flex-column flex-lg-row " id="socialIcons">
       <a href="https://www.facebook.com/MSECADMIN/" target="_blank" title="Facebook"><img src="./assets/img/facebook.webp" class="img-fluid stylesociallogo" alt="facebook"/></a>
-      <a href="https://www.instagram.com/msecofficial_chennai24/" target="_blank" title="instagram"><img src="./assets/img/insta.webp" class="img-fluid " style="width: 45px; height: 45px;" /></a>
-      <a href="https://www.youtube.com/@meenakshisundararajanenggmsec" target="_blank" title="YouTube"><img src="./assets/img/youtube.png"class="img-fluid " style="width: 45px; height: 45px;" /></a>
-      <a href="https://www.linkedin.com/school/meenakshi-sundararajan-engineering-college/posts/?feedView=all" target="_blank" title="LinkedIn"><img src="./assets/img/linked.webp"class="img-fluid stylesociallogo" /></a>
+      <a href="https://www.instagram.com/msecofficial_chennai24/" target="_blank" title="instagram"><img src="./assets/img/insta.webp" class="img-fluid " alt="instagram" style="width: 45px; height: 45px;" /></a>
+      <a href="https://www.youtube.com/@meenakshisundararajanenggmsec" target="_blank" title="YouTube"><img src="./assets/img/youtube.png"class="img-fluid " alt="youtube" style="width: 45px; height: 45px;" /></a>
+      <a href="https://www.linkedin.com/school/meenakshi-sundararajan-engineering-college/posts/?feedView=all" target="_blank" title="LinkedIn"><img src="./assets/img/linked.webp" alt="linkedin" class="img-fluid stylesociallogo" /></a>
     </div>
 
     <!-- Main Share Button -->
@@ -1429,7 +1432,9 @@ Email: principal@msec.edu.in</span></p>
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Google Map</h4>
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.683484227926!2d80.22393577454787!3d13.055807913027596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266f499eee457%3A0x4d3f7e677496e707!2sMeenakshi%20Sundararajan%20Engineering%20College!5e0!3m2!1sen!2sin!4v1749464448776!5m2!1sen!2sin" width="150"
-          height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          height="200" style="border:0;"
+            title="Google Maps location of Meenakshi Sundararajan Engineering College"
+           allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <div class="col-lg-2 col-md-6 footer-links">
@@ -1451,14 +1456,26 @@ Email: principal@msec.edu.in</span></p>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Social Media</h4>
-          <ul class="">
-            <li><a href="https://www.facebook.com/MeenakshiSundararajanEngineeringCollege/" target="_blank"><i class="bi bi-facebook fs-3 me-2"></i></a></li>
-            <li><a href="https://www.instagram.com/msecofficial_chennai24/?hl=en" target="_blank"><i class="bi bi-instagram  fs-3 me-2"></i></a></li>
-            <li><a href="https://www.linkedin.com/school/meenakshi-sundararajan-engineering-college/?originalSubdomain=in" target="_blank"><i class="bi bi-linkedin fs-3 me-2"></i></a></li>
-          </ul>
-        </div>
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Social Media</h4>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/MeenakshiSundararajanEngineeringCollege/" target="_blank" aria-label="Facebook - opens in a new tab">
+                  <i class="bi bi-facebook fs-3 me-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/msecofficial_chennai24/?hl=en" target="_blank" aria-label="Instagram - opens in a new tab">
+                  <i class="bi bi-instagram fs-3 me-2"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/school/meenakshi-sundararajan-engineering-college/?originalSubdomain=in" target="_blank" aria-label="LinkedIn - opens in a new tab">
+                  <i class="bi bi-linkedin fs-3 me-2"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
 
 
       </div>
@@ -1482,22 +1499,34 @@ Email: principal@msec.edu.in</span></p>
 
 
 <!-- Vendor JS Files -->
-<!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script> -->
-<script src="assets/vendor/aos/aos.js" defer></script>
-<script src="assets/vendor/purecounter/purecounter_vanilla.js" defer></script>
+<!-- 1. Isotope (deferred) -->
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<!-- Bootstrap 5.3.3 JS Bundle with Popper -->
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"></script>
-<!-- Main JS Files -->
+
+<!-- 2. Swiper (not deferred, loads immediately) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
+
+<!-- 3. Bootstrap CDN (deferred) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+<!-- 4. AOS CDN (deferred) -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+
+<!-- ✅ NO defer or async -->
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+<!-- 6. Your custom scripts (deferred) -->
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/script.min.js" defer></script>
 
 
 
+
+<!-- <script>
+  AOS.init({
+    duration: 1000,
+    once: true // animate only once
+  });
+</script> -->
 <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="JJLsl1Ox4f_8TgpXD8yGw";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
@@ -1674,10 +1703,6 @@ link.addEventListener("click", function () {
     }
   });
 </script>
-
-
-
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("admissionToggleBtn");
@@ -1690,6 +1715,33 @@ link.addEventListener("click", function () {
     }
   });
 </script>
+<script>
+  window.addEventListener('load', function () {
+    if (typeof PureCounter !== 'undefined') {
+      new PureCounter();
+    } else {
+      console.error('❌ PureCounter not found');
+    }
+  });
+</script>
+<script>
+  document.querySelectorAll(".youtube-lazy").forEach(el => {
+    el.addEventListener("click", () => {
+      const videoId = el.dataset.id;
+      const iframe = document.createElement("iframe");
+      iframe.setAttribute("src", `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+      iframe.setAttribute("allowfullscreen", "true");
+      iframe.setAttribute("title", "YouTube video player");
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      el.innerHTML = "";
+      el.appendChild(iframe);
+    });
+  });
+</script>
+
 
 
 

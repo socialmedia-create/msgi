@@ -1404,3 +1404,29 @@ transition: all 0.2s ease-in-out;
       left: 15px;
     }
   }
+  .youtube-lazy {
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.youtube-lazy img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.youtube-lazy .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 48px;
+  background: url('https://img.icons8.com/ios-filled/100/ffffff/play--v1.png') no-repeat center center;
+  background-size: 50%;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+}

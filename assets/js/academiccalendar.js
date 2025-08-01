@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
           googleCalendarApiKey: "AIzaSyAopuRwGvHYNw5SccRfp7oecsnG2-5s0e8",
           events: {
             googleCalendarId:
-              "b117b157f9d108199b176a77b0f29ff3dca9b62ab19063fe053caa61f9b9638d@group.calendar.google.com"
+              "772a98afed8ba44f45383043019305e63ed20954a7d433b9ef314cff9928c99a@group.calendar.google.com"
           },
           eventDidMount: function (info) {
             tippy(info.el, {

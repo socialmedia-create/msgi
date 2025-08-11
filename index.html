@@ -576,87 +576,9 @@ On 9th July 2025, the Department of Computer Science and Engineering at Meenaksh
 
            <div class=" col-md-5" data-aos="fade-up" data-aos-delay="100">
             <section id="events" class="events section">
-              <div class="event-ticker1-wrapper">
-                <div class="event-ticker1">
-                  <div class="row g-4 align-items-center justify-content-center">
-
-                    <div class="col-12">
-                      <div class="event-card">
-                        <div class="event-date">
-                          <span class="month">Result<br/> Announcement</span>
-                        </div>
-                        <div class="event-content">
-                          <div class="event-tag academic">Result</div>
-                          <h3>2021-2025 Batch</h3>
-                          <p>📢 Click here to view the result</p>
-                          <div class="event-actions">
-                            <a href="https://erp.msec.edu.in/msecstudentresult/"
-                            target="_blank"
-                            class="btn-learn-more">View Student Results on ERP Portal</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <div class="event-card">
-                        <div class="event-date">
-                          <span class="month">Jul</span>
-                          <span class="day">21</span>
-                          <span class="year">2025</span>
-                        </div>
-                        <div class="event-content">
-                          <div class="event-tag sports">Value Added Course</div>
-                          <h3>Inauguration</h3>
-                          <p>Inauguration of VAC by Thiru.K.T.Srinivasa Raja MD - Adyar Ananda Bhavan</p>
-                          <div class="event-meta">
-                            <div class="meta-item">
-                              <i class="bi bi-clock"></i>
-                              <span>10:00 am</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <div class="event-card">
-                        <div class="event-date">
-                          <span class="month">Apr/ May</span>
-                          <span class="year">2025</span>
-                        </div>
-                        <div class="event-content">
-                          <div class="event-tag arts">New Announcement</div>
-                          <h3>Results</h3>
-                          <p>April/May 2025 Results</p>
-                          <div class="event-actions">
-                            <a href="https://msec.edu.in/coe.html" target="_blank" class="btn-learn-more">Click to view results</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- <div class="col-12">
-                      <div class="event-card">
-                        <div class="event-date">
-                          <span class="month">Result<br/> Announcement</span>
-                        </div>
-                        <div class="event-content">
-                          <div class="event-tag academic">Result</div>
-                          <h3>2021-2025 Batch</h3>
-                          <p>📢 Click here to view the result</p>
-                          <div class="event-actions">
-                            <a href="https://erp.msec.edu.in/msecstudentresult/"
-                            target="_blank"
-                            class="btn-learn-more">Click Here</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-
-                  </div> <!-- row -->
-                </div> <!-- event-ticker1 -->
-              </div> <!-- event-ticker1-wrapper -->
+           <div class="container py-4" style="height: 500px;overflow: hidden;">
+            <div class="event-ticker-list"></div>
+          </div>
               <div class="d-flex align-items-center justify-content-center p-4">
                 <button
                   class="styleventbtn p-2 rounded-5 shadow-lg"
@@ -1525,6 +1447,10 @@ Email: principal@msec.edu.in</span></p>
 <!-- ✅ NO defer or async -->
 <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.8/index.global.min.js"></script>
+
+
 <!-- 6. Your custom scripts (deferred) -->
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/script.min.js" defer></script>
@@ -1751,6 +1677,80 @@ link.addEventListener("click", function () {
       el.appendChild(iframe);
     });
   });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".event-ticker-list");
+
+  const calendar = new FullCalendar.Calendar(document.createElement("div"), {
+    googleCalendarApiKey: "AIzaSyAopuRwGvHYNw5SccRfp7oecsnG2-5s0e8",
+    events: {
+      googleCalendarId: "c4addf4286b05f88d388c6f0ed01ba69cbbdfb0976657a8209d506bab4e2f2e5@group.calendar.google.com"
+    },
+    eventsSet: function (events) {
+      if (!container) return;
+      container.innerHTML = "";
+
+      const now = new Date();
+      now.setHours(0, 0, 0, 0);
+
+      const upcomingEvents = events
+        .filter(event => {
+          const date = new Date(event.start);
+          date.setHours(0, 0, 0, 0);
+          return date >= now;
+        })
+        .sort((a, b) => new Date(a.start) - new Date(b.start));
+
+      if (upcomingEvents.length === 0) {
+        container.innerHTML = "<p class='text-center'>No upcoming events.</p>";
+      } else {
+        const track = document.createElement("div");
+        track.classList.add("ticker-track");
+
+        const block = document.createElement("div");
+        block.classList.add("ticker-block");
+
+        // Create Bootstrap card for each event
+        upcomingEvents.forEach(event => {
+          const eventDate = new Date(event.start);
+          const card = document.createElement("div");
+          card.className = "card shadow-sm border-0 mb-3";
+
+          card.innerHTML = `
+            <div class="card-body">
+              <h5 class="card-title">${event.title}</h5>
+              <p class="card-text mb-1 text-muted">
+                ${eventDate.toLocaleDateString()} ${eventDate.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
+              </p>
+              ${event.extendedProps?.location ? `<p class="card-text"><i class="bi bi-geo-alt"></i> ${event.extendedProps.location}</p>` : ""}
+            </div>
+          `;
+          block.appendChild(card);
+        });
+
+        track.appendChild(block);
+
+        // Clone for seamless loop
+        const clone = block.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+
+        container.appendChild(track);
+
+        // Set animation duration dynamically
+        requestAnimationFrame(() => {
+          const blockHeight = block.offsetHeight;
+          const baseSpeed = 40; // px/sec
+          const durationSeconds = Math.max(6, Math.round(blockHeight / baseSpeed));
+          track.style.setProperty("--ticker-duration", `${durationSeconds}s`);
+        });
+      }
+    }
+  });
+
+  calendar.render();
+});
 </script>
 
 

@@ -103,7 +103,7 @@ if (calendarEl) {
     googleCalendarApiKey: "AIzaSyAopuRwGvHYNw5SccRfp7oecsnG2-5s0e8",
     events: {
       googleCalendarId:
-        "c4addf4286b05f88d388c6f0ed01ba69cbbdfb0976657a8209d506bab4e2f2e5@group.calendar.google.com"
+        "772a98afed8ba44f45383043019305e63ed20954a7d433b9ef314cff9928c99a@group.calendar.google.com"
     },
 
     eventDidMount: function (info) {

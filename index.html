@@ -1810,16 +1810,24 @@ document.addEventListener("DOMContentLoaded", function () {
       const now = new Date();
       now.setHours(0, 0, 0, 0);
 
-      const upcomingEvents = events
+      const currentMonth = now.getMonth();  // 0 = Jan
+      const currentYear = now.getFullYear();
+
+      // ✅ Filter: only current month + not finished (today or future)
+      const currentMonthEvents = events
         .filter(event => {
           const date = new Date(event.start);
           date.setHours(0, 0, 0, 0);
-          return date >= now;
+          return (
+            date >= now &&                          // no past events
+            date.getMonth() === currentMonth &&     // same month
+            date.getFullYear() === currentYear      // same year
+          );
         })
         .sort((a, b) => new Date(a.start) - new Date(b.start));
 
-      if (upcomingEvents.length === 0) {
-        container.innerHTML = "<p class='text-center'>No upcoming events.</p>";
+      if (currentMonthEvents.length === 0) {
+        container.innerHTML = "<p class='text-center'>No upcoming events this month.</p>";
       } else {
         const track = document.createElement("div");
         track.classList.add("ticker-track");
@@ -1828,7 +1836,7 @@ document.addEventListener("DOMContentLoaded", function () {
         block.classList.add("ticker-block");
 
         // Create Bootstrap card for each event
-        upcomingEvents.forEach(event => {
+        currentMonthEvents.forEach(event => {
           const eventDate = new Date(event.start);
           const card = document.createElement("div");
           card.className = "card shadow-sm border-0 mb-3";
@@ -1868,6 +1876,7 @@ document.addEventListener("DOMContentLoaded", function () {
   calendar.render();
 });
 </script>
+
 
 <script>
   document.querySelectorAll('.ticker-list').forEach(ticker => {

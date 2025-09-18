@@ -650,34 +650,10 @@
 
           <div class="col-md-5">
             <div class="card hover-card p-4 rounded-4 shadow-lg">
-              <div id="carouselExample" class="carousel slide" data-bs-interval="2000" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active ">
-                      <img src="./assets/img/news1.jpg" class="d-block w-100 rounded-4 shadow-lg" alt="msec news" loading="lazy">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="./assets/img/news2.jpg" class="d-block w-100 rounded-4 shadow-lg" alt="msec news" loading="lazy">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="./assets/img/news3.jpg" class="d-block w-100 rounded-4 shadow-lg" alt="msec news" loading="lazy">
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-              <div class="card-body">
-                <p class="card-text"><strong>EMF Radiation & 5G: An Eye-Opening Session by CSE Dept!</strong>
-On 9th July 2025, the Department of Computer Science and Engineering at Meenakshi Sundararajan Engineering College hosted a highly insightful talk on EMF Radiation in 5G by Prof. Emeritus Sureswaran Ramadass, Head of Medical Informatics, RUMC (RCSI & UCD Malaysia).
-
-🧠 The session explored the impact of 5G radiation and its relevance in today's tech-driven world. The interactive discussion with Prof. Sureswaran sparked fresh ideas on emerging technologies and student projects.
-</p>
-              </div>
+              <img class="img-fluid" src="./assets/img/sih.webp" alt="">
+            </div>
+            <div class="text-center text-danger py-2 fs-3 fw-bold">
+              <p>Hackathon for SIH 2025</p>
             </div>
           </div>
 
@@ -1791,9 +1767,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const calendar = new FullCalendar.Calendar(document.createElement("div"), {
     googleCalendarApiKey: "AIzaSyAopuRwGvHYNw5SccRfp7oecsnG2-5s0e8",
     events: {
-      googleCalendarId: "c4addf4286b05f88d388c6f0ed01ba69cbbdfb0976657a8209d506bab4e2f2e5@group.calendar.google.com"
+      googleCalendarId: "772a98afed8ba44f45383043019305e63ed20954a7d433b9ef314cff9928c99a@group.calendar.google.com"
     },
     eventsSet: function (events) {
+       console.log("All events fetched from Google Calendar:", events); 
       if (!container) return;
       container.innerHTML = "";
 
@@ -1802,7 +1779,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const currentMonth = now.getMonth();  // 0 = Jan
       const currentYear = now.getFullYear();
-
+      
       // ✅ Filter: only current month + not finished (today or future)
       const currentMonthEvents = events
         .filter(event => {
@@ -1815,7 +1792,7 @@ document.addEventListener("DOMContentLoaded", function () {
           );
         })
         .sort((a, b) => new Date(a.start) - new Date(b.start));
-
+        
       if (currentMonthEvents.length === 0) {
         container.innerHTML = "<p class='text-center'>No upcoming events this month.</p>";
       } else {

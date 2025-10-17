@@ -1465,3 +1465,85 @@ transition: all 0.2s ease-in-out;
     0%   { transform: translateY(0); }
     100% { transform: translateY(-100%); }
   }
+    /* Container */
+  .nh-ticker {
+    --bg: #0b3d91;            /* background color */
+    --fg: #fff;               /* text color */
+    --speed-px-per-sec: 100;  /* default speed (px per second) */
+    --padding-y: 8px;
+    --padding-x: 12px;
+
+    background: var(--bg);
+    color: var(--fg);
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--padding-y) var(--padding-x);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  /* Visual label (optional) */
+  .nh-ticker__label {
+    flex: 0 0 auto;
+    margin-right: 8px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 13px;
+    opacity: 0.95;
+  }
+
+  /* The moving track */
+  .nh-ticker__track {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0; /* allow shrinking in flex */
+  }
+
+  /* Inner scroller that will be translated */
+  .nh-ticker__scroller {
+    display: inline-block;
+    will-change: transform;
+    /* animation duration is set by JS via --duration */
+    animation-name: nhTickerScroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: var(--duration, 10s);
+    animation-play-state: running;
+  }
+
+  /* Duplicate the content inline so it loops seamlessly */
+  .nh-ticker__item {
+    display: inline-block;
+    padding-right: 40px; /* gap between repetitions */
+  }
+
+  /* Pause on hover/focus for accessibility */
+  .nh-ticker:hover .nh-ticker__scroller,
+  .nh-ticker:focus-within .nh-ticker__scroller {
+    animation-play-state: paused;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nh-ticker__scroller {
+      animation: none;
+    }
+  }
+
+  @keyframes nhTickerScroll {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); } /* we'll duplicate content to create seamless loop */
+  }
+
+  /* Small responsive tweaks */
+  @media (max-width: 520px) {
+    .nh-ticker { font-size: 14px; --padding-y: 6px; }
+    .nh-ticker__label { display: none; } /* hide label on very small screens */
+  }

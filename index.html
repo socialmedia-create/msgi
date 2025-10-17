@@ -456,6 +456,21 @@
       </div>
 
     </section><!-- /Hero Section -->
+    <div class="nh-ticker" role="region" aria-label="Site announcements ticker">
+  <div class="nh-ticker__label" aria-hidden="true">Announcement</div>
+
+  <div class="nh-ticker__track" tabindex="0">
+    <!-- scroller contains two copies of the message for seamless loop -->
+    <div class="nh-ticker__scroller" id="nhTickerScroller" aria-live="polite">
+      <span class="nh-ticker__item">
+        Ph.D. Degree Programme (Full time &amp; Part-time) — Admissions open to January-2026 session
+      </span>
+      <span class="nh-ticker__item">
+        Ph.D. Degree Programme (Full time &amp; Part-time) — Admissions open to January-2026 session
+      </span>
+    </div>
+  </div>
+</div>
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -1855,7 +1870,74 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
+<script>
+  (function () {
+    // Configuration
+    const PX_PER_SEC_DEFAULT = 100; // matches CSS variable default
+    const scroller = document.getElementById('nhTickerScroller');
+    const container = scroller && scroller.parentElement;
+    if (!scroller || !container) return;
 
+    // Read user-defined speed from CSS var if present
+    const cs = getComputedStyle(container.closest('.nh-ticker'));
+    const cssSpeed = parseFloat(cs.getPropertyValue('--speed-px-per-sec')) || PX_PER_SEC_DEFAULT;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Make sure scroller has its content measured; we duplicated the content in HTML
+    // We'll calculate total width of one message and set animation duration so that
+    // speed (px/sec) is consistent regardless of text length.
+    // Because we duplicated content inline, the scroller width is about 2x contentWidth.
+    function recalc() {
+      // measure single message width: item 0
+      const items = scroller.querySelectorAll('.nh-ticker__item');
+      if (!items || items.length === 0) return;
+
+      // single item width (first)
+      const singleWidth = items[0].getBoundingClientRect().width;
+      // total width needed to scroll before repeating = singleWidth
+      // But our animation moves the scroller by 50% (since two copies). We set duration so
+      // translate -50% over time corresponds to moving left by singleWidth px.
+      const pxToMove = singleWidth; // px to move per one iteration
+      const pxPerSecond = cssSpeed > 0 ? cssSpeed : PX_PER_SEC_DEFAULT;
+      const durationSec = pxToMove / pxPerSecond;
+
+      // Safety min/max duration
+      const duration = Math.max(4, Math.min(durationSec, 180)); // clamp between 4s and 180s
+
+      // Set CSS variable for duration (s)
+      scroller.style.setProperty('--duration', duration + 's');
+    }
+
+    // Recalculate on load and on window resize (debounced)
+    window.addEventListener('load', recalc);
+    let to;
+    function debounceRecalc() {
+      clearTimeout(to);
+      to = setTimeout(recalc, 120);
+    }
+    window.addEventListener('resize', debounceRecalc);
+
+    // If user prefers reduced motion, stop animation (CSS handles it) but also set no duration
+    if (reduceMotion) {
+      scroller.style.setProperty('--duration', '0s');
+      scroller.style.animation = 'none';
+    } else {
+      // initial calc
+      recalc();
+    }
+
+    // Optional: if you want to update text dynamically, call recalc() afterwards.
+
+    // Allow keyboard users to pause/resume with spacebar when the track is focused
+    container.addEventListener('keydown', function (ev) {
+      if (ev.key === ' ' || ev.key === 'Spacebar' || ev.code === 'Space') {
+        ev.preventDefault();
+        const state = getComputedStyle(scroller).animationPlayState;
+        scroller.style.animationPlayState = (state === 'running') ? 'paused' : 'running';
+      }
+    });
+  })();
+</script>
 
 
 

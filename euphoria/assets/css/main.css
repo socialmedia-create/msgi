@@ -2821,11 +2821,19 @@ input:focus::placeholder, textarea:focus::placeholder {
 .chy-header-1-area {
   padding-top: 30px;
 }
+ @media screen and (max-width:768px) {
+.setmseclogo{
+  max-width: 70px;
+}
+ }
 .chy-header-1-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+}
+.setmseclogo{
+  max-width: 90px;
 }
 .chy-header-1-wrap .left {
   display: flex;

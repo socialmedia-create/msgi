@@ -1547,3 +1547,83 @@ transition: all 0.2s ease-in-out;
     .nh-ticker { font-size: 14px; --padding-y: 6px; }
     .nh-ticker__label { display: none; } /* hide label on very small screens */
   }
+
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-overlay.show {
+  display: flex;
+}
+
+.popup-box {
+  position: relative;
+  animation: popupScale 0.5s ease-out;
+}
+
+.popup-image {
+  width: 520px;
+  max-width: 90vw;
+  border-radius: 12px;
+}
+
+/* Close Button */
+.popup-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* 🎉 Blast Poppers */
+.popper {
+  position: absolute;
+  width: 220px;
+  opacity: 0;
+}
+
+.popper-left {
+  left: -90px;
+  top: 70%;
+  transform: translateY(-50%) scale(0.6);
+  animation: popLeft 0.6s ease-out forwards;
+}
+
+.popper-right {
+  right: -90px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.6);
+  animation: popRight 0.6s ease-out forwards;
+}
+
+/* Animations */
+@keyframes popLeft {
+  0% { opacity: 0; transform: translateY(-50%) scale(0.3); }
+  60% { opacity: 1; transform: translateY(-50%) scale(1.1); }
+  100% { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+@keyframes popRight {
+  0% { opacity: 0; transform: translateY(-50%) scale(0.3); }
+  60% { opacity: 1; transform: translateY(-50%) scale(1.1); }
+  100% { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+@keyframes popupScale {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

@@ -1573,6 +1573,9 @@ transition: all 0.2s ease-in-out;
   max-width: 90vw;
   border-radius: 12px;
 }
+.popup-image2{
+  width: 100vw !important;
+}
 
 /* Close Button */
 .popup-close {

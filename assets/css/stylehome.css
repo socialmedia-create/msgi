@@ -1632,3 +1632,10 @@ transition: all 0.2s ease-in-out;
 }
 
 
+#scrollToFormBtn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  padding: 12px 18px;
+}

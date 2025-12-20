@@ -7453,7 +7453,7 @@ section,
 }
 
 .alumni .notable-alumni {
-  padding: 5rem;
+  padding: 1rem;
   background-color: color-mix(in srgb, var(--default-color), transparent 96%);
   border-radius: 20px;
   margin: 4rem 0;

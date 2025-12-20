@@ -363,7 +363,7 @@
     <!-- Page Title -->
     <div class="page-title dark-background" style="background-image: url(assets/img/campus.jpeg);">
       <div class="container position-relative">
-        <h1>Alumni</h1>
+        <h1>Alumni Meet 2025</h1>
         <!-- <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p> -->
         <nav class="breadcrumbs">
           <ol>
@@ -373,236 +373,6 @@
         </nav>
       </div>
     </div><!-- End Page Title -->
-
-
-<section class="py-5 bg-light">
-  <div class="container">
-
-    <!-- Title -->
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Alumni Engagement & Contribution Form</h2>
-      <p class="text-muted">Stay connected. Shape the future.</p>
-    </div>
-
-    <!-- IMPORTANT: method + action -->
-    <form method="POST" action="alumnisubmit.php">
-
-      <!-- 1. Basic Details -->
-      <h5 class="fw-semibold mb-3">1. Basic Details</h5>
-
-      <div class="row g-3">
-        <div class="col-md-3">
-          <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
-        </div>
-
-        <div class="col-md-3">
-          <input type="text" name="graduation_year" class="form-control" placeholder="Year of Graduation" required>
-        </div>
-
-        <div class="col-md-3">
-          <input type="text" name="department" class="form-control" placeholder="Programme / Department" required>
-        </div>
-
-        <div class="col-md-3">
-          <input type="text" name="role_org" class="form-control" placeholder="Current Role & Organisation">
-        </div>
-
-        <div class="col-md-3">
-          <input type="text" name="location" class="form-control" placeholder="Location">
-        </div>
-
-        <div class="col-md-3">
-          <input type="email" name="email" class="form-control" placeholder="Email ID" required>
-        </div>
-
-        <div class="col-md-3">
-          <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
-        </div>
-
-        <div class="col-md-3">
-          <input type="url" name="linkedin" class="form-control" placeholder="LinkedIn Profile (optional)">
-        </div>
-      </div>
-
-      <!-- 2. Contribution -->
-      <h5 class="fw-semibold mt-5 mb-2">2. How would you like to contribute?</h5>
-      <p class="text-muted small">(You may select one or more options)</p>
-
-      <div class="row g-4">
-
-        <!-- Academic -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Academic & Knowledge Support</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Industry Talks / Guest Lectures" id="academic1">
-              <label class="form-check-label" for="academic1">Industry Talks / Guest Lectures</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Faculty Development Programmes (FDPs)" id="academic2">
-              <label class="form-check-label" for="academic2">Faculty Development Programmes (FDPs)</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Teaching (Full-time / Visiting / Adjunct)" id="academic3">
-              <label class="form-check-label" for="academic3">Teaching (Full-time / Visiting / Adjunct)</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Curriculum Advisory / Subject Expert" id="academic4">
-              <label class="form-check-label" for="academic4">Curriculum Advisory / Subject Expert</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Student Exposure -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Student Exposure & Career Support</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Internships / Live Projects" id="student1">
-              <label class="form-check-label" for="student1">Internships / Live Projects</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Employment / Recruitment Support" id="student2">
-              <label class="form-check-label" for="student2">Employment / Recruitment Support</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Placement Talks / Career Guidance Sessions" id="student3">
-              <label class="form-check-label" for="student3">Placement Talks / Career Guidance Sessions</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Mentorship (One-on-one / Group)" id="student4">
-              <label class="form-check-label" for="student4">Mentorship (One-on-one / Group)</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Career Cell Support" id="student5">
-              <label class="form-check-label" for="student5">Career Cell Support</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Evaluation -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Evaluation & Competitions</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Judge for Competitions / Hackathons" id="evaluation1">
-              <label class="form-check-label" for="evaluation1">Judge for Competitions / Hackathons</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Interview Panels & GD Assessments" id="evaluation2">
-              <label class="form-check-label" for="evaluation2">Interview Panels & GD Assessments</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Innovation -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Innovation & Entrepreneurship</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Incubation Cell Support" id="innovation1">
-              <label class="form-check-label" for="innovation1">Incubation Cell Support (Mentor / Advisor)</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Startup Guidance / Investor Connects" id="innovation2">
-              <label class="form-check-label" for="innovation2">Startup Guidance / Investor Connects</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Institutional Growth -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Institutional Growth</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Centres of Excellence – Financial / Knowledge Support" id="growth1">
-              <label class="form-check-label" for="growth1">Centres of Excellence – Financial / Knowledge Support</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Marketing / Social Media / Campaign Support" id="growth2">
-              <label class="form-check-label" for="growth2">Marketing / Social Media / Campaign Support</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Student Welfare -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Student Welfare</h6>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Scholarships / Financial Assistance" id="welfare1">
-              <label class="form-check-label" for="welfare1">Scholarships / Financial Assistance</label>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- 3. More Details -->
-      <h5 class="fw-semibold mt-5 mb-3">3. Please share more details (optional)</h5>
-
-      <textarea name="support_details" class="form-control mb-3" rows="3" placeholder="Nature of support you can offer"></textarea>
-
-      <div class="row g-3">
-        <div class="col-md-4">
-          <select name="preferred_mode" class="form-select">
-            <option value="">Preferred Mode</option>
-            <option>Online</option>
-            <option>Offline</option>
-            <option>Hybrid</option>
-          </select>
-        </div>
-
-        <div class="col-md-4">
-          <select name="frequency" class="form-select">
-            <option value="">Frequency</option>
-            <option>One-time</option>
-            <option>Occasional</option>
-            <option>Ongoing</option>
-          </select>
-        </div>
-
-        <div class="col-md-4">
-          <input type="text" name="availability" class="form-control" placeholder="Best months / availability">
-        </div>
-      </div>
-
-      <!-- 4. Message -->
-      <h5 class="fw-semibold mt-5 mb-3">4. Any message for your alma mater?</h5>
-
-      <textarea name="message" class="form-control mb-4" rows="3" placeholder="Your message"></textarea>
-
-      <!-- Submit -->
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary px-5 py-2 rounded-pill">
-          Submit Contribution
-        </button>
-      </div>
-
-    </form>
-
-  </div>
-</section>
-
-
-
-
 
 
     <!-- Alumni Section -->
@@ -1108,160 +878,363 @@ New York - USA </span>
             </div>
           </div>
 
-          <!-- <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="600">
-            <a href="#" class="btn-explore">Explore More Alumni Stories</a>
-          </div> -->
         </div>
 
-        <div class="alumni-engagement">
-          <div class="section-header text-center" data-aos="fade-up" data-aos-delay="200">
-            <h3>Mentorship & Career Growth by Alumni</h3>
-            <p>Ways to engage with the community and make a difference</p>
+        <hr class="my-4">
+
+
+        <section class="py-5 bg-light">
+  <div class="container">
+
+    <!-- Section Title -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Alumni Coordinators</h2>
+      <p class="text-muted">Dedicated faculty members coordinating alumni engagement</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Card 1 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center h-100 shadow-sm">
+          <img src="assets/img/alumni/raman.jpg" class="card-img-top" alt="Prof. Raman">
+          <div class="card-body">
+            <h6 class="fw-semibold mb-1">Prof. Raman</h6>
+            <p class="text-muted mb-0">Chairman</p>
           </div>
+        </div>
+      </div>
 
-          <div class="engagement-cards">
-            <div class="row">
-              <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="engagement-card">
-                  <div class="card-icon">
-                    <i class="bi bi-people-fill"></i>
-                  </div>
-                  <h4>Mentorship Program</h4>
-                  <p class="stylealumnicontent">Bridging the gap between academics and industry, our alumni mentorship program offers guidance from experienced professionals.
-Students gain valuable insights, career advice, and real-world perspectives from successful graduates</p>
-                  <a href="#" class="card-link">Become a Mentor</a>
-                </div>
-              </div>
+      <!-- Card 2 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center h-100 shadow-sm">
+          <img src="assets/img/balasubramanian.jpeg" class="card-img-top" alt="Mr. Balasubramanian">
+          <div class="card-body">
+            <h6 class="fw-semibold mb-1">Mr. Balasubramanian</h6>
+            <p class="text-muted mb-0">ECE</p>
+          </div>
+        </div>
+      </div>
 
-              <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="engagement-card">
-                  <div class="card-icon">
-                    <i class="bi bi-calendar-event"></i>
-                  </div>
-                  <h4>Alumni Meetup</h4>
-                  <p class="stylealumnicontent">A joyful reunion where past graduates reconnect, share experiences, and celebrate their journey together.
-Strengthening bonds and building networks that last beyond the campus walls</p>
-                  <a href="#" class="card-link">Meetup & Events</a>
-                </div>
-              </div>
+      <!-- Card 3 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center h-100 shadow-sm">
+          <img src="assets/img/nirmalambal.jpg" class="card-img-top" alt="Mrs. Nirmalambal">
+          <div class="card-body">
+            <h6 class="fw-semibold mb-1">Mrs. Nirmalambal</h6>
+            <p class="text-muted mb-0">Civil</p>
+          </div>
+        </div>
+      </div>
 
-              <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="engagement-card">
-                  <div class="card-icon">
-                    <i class="bi bi-gift"></i>
-                  </div>
-                  <h4>Give Back</h4>
-                  <p class="stylealumnicontent">Our alumni give back by sharing the knowledge, skills, and experiences they’ve gained in their journey beyond campus.
-Through mentorship, guest lectures, and career support, they inspire and uplift the next generation of students.</p>
-                  <a href="#" class="card-link">Alumni Guidance</a>
-                </div>
-              </div>
+      <!-- Card 4 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center h-100 shadow-sm">
+          <img src="assets/img/sivasubramanian.jpg" class="card-img-top" alt="Mr. Siva Subramanian">
+          <div class="card-body">
+            <h6 class="fw-semibold mb-1">Mr. Siva Subramanian</h6>
+            <p class="text-muted mb-0">EEE</p>
+          </div>
+        </div>
+      </div>
 
-              <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="engagement-card">
-                  <div class="card-icon">
-                    <i class="bi bi-briefcase"></i>
-                  </div>
-                  <h4>Career Network</h4>
-                  <p class="stylealumnicontent">A strong alumni career network opens doors to internships, job opportunities, and industry connections.
-Students benefit from real-world guidance and referrals from successful graduates across the globe</p>
-                  <a href="#" class="card-link">Career Network</a>
-                </div>
-              </div>
+      <!-- Card 5 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center h-100 shadow-sm">
+          <img src="assets/img/yamuna.jpg" class="card-img-top" alt="Mrs. Yamuna">
+          <div class="card-body">
+            <h6 class="fw-semibold mb-1">Mrs. Yamuna</h6>
+            <p class="text-muted mb-0">CSE</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center h-100 shadow-sm">
+          <img src="assets/img/alumni/balasundaram.jpg" class="card-img-top" alt="Mr. Balasundaram">
+          <div class="card-body">
+            <h6 class="fw-semibold mb-1">Mr. Balasundaram</h6>
+            <p class="text-muted mb-0">Placement</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<h5 class="fw-semibold mb-3 text-center text-danger h3">
+  Distinguished Alumni Award
+</h5>
+
+<div class="container text-center mx-auto my-4">
+<p class="text-muted mb-3">
+  As a token of our appreciation, we invite you to download the
+  <strong>Distinguished Alumni Award Nomination Form</strong>.
+  Eligible alumni are encouraged to apply or be nominated for this honour.
+</p>
+
+<a href="./alumniform.pdf"
+   class="btn btn-outline-danger rounded-pill px-4"
+   target="_blank" download>
+  ⬇ Download Award Nomination Form (PDF)
+</a>
+</div>
+
+
+<button id="scrollToFormBtn"
+  class="btn btn-danger shadow rounded-pill d-flex align-items-center gap-2">
+  📝 Alumni Form
+</button>
+
+<section class="py-5 bg-light" id="alumniForm">
+  <div class="container">
+
+    <!-- Title -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-danger">Alumni Engagement & Contribution Form</h2>
+      <p class="text-muted">Stay connected. Shape the future.</p>
+    </div>
+
+    <!-- IMPORTANT: method + action -->
+    <form method="POST" action="alumnisubmit.php">
+
+      <!-- 1. Basic Details -->
+      <h5 class="fw-semibold mb-3">1. Basic Details</h5>
+
+      <div class="row g-3">
+        <div class="col-md-3">
+          <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
+        </div>
+
+        <div class="col-md-3">
+          <select name="graduation_year" class="form-select" required>
+            <option value="">Year of Graduation</option>
+            <option>2005</option>
+            <option>2006</option>
+            <option>2007</option>
+            <option>2008</option>
+            <option>2009</option>
+            <option>2010</option>
+            <option>2011</option>
+            <option>2012</option>
+            <option>2013</option>
+            <option>2014</option>
+            <option>2015</option>
+            <option>2016</option>
+            <option>2017</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+            <option>2023</option>
+            <option>2024</option>
+            <option>2025</option>
+          </select>
+        </div>
+
+
+        <div class="col-md-3">
+          <select name="department" class="form-select" required>
+            <option value="">Programme / Department</option>
+
+            <option>B.E. Computer Science and Engineering</option>
+            <option>B.Tech. Information Technology</option>
+            <option>B.E. Electronics and Communication Engineering</option>
+            <option>B.E. Electrical and Electronics Engineering</option>
+            <option>B.E. Mechanical Engineering</option>
+            <option>B.E. Civil Engineering</option>
+            <option>B.Tech. Artificial Intelligence & Data Science</option>
+            <option>Science and Humanities</option>
+
+            <option disabled>──────────</option>
+
+            <option>M.E. Computer Science</option>
+            <option>M.E. Embedded System and Technologies</option>
+            <option>M.E. Construction Engineering and Management</option>
+            <option>M.E. Energy Engineering</option>
+          </select>
+        </div>
+
+
+        <div class="col-md-3">
+          <input type="text" name="role_org" class="form-control" placeholder="Current Role & Organisation">
+        </div>
+
+        <div class="col-md-3">
+          <input type="text" name="location" class="form-control" placeholder="Location">
+        </div>
+
+        <div class="col-md-3">
+          <input type="email" name="email" class="form-control" placeholder="Email ID" required>
+        </div>
+
+        <div class="col-md-3">
+          <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+        </div>
+
+        <div class="col-md-3">
+          <input type="url" name="linkedin" class="form-control" placeholder="LinkedIn Profile (optional)">
+        </div>
+      </div>
+
+      <!-- 2. Contribution -->
+      <h5 class="fw-semibold mt-5 mb-2">2. How would you like to contribute?</h5>
+      <p class="text-muted small">(You may select one or more options)</p>
+
+      <div class="row g-4">
+
+        <!-- Academic -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Academic & Knowledge Support</h6>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Industry Talks / Guest Lectures" id="academic1">
+              <label class="form-check-label" for="academic1">Industry Talks / Guest Lectures</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Faculty Development Programmes (FDPs)" id="academic2">
+              <label class="form-check-label" for="academic2">Faculty Development Programmes (FDPs)</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Teaching (Full-time / Visiting / Adjunct)" id="academic3">
+              <label class="form-check-label" for="academic3">Teaching (Full-time / Visiting / Adjunct)</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Curriculum Advisory / Subject Expert" id="academic4">
+              <label class="form-check-label" for="academic4">Curriculum Advisory / Subject Expert</label>
             </div>
           </div>
         </div>
 
-        <!-- <div class="upcoming-events">
-          <div class="section-header text-center" data-aos="fade-up" data-aos-delay="200">
-            <h3>Upcoming Alumni Events</h3>
-            <p>Connect with fellow graduates at these exclusive gatherings</p>
-          </div>
+        <!-- Student Exposure -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Student Exposure & Career Support</h6>
 
-          <div class="events-wrapper" data-aos="fade-up" data-aos-delay="300">
-            <div class="event">
-              <div class="date-badge">
-                <span class="month">JUN</span>
-                <span class="day">18</span>
-              </div>
-              <div class="event-info">
-                <h4>Global Alumni Leadership Summit</h4>
-                <div class="event-meta">
-                  <span><i class="bi bi-pin-map"></i> Grand Hall, Main Campus</span>
-                  <span><i class="bi bi-clock"></i> 10:00 AM - 4:00 PM</span>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et. Aenean eu enim justo.</p>
-              </div>
-              <div class="event-action">
-                <a href="#" class="btn-register">Register</a>
-              </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Internships / Live Projects" id="student1">
+              <label class="form-check-label" for="student1">Internships / Live Projects</label>
             </div>
 
-            <div class="event">
-              <div class="date-badge">
-                <span class="month">JUL</span>
-                <span class="day">25</span>
-              </div>
-              <div class="event-info">
-                <h4>Networking Mixer &amp; Career Fair</h4>
-                <div class="event-meta">
-                  <span><i class="bi bi-pin-map"></i> Metropolitan Hotel Conference Center</span>
-                  <span><i class="bi bi-clock"></i> 6:30 PM - 9:00 PM</span>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et. Aenean eu enim justo.</p>
-              </div>
-              <div class="event-action">
-                <a href="#" class="btn-register">Register</a>
-              </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Employment / Recruitment Support" id="student2">
+              <label class="form-check-label" for="student2">Employment / Recruitment Support</label>
             </div>
 
-            <div class="event">
-              <div class="date-badge">
-                <span class="month">SEP</span>
-                <span class="day">09</span>
-              </div>
-              <div class="event-info">
-                <h4>Homecoming Weekend 2023</h4>
-                <div class="event-meta">
-                  <span><i class="bi bi-pin-map"></i> University Campus</span>
-                  <span><i class="bi bi-clock"></i> All Weekend</span>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et. Aenean eu enim justo.</p>
-              </div>
-              <div class="event-action">
-                <a href="#" class="btn-register">Register</a>
-              </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Placement Talks / Career Guidance Sessions" id="student3">
+              <label class="form-check-label" for="student3">Placement Talks / Career Guidance Sessions</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Mentorship (One-on-one / Group)" id="student4">
+              <label class="form-check-label" for="student4">Mentorship (One-on-one / Group)</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Career Cell Support" id="student5">
+              <label class="form-check-label" for="student5">Career Cell Support</label>
             </div>
           </div>
+        </div>
 
-          <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="400">
-            <a href="#" class="calendar-link">View Full Events Calendar <i class="bi bi-arrow-right-circle"></i></a>
-          </div>
-        </div> -->
+        <!-- Evaluation -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Evaluation & Competitions</h6>
 
-        <!-- <div class="impact-banner" data-aos="fade-up" data-aos-delay="200">
-          <div class="row align-items-center">
-            <div class="col-lg-7">
-              <div class="impact-content">
-                <h3>Make a Lasting Impact</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempus, velit vel fringilla venenatis, urna risus volutpat nisi, ac commodo dolor nulla quis lorem. In mattis dictum malesuada. Vestibulum non mi eu justo rutrum tempus.</p>
-                <div class="impact-buttons">
-                  <a href="#" class="btn-donate">Donate Now</a>
-                  <a href="#" class="btn-learn-more">Learn About Impact <i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Judge for Competitions / Hackathons" id="evaluation1">
+              <label class="form-check-label" for="evaluation1">Judge for Competitions / Hackathons</label>
             </div>
-            <div class="col-lg-5">
-              <div class="impact-image">
-                <img src="assets/img/education/education-8.webp" alt="Student scholarship recipients" class="img-fluid">
-                <div class="impact-stat">
-                  <span class="stat-number">$2.4M</span>
-                  <span class="stat-text">in scholarships funded by alumni last year</span>
-                </div>
-              </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Interview Panels & GD Assessments" id="evaluation2">
+              <label class="form-check-label" for="evaluation2">Interview Panels & GD Assessments</label>
             </div>
           </div>
-        </div> -->
+        </div>
+
+        <!-- Innovation -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Innovation & Entrepreneurship</h6>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Incubation Cell Support" id="innovation1">
+              <label class="form-check-label" for="innovation1">Incubation Cell Support (Mentor / Advisor)</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Startup Guidance / Investor Connects" id="innovation2">
+              <label class="form-check-label" for="innovation2">Startup Guidance / Investor Connects</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Institutional Growth -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Institutional Growth</h6>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Centres of Excellence – Financial / Knowledge Support" id="growth1">
+              <label class="form-check-label" for="growth1">Centres of Excellence – Financial / Knowledge Support</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Marketing / Social Media / Campaign Support" id="growth2">
+              <label class="form-check-label" for="growth2">Marketing / Social Media / Campaign Support</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Welfare -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Student Welfare</h6>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Scholarships / Financial Assistance" id="welfare1">
+              <label class="form-check-label" for="welfare1">Scholarships / Financial Assistance</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3. More Details -->
+      <h5 class="fw-semibold mt-5 mb-3">3. Please share more details (optional)</h5>
+
+      <textarea name="support_details" class="form-control mb-3" rows="3" placeholder="Nature of support you can offer"></textarea>
+
+
+
+      <!-- 4. Message -->
+      <h5 class="fw-semibold mt-5 mb-3">4. Any message for your alma mater?</h5>
+
+      <textarea name="message" class="form-control mb-4" rows="3" placeholder="Your message"></textarea>
+
+      <!-- Submit -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-5 py-2 rounded-pill">
+          Submit Contribution
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
 
       </div>
 
@@ -1484,7 +1457,13 @@ function closePopup() {
 </script>
 
 
-
+<script>
+document.getElementById("scrollToFormBtn").addEventListener("click", function () {
+  document.getElementById("alumniForm").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+</script>
 
 </body>
 

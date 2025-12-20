@@ -23,9 +23,6 @@ $data = [
     "linkedin" => $_POST['linkedin'] ?? '',
     "contribution" => isset($_POST['contribution']) ? implode(", ", $_POST['contribution']) : '',
     "support_details" => $_POST['support_details'] ?? '',
-    "preferred_mode" => $_POST['preferred_mode'] ?? '',
-    "frequency" => $_POST['frequency'] ?? '',
-    "availability" => $_POST['availability'] ?? '',
     "message" => $_POST['message'] ?? '',
     "submitted_at" => date("Y-m-d H:i:s")
 ];

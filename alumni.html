@@ -374,6 +374,237 @@
       </div>
     </div><!-- End Page Title -->
 
+
+<section class="py-5 bg-light">
+  <div class="container">
+
+    <!-- Title -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Alumni Engagement & Contribution Form</h2>
+      <p class="text-muted">Stay connected. Shape the future.</p>
+    </div>
+
+    <!-- IMPORTANT: method + action -->
+    <form method="POST" action="alumnisubmit.php">
+
+      <!-- 1. Basic Details -->
+      <h5 class="fw-semibold mb-3">1. Basic Details</h5>
+
+      <div class="row g-3">
+        <div class="col-md-3">
+          <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
+        </div>
+
+        <div class="col-md-3">
+          <input type="text" name="graduation_year" class="form-control" placeholder="Year of Graduation" required>
+        </div>
+
+        <div class="col-md-3">
+          <input type="text" name="department" class="form-control" placeholder="Programme / Department" required>
+        </div>
+
+        <div class="col-md-3">
+          <input type="text" name="role_org" class="form-control" placeholder="Current Role & Organisation">
+        </div>
+
+        <div class="col-md-3">
+          <input type="text" name="location" class="form-control" placeholder="Location">
+        </div>
+
+        <div class="col-md-3">
+          <input type="email" name="email" class="form-control" placeholder="Email ID" required>
+        </div>
+
+        <div class="col-md-3">
+          <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+        </div>
+
+        <div class="col-md-3">
+          <input type="url" name="linkedin" class="form-control" placeholder="LinkedIn Profile (optional)">
+        </div>
+      </div>
+
+      <!-- 2. Contribution -->
+      <h5 class="fw-semibold mt-5 mb-2">2. How would you like to contribute?</h5>
+      <p class="text-muted small">(You may select one or more options)</p>
+
+      <div class="row g-4">
+
+        <!-- Academic -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Academic & Knowledge Support</h6>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Industry Talks / Guest Lectures" id="academic1">
+              <label class="form-check-label" for="academic1">Industry Talks / Guest Lectures</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Faculty Development Programmes (FDPs)" id="academic2">
+              <label class="form-check-label" for="academic2">Faculty Development Programmes (FDPs)</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Teaching (Full-time / Visiting / Adjunct)" id="academic3">
+              <label class="form-check-label" for="academic3">Teaching (Full-time / Visiting / Adjunct)</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Curriculum Advisory / Subject Expert" id="academic4">
+              <label class="form-check-label" for="academic4">Curriculum Advisory / Subject Expert</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Exposure -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Student Exposure & Career Support</h6>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Internships / Live Projects" id="student1">
+              <label class="form-check-label" for="student1">Internships / Live Projects</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Employment / Recruitment Support" id="student2">
+              <label class="form-check-label" for="student2">Employment / Recruitment Support</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Placement Talks / Career Guidance Sessions" id="student3">
+              <label class="form-check-label" for="student3">Placement Talks / Career Guidance Sessions</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Mentorship (One-on-one / Group)" id="student4">
+              <label class="form-check-label" for="student4">Mentorship (One-on-one / Group)</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Career Cell Support" id="student5">
+              <label class="form-check-label" for="student5">Career Cell Support</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluation -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Evaluation & Competitions</h6>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Judge for Competitions / Hackathons" id="evaluation1">
+              <label class="form-check-label" for="evaluation1">Judge for Competitions / Hackathons</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Interview Panels & GD Assessments" id="evaluation2">
+              <label class="form-check-label" for="evaluation2">Interview Panels & GD Assessments</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Innovation -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Innovation & Entrepreneurship</h6>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Incubation Cell Support" id="innovation1">
+              <label class="form-check-label" for="innovation1">Incubation Cell Support (Mentor / Advisor)</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Startup Guidance / Investor Connects" id="innovation2">
+              <label class="form-check-label" for="innovation2">Startup Guidance / Investor Connects</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Institutional Growth -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Institutional Growth</h6>
+
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Centres of Excellence – Financial / Knowledge Support" id="growth1">
+              <label class="form-check-label" for="growth1">Centres of Excellence – Financial / Knowledge Support</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Marketing / Social Media / Campaign Support" id="growth2">
+              <label class="form-check-label" for="growth2">Marketing / Social Media / Campaign Support</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Welfare -->
+        <div class="col-lg-4">
+          <div class="border rounded p-3 h-100">
+            <h6 class="fw-semibold mb-3">Student Welfare</h6>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="contribution[]" value="Scholarships / Financial Assistance" id="welfare1">
+              <label class="form-check-label" for="welfare1">Scholarships / Financial Assistance</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3. More Details -->
+      <h5 class="fw-semibold mt-5 mb-3">3. Please share more details (optional)</h5>
+
+      <textarea name="support_details" class="form-control mb-3" rows="3" placeholder="Nature of support you can offer"></textarea>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <select name="preferred_mode" class="form-select">
+            <option value="">Preferred Mode</option>
+            <option>Online</option>
+            <option>Offline</option>
+            <option>Hybrid</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <select name="frequency" class="form-select">
+            <option value="">Frequency</option>
+            <option>One-time</option>
+            <option>Occasional</option>
+            <option>Ongoing</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <input type="text" name="availability" class="form-control" placeholder="Best months / availability">
+        </div>
+      </div>
+
+      <!-- 4. Message -->
+      <h5 class="fw-semibold mt-5 mb-3">4. Any message for your alma mater?</h5>
+
+      <textarea name="message" class="form-control mb-4" rows="3" placeholder="Your message"></textarea>
+
+      <!-- Submit -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-5 py-2 rounded-pill">
+          Submit Contribution
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+
+
+
+
+
     <!-- Alumni Section -->
     <section id="alumni" class="alumni section">
 
@@ -1120,32 +1351,14 @@ Email: principal@msec.edu.in</span></p>
 
   </footer>
 <!-- SCREEN OPENING GIF POPUP -->
-<div id="screenPopup" class="popup-overlay">
+<!-- FINAL POPUP -->
+<div id="imagePopup" class="popup-overlay show">
   <div class="popup-box">
-    <img src="./assets/img/screenopen.gif" class="popup-image2" alt="Screen Opening">
-  </div>
-</div>
-  <!-- POPUP -->
-<div id="blastPopup" class="popup-overlay">
-  <div class="popup-box">
-    
-    <!-- Blast Poppers -->
-    <img src="./assets/img/popper.gif" class="popper popper-left" alt="">
-
-    <!-- Main Image -->
-    <img src="./assets/img/alumnipopup.jpg" class="popup-image" alt="Popup Image">
-
-    <!-- Close -->
+    <img src="./assets/img/popup2.jpg" class="popup-image" alt="Popup Image">
     <button class="popup-close" onclick="closePopup()">×</button>
   </div>
 </div>
 
-<!-- POPUP 2 -->
-<div id="imagePopup" class="popup-overlay">
-  <div class="popup-box">
-    <img src="./assets/img/popup2.jpg" class="popup-image" alt="">
-    <button class="popup-close" onclick="closePopup2()">×</button>
-  </div>
 </div>
 
 
@@ -1263,54 +1476,13 @@ link.addEventListener("click", function () {
 
 </script>
 <script>
-const screenPopup = document.getElementById("screenPopup");
-const popup1 = document.getElementById("blastPopup");
-const popup2 = document.getElementById("imagePopup");
+const popup = document.getElementById("imagePopup");
 
-// TIMINGS (ms)
-const SCREEN_GIF_TIME = 4000; // match your GIF length
-const POPUP1_TIME = 5000;
-
-function show(el) {
-  el.classList.add("show");
+function closePopup() {
+  popup.classList.remove("show");
 }
-
-function hide(el) {
-  el.classList.remove("show");
-}
-
-function closePopup1() {
-  hide(popup1);
-}
-
-function closePopup2() {
-  hide(popup2);
-}
-
-// START SEQUENCE
-setTimeout(() => {
-
-  // 1️⃣ Show screen opening GIF
-  show(screenPopup);
-
-  setTimeout(() => {
-    hide(screenPopup);
-
-    // 2️⃣ Show blast popup
-    show(popup1);
-
-    setTimeout(() => {
-      hide(popup1);
-
-      // 3️⃣ Show final image popup
-      show(popup2);
-
-    }, POPUP1_TIME);
-
-  }, SCREEN_GIF_TIME);
-
-}, 1500);
 </script>
+
 
 
 

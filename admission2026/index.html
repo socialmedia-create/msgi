@@ -56,7 +56,7 @@
 		<meta name="twitter:image" content="https://msec.edu.in/">
 	<link rel="canonical" href="https://msec.edu.in/index.html" />
 	<link rel="icon" href="https://msec.edu.in/public/images/favicon.png" type="image/png">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -318,13 +318,6 @@
 		  animation: scroll 45s linear infinite; 
 		}
 
-		.logo-track img {
-		  height: 80px;
-		  width: auto;
-		  margin-right: 50px; 
-		  object-fit: contain;
-			background-color:white;
-		}
 
 		@keyframes scroll {
 		  0% {
@@ -448,14 +441,7 @@
         .bgsection{
             background-color: #204E9E;
         }
-        .bgimage{
-            overflow-x: hidden;
-            background-position: center;
-            background-size: cover;
-            width: 100%;
-            height: 300px;
-            background-repeat: no-repeat;
-        }
+
         .stylerecord > strong{
                 color: white;
                 font-size: 30px;
@@ -879,206 +865,318 @@
     <img height="1" width="1" style="display:none"
          src="https://www.facebook.com/tr?id=1409460377104086&ev=PageView&noscript=1"/>
   </noscript>
-    <header class="container-fluid text-center p-2 p-lg-1 bgheader fade-in">
-        <div class="p-2 p-lg-0 alignfordesktop">
-          
-          <a href="https://msec.edu.in/" target="_blank" class="">
-            <img src="./1745659609550.png" alt="MSEC Logo" class="img-fluid logo1" style="height: 60px;">
-          </a>
-      
-          <div class="">
-            <h1 class="headerforlargescreen">Meenakshi Sundararajan Engineering College</h1>
-            <span class="">
-              (AN AUTONOMOUS INSTITUTION) <br>
-              Managed by IIET Society <br>
-              Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai
-            </span>
-          </div>
-      
-          <div class="">
-            <img src="./public/images/nbalogo.png" alt="Logo 2" class="img-fluid mx-1 logo2" style="height: 50px;">
-            <img src="./1745930973519 (1).png" alt="Logo 3" class="img-fluid mx-1 logo3" style="height: 50px;">
-            <img src="./pngwing.com.png" alt="Logo 4" class="img-fluid mx-2 mx-lg-4 logo4" style="height: 50px;">
-            <button class="btn btn-primary mx-md-4" onclick="window.open('https://msec.edu.in/', '_blank')">
-              Home
-            </button>
-			<div class="container">
-			  <button class="btn animated-button">
-				TNEA Code<br/>1309
-			  </button>
-			</div>
-          </div>
-        </div>
-      </header>
 
-	<nav class="stylenav ">
-		<ul class="nav">
-	  <li class="nav-item linkhover">
-		<a class="nav-link text-white" aria-current="page" href="https://msec.edu.in/about.html" target="_blank">About Us</a>
-	  </li>
-	  <li class="nav-item linkhover">
-		<a class="nav-link text-white" href="https://msec.edu.in/whymsec.html" target="_blank">Why MSEC</a>
-	  </li>
-	  <li class="nav-item linkhover">
-		<a class="nav-link text-white" href="https://msec.edu.in/contact.html" target="_blank">Contact Us</a>
-	  </li>
-		<li class="nav-item linkhover">
-		  <a class="nav-link text-white" href="https://msec.edu.in/placement.html" target="_blank">Placement <img src="new2.png" width="30" height="30"></a>
-		</li>
-		<li class="nav-item linkhover">
-		<a class="nav-link text-white pulse-text" href="https://msec.edu.in/College_Brochure_2025-26.pdf" target="_blank"onclick="downloadBrochure()">Download Brochure<img src="new2.png" width="30" height="30"></a>
-	  </li>
-	</ul>
-	</nav>
-    <main class="main-section container-fluid text-white" id="adform">
-        <div class="headerbg p-md-5 text-center  row ">   
-            <div class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto my-4 mx-lg-0 p-lg-4 bgadmission text-center">
-                <h3>Admission Enquiry</h3>
-				<form class="styleform" id="admission-form" method="POST" action="saveadmission.php" onsubmit="return validateForm()">
-				   <div class="mb-3">
-					   <input type="text" name="name" class="form-control" placeholder="Your Name *" required>
-				   </div>
-				   <div class="mb-3">
-					   <input type="email" name="email" class="form-control" placeholder="Your Email *" required>
-				   </div>
-				   <div class="mb-3">
-					   <input type="text" name="phone"  id="phone" class="form-control" placeholder="Phone Number *" required>
-				   </div>
-				   <div class="mb-3">
-					  <select class="form-control" id="course" name="course">
-						   <option value="" selected disabled>Preferred Course *</option>
-						   <option value="B.E. Computer Science">B.E. Computer Science</option>
-						   <option value="B.E. Electronics and Communication">B.E. Electronics and Communication</option>
-						   <option value="B.E. Electrical and Electronics">B.E. Electrical and Electronics</option>
-						   <option value="B.E. Mechanical Engineering">B.E. Mechanical Engineering</option>
-						   <option value="B.E. Civil Engineering">B.E. Civil Engineering</option>
-						   <option value="B.E. Artificial Intelligence and Data Science">B.E. AI and Data Science</option>
-						   <option value="B.Tech Information Technology">B.Tech Information Technology</option>
-						   <option value="M.E. Construction Engineering & Management">M.E. Construction Engineering & Management</option>
-						   <option value="M.E. Computer Science and Engineering">M.E. Computer Science and Engineering</option>
-						   <option value="M.E. Embedded System Technologies">M.E. Embedded System Technologies</option>
-						   <option value="M.E. Energy Engineering">M.E. Energy Engineering</option>
-					   </select>
-					</div>
-					<div class="mb-3">
-						<select class="form-control" name="know_about" id="know_about" required>
-							<option value="" selected disabled>How do you know about MSEC *</option>
-							<option value="SocialMedia">Social Media</option>
-							<option value="Friends">Friends</option>
-							<option value="Relatives">Relatives</option>
-							<option value="Alumni">Alumni</option>
-							<option value="Others">Others</option>
-						</select>
-					</div>
-				   <div class="d-flex flex-column justify-content-center align-items-center mb-2"> 
-						<div class="text-center row"> 
-							<div class="g-recaptcha" data-sitekey="6LcNjSsrAAAAADzEnROR8hKI2h7y6W_r839ro52p"></div>
-						</div>
-						<div class="text-center mt-2">
-							<button type="submit" class="btn btn-primary p-2 mt-lg-3" id="submitBtn">Submit</button>
-						</div>				   
-				   </div>
-				</form>
-            </div>
-        </div>
-    </main>
-<div class="announcement-container container mx-auto row align-items-center justify-content-center">
-	<div class="col-12 col-md-6 text-center">
-		  <div class="announcement-header">Announcement</div>
-	  <div class="announcement-content">
-		<div class="scroll-text">
-			<p> 
-				<a href="https://docs.google.com/forms/d/e/1FAIpQLSeHXJAVZCluofp2NevU0kDsL9Oxj2MRpADGMHStHwJkyTG09A/closedform" target="_blank" class="">
-					📢Click here for Cognizant Digital Nurture Form <img src="newb.gif" width="30" height="15"></a></p>
-		  <p> <a href="https://app.joinsuperset.com/company/cognizant/DN4.0-Java-FSE.html#gencCategories" target="_blank" class="">
-							🎉 Click here for Cognizant Online Registration <img src="newb.gif" width="30" height="15"></a></p>
-		 <!--- <p>⚠️ Exam registration closes on 25th August.<img src="newb.gif" width="30" height="15"></p>-->
+
+	<header class="site-header sticky-top">
+  <nav class="container-fluid py-2">
+    <div class="row align-items-center justify-content-center">
+
+      <!-- LEFT : LOGOS -->
+      <div class="col-6 col-md-3 d-flex justify-content-center align-items-center  gap-2 logo">
+        <img src="../assets/img/mseclogo.png" alt="Logo 1">
+        <div class="bg-white rounded-2 text-danger shadow-lg text-center p-3">
+			TNEA Code <br><span class="h2 fw-bold">1309</span>
 		</div>
-	  </div>
-	</div>
+      </div>
 
+      <!-- CENTER : TITLE -->
+      <div class="col-12 col-md-6 text-white text-center my-2 my-md-0 header-title">
+        <h1 class="fw-bold h1 mb-0">Meenakshi Sundararajan Engineering College</h1>
+        <p class=" my-3 text-white">(AN AUTONOMOUS INSTITUTION)</p>
+        <p class=" text-white">Managed by IIET Society || Approved by AICTE, New Delhi || Affiliated to Anna University, Chennai</p>
+      </div>
+
+      <!-- RIGHT : HOME + MENU -->
+      <div class="col-6 col-md-3 d-flex justify-content-md-end align-items-center gap-2">
+
+        <!-- HOME BUTTON -->
+        <a href="../" class="btn btn-outline-white text-white ">
+          <i class="bi bi-house-door h1"></i>
+        </a>
+
+        <!-- MENU BUTTON -->
+        <button
+          class="btn btn-outline-white text-white "
+          data-bs-toggle="offcanvas"
+          data-bs-target="#menuDrawer"
+        >
+          <i class="bi bi-list fs-1"></i>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<!-- OFFCANVAS MENU -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="menuDrawer">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="list-unstyled">
+      <li class="mb-2"><a href="#" class="text-decoration-none">About Us</a></li>
+      <li class="mb-2"><a href="#" class="text-decoration-none">Academics</a></li>
+      <li class="mb-2"><a href="#" class="text-decoration-none">Admissions</a></li>
+      <li class="mb-2"><a href="#" class="text-decoration-none">Facilities</a></li>
+      <li class="mb-2"><a href="#" class="text-decoration-none">Contact</a></li>
+    </ul>
+  </div>
 </div>
-    <article class="container m-auto text-center pb-5">
-        <div class=" row align-items-center justify-content-center m-auto">
-            <p class="mt-3">Best Engineering College in Chennai  
-                Located in the vibrant center of Chennai city, Meenakshi Sundararajan Engineering College (MSEC) is recognized as one of the best engineering colleges in Chennai. Our commitment to academic excellence, innovation, and holistic development makes MSEC the ideal destination for aspiring engineers. With top-tier faculty, cutting-edge labs, and a student-first approach, MSEC stands as a beacon of quality technical education.
-                </p>
-            <div class="col-6 col-lg-2 text-center mb-4">
-			  <div class="iconwrapper">
-				<i class="bi bi-award-fill" style="font-size: 4rem; color: blue;"></i>
-			  </div>
-			  <h4 class="mt-3">25 Years of Excellence</h4>
+<section class="hero-section py-5">
+  <div class="container mt-lg-5">
+    <div class="row align-items-center justify-content-center g-5">
+
+      <!-- LEFT CONTENT -->
+      <div class="col-lg-7">
+        <span class="badge bg-light text-dark mb-3 px-3 py-2">
+          #EngineeringExcellence
+        </span>
+
+		<h1 class="hero-title">
+		Beyond 
+		<span class="highlight">
+			<span class="text-danger" id="typing-text"></span>
+		</span><br>
+		<span class="text-dark">A Legacy of</span>
+		<span class="highlight">Engineering Excellence</span>
+		</h1>
+
+
+        <p class="hero-desc mt-4">
+          Empowering students with strong foundations, industry exposure,
+          innovation-driven learning, and a legacy of academic excellence.
+        </p>
+
+        <a href="#apply" class="btn btn-danger btn-lg mt-3">
+          Apply Now
+        </a>
+      </div>
+
+      <!-- RIGHT FORM -->
+      <div class="col-lg-5">
+        <div class="card shadow-lg border-0 rounded-4 p-4">
+          <h5 class="fw-semibold mb-3 text-center">
+            Enquiry Form
+          </h5>
+
+			<form id="adform" action="saveadmission.php" method="post" >
+
+			<!-- Full Name -->
+			<div class="mb-3">
+				<input 
+				type="text" 
+				class="form-control" 
+				placeholder="Full Name" 
+				name="full_name"
+				required>
 			</div>
 
-			<div class="col-6 col-lg-2 text-center mb-4" onclick="window.open('https://msec.edu.in/placement.html', '_blank')">
-			  <div class="iconwrapper">
-				<i class="bi bi-mortarboard-fill" style="font-size: 4rem; color: #ffc107;"></i>
-			  </div>
-			  <h4 class="mt-3">Placement Records</h4>
+			<!-- Email -->
+			<div class="mb-3">
+				<input 
+				type="email" 
+				class="form-control" 
+				placeholder="Email Address" 
+				name="email"
+				required>
 			</div>
 
-			<div class="col-6 col-lg-2 text-center mb-4">
-			  <div class="iconwrapper">
-				<i class="bi bi-person-workspace" style="font-size: 4rem; color: blue;"></i>
-			  </div>
-			  <h4 class="mt-3">Successful Entrepreneurs</h4>
+			<!-- Phone Number -->
+			<div class="mb-3">
+				<input 
+				type="tel" 
+				class="form-control" 
+				placeholder="Mobile Number" 
+				name="phone"
+				pattern="[0-9]{10}"
+				required>
 			</div>
 
-			<div class="col-6 col-lg-2 text-center mb-4">
-			  <div class="iconwrapper">
-				<i class="bi bi-building-fill-check" style="font-size: 4rem; color: #ffc107;"></i>
-			  </div>
-			  <h4 class="mt-3">World Class Laboratories</h4>
+			<!-- Board of Studies -->
+			<div class="mb-3">
+				<select class="form-select" name="board" required>
+				<option value="" selected disabled>Board of Studies</option>
+				<option>CBSE</option>
+				<option>ICSE</option>
+				<option>State Board</option>
+				<option>IB</option>
+				<option>IGCSE</option>
+				<option>Other</option>
+				</select>
 			</div>
 
-			<div class="col-6 col-lg-2 text-center mb-4" onclick="window.open('https://msec.edu.in/alumniachiever.html', '_blank')">
-			  <div class="iconwrapper">
-				<i class="bi bi-people-fill" style="font-size: 4rem; color: blue;"></i>
-			  </div>
-			  <h4 class="mt-3">Successful<br/> Alumni</h4>
+			<!-- Location -->
+			<div class="mb-3">
+				<input 
+				type="text" 
+				class="form-control" 
+				placeholder="Location / City" 
+				name="location"
+				required>
 			</div>
+
+			<!-- Preferred Course -->
+			<div class="mb-3">
+			<select class="form-select" name="preferred_course" required>
+				<option value="" selected disabled>Preferred Course</option>
+
+				<!-- Undergraduate Programmes -->
+				<option>B.E. Computer Science and Engineering</option>
+				<option>B.Tech. Information Technology</option>
+				<option>B.E. Electronics and Communication Engineering</option>
+				<option>B.E. Electrical and Electronics Engineering</option>
+				<option>B.E. Mechanical Engineering</option>
+				<option>B.E. Civil Engineering</option>
+				<option>B.Tech. Artificial Intelligence & Data Science</option>
+				<option>Science and Humanities</option>
+
+				<!-- Postgraduate Programmes -->
+				<option>M.E. Computer Science</option>
+				<option>M.E. Embedded System and Technologies</option>
+				<option>M.E. Construction Engineering and Management</option>
+				<option>M.E. Energy Engineering</option>
+
+			</select>
+			</div>
+
+			<div class="mb-3">
+				<select class="form-select" name="source" required>
+					<option value="" selected disabled>
+					How did you know about us?
+					</option>
+					<option>Google Search</option>
+					<option>Social Media (Instagram / Facebook / YouTube)</option>
+					<option>Friends / Family</option>
+					<option>Website</option>
+					<option>Alumni</option>
+					<option>Other</option>
+				</select>
+			</div>
+
+
+
+			<!-- Submit Button -->
+			<button type="submit" class="btn btn-danger w-100">
+				Submit Enquiry
+			</button>
+
+			</form>
+
         </div>
-    </article>
-	<div class="container p-3 md-2 mb-md-4 divbg">
-		<div class="row mx-auto d-flex align-items-center justify-content-center">
-			<div class="col-12 col-lg-3">
-				<div style="position: relative; width: 300px; height: 300px; margin: auto;">
-				  <!-- Logo Image -->
-				  <img src="./1745659609550.png" alt="MSEC Logo" 
-					   style="width: 150px; height: 150px; border-radius: 50%; 
-							  position: absolute; top: 50%; left: 50%; 
-							  transform: translate(-50%, -50%); z-index: 2;">
+      </div>
 
-				  <!-- SVG Circular Text -->
-				  <svg viewBox="0 0 300 300" style="width: 300px; height: 300px; position: absolute; top: 0; left: 0; z-index: 1;">
-					<defs>
-					  <path id="circlePath" d="M 150, 150 m -100, 0 a 100,100 0 1,1 200,0 a 100,100 0 1,1 -200,0" />
-					</defs>
-					<g>
-					  <text font-size="16" fill="red">
-						<textPath href="#circlePath" startOffset="50%">
-						   Excellence • Innovation • 100% Placements
-						</textPath>
-					  </text>
-					</g>
-				  </svg>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 bgrank">				
-			</div>
-		</div>
-	</div>
-    <section class="container-fluid text-center p-5 bgsection text-white ">
+    </div>
+  </div>
+<div class="accreditation-logos mt-5 pt-lg-5">
+  <div class="d-flex flex-wrap align-items-center justify-content-center mt-lg-5 pt-lg-5 gap-5">
+
+    <img src="./public/images/nbalogo.png" alt="NBA Accreditation" class="bg-white mt-xl-5 rounded-4 accr-logo">
+    <img src="./public/images/aicte.png" alt="AICTE Approved" class="bg-white rounded-4 mt-xl-5 p-4 accr-logo">
+    <img src="./public/images/25years.webp" alt="UGC Recognised" class="bg-white rounded-4 mt-xl-5 p-4 accr-logo">
+    <img src="./public/images/naac.png" alt="Autonomous Institution" class="bg-white rounded-4 mt-xl-5 p-4 accr-logo">
+
+  </div>
+</div>
+
+</section>
+<section class="describesection">
+  <div class="container p-4">
+
+    <p class="mb-4 h5">
+      Located in the heart of Chennai, <br> <span class="h1">MSEC stands among the city’s top engineering</span> 
+      <br>colleges, shaping future engineers through excellence and innovation.
+    </p>
+
+
+
+  </div>
+  <section class="stats-section py-5">
+  <div class="container">
+    <div class="row g-4 text-center">
+		    <h6 class="fw-semibold h2 my-2">
+      Why MSEC Stands Out
+    </h6>
+	<p>Best Engineering College in Chennai Located in the vibrant center of Chennai city,
+		 Meenakshi Sundararajan Engineering College (MSEC) is recognized as one of the best engineering colleges in Chennai. Our commitment to academic excellence, innovation, and holistic development makes MSEC the ideal destination for aspiring engineers. With top-tier faculty, cutting-edge labs, and a student-first approach, MSEC stands as a beacon of quality technical education.</p>
+      <!-- CARD 1 -->
+      <div class="col-6 col-md-4 col-lg">
+        <div class="stat-card">
+          <i class="bi bi-award stat-icon text-primary"></i>
+          <h5>25 Years of<br>Excellence</h5>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-6 col-md-4 col-lg">
+        <div class="stat-card">
+          <i class="bi bi-mortarboard stat-icon text-warning"></i>
+          <h5>Placement<br>Records</h5>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-6 col-md-4 col-lg">
+        <div class="stat-card">
+          <i class="bi bi-person-badge stat-icon text-primary"></i>
+          <h5>Successful<br>Entrepreneurs</h5>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="col-6 col-md-4 col-lg">
+        <div class="stat-card">
+          <i class="bi bi-building-check stat-icon text-warning"></i>
+          <h5>World Class<br>Laboratories</h5>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="col-6 col-md-4 col-lg">
+        <div class="stat-card">
+          <i class="bi bi-people stat-icon text-primary"></i>
+          <h5>Successful<br>Alumni</h5>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</section>
+<section class="shorts-section">
+	<h2 class="text-center fs-1 my-3">MSEC Insights</h2>
+  <div class="shorts-container">
+    <iframe
+      class="short-iframe"
+      src="https://www.youtube.com/embed/36EHovP6wGk?si=Ch5WBqV47LOpXpEU"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+
+    <iframe
+      class="short-iframe"
+      src="https://www.youtube.com/embed/CXuv5jxVV_s?si=bxLvNqJ4FycvssSz"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+
+    <iframe
+      class="short-iframe"
+      src="https://www.youtube.com/embed/NvNpwzxoOr0?si=AZkFFvKvD9bPAN2L"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+    <section class="container-fluid text-center p-1 p-md-5 bgsection text-white ">
 		<div class="row">
-			<div class="col-12 col-lg-6 col-xl-5 d-flex align-items-center justify-content-center">
-				<iframe width="100%" height="315" src="https://www.youtube.com/embed/CXuv5jxVV_s?si=SOeH-6VdtDpjQbAJ" 
-						title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-																			encrypted-media; gyroscope; picture-in-picture; web-					share"referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-				</iframe>
-			</div>
-		<div class="col-12 col-lg-6 col-xl-7 row align-items-center justify-content-center">
+
+		<div class="col-12 row align-items-center justify-content-center">
             <div class="col-12 col-xl-6 text-justify">
-				<h3>Why MSEC</h3>
+				<h3>From Engineers to Leaders: Flexible Learning at MSEC</h3>
                 <p>We are autonomous
                     Students can choose what & when they want to learn
 							MSEC’s autonomous status has allowed us to create a Choice-based Credit System similar to the culture in top 				international universities. This system enables students to choose subjects that align with their passion and industry’s 				requirements, such as Artificial Intelligence and Data Science, Design Thinking and Prototyping, and much more.
@@ -1111,9 +1209,8 @@
             </div>
         </div>
 		</div>	
-    </section>
-    <article class="container-fluid row text-white bgfixedimg pt-lg-5 text-center">
-        <h3 class="text-center mt-lg-5">Placements</h3>
+
+		        <h3 class="text-center mt-lg-5">Placements</h3>
         <div class="d-flex align-items-center justify-content-center">
             <p class="w-75"> Best Engineering College with Placements  
                 At MSEC, placements are a priority. We take pride in maintaining over 90.58% placement rates, 
@@ -1123,6 +1220,10 @@
     
         </div>
         <div class="py-5">
+			    <h6 class="fw-semibold h2 my-1 my-lg-5 text-center">
+      Our Recruiting Partners
+    </h6>
+
             <div class="py-md-3 mx-md-3 mx-lg-5">
                   <div class="smallscreen container">
                     <div class="cmpynew"></div>
@@ -1179,53 +1280,99 @@
 				</div>
             </div>
         </div>
+
+<section class="stats-section">
+  <div class="stats-container">
+
+    <div class="stat">
+      <div class="circle" data-percent="90">
+        <span>90%</span>
+      </div>
+      <p>Placement Record</p>
+    </div>
+
+    <div class="stat">
+      <div class="circle" data-percent="100">
+        <span>25+</span>
+      </div>
+      <p>Legacy in Education</p>
+    </div>
+
+    <div class="stat">
+      <div class="circle" data-percent="100">
+        <span>100+</span>
+      </div>
+      <p>Placement Training</p>
+    </div>
+
+    <div class="stat">
+      <div class="circle" data-percent="80">
+        <span>20+</span>
+      </div>
+      <p>Experienced Faculty</p>
+    </div>
+
+    <div class="stat">
+      <div class="circle" data-percent="75">
+        <span>20+</span>
+      </div>
+      <p>Industry Connects</p>
+    </div>
+
+  </div>
+</section>
+
+
+    </section>
+    <article class="container-fluid row text-white bgfixedimg pt-lg-5 text-center">
+
         <div class="text-center ">
             <h3 class="pb-2">Programs Offered</h3>
             <div class="container">
                 <div class="row align-items-center justify-content-center">
-                    <a href="https://msec.edu.in/mechanical.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 text-decoration-none text-white hovertext">
+                    <a href="../mech.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 text-decoration-none text-white hovertext">
                         <div class="">
                           <div class="coursebg course1"></div>
                           <p class="text-center mt-2">Mechanical Engineering</p>
                         </div>
                       </a>
                       
-                      <a href="https://msec.edu.in/civil.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 mx-md-2 text-decoration-none text-white hovertext">
+                      <a href="../civil.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 mx-md-2 text-decoration-none text-white hovertext">
                         <div class="">
                           <div class="coursebg course2"></div>
                           <p class="text-center mt-2">Civil Engineering</p>
                         </div>
                       </a>
                       
-                      <a href="https://msec.edu.in/eee.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 text-decoration-none text-white hovertext">
+                      <a href="../eee.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 text-decoration-none text-white hovertext">
                         <div class="">
                           <div class="coursebg course8"></div>
                           <p class="text-center mt-2">Electrical and Electronics Engineering</p>
                         </div>
                       </a>
                       
-                      <a href="https://msec.edu.in/ece.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 text-decoration-none text-white hovertext">
+                      <a href="../ece.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 text-decoration-none text-white hovertext">
                         <div class="">
                           <div class="coursebg course4"></div>
                           <p class="text-center mt-2">Electronics and Communication Engineering</p>
                         </div>
                       </a>
                       
-                      <a href="https://msec.edu.in/Computer.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mx-md-2 mb-2 text-decoration-none text-white hovertext">
+                      <a href="../computerscience.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mx-md-2 mb-2 text-decoration-none text-white hovertext">
                         <div class="">
                           <div class="coursebg course5"></div>
                           <p class="text-center mt-2">Computer Science Engineering</p>
                         </div>
                       </a>
                       
-                      <a href="https://msec.edu.in/it.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 text-decoration-none text-white hovertext">
+                      <a href="../informationtechnology.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow-hidden coursestyle mb-2 text-decoration-none text-white hovertext">
                         <div class="">
                           <div class="coursebg course6"></div>
                           <p class="text-center mt-2">Information Technology</p>
                         </div>
                       </a>
                       
-                      <a href="https://msec.edu.in/AI_DS.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow- hidden coursestyle mb-2 text-decoration-none text-white hovertext">
+                      <a href="../aids.html" target="_blank" rel="noopener noreferrer" class="col-10 col-md-3 overflow- hidden coursestyle mb-2 text-decoration-none text-white hovertext">
                         <div class="">
                           <div class="coursebg course7"></div>
                           <p class="text-center mt-2">Artificial Intelligence and Data Science</p>
@@ -1313,8 +1460,8 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="row col-12 col-lg-6 p-3 align-items-center text-center justify-content-center">
+			<div class="row justify-content-center">
+				<div class="row col-12 col-lg-10 p-3 align-items-center text-center justify-content-center">
 				  <h3>MSEC in Media</h3>
 				  <div id="carouselExample4" class="carousel slide col-10 col-lg-8" data-bs-ride="carousel">
 					<div class="carousel-inner">
@@ -1334,14 +1481,14 @@
 					</button>
 				  </div>
 				</div>
-				<div class="row m-auto col-12 col-lg-6">
+				<!-- <div class="row m-auto col-12 col-lg-6">
 					<div class="reviewstyle row mx-auto col-12 align-items-center justify-content-center text-center">
 						<h2>Google Reviews</h2>
 						<div id="reviewTicker">
 							<div id="tickerContent"></div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	       <div class="enquirycontainer">
@@ -1390,27 +1537,27 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <h6>Important Links</h6>
 					<p>
-					  <a href="https://msec.edu.in/MandatoryDisclosureMSEC.pdf" target="_blank" style="color: white; text-decoration: none;">
+					  <a href="../madatorydisclosure.html" target="_blank" style="color: white; text-decoration: none;">
 						Mandatory Disclosure
 					  </a>
 					</p>
                 </div>
 				
                 <div class="col-12 text-center pt-5">
-                    <p>copyrights by MSEC @ 2025</p>
+                    <p>copyrights by MSEC @ 2026</p>
                 </div>
             </div>
         </div>
     </footer>
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-	  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-	  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-		return new bootstrap.Tooltip(tooltipTriggerEl)
-	  })
-	}) 
+	// 	document.addEventListener('DOMContentLoaded', function () {
+	//   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	//   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+	// 	return new bootstrap.Tooltip(tooltipTriggerEl)
+	//   })
+	// }) 
 		  function scrollToForm(event) {
-    event.preventDefault(); // prevent default anchor behavior
+    event.preventDefault(); 
     const target = document.getElementById('adform');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -1422,160 +1569,114 @@
 		  toggle.addEventListener('click', () => {
 			menu.classList.toggle('active');
 		  });
-		function downloadBrochure() {
-		var link = document.createElement('a');
-		link.href = 'https://msec.edu.in/College_Brochure_2025-26.pdf';
-		link.download = 'College_Brochure_2025-26.pdf'; // Optional custom file name
-		document.body.appendChild(link);
-		link.click();
-		document.body.removeChild(link);
-	}
-	function validateForm() {
-	  const course = document.getElementById('course');
-	  const knowAbout = document.getElementById('know_about');
-	  const phone = document.getElementById('phone');
+	// 	function downloadBrochure() {
+	// 	var link = document.createElement('a');
+	// 	link.href = 'https://msec.edu.in/College_Brochure_2025-26.pdf';
+	// 	link.download = 'College_Brochure_2025-26.pdf'; 
+	// 	document.body.appendChild(link);
+	// 	link.click();
+	// 	document.body.removeChild(link);
+	// }
 
-	  if (course.selectedIndex === 0 || course.value === "") {
-		alert('Please select a course.');
-		return false;
-	  }
-
-	  if (knowAbout.selectedIndex === 0 || knowAbout.value === "") {
-		alert('Please tell us how you heard about MSEC.');
-		return false;
-	  }
-
-	  // Validate phone number
-	  const phoneValue = phone.value.trim();
-	  const phonePattern = /^[0-9]{10}$/; 
-
-	  if (!phonePattern.test(phoneValue)) {
-		alert('Please enter a valid 10-digit phone number.');
-		return false;
-	  }
-
-	  return true;
-	}
 
 
     </script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const carousels = [
-				new bootstrap.Carousel(document.querySelector('#carouselExample5'), {
-					interval: 3000, 
-					ride: false
-				}),
-				new bootstrap.Carousel(document.querySelector('#carouselExample6'), {
-					interval: 3000,
-					ride: false
-				}),
-				new bootstrap.Carousel(document.querySelector('#carouselExample7'), {
-					interval: 3000,
-					ride: false
-				})
-			];
-
-			setInterval(() => {
-				carousels.forEach(carousel => {
-					carousel.next();
-				});
-			}, 3000); 
-		});
-		const counters = document.querySelectorAll('.counter');
-		let counterStarted = false;
-
-		function animateCounters() {
-			counters.forEach(counter => {
-				counter.innerText = '0';
-				const updateCounter = () => {
-					const target = +counter.getAttribute('data-target');
-					const current = +counter.innerText.replace(/[^\d.]/g, '');
-					const increment = target / 400;
 
 
-					if (current < target) {
-						counter.innerText = `${Math.ceil(current + increment)}`;
-						setTimeout(updateCounter, 20);
-					} else {
-						let displayValue = target;
 
-						if (counter.classList.contains('percent')) {
-							displayValue = `${target}%`;
-						} else if (counter.classList.contains('plus')) {
-							displayValue = `${target}+`;
-						} else {
-							displayValue = `${target}`;
-						}
+<script>
+const words = ["Academics", "Theory", "Textbooks"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingText = document.getElementById("typing-text");
 
-						counter.innerText = displayValue;
-					}
-				};
-				updateCounter();
-			});
-		}
+function typeEffect() {
+  const currentWord = words[wordIndex];
 
-		function checkScroll() {
-			const section = document.querySelector('.bgrec1');
-			const sectionPosition = section.getBoundingClientRect().top;
-			const screenPosition = window.innerHeight;
+  if (!isDeleting) {
+    typingText.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
 
-			if (sectionPosition < screenPosition && !counterStarted) {
-				animateCounters();
-				counterStarted = true;
-			}
-		}
-
-		window.addEventListener('scroll', checkScroll);
-
-         fetch('fetchreviews.php')
-.then(response => response.json())
-.then(data => {
-    if (data.error) {
-        document.getElementById('tickerContent').innerHTML = data.error;
-    } else {
-        let tickerHtml = '';
-        data.forEach((review) => {
-            tickerHtml += `
-                <div class="review-card">
-                    <h4>${review.author_name}</h4>
-                    <p>${'⭐'.repeat(review.rating)}</p>
-                    <p>${review.text}</p>
-                </div>
-            `;
-        });
-
-        const tickerContent = document.getElementById('tickerContent');
-        tickerContent.innerHTML = tickerHtml + tickerHtml;
-   
-        const contentHeight = tickerContent.scrollHeight;
-        const containerHeight = document.getElementById('reviewTicker').clientHeight;
-
-        const totalDistance = contentHeight / 2 + containerHeight; // since we duplicated the content
-
-        const styleSheet = document.createElement('style');
-        styleSheet.type = 'text/css';
-        styleSheet.innerText = `
-            @keyframes scrollReviews {
-                0% { transform: translateY(${containerHeight}px); }
-                100% { transform: translateY(-${contentHeight / 2}px); }
-            }
-            #tickerContent {
-                animation: scrollReviews 30s linear infinite; /* adjust speed as needed */
-            }
-			  #tickerContent:hover {
-        animation-play-state: paused;
+    if (charIndex === currentWord.length) {
+      setTimeout(() => isDeleting = true, 1200);
     }
-        `;
-        document.head.appendChild(styleSheet);
+  } else {
+    typingText.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
     }
-})
-.catch(error => {
-    console.error('Error fetching reviews:', error);
+  }
+
+  const speed = isDeleting ? 60 : 100;
+  setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+</script>
+
+<script>
+document.getElementById("adform").addEventListener("submit", function (e) {
+  const form = this;
+
+  const name = form.full_name.value.trim();
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+  const board = form.board.value;
+  const location = form.location.value.trim();
+  const course = form.preferred_course.value;
+  const source = form.source.value;
+
+  // ❌ Empty field check
+  if (!name || !email || !phone || !board || !location || !course || !source) {
+    alert("Please fill in all the fields.");
+    e.preventDefault();
+    return;
+  }
+
+  // ❌ Phone number validation (exactly 10 digits)
+  const phoneRegex = /^[0-9]{10}$/;
+  if (!phoneRegex.test(phone)) {
+    alert("Please enter a valid 10-digit mobile number.");
+    e.preventDefault();
+    return;
+  }
+
+  // ✅ If everything is valid → allow submission
 });
+</script>
 
 
-    </script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<!-- ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- YouTube API -->
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".circle").forEach(circle => {
+    const target = circle.dataset.percent;
+    requestAnimationFrame(() => {
+      circle.style.setProperty("--value", target);
+    });
+  });
+});
+</script>
+
+
+
+
+
+
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

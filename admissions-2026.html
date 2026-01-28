@@ -264,7 +264,7 @@
                         </div>
                         
                         <div class="mb-4 flex justify-center scale-90">
-                            <div class="g-recaptcha" data-sitekey="6LerS1EsAAAAAH2EPiUwNERQH4DxG6OlBa2ScSJu"></div>
+                            <div class="g-recaptcha" data-sitekey="6Lezq1gsAAAAAKxZ3NJk26YY6TzuffUet5-_5bF7"></div>
                         </div>
 
                         <button type="submit" class="bg-[#cc0000] hover:bg-red-800 py-4 rounded-2xl font-black text-sm text-white transition-all shadow-xl shadow-red-900/10 uppercase tracking-widest w-full">
@@ -597,64 +597,92 @@
             });
         });
 
-        // GOOGLE SHEETS SUBMISSION LOGIC
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyADNJi83zJ8r80ZWZFhj7it9_YoX1wTj7jJ_LQVATkUaYlZSJAZn5RBtg-TIrjgECCuA/exec";
-                
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = document.getElementById("leadForm");
-            const btn = form.querySelector('button[type="submit"]');
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3HEN80yZhntkhHsO4OhhPAyCNfZ_g3pvdA73WD07q7iUp4n7Pm49rd3fZCDLQ17Su/exec";
 
-            if (window.grecaptcha && typeof grecaptcha.getResponse === "function") {
-                const responseToken = grecaptcha.getResponse();
-                if (!responseToken) {
-                    alert("Please verify the reCAPTCHA");
-                    return;
-                }
-            }
+async function handleFormSubmit(event) {
+    event.preventDefault();
 
-            const oldBtnHtml = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-            btn.disabled = true;
-            btn.classList.add("opacity-75");
+    const form = document.getElementById("leadForm");
+    const btn = form.querySelector('button[type="submit"]');
 
-            try {
-                const now = new Date();
-                const dt = `${now.toLocaleDateString("en-GB", { timeZone: "Asia/Kolkata" })} ${now.toLocaleTimeString("en-GB", { timeZone: "Asia/Kolkata" })}`;
+    // Get values
+    const name = form.full_name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const board = form.board.value;
+    const city = form.location.value.trim();
+    const course = form.preferred_course.value;
+    const source = form.source.value;
 
-                const params = new URLSearchParams({
-                    sheetName: "Sheet1",
-                    Name: form.full_name.value.trim(),
-                    Mobile: form.phone.value.trim(),
-                    Email: form.email.value.trim(),
-                    "College/ Institution Name": form.board.value,
-                    "Department/Course": form.preferred_course.value,
-                    City: form.location.value.trim(),
-                    DateTime: dt,
-                    Source: form.source.value
-                });
+    /* ---------------- VALIDATION ---------------- */
 
-                await fetch(`${SCRIPT_URL}?${params.toString()}`, {
-                    method: "GET",
-                    mode: "no-cors",
-                });
+    if (!name || !email || !phone || !board || !city || !course || !source) {
+        alert("Please fill all required fields.");
+        return;
+    }
 
-                form.reset();
-                if (window.grecaptcha) grecaptcha.reset();
-                
-                const success = document.getElementById("formSuccess");
-                success.classList.remove("hidden");
-                success.classList.add("flex");
+    // Mobile number validation (exactly 10 digits)
+    const mobileRegex = /^[0-9]{10}$/;
+    if (!mobileRegex.test(phone)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+    }
 
-            } catch (err) {
-                console.error(err);
-                alert("Submission failed. Please try again.");
-            } finally {
-                btn.innerHTML = oldBtnHtml;
-                btn.disabled = false;
-                btn.classList.remove("opacity-75");
-            }
+    // reCAPTCHA validation
+    if (window.grecaptcha && typeof grecaptcha.getResponse === "function") {
+        const captcha = grecaptcha.getResponse();
+        if (!captcha) {
+            alert("Please verify the reCAPTCHA.");
+            return;
         }
+    }
+
+    /* ---------------- UI LOADER ---------------- */
+
+    const oldBtnHtml = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    btn.disabled = true;
+    btn.classList.add("opacity-75");
+
+    try {
+        const now = new Date();
+        const dt = `${now.toLocaleDateString("en-GB", { timeZone: "Asia/Kolkata" })} ${now.toLocaleTimeString("en-GB", { timeZone: "Asia/Kolkata" })}`;
+
+        const params = new URLSearchParams({
+            sheetName: "Sheet1",
+            Name: name,
+            Mobile: phone,
+            Email: email,
+            "College/ Institution Name": board,
+            "Department/Course": course,
+            City: city,
+            Source: source,
+            DateTime: dt
+        });
+
+        await fetch(`${SCRIPT_URL}?${params.toString()}`, {
+            method: "GET",
+            mode: "no-cors"
+        });
+
+        form.reset();
+        if (window.grecaptcha) grecaptcha.reset();
+
+        const success = document.getElementById("formSuccess");
+        if (success) {
+            success.classList.remove("hidden");
+            success.classList.add("flex");
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Submission failed. Please try again.");
+    } finally {
+        btn.innerHTML = oldBtnHtml;
+        btn.disabled = false;
+        btn.classList.remove("opacity-75");
+    }
+}
     </script>
 </body>
 </html>

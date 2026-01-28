@@ -215,6 +215,14 @@
                             <input type="tel" class="form-control" placeholder="Mobile Number" name="phone" pattern="[0-9]{10}" required>
                         </div>
                         <div class="mb-3">
+                            <input type="text"
+                                class="form-control"
+                                placeholder="School / Institution Name"
+                                name="school"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
                             <select class="form-select" name="board" required>
                                 <option value="" selected disabled>Board of Studies</option>
                                 <option>CBSE</option>
@@ -241,7 +249,6 @@
                                     <option>B.Tech. Artificial Intelligence & Data Science</option>
                                     <option>B.E. in Artificial Intelligence and Machine Learning</option>
                                     <option>B.E. Cyber Security</option>
-                                    <option>Science and Humanities</option>
                                 </optgroup>
                                 <optgroup label="Postgraduate Programmes">
                                     <option>M.E. Computer Science</option>
@@ -250,6 +257,13 @@
                                     <option>M.E. Energy Engineering</option>
                                 </optgroup>
                             </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text"
+                                class="form-control"
+                                placeholder="Parent's Occupation"
+                                name="parent_occupation"
+                                required>
                         </div>
                         <div class="mb-4">
                             <select class="form-select" name="source" required>
@@ -597,7 +611,7 @@
             });
         });
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwlDVv7KwIY1gDT1Od_AywkfxvzrVaGStlj7OJV1hJVYtywSnQObhxFC1MmaHgefX3f/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzgnmDJvfJDzGfAF9xL0vVgWkY-r2gViWtP2GCai6spIoh9LaxHNM6Law02NsxEruIo/exec";
 
 async function handleFormSubmit(event) {
     event.preventDefault();
@@ -610,13 +624,24 @@ async function handleFormSubmit(event) {
     const email = form.email.value.trim();
     const phone = form.phone.value.trim();
     const board = form.board.value;
+     const school = form.school.value.trim();                  // ✅ NEW
     const city = form.location.value.trim();
+    const parentOccupation = form.parent_occupation.value; 
     const course = form.preferred_course.value;
     const source = form.source.value;
 
     /* ---------------- VALIDATION ---------------- */
 
-    if (!name || !email || !phone || !board || !city || !course || !source) {
+   if (
+        !name ||
+        !email ||
+        !phone ||
+        !board ||
+        !school ||                // ✅ validate
+        !city ||
+        !parentOccupation ||      // ✅ validate
+        !course ||
+        !source) {
         alert("Please fill all required fields.");
         return;
     }
@@ -651,11 +676,13 @@ async function handleFormSubmit(event) {
         const params = new URLSearchParams({
             sheetName: "Sheet1",
             Name: name,
-            Mobile: phone,
             Email: email,
+            Mobile: phone,
             "College/ Institution Name": board,
-            "Department/Course": course,
+            School: school,                          // ✅ NEW
             City: city,
+            "Parent Occupation": parentOccupation,  // ✅ NEW
+            "Department/Course": course,
             Source: source,
             DateTime: dt
         });

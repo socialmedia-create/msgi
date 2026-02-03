@@ -1,0 +1,1216 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions 2026 | Meenakshi Sundararajan Engineering College (MSEC) | TNEA Code 1309</title>
+    <meta name="description" content="Join MSEC, Chennai's top autonomous engineering college. TNEA Code 1309. Home to Forbes 30 Under 30 Alumni, 25 LPA Placements, and Industry 4.0 Curriculum.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --msec-red: #cc0000;
+            --msec-dark: #0f172a;
+            --msec-gold: #fbbf24;
+        }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff;
+            color: var(--msec-dark);
+            overflow-x: hidden;
+        }
+        .heading-font { font-family: 'Bricolage Grotesque', sans-serif; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 1);
+        }
+
+        .premium-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .premium-card:hover {
+            box-shadow: 0 20px 40px rgba(204, 0, 0, 0.08);
+            border-color: #fee2e2;
+            transform: translateY(-5px);
+        }
+
+        .news-card {
+            border-left: 4px solid var(--msec-red);
+            transition: all 0.3s;
+        }
+        .news-card:hover {
+            background-color: #fef2f2;
+            padding-left: 1.5rem;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            color: #334155;
+            transition: all 0.2s;
+            outline: none;
+            height: 52px;
+        }
+        select.form-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.25em 1.25em;
+        }
+        .form-input:focus {
+            background: #fff;
+            border-color: var(--msec-red);
+            box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.05);
+        }
+        .form-input::placeholder {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .typewriter::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: var(--msec-red);
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+        .fab-btn {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+            position: relative;
+            cursor: pointer;
+        }
+        .fab-btn:hover { transform: scale(1.1); }
+        .fab-text {
+            position: absolute;
+            right: 120%;
+            background: #000;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .fab-btn:hover .fab-text { opacity: 1; }
+
+        .accordion-content {
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 300px;
+        }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-item.active .accordion-icon { transform: rotate(180deg); }
+        .accordion-item.active { border-color: var(--msec-red); background-color: #fffafa; }
+
+        .feature-icon-box {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .course-card {
+            transition: all 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--msec-red);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .fact-slider {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .fact-slider.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased selection:bg-red-100 selection:text-red-900">
+
+    <div class="bg-[#0f172a] text-white py-2.5 text-center text-[11px] font-bold tracking-widest z-[60] relative uppercase shadow-lg border-b border-slate-800">
+        <div class="flex items-center justify-center gap-3">
+            <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            <span>Admissions 2026 Open</span>
+            <span class="hidden md:inline text-slate-500">|</span>
+            <span class="bg-[#cc0000] px-2 py-0.5 rounded text-white">TNEA Code: 1309</span>
+            <span class="hidden sm:inline text-slate-500">|</span>
+            <span class="hidden sm:inline text-amber-400"><i class="fas fa-crown mr-1"></i>79 Years of Legacy</span>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-50 w-full transition-all duration-300" id="navbar">
+        <div class="glass-nav border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+                <a href="https://msec.edu.in/" target="_blank" class="flex items-center gap-3 group">
+                    <img src="https://msec.edu.in/assets/img/mseclogo.png" alt="MSEC Logo" class="h-10 md:h-14 w-auto object-contain" loading="lazy">
+                    <div class="block sm:block border-l-0 sm:border-l-2 sm:pl-3 pl-2">
+                        <h1 class="heading-font text-[11px] sm:text-base md:text-lg font-black text-slate-900 leading-tight uppercase">
+							Meenakshi Sundararajan<br><span class="text-[#cc0000]">Engineering College</span>
+						</h1>
+						<p class="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">
+							Autonomous | Anna University Approved
+						</p>
+                    </div>
+                </a>
+
+                <div class="hidden xl:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-600">
+                    <a href="#courses" class="hover:text-[#cc0000] transition-colors">Courses</a>
+                    <a href="#coe" class="hover:text-[#cc0000] transition-colors">CoE & Innovation</a>
+                    <a href="#placements" class="hover:text-[#cc0000] transition-colors">Placements</a>
+                    <a href="#campus" class="hover:text-[#cc0000] transition-colors">Campus Life</a>
+                    <a href="https://msec.edu.in/" target="_blank" class="text-[#cc0000] border-b border-[#cc0000] pb-0.5">Main Website <i class="fas fa-external-link-alt ml-1"></i></a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="hidden md:block text-right mr-2">
+                        <div class="text-[10px] font-bold text-slate-500 uppercase">TNEA Code</div>
+                        <div class="text-xl font-black text-[#cc0000] leading-none">1309</div>
+                    </div>
+                    
+					<button onclick="scrollToForm()" class="hidden md:flex bg-[#cc0000] hover:bg-red-800 text-white px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-widest transition-all shadow-lg hover:shadow-red-500/30">
+                        Apply Now
+                    </button>
+                    <button class="xl:hidden text-slate-900 text-2xl ml-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 xl:hidden p-4 flex flex-col gap-3 text-center z-40">
+            <div class="bg-red-50 p-2 rounded mb-2">
+                <span class="text-xs font-bold text-slate-500 uppercase">TNEA Code</span>
+                <div class="text-2xl font-black text-[#cc0000]">1309</div>
+            </div>
+            <a href="#courses" class="font-bold text-slate-700 py-2 border-b border-slate-50">Courses</a>
+            <a href="#coe" class="font-bold text-slate-700 py-2 border-b border-slate-50">Innovation & Research</a>
+            <a href="#placements" class="font-bold text-slate-700 py-2 border-b border-slate-50">Placements</a>
+            <a href="#campus" class="font-bold text-slate-700 py-2 border-b border-slate-50">Campus Life</a>
+            <button onclick="scrollToForm(); document.getElementById('mobile-menu').classList.add('hidden')" class="bg-[#cc0000] text-white py-3 rounded-lg font-bold uppercase mt-2 w-full">Enquire Now</button>
+        </div>
+    </nav>
+
+    <header class="relative pt-8 pb-16 px-4 md:px-8 overflow-hidden bg-slate-50">
+        <div class="absolute top-0 left-0 w-full h-full -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-50/50 via-white to-white"></div>
+        
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 lg:gap-12 items-start pt-4">
+            
+            <div class="lg:col-span-7 space-y-6 reveal-up order-2 lg:order-1 pt-4">
+                <div class="inline-flex items-center gap-3 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200">
+                    <span class="bg-green-100 text-green-700 text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded">New</span>
+                    <span class="text-xs font-bold text-slate-600">Admissions 2026 for B.E. / B.Tech</span>
+                </div>
+
+                <h1 class="heading-font text-5xl md:text-7xl lg:text-[5.5rem] font-black text-slate-900 leading-[0.9] tracking-tight">
+                    Engineering <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#cc0000] to-red-600" id="typewriter-text">The Future</span><span class="typewriter text-[#cc0000]"></span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-slate-600 font-medium max-w-xl leading-relaxed">
+                    Join the <strong>"City Campus"</strong> revolution. Managed by the IIET Society (Est. 1947), carrying a 79-year legacy of creating global leaders.
+                </p>
+
+                <div class="flex flex-wrap gap-4 items-center">
+                    <button onclick="scrollToForm()" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl hover:bg-slate-800 transition transform hover:-translate-y-1">
+                        Apply Now <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+
+
+                <div class="mt-8 pb-6 border-b border-slate-200 flex items-center gap-4">
+                    <div class="h-14 w-14 bg-gradient-to-br from-[#cc0000] to-red-800 text-white rounded-xl shadow-lg shadow-red-500/30 flex items-center justify-center font-black text-2xl border-2 border-white ring-2 ring-red-100">79</div>
+                    <div>
+                        <div class="text-sm font-black text-slate-900 uppercase tracking-wide">Years of Excellence</div>
+                        <div class="text-xs text-slate-500 font-bold">Managed by IIET Society (Est. 1947)</div>
+                    </div>
+                </div>
+                
+                	<div class="py-12 bg-slate-50 border-y border-slate-100 mt-12 overflow-hidden">
+  <div class="grid grid-cols-2 gap-6 px-6 sm:grid-cols-2 md:grid-cols-3 place-items-center">
+    <img src="https://msec.edu.in/assets/img/annauniversity.webp" class="h-20 md:h-24 w-auto object-contain" alt="Anna University">
+    <img src="https://msec.edu.in/assets/img/aicte.webp" class="h-20 md:h-24 w-auto object-contain" alt="AICTE">
+    <img src="https://msec.edu.in/assets/img/naac.webp" class="h-20 md:h-24 w-auto object-contain" alt="NAAC">
+    <img src="https://msec.edu.in/assets/img/nbalogo.webp" class="h-20 md:h-24 w-auto object-contain" alt="NBA">
+    <img src="https://msec.edu.in/assets/img/iic.webp" class="h-20 md:h-24 w-auto object-contain" alt="Institution Innovation Council">
+    <img src="https://msec.edu.in/assets/img/25years.webp" class="h-20 md:h-24 w-auto object-contain" alt="25 Years Excellence">
+  </div>
+</div>
+            </div>
+
+            <div id="apply-form-container" class="lg:col-span-5 relative reveal-up z-20 order-1 lg:order-2 mb-8 lg:mb-0" style="animation-delay: 0.1s;">
+                <div class="bg-white rounded-xl shadow-2xl shadow-slate-200 border border-slate-100 overflow-hidden">
+                    <div class="p-6 border-b border-slate-50 bg-slate-50/50 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-black text-lg text-slate-900 tracking-tight">ENQUIRY FORM</h3>
+                            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">Admissions 2026</p>
+                        </div>
+                        <div class="bg-white border border-slate-200 px-3 py-1.5 rounded text-center shadow-sm">
+                            <div class="text-[9px] font-bold uppercase text-slate-400">Code</div>
+                            <div class="text-lg font-black text-[#cc0000] leading-none">1309</div>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                       
+<form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+  
+  <div>
+    <input type="text" name="full_name" placeholder="Name" class="form-input" required />
+  </div>
+
+
+  <div class="grid grid-cols-2 gap-4">
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Phone Number (10 digits)"
+      inputmode="numeric"
+      pattern="[0-9]{10}"
+      maxlength="10"
+      class="form-input"
+      required
+    />
+    <input type="email" name="email" placeholder="Email ID" class="form-input" required />
+  </div>
+
+
+  <div>
+    <input type="text" name="school" placeholder="Name of School" class="form-input" required />
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <select name="board" id="boardSelect" class="form-input text-sm" required>
+      <option value="" disabled selected>Board</option>
+      <option value="CBSE">CBSE</option>
+      <option value="ICSE">ICSE</option>
+      <option value="State Board">State Board</option>
+      <option value="IB">IB</option>
+      <option value="IGCSE">IGCSE</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <input
+      type="text"
+      name="board_other"
+      id="boardOther"
+      placeholder="If Other, specify Board"
+      class="form-input hidden"
+    />
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <input
+      type="number"
+      name="year_of_passing"
+      placeholder="Year of Passing"
+      class="form-input"
+      min="2020"
+      max="2026"
+      required
+    />
+
+    <div class="space-y-2">
+      <select name="medium" id="mediumSelect" class="form-input text-sm" required>
+        <option value="" disabled selected>Medium of Instruction</option>
+        <option value="English">English</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <input
+        type="text"
+        name="medium_other"
+        id="mediumOther"
+        placeholder="If Other, specify Medium"
+        class="form-input hidden"
+      />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <select name="first_graduate" class="form-input text-sm" required>
+      <option value="" disabled selected>First Graduate</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+
+    <input type="text" name="location" placeholder="Location / City" class="form-input" required />
+  </div>
+
+  <div>
+    <input
+      type="text"
+      name="referral"
+      placeholder="How did you know about our college?"
+      class="form-input"
+      required
+    />
+  </div>
+
+  <div>
+    <select name="preferred_course" class="form-input text-sm" required>
+      <option value="" disabled selected>PROGRAMME APPLIED FOR</option>
+      <option value="B.E. Civil Engineering">B.E. Civil Engineering</option>
+      <option value="B.E. Mechanical Engineering">B.E. Mechanical Engineering</option>
+      <option value="B.E. Electrical & Electronics Engineering">B.E. Electrical & Electronics Engineering</option>
+      <option value="B.E. Electronics & Communication Engineering">B.E. Electronics & Communication Engineering</option>
+      <option value="B.E. Computer Science & Engineering">B.E. Computer Science & Engineering</option>
+      <option value="B.E. Cyber Security">B.E. Cyber Security</option>
+      <option value="B.E. Artificial Intelligence & Machine Learning">B.E. Artificial Intelligence & Machine Learning</option>
+      <option value="B.Tech. Information Technology">B.Tech. Information Technology</option>
+      <option value="B.Tech. Artificial Intelligence & Data Science">B.Tech. Artificial Intelligence & Data Science</option>
+      <option value="M.E. Computer Science & Engineering">M.E. Computer Science & Engineering</option>
+      <option value="M.E. Energy Engineering">M.E. Energy Engineering</option>
+      <option value="M.E. Embedded System Technologies">M.E. Embedded System Technologies</option>
+      <option value="M.E. Construction Engineering & Management">M.E. Construction Engineering & Management</option>
+    </select>
+  </div>
+
+  <div>
+    <input type="text" name="parent_name" placeholder="Parent / Guardian Name" class="form-input" required />
+  </div>
+
+  <div class="space-y-2">
+    <select name="parent_occupation" id="parentOccupationSelect" class="form-input text-sm" required>
+      <option value="" disabled selected>Parent Occupation</option>
+      <option value="Business">Business</option>
+      <option value="IT Professional">IT Professional</option>
+      <option value="Private Sector">Private Sector</option>
+      <option value="Govt">Govt</option>
+      <option value="Management Professional">Management Professional</option>
+      <option value="Agriculture">Agriculture</option>
+      <option value="Driver">Driver</option>
+      <option value="Shop Owner">Shop Owner</option>
+      <option value="Entrepreneur">Entrepreneur</option>
+      <option value="Technician/Electrician/Plumber">Technician/Electrician/Plumber</option>
+      <option value="Self Employed">Self Employed</option>
+      <option value="Serviceman">Serviceman</option>
+      <option value="Teacher/Professor">Teacher/Professor</option>
+      <option value="Lawyer">Lawyer</option>
+      <option value="Others">Others</option>
+    </select>
+
+    <input
+      type="text"
+      name="parent_occupation_other"
+      id="parentOccupationOther"
+      placeholder="If Others, specify Occupation"
+      class="form-input hidden"
+    />
+  </div>
+
+  <input type="hidden" name="source" value="Landing_Page_2026" />
+
+  <div class="flex justify-center transform scale-90 origin-center py-1">
+    <div class="g-recaptcha" data-sitekey="6LerS1EsAAAAAH2EPiUwNERQH4DxG6OlBa2ScSJu"></div>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full bg-[#cc0000] hover:bg-red-800 text-white py-4 rounded-lg font-black uppercase tracking-widest text-sm transition-all shadow-lg shadow-red-600/20 active:scale-95 flex items-center justify-center gap-2 group"
+  >
+    <span>SUBMIT ENQUIRY</span>
+    <i class="fas fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
+  </button>
+</form>
+
+
+
+                    </div>
+
+                    <div id="formSuccess" class="hidden absolute inset-0 bg-white z-20 flex-col items-center justify-center text-center p-8">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4 animate-bounce">
+                            <i class="fas fa-check text-3xl text-green-600"></i>
+                        </div>
+                        <h4 class="text-2xl font-black text-slate-900">Received!</h4>
+                        <p class="text-sm text-slate-500 mt-2 font-medium">Thank you for your interest in MSEC. Our team will get back to you.</p>
+                        <button onclick="location.reload()" class="mt-8 text-[#cc0000] text-xs font-bold uppercase tracking-widest hover:underline">Submit Another Response</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+	
+
+
+
+
+
+    <section class="bg-[#0b1121] py-16 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px] -z-0"></div>
+        <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-red-900/20 rounded-full blur-[80px] -z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-5 gap-8 text-center relative z-10 items-center">
+            <div class="reveal-up">
+                <div class="heading-font text-4xl md:text-5xl font-black text-[#cc0000]">₹25</div>
+                <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2 text-slate-300">LPA Highest Package</div>
+            </div>
+            
+			<div class="reveal-up" style="transition-delay: 100ms;">
+                <div class="heading-font text-4xl md:text-5xl font-black text-[#cc0000]">90.5%</div>
+                <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2 text-slate-300">Placement Record</div>
+            </div>
+             <div class="reveal-up" style="transition-delay: 150ms;">
+                <div class="heading-font text-4xl md:text-5xl font-black text-[#cc0000]">30:1</div>
+                <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2 text-slate-300">Student Faculty Ratio</div>
+            </div>
+            <div class="reveal-up" style="transition-delay: 200ms;">
+                <div class="heading-font text-4xl md:text-5xl font-black text-[#cc0000]">368+</div>
+                <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2 text-slate-300">Total Offers</div>
+            </div>
+            <div class="reveal-up" style="transition-delay: 300ms;">
+                <div class="heading-font text-4xl md:text-5xl font-black text-[#cc0000]">53+</div>
+                <div class="text-[10px] md:text-xs font-bold uppercase tracking-widest mt-2 text-slate-300">Dream Offers</div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="placements" class="bg-white border-b border-slate-100 py-10 overflow-hidden relative z-10 shadow-sm">
+        <div class="text-center mb-6">
+             <span class="text-[#cc0000] font-bold uppercase tracking-widest text-[10px]">Top Hiring Partners</span>
+        </div>
+        <div class="marquee-track space-x-12 px-4 items-center">
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo16.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo08.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo21.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo05.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo22.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo24.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <img src="https://msec.edu.in/admission2026/public/images/proapt.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <!-- Duplicate -->
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo16.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo08.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+            <img src="https://msec.edu.in/admission2026/public/images/cmpylogo21.png" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition duration-300" alt="Recruiter" loading="lazy">
+        </div>
+    </section>
+
+    <section class="bg-amber-50 py-8 border-b border-amber-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 mb-2 text-amber-600 font-black text-xs uppercase tracking-widest">
+                <i class="fas fa-lightbulb"></i> Did you know?
+            </div>
+            <div id="fact-container" class="h-12 flex items-center justify-center">
+                <p class="text-lg md:text-xl font-bold text-slate-800 fact-slider active">MSEC is the first Engineering College in Kodambakkam.</p>
+                <p class="text-lg md:text-xl font-bold text-slate-800 fact-slider hidden">Home to the largest Solar Power Plant in a City College (350kW).</p>
+                <p class="text-lg md:text-xl font-bold text-slate-800 fact-slider hidden">Offers a professional Shooting Range on campus "Train for Olympics".</p>
+                <p class="text-lg md:text-xl font-bold text-slate-800 fact-slider hidden">Students build real Formula-style race cars on campus.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding px-4 md:px-8 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-[#cc0000] font-bold uppercase tracking-widest text-xs">Curriculum Advantage</span>
+                <h2 class="heading-font text-3xl md:text-5xl font-black mt-2 text-slate-900 uppercase">Beyond The Syllabus</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="premium-card p-8 rounded-3xl group hover:bg-[#cc0000] hover:border-[#cc0000] transition-colors duration-500">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-900 mb-3 group-hover:text-white">Choice-Based Credits</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed group-hover:text-white/90">
+                        Choose what & when you learn. Select subjects aligned with your passion: AI, Data Science, Cyber Security, Design Thinking.
+                    </p>
+                </div>
+
+                <div class="premium-card p-8 rounded-3xl group hover:bg-slate-900 hover:border-slate-900 transition-colors duration-500">
+                    <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-900 mb-3 group-hover:text-white">Management Skilling</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed group-hover:text-white/90">
+                        Entrepreneurship, Financial Analysis, Corporate Finance, Securities Market, and Project Management electives.
+                    </p>
+                </div>
+
+                <div class="premium-card p-8 rounded-3xl group hover:bg-[#cc0000] hover:border-[#cc0000] transition-colors duration-500">
+                    <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-900 mb-3 group-hover:text-white">Foreign Languages</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed group-hover:text-white/90">
+                        Mandatory Japanese, German & French. Career advantage for bilingual roles with higher packages in global markets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="coe" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#cc0000] blur-[200px] opacity-10 rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-4xl md:text-5xl font-black mb-4">
+                    Centers of <span class="text-[#cc0000]">Excellence</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Bridging the gap between academia and industry. MSEC doesn't just teach technology; we create it.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <div class="bg-slate-800/50 backdrop-blur p-8 rounded-3xl border border-slate-700 hover:border-[#cc0000] transition group">
+                    <div class="flex items-center justify-between mb-6">
+                         <div class="w-14 h-14 bg-[#cc0000] rounded-xl flex items-center justify-center text-2xl text-white">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <a href="https://msec.edu.in/innovation.html" target="_blank" class="text-sm font-bold text-slate-400 hover:text-white uppercase tracking-wider">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-black mb-2">MSIIC (Incubation)</h3>
+                    <p class="text-sm text-slate-300 font-bold mb-4 uppercase tracking-wide">Meenakshi Sundararajan Innovation & Incubation Centre</p>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Comprehensive startup support from ideation to funding. Partnering with <strong>T-HUB</strong> and <strong>Wadhwani Foundation</strong>.
+                    </p>
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                        <div class="text-xs text-slate-500 uppercase font-bold mb-2">Incubated Success Stories</div>
+                        <div class="flex gap-4 text-sm font-bold text-white">
+                            <span><i class="fas fa-check-circle text-green-500 mr-1"></i> NeoLight ($2.5M)</span>
+                            <span><i class="fas fa-check-circle text-green-500 mr-1"></i> Lumme Inc.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 backdrop-blur p-8 rounded-3xl border border-slate-700 hover:border-blue-500 transition group">
+                    <div class="flex items-center justify-between mb-6">
+                         <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-2xl text-white">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <a href="https://msec.edu.in/" target="_blank" class="text-sm font-bold text-slate-400 hover:text-white uppercase tracking-wider">Explore <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-black mb-2">MSCIIC (Industry)</h3>
+                    <p class="text-sm text-slate-300 font-bold mb-4 uppercase tracking-wide">Industrial & Institute Collaboration</p>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Features the <strong>Intel IoT Center</strong> and robust industry partnerships. Providing students with live projects, internship programs, and real-world exposure.
+                    </p>
+                    <div class="flex gap-3 flex-wrap">
+                        <span class="px-3 py-1 bg-blue-900/50 border border-blue-800 rounded-full text-xs font-bold text-blue-200">Intel IoT</span>
+                        <span class="px-3 py-1 bg-blue-900/50 border border-blue-800 rounded-full text-xs font-bold text-blue-200">Internships</span>
+                        <span class="px-3 py-1 bg-blue-900/50 border border-blue-800 rounded-full text-xs font-bold text-blue-200">Live Projects</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="campus" class="section-padding px-4 md:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-[#cc0000] font-bold uppercase tracking-widest text-xs">Beyond Academics</span>
+                <h2 class="heading-font text-4xl md:text-5xl font-black mt-2 text-slate-900 uppercase">Vibrant Campus Life</h2>
+            </div>
+
+            <div class="rounded-3xl overflow-hidden shadow-2xl mb-16 relative aspect-video bg-black">
+  <iframe class="w-full h-full"
+          src="https://www.youtube.com/embed/CXuv5jxVV_s?modestbranding=1"
+          title="MSEC Campus Life"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+  </iframe>
+</div>
+
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group cursor-pointer">
+                    <div class="h-48 rounded-2xl bg-slate-100 mb-4 relative">
+                         <img src="landing-assets/motorsport.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Motorsports" loading="lazy">
+                         
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Torque-X Motorsports</h3>
+                    <p class="text-sm text-slate-600 mt-2">"Don't Drive. Build." Students design and race ATVs and Formula cars.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="h-48 rounded-2xl bg-slate-100 mb-4 relative">
+                        <img src="https://msec.edu.in/assets/img/culturals4.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Euphoria" loading="lazy">
+                       
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Euphoria Cultural Fest</h3>
+                    <p class="text-sm text-slate-600 mt-2">The flagship cultural event. Fast-paced, energetic, showing the "Lifestyle & Vibe".</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="h-48 rounded-2xl bg-slate-100 mb-4 relative">
+                        <img src="https://msec.edu.in/assets/img/badmitonboy4.webp" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Shooting Range" loading="lazy">
+                        
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Shooting Range & Sports</h3>
+                    <p class="text-sm text-slate-600 mt-2">Train for the Olympics with our professional range. Plus Pickleball & more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="alumni" class="section-padding px-4 md:px-8 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="heading-font text-4xl font-black text-center mb-12 uppercase text-slate-900">Alumni Hall of Fame</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-center md:items-start text-center md:text-left">
+                    <img src="landing-assets/akshaya-shanmugam.jpeg" class="w-32 h-32 rounded-full object-cover border-4 border-slate-50" alt="Alumni" loading="lazy">
+                    <div>
+                        <div class="bg-black text-white text-[10px] font-bold uppercase inline-block px-2 py-1 rounded mb-2">Forbes 30 Under 30</div>
+                        <h3 class="text-xl font-bold text-slate-900">Akshaya Shanmugam</h3>
+                        <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">CEO, Lumme Inc. (ECE 2009)</div>
+                        <p class="text-sm text-slate-600">Developed technology to help smokers quit. Listed in 2018 Forbes 30 Under 30 (Healthcare).</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-center md:items-start text-center md:text-left">
+                    <img src="landing-assets/vivek-kopparthi.jpeg" class="w-32 h-32 rounded-full object-cover border-4 border-slate-50" alt="Alumni" loading="lazy">
+                    <div>
+                        <div class="bg-black text-white text-[10px] font-bold uppercase inline-block px-2 py-1 rounded mb-2">Forbes 30 Under 30</div>
+                        <h3 class="text-xl font-bold text-slate-900">Vivek Kopparthi</h3>
+                        <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">CEO, NeoLight (ECE 2011)</div>
+                        <p class="text-sm text-slate-600">Startup scored $2.5 million funding for newborn care technology. Listed in 2017 Forbes 30 Under 30.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                 <div class="bg-white p-6 rounded-2xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-landmark"></i></div>
+                    <h4 class="font-bold text-lg text-slate-900">Ms. S. Buveneswari (IAS)</h4>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">CSE 2007-2011</p>
+                    <p class="text-sm text-slate-600">2015 Batch Officer. Assistant Collector, Maharashtra.</p>
+                 </div>
+                 <div class="bg-white p-6 rounded-2xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="font-bold text-lg text-slate-900">Major Isleen Kaur</h4>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">EEE 2007-2011</p>
+                    <p class="text-sm text-slate-600">Serving the nation with pride in the Indian Army.</p>
+                 </div>
+                 <div class="bg-white p-6 rounded-2xl border border-slate-100 text-center">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"><i class="fas fa-jet-fighter"></i></div>
+                    <h4 class="font-bold text-lg text-slate-900">Mr. Jithin Chandran</h4>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Mech 2012-2016</p>
+                    <p class="text-sm text-slate-600">Indian Air Force. Engineering prowess in defense.</p>
+                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <span class="text-[#cc0000] font-bold uppercase tracking-widest text-xs">Media & Updates</span>
+                    <h2 class="heading-font text-3xl md:text-4xl font-black mt-2 text-slate-900">MSEC In The Headlines</h2>
+                </div>
+                <a href="https://msec.edu.in/" target="_blank" class="hidden md:block text-slate-500 hover:text-[#cc0000] text-sm font-bold uppercase tracking-wider">View All News <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="premium-card p-6 rounded-2xl news-card">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase mb-2">Times of India</div>
+                    <h3 class="font-bold text-lg leading-tight mb-2">Mandatory Newspaper Reading: A Unique "Career Hack"</h3>
+                    <p class="text-sm text-slate-600 line-clamp-3">MSEC utilizes media engagement as a pedagogical method to improve general awareness and English proficiency.</p>
+                </div>
+                <div class="premium-card p-6 rounded-2xl news-card">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase mb-2">Forbes List</div>
+                    <h3 class="font-bold text-lg leading-tight mb-2">Alumni Akshaya Shanmugam in Forbes 30 Under 30</h3>
+                    <p class="text-sm text-slate-600 line-clamp-3">Recognized for developing technology to help smokers quit. A testament to MSEC's quality.</p>
+                </div>
+                <div class="premium-card p-6 rounded-2xl news-card">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase mb-2">Research Summit</div>
+                    <h3 class="font-bold text-lg leading-tight mb-2">MSEC Authorized as Research Center by Anna University</h3>
+                    <p class="text-sm text-slate-600 line-clamp-3">Offering full-time and part-time Ph.D. programs, fostering a culture of inquiry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding px-4 md:px-8 bg-slate-50">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="heading-font text-3xl font-black text-center mb-10">FAQ</h2>
+            <div class="space-y-4">
+                 <div class="accordion-item bg-white border border-slate-200 rounded-2xl p-5 cursor-pointer shadow-sm" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900">What is the TNEA Code?</h3>
+                        <i class="fas fa-chevron-down text-slate-400 accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100">
+                            The TNEA Counselling Code for Meenakshi Sundararajan Engineering College is <strong>1309</strong>. Please use this code while selecting preferences.
+                        </p>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white border border-slate-200 rounded-2xl p-5 cursor-pointer shadow-sm" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900">How do I apply?</h3>
+                        <i class="fas fa-chevron-down text-slate-400 accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100">
+                            For Counselling: Use code 1309 in TNEA. <br>
+                            For Direct Admission: Use the Enquiry Form above or contact our admissions office directly at +91 97908 21869.
+                        </p>
+                    </div>
+                </div>
+                 <div class="accordion-item bg-white border border-slate-200 rounded-2xl p-5 cursor-pointer shadow-sm" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900">Are hostel facilities available?</h3>
+                        <i class="fas fa-chevron-down text-slate-400 accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100">
+                             Yes, MSEC provides separate, secure, and well-maintained hostel facilities for both boys and girls with mess facilities.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl p-5 cursor-pointer shadow-sm" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900">Is college transport available?</h3>
+                        <i class="fas fa-chevron-down text-slate-400 accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100">
+                             While we are a "City Campus" with excellent public transport connectivity (Metro/Train/Bus), we do operate buses for specific routes.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl p-5 cursor-pointer shadow-sm" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-slate-900">What documents are needed for admission?</h3>
+                        <i class="fas fa-chevron-down text-slate-400 accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100">
+                             Typically, 10th & 12th Marksheets, Transfer Certificate (TC), Community Certificate, and TNEA Allotment Order (for Counselling students).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white pt-20 pb-8 rounded-t-[3rem]">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 lg:col-span-1">
+                    <img src="https://msec.edu.in/assets/img/mseclogo.png" class="h-16 mb-6 bg-white rounded-xl p-2" alt="Logo" loading="lazy">
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Autonomous Institution affiliated to Anna University. 25 Years of Engineering Excellence in the heart of Chennai.
+                    </p>
+                    <div class="inline-block border border-slate-700 rounded-lg p-2 text-center">
+                        <div class="text-[10px] uppercase text-slate-500 font-bold">TNEA Code</div>
+                        <div class="text-2xl font-black text-[#cc0000]">1309</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-black uppercase tracking-widest mb-6 text-sm text-[#cc0000]">Admissions</h4>
+                    <ul class="text-sm text-slate-400 space-y-4">
+                        <li class="flex gap-3"><i class="fas fa-map-marker-alt mt-1"></i> 363, Arcot Road, Kodambakkam, Chennai - 600024</li>
+                        <li class="flex gap-3"><i class="fas fa-phone mt-1"></i> +91 97908 21869</li>
+                        <li class="flex gap-3"><i class="fas fa-envelope mt-1"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d1b0b5bcb8a2a2b8bebf91bca2b4b2ffb4b5a4ffb8bf">[email&#160;protected]</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-black uppercase tracking-widest mb-6 text-sm text-[#cc0000]">Quick Links</h4>
+                    <ul class="text-sm text-slate-400 space-y-3 font-bold">
+                        <li><a href="https://msec.edu.in/" class="hover:text-white transition">College Website</a></li>
+                        <li><a href="https://msec.edu.in/admission.html" class="hover:text-white transition">Admission Procedure</a></li>
+                        <li><a href="https://msec.edu.in/placement.html" class="hover:text-white transition">Placements</a></li>
+                        <li><a href="https://msec.edu.in/MSEC%20BROCHURE%202025.pdf" class="hover:text-white transition text-[#cc0000]">Download Brochure</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-black uppercase tracking-widest mb-6 text-sm text-[#cc0000]">Location</h4>
+                    <div class="rounded-xl overflow-hidden h-40 w-full grayscale hover:grayscale-0 transition duration-500">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.683484227926!2d80.22393577454787!3d13.055807913027596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266f499eee457%3A0x4d3f7e677496e707!2sMeenakshi%20Sundararajan%20Engineering%20College!5e0!3m2!1sen!2sin!4v1749464448776!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">© 2026 MSEC. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="https://www.facebook.com/MeenakshiSundararajanEngineeringCollege/" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/msecofficial_chennai24/" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/school/meenakshi-sundararajan-engineering-college/" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@msecchennai" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fab-container">
+        <button onclick="scrollToForm()" class="fab-btn bg-[#cc0000] hover:bg-red-800 shadow-xl text-white flex items-center justify-center p-0 rounded-full w-[3.5rem] h-[3.5rem]" title="Apply Now">
+            <span class="fab-text">Apply Now</span>
+            <i class="fas fa-pen-nib text-xl"></i>
+        </button>
+        
+        <a href="https://wa.me/919790821869" target="_blank" class="fab-btn bg-green-500 hover:bg-green-600" title="Chat on WhatsApp">
+            <span class="fab-text">WhatsApp Us</span>
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+        
+        <a href="tel:+919790821869" class="fab-btn bg-[#cc0000] hover:bg-red-800" title="Call Admissions">
+            <span class="fab-text">Call Now</span>
+            <i class="fas fa-phone text-xl"></i>
+        </a>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+       
+        function scrollToForm() {
+            const formContainer = document.getElementById('apply-form-container');
+            if (formContainer) {
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.reveal-up').forEach((elem) => {
+            gsap.fromTo(elem, 
+                { opacity: 0, y: 50 }, 
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 0.8, 
+                    ease: "power2.out",
+                    scrollTrigger: { 
+                        trigger: elem, 
+                        start: "top 85%", 
+                        toggleActions: "play none none reverse" 
+                    } 
+                }
+            );
+        });
+
+        const words = ["The Future", "Innovators", "Solutions"];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typewriter-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000); 
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 75); // Faster typing
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typewriter-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    typingEffect();
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50); // Faster deleting
+            };
+            loopDeleting();
+        }
+
+        document.getElementById('typewriter-text').innerHTML = ""; // Clear initial
+        typingEffect();
+
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.querySelector('.glass-nav').classList.add('bg-white/95');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.querySelector('.glass-nav').classList.remove('bg-white/95');
+            }
+        });
+
+		function startFactSlider() {
+            const facts = document.querySelectorAll('.fact-slider');
+            let currentFact = 0;
+
+            setInterval(() => {
+                
+                facts[currentFact].classList.remove('active');
+                facts[currentFact].classList.add('hidden');
+                
+         
+                currentFact = (currentFact + 1) % facts.length;
+                
+               
+                facts[currentFact].classList.remove('hidden');
+                
+                setTimeout(() => {
+                    facts[currentFact].classList.add('active');
+                }, 50);
+            }, 5000); 
+        }
+        startFactSlider();
+
+ 
+        function toggleAccordion(element) {
+            const content = element.querySelector('.accordion-content');
+            const isActive = element.classList.contains('active');
+            
+            
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.accordion-content').style.maxHeight = null;
+            });
+
+            if (!isActive) {
+                element.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+
+        
+    </script>
+    
+    
+    
+    <script>
+
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbw2TnZm_yBZOKYToOorSw4vVhK1dPWBOgpC9uQna8qn74ic6NHBJmfsJsx_i6PuEjiU/exec";
+
+
+  (function initOtherToggles() {
+    const boardSelect = document.getElementById("boardSelect");
+    const boardOther = document.getElementById("boardOther");
+
+    const mediumSelect = document.getElementById("mediumSelect");
+    const mediumOther = document.getElementById("mediumOther");
+
+    const parentOccSelect = document.getElementById("parentOccupationSelect");
+    const parentOccOther = document.getElementById("parentOccupationOther");
+
+    function toggleInput(selectEl, inputEl, triggerValue) {
+      if (!selectEl || !inputEl) return;
+      const isTrigger = selectEl.value === triggerValue;
+      inputEl.classList.toggle("hidden", !isTrigger);
+      inputEl.required = isTrigger;
+      if (!isTrigger) inputEl.value = "";
+    }
+
+    boardSelect.addEventListener("change", () => toggleInput(boardSelect, boardOther, "Other"));
+    mediumSelect.addEventListener("change", () => toggleInput(mediumSelect, mediumOther, "Other"));
+    parentOccSelect.addEventListener("change", () => toggleInput(parentOccSelect, parentOccOther, "Others"));
+
+
+    toggleInput(boardSelect, boardOther, "Other");
+    toggleInput(mediumSelect, mediumOther, "Other");
+    toggleInput(parentOccSelect, parentOccOther, "Others");
+  })();
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+    const form = document.getElementById("leadForm");
+    const btn = form.querySelector('button[type="submit"]');
+
+    if (window.grecaptcha && typeof grecaptcha.getResponse === "function") {
+      const responseToken = grecaptcha.getResponse();
+      if (!responseToken) {
+        alert("Please verify that you are not a robot.");
+        return;
+      }
+    }
+
+
+    const phone = (form.phone.value || "").trim();
+    if (!/^[0-9]{10}$/.test(phone)) {
+      alert("Please enter a valid 10-digit phone number.");
+      form.phone.focus();
+      return;
+    }
+
+
+    const boardSelected = form.board.value;
+    const boardFinal =
+      boardSelected === "Other" ? (form.board_other.value || "").trim() : boardSelected;
+
+    if (boardSelected === "Other" && !boardFinal) {
+      alert("Please specify the Board.");
+      form.board_other.focus();
+      return;
+    }
+
+    const mediumSelected = form.medium.value;
+    const mediumFinal =
+      mediumSelected === "Other" ? (form.medium_other.value || "").trim() : mediumSelected;
+
+    if (mediumSelected === "Other" && !mediumFinal) {
+      alert("Please specify the Medium of Instruction.");
+      form.medium_other.focus();
+      return;
+    }
+
+    const parentOccSelected = form.parent_occupation.value;
+    const parentOccFinal =
+      parentOccSelected === "Others"
+        ? (form.parent_occupation_other.value || "").trim()
+        : parentOccSelected;
+
+    if (parentOccSelected === "Others" && !parentOccFinal) {
+      alert("Please specify the Parent Occupation.");
+      form.parent_occupation_other.focus();
+      return;
+    }
+
+
+    const oldBtnContent = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Submitting...';
+    btn.disabled = true;
+    btn.classList.add("opacity-75");
+
+    try {
+      const now = new Date();
+      const dt = `${now.toLocaleDateString("en-GB")} ${now.toLocaleTimeString("en-GB")}`;
+
+      const params = new URLSearchParams();
+      params.append("sheetName", "Leads");
+
+      params.append("DateTime", dt);
+      params.append("Name", (form.full_name.value || "").trim());
+      params.append("School", (form.school.value || "").trim());
+      params.append("Board", boardFinal);
+      params.append("Year of Passing", (form.year_of_passing.value || "").trim());
+      params.append("Medium", mediumFinal);
+      params.append("First Graduate", form.first_graduate.value);
+      params.append("Email", (form.email.value || "").trim());
+      params.append("Mobile", phone);
+      params.append("City", (form.location.value || "").trim());
+      params.append("Course", form.preferred_course.value);
+      params.append("Referral", (form.referral.value || "").trim());
+      params.append("Source", (form.source.value || "").trim());
+      params.append("Parent Name", (form.parent_name.value || "").trim());
+      params.append("Parent Occupation", parentOccFinal);
+
+      await fetch(`${SCRIPT_URL}?${params.toString()}`, {
+        method: "GET",
+        mode: "no-cors",
+      });
+
+      form.reset();
+      if (window.grecaptcha) grecaptcha.reset();
+
+      document.getElementById("boardOther").classList.add("hidden");
+      document.getElementById("mediumOther").classList.add("hidden");
+      document.getElementById("parentOccupationOther").classList.add("hidden");
+      document.getElementById("boardOther").required = false;
+      document.getElementById("mediumOther").required = false;
+      document.getElementById("parentOccupationOther").required = false;
+
+      const successEl = document.getElementById("formSuccess");
+      if (successEl) {
+        successEl.classList.remove("hidden");
+        successEl.classList.add("flex");
+        setTimeout(() => {
+    successEl.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }, 150);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Submission failed. Please check your internet connection and try again.");
+      btn.innerHTML = oldBtnContent;
+      btn.disabled = false;
+      btn.classList.remove("opacity-75");
+    }
+  }
+</script>
+    
+    
+<script type="module" src="/index.tsx"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"e32050a811da482fa6b42b471a4e3814","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

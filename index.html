@@ -668,10 +668,10 @@
 
           <div class="col-md-5">
             <div class="card hover-card p-4 rounded-4 shadow-lg ">
-              <img  style="max-width: 300px;" class="img-fluid mx-auto" src="./assets/img/research.webp" alt="">
+              <img  style="max-width: 300px;" class="img-fluid mx-auto" src="./assets/img/pgcoursedetails.jpeg" alt="">
             </div>
             <div class="text-center text-danger py-2 fs-3 fw-bold">
-              <p>Invite for Research Summit</p>
+              <p>MSEC - PG Admissions 26-27</p>
             </div>
           </div>
 
@@ -1436,6 +1436,25 @@ Build future-ready solutions through hands-on coding and industry-led learning a
   </div>
 <!-- <button class="campus-tour-btn" onclick="window.open('./app-files', '_blank')">Campus Tour</button> -->
 
+<!-- Admission Popup -->
+<div id="admissionPopup" class="popup-overlay">
+  <div class="popup-content">
+    <button class="popup-close" onclick="closePopup()">×</button>
+
+    <a href="https://demo.vleafy.com/msec/" class="popup-link">
+      <picture>
+        <!-- Mobile Image -->
+        <source srcset="assets/img/bannermob.png" media="(max-width: 768px)">
+        <!-- Desktop Image -->
+        <img
+          src="assets/img/bannerdes.png"
+          alt="Admissions Open 2026-2027"
+          class="popup-img"
+        />
+      </picture>
+    </a>
+  </div>
+</div>
 
   <footer id="footer" class="footer position-relative dark-background">
 
@@ -1943,6 +1962,17 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+<script>
+  window.addEventListener("load", function () {
+    setTimeout(() => {
+      document.getElementById("admissionPopup").style.display = "flex";
+    }, 500); // delay for smooth load
+  });
+
+  function closePopup() {
+    document.getElementById("admissionPopup").style.display = "none";
+  }
+</script>
 
 
 

@@ -1693,3 +1693,212 @@ transition: all 0.2s ease-in-out;
     transform: scale(1);
   }
 }
+/* Wrapper */
+.updates-wrapper {
+  position: relative;
+  background: #e31e24;
+  color: #fff;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+/* Fixed label */
+.updates-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #003366;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Track */
+.updates-track {
+  overflow: hidden;
+  margin-left: 150px; /* space for label */
+}
+
+/* Moving content */
+.updates-content {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: scrollTicker 30s linear infinite;
+}
+
+/* Each item */
+.update-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.update-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #facc15;
+  border-radius: 50%;
+}
+
+/* Animation */
+@keyframes scrollTicker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .updates-content {
+    animation-duration: 45s;
+  }
+
+  .updates-label {
+    font-size: 11px;
+  }
+}
+/* Section */
+.ictagi-hero {
+  position: relative;
+  min-height: 80vh;
+  background-image: url("../img/campus.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Overlay (currently disabled by you — fine) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.541); /* lighter overlay */
+  z-index: 1;
+  pointer-events: none; /* VERY IMPORTANT */
+}
+
+
+/* Content above bg */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* LEFT */
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero-title span {
+  display: block;
+  color: crimson;
+}
+
+.hero-subtitle {
+  margin-top: 20px;
+  font-size: 1.25rem;
+  max-width: 520px;
+  color: #e5e7eb;
+}
+
+.hero-subtitle span {
+  color: #facc15;
+  font-weight: 600;
+}
+
+/* RIGHT */
+.hero-right {
+  margin-top: 40px;
+}
+
+.hero-badge {
+  display: inline-block;
+  border: 1px solid #facc15;
+  color: #facc15;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+/* Info cards */
+.info-card {
+  background: rgba(255, 255, 255, 0.342);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 28px;
+}
+
+.info-item {
+  margin-bottom: 14px;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #cbd5f5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-register {
+  background: #ec4899;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-register:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);
+}
+
+.btn-outline {
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+  .hero-right {
+    margin-top: 50px;
+  }
+}

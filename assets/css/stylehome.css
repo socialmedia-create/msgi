@@ -189,10 +189,10 @@ span {
 
 @keyframes ticker-scroll {
   0% {
-    transform: translateY(0%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -454,10 +454,10 @@ ul.committee {
 
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
 }
 @media (min-width: 1002px) {
@@ -1752,10 +1752,10 @@ transition: all 0.2s ease-in-out;
 /* Animation */
 @keyframes scrollTicker {
   from {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
 }
 

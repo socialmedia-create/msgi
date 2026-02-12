@@ -1,0 +1,171 @@
+.hero {
+
+  display: flex;
+    align-items: center;     /* vertical center */
+  justify-content: center; 
+
+  background: url('../img/desktop.jpg') center/cover no-repeat;
+}
+@media screen and (min-width:1024px) {
+      .hero {
+    height: 90vh !important;
+      }
+}
+.centerhero{
+    width: 100%;
+}
+
+/* Tablet image */
+@media (max-width: 991px) {
+  .hero {
+    background: url('../img/tabscreen.webp') center/cover no-repeat;
+  }
+}
+
+/* Mobile image */
+@media (max-width: 576px) {
+  .hero {
+    background: url('../img/mobscreen.webp') center/cover no-repeat;
+  }
+}
+
+/* Dark panel ONLY for left content */
+.hero-content {
+  background:rgba(0, 31, 83, 0.97);
+  padding: 30px;
+  border-radius: 12px;
+  color: white;
+  backdrop-filter: blur(6px); 
+
+}
+
+/* Headings */
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.hero h2 {
+  color: #ffb400;
+  font-weight: 700;
+}
+
+/* Form */
+.register-box {
+  background: white;
+  border-radius: 12px;
+}
+
+
+/* SECTIONS */
+.section-title{
+    font-weight: 800;
+    color:#0b1d3a;
+}
+
+.highlight-card{
+    border: none;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.highlight-card:hover{
+    transform: translateY(-8px);
+}
+
+.gold{
+    color:#ffb400;
+    font-weight:700;
+}
+
+.event-box{
+    background:#0b1d3a;
+    color:white;
+    border-radius:12px;
+    padding:30px;
+}
+
+.cta{
+    background:#ffb400;
+    color:#0b1d3a;
+    font-weight:700;
+    transition: all 0.3s ease-in-out;
+}
+.cta:hover{
+    transform: scale(1.03);
+    color: black;
+    background-color: #ffb400;
+}
+.careerlist li{
+transition: all 0.2s ease-in-out;
+}
+.careerlist li:hover {
+transform: translateY(-10px);
+}
+.freeentry{
+
+  transform: rotate(-6deg);
+  transition: transform 0.3s ease;
+}
+.freeentry:hover {
+  transform: rotate(0deg);
+}
+
+
+
+/* Optional hover animation */
+.stat-box:hover .icon-circle {
+  transform: translateY(-6px);
+  transition: 0.3s;
+}
+.stat-box {
+  overflow: visible;
+}
+.circle-wrap {
+  position: relative;
+  width: 105px;
+  height: 105px;
+  margin: auto;
+}
+
+/* Yellow half moon BEHIND */
+.circle-wrap::before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: #ffb400;
+  border-radius: 50%;
+  top: -7px;
+  right: -5px;
+  z-index: 1;
+}
+
+.icon-circle {
+  width: 95px;
+  height: 95px;
+  background: #0b1d3a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;   /* above yellow */
+  color: white;
+  font-size: 34px;
+}
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.7s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}

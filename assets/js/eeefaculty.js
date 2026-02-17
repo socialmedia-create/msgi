@@ -29,9 +29,13 @@ function getDesignationPriority(designation = "") {
 // Load and display only CSE faculty, sorted by priority
 async function loadCSEFaculty() {
   const querySnapshot = await getDocs(collection(db, "staff"));  
-  const cseFaculty = querySnapshot.docs
-    .map(doc => doc.data())
-    .filter(staff => staff.department?.trim() === "EEE");
+const cseFaculty = querySnapshot.docs
+  .map(doc => doc.data())
+  .filter(staff =>
+    staff.department?.trim() === "EEE" &&
+    staff.email?.toLowerCase() !== "lalettan@gmail.com"
+  );
+
 
   const container = document.getElementById("eeefaculty");
   if (!container) return;

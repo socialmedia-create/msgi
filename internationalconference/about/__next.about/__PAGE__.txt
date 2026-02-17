@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-a:I[97367,["/msec/internationalconference/nextstatic/static/chunks/ff1a16fafef87110.js","/msec/internationalconference/nextstatic/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+a:I[97367,["/internationalconference/nextstatic/static/chunks/ff1a16fafef87110.js","/internationalconference/nextstatic/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
 b:"$Sreact.suspense"
 :HL["/images/about_header_bg.png","image"]
 :HL["/images/chennai/vadapalani_temple.png","image"]

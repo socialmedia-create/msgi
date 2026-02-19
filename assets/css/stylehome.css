@@ -1902,3 +1902,30 @@ transition: all 0.2s ease-in-out;
     margin-top: 50px;
   }
 }
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  width: calc(250px * 12);
+  animation: scroll 30s linear infinite;
+}
+
+.logo-track img {
+  height: 200px;
+  width: 300px;
+  margin: 0 20px;
+  /* filter: grayscale(100%); */
+  transition: 0.3s;
+}
+
+/* .logo-track img:hover {
+  filter: grayscale(0%);
+} */
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-80%); }
+}

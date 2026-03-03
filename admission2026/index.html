@@ -1202,9 +1202,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
 
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw2TnZm_yBZOKYToOorSw4vVhK1dPWBOgpC9uQna8qn74ic6NHBJmfsJsx_i6PuEjiU/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw2TnZm_yBZOKYToOorSw4vVhK1dPWBOgpC9uQna8qn74ic6NHBJmfsJsx_i6PuEjiU/exec";
+const PHP_URL = "submit-lead.php"; // change this
 
-  (function initOtherToggles() {
+/* ------------------------------
+   OTHER FIELD TOGGLES
+------------------------------ */
+
+(function initOtherToggles() {
     const boardSelect = document.getElementById("boardSelect");
     const boardOther = document.getElementById("boardOther");
     const mediumSelect = document.getElementById("mediumSelect");
@@ -1213,11 +1218,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const parentOccOther = document.getElementById("parentOccupationOther");
 
     function toggleInput(selectEl, inputEl, triggerValue) {
-      if (!selectEl || !inputEl) return;
-      const isTrigger = selectEl.value === triggerValue;
-      inputEl.classList.toggle("hidden", !isTrigger);
-      inputEl.required = isTrigger;
-      if (!isTrigger) inputEl.value = "";
+        if (!selectEl || !inputEl) return;
+        const isTrigger = selectEl.value === triggerValue;
+        inputEl.classList.toggle("hidden", !isTrigger);
+        inputEl.required = isTrigger;
+        if (!isTrigger) inputEl.value = "";
     }
 
     if (boardSelect) boardSelect.addEventListener("change", () => toggleInput(boardSelect, boardOther, "Other"));
@@ -1227,98 +1232,135 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     toggleInput(boardSelect, boardOther, "Other");
     toggleInput(mediumSelect, mediumOther, "Other");
     toggleInput(parentOccSelect, parentOccOther, "Others");
-  })();
+})();
 
-  async function handleFormSubmit(event) {
+/* ------------------------------
+   FORM SUBMISSION
+------------------------------ */
+
+async function handleFormSubmit(event) {
     event.preventDefault();
+
     const form = document.getElementById("leadForm");
     const btn = form.querySelector('button[type="submit"]');
 
+    /* ---------- reCAPTCHA ---------- */
     if (window.grecaptcha && typeof grecaptcha.getResponse === "function") {
-      const responseToken = grecaptcha.getResponse();
-      if (!responseToken) {
-        alert("Please verify that you are not a robot.");
-        return;
-      }
+        if (!grecaptcha.getResponse()) {
+            alert("Please verify that you are not a robot.");
+            return;
+        }
     }
 
+    /* ---------- Phone Validation ---------- */
     const phone = (form.phone.value || "").trim();
     if (!/^[0-9]{10}$/.test(phone)) {
-      alert("Please enter a valid 10-digit phone number.");
-      form.phone.focus();
-      return;
+        alert("Please enter a valid 10-digit phone number.");
+        form.phone.focus();
+        return;
     }
 
-    const boardSelected = form.board.value;
-    const boardFinal = boardSelected === "Other" ? (form.board_other.value || "").trim() : boardSelected;
-    if (boardSelected === "Other" && !boardFinal) {
-      alert("Please specify the Board.");
-      form.board_other.focus();
-      return;
-    }
+    /* ---------- Handle Other Fields ---------- */
+    const boardFinal = form.board.value === "Other"
+        ? (form.board_other.value || "").trim()
+        : form.board.value;
 
-    const mediumSelected = form.medium.value;
-    const mediumFinal = mediumSelected === "Other" ? (form.medium_other.value || "").trim() : mediumSelected;
-    if (mediumSelected === "Other" && !mediumFinal) {
-      alert("Please specify the Medium of Instruction.");
-      form.medium_other.focus();
-      return;
-    }
+    const mediumFinal = form.medium.value === "Other"
+        ? (form.medium_other.value || "").trim()
+        : form.medium.value;
 
-    const parentOccSelected = form.parent_occupation.value;
-    const parentOccFinal = parentOccSelected === "Others" ? (form.parent_occupation_other.value || "").trim() : parentOccSelected;
-    if (parentOccSelected === "Others" && !parentOccFinal) {
-      alert("Please specify the Parent Occupation.");
-      form.parent_occupation_other.focus();
-      return;
-    }
+    const parentOccFinal = form.parent_occupation.value === "Others"
+        ? (form.parent_occupation_other.value || "").trim()
+        : form.parent_occupation.value;
 
+    /* ---------- Button Loading ---------- */
     const oldBtnContent = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Submitting...';
+    btn.innerHTML = "Submitting...";
     btn.disabled = true;
-    btn.classList.add("opacity-75");
 
     try {
-      const now = new Date();
-      const dt = `${now.toLocaleDateString("en-GB")} ${now.toLocaleTimeString("en-GB")}`;
-      const params = new URLSearchParams();
-      params.append("sheetName", "Leads");
-      params.append("DateTime", dt);
-      params.append("Name", (form.full_name.value || "").trim());
-      params.append("School", (form.school.value || "").trim());
-      params.append("Board", boardFinal);
-      params.append("Year of Passing", (form.year_of_passing.value || "").trim());
-      params.append("Medium", mediumFinal);
-      params.append("First Graduate", form.first_graduate.value);
-      params.append("Email", (form.email.value || "").trim());
-      params.append("Mobile", phone);
-      params.append("City", (form.location.value || "").trim());
-      params.append("Course", form.preferred_course.value);
-      params.append("Referral", (form.referral.value || "").trim());
-      params.append("Source", (form.source.value || "").trim());
-      params.append("Parent Name", (form.parent_name.value || "").trim());
-      params.append("Parent Occupation", parentOccFinal);
 
-      await fetch(`${SCRIPT_URL}?${params.toString()}`, {
-        method: "GET",
-        mode: "no-cors",
-      });
+        /* ===============================
+           1️⃣ SAVE TO PHP (MYSQL)
+        =============================== */
 
-      form.reset();
-      if (window.grecaptcha) grecaptcha.reset();
-      const successEl = document.getElementById("formSuccess");
-      if (successEl) {
-        successEl.classList.remove("hidden");
-        successEl.classList.add("flex");
-        setTimeout(() => successEl.scrollIntoView({ behavior: "smooth", block: "center" }), 150);
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Submission failed. Please check your internet connection and try again.");
-      btn.innerHTML = oldBtnContent;
-      btn.disabled = false;
-      btn.classList.remove("opacity-75");
+        const response = await fetch(PHP_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                full_name: form.full_name.value.trim(),
+                school: form.school.value.trim(),
+                board: boardFinal,
+                year_of_passing: form.year_of_passing.value.trim(),
+                medium: mediumFinal,
+                first_graduate: form.first_graduate.value,
+                email: form.email.value.trim(),
+                phone: phone,
+                city: form.location.value.trim(),
+                preferred_course: form.preferred_course.value,
+                referral: form.referral.value.trim(),
+                source: form.source.value.trim(),
+                parent_name: form.parent_name.value.trim(),
+                parent_occupation: parentOccFinal
+            })
+        });
+
+        const result = await response.json();
+
+        if (!result.status) {
+            throw new Error(result.message || "Database save failed");
+        }
+
+        /* ===============================
+           2️⃣ ALSO SEND TO GOOGLE SHEET
+        =============================== */
+
+        const now = new Date();
+        const dt = `${now.toLocaleDateString("en-GB")} ${now.toLocaleTimeString("en-GB")}`;
+
+        const params = new URLSearchParams({
+            sheetName: "Leads",
+            DateTime: dt,
+            Name: form.full_name.value.trim(),
+            School: form.school.value.trim(),
+            Board: boardFinal,
+            "Year of Passing": form.year_of_passing.value.trim(),
+            Medium: mediumFinal,
+            "First Graduate": form.first_graduate.value,
+            Email: form.email.value.trim(),
+            Mobile: phone,
+            City: form.location.value.trim(),
+            Course: form.preferred_course.value,
+            Referral: form.referral.value.trim(),
+            Source: form.source.value.trim(),
+            "Parent Name": form.parent_name.value.trim(),
+            "Parent Occupation": parentOccFinal
+        });
+
+        await fetch(`${SCRIPT_URL}?${params.toString()}`, {
+            method: "GET",
+            mode: "no-cors"
+        });
+
+        /* ---------- Success ---------- */
+        form.reset();
+        if (window.grecaptcha) grecaptcha.reset();
+
+        const successEl = document.getElementById("formSuccess");
+        if (successEl) {
+            successEl.classList.remove("hidden");
+            successEl.classList.add("flex");
+            successEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Submission failed. Please try again.");
     }
+
+    btn.innerHTML = oldBtnContent;
+    btn.disabled = false;
+
   }
 </script>
 </body>

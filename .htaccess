@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} ^/international.*conference.*\.html$ [NC]
+RewriteRule ^(.*)$ /internationalconference/ [R=301,L]

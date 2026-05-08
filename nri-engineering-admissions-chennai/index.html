@@ -188,70 +188,130 @@
                 <p class="text-slate-500 text-sm sm:text-base mb-6 leading-relaxed">
                     Connect with our international admissions team and explore global engineering opportunities at MSEC.
                 </p>
+<form id="nriForm" class="space-y-4">
 
-                <form class="space-y-4">
+    <!-- STUDENT NAME -->
+    <div>
+        <label class="text-xs font-bold uppercase text-slate-400">
+            Student Name
+        </label>
 
-                    <div>
-                        <label class="text-xs font-bold uppercase text-slate-400">
-                            Student Name
-                        </label>
+        <input type="text" name="fullname" id="fullname"
+               placeholder="Enter Full Name"
+               class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+    </div>
 
-                        <input type="text"
-                               placeholder="Enter Full Name"
-                               class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
-                    </div>
+    <!-- COUNTRY + PHONE -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-                    <!-- MOBILE RESPONSIVE GRID -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- COUNTRY -->
+        <div>
+            <label class="text-xs font-bold uppercase text-slate-400">
+                Country
+            </label>
 
-                        <div>
-                            <label class="text-xs font-bold uppercase text-slate-400">
-                                Country
-                            </label>
+            <select name="country" id="country" class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
 
-                            <select class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
-                                <option>UAE</option>
-                                <option>Singapore</option>
-                                <option>USA</option>
-                                <option>Malaysia</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
+                <option selected disabled>Select Country</option>
 
-                        <div>
-                            <label class="text-xs font-bold uppercase text-slate-400">
-                                Phone Number
-                            </label>
+                <!-- GCC -->
+                <option>UAE</option>
+                <option>Saudi Arabia</option>
+                <option>Qatar</option>
+                <option>Oman</option>
+                <option>Kuwait</option>
+                <option>Bahrain</option>
 
-                            <input type="tel"
-                                   placeholder="+971..."
-                                   class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
-                        </div>
+                <!-- Asia -->
+                <option>Singapore</option>
+                <option>Malaysia</option>
+                <option>Japan</option>
+                <option>South Korea</option>
 
-                    </div>
+                <!-- Western Countries -->
+                <option>USA</option>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Australia</option>
+                <option>New Zealand</option>
 
-                    <div>
-                        <label class="text-xs font-bold uppercase text-slate-400">
-                            Preferred Program
-                        </label>
+                <!-- Europe -->
+                <option>Germany</option>
+                <option>France</option>
+                <option>Ireland</option>
 
-                        <select class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
-                            <option>B.E. Computer Science</option>
-                            <option>B.Tech AI & Data Science</option>
-                            <option>B.E. Electronics & Communication</option>
-                            <option>MBA</option>
-                        </select>
-                    </div>
+                <!-- Others -->
+                <option>South Africa</option>
+                <option>Other</option>
 
-                    <button class="w-full bg-msec-navy text-white py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-800 transition shadow-xl">
-                        Schedule Virtual Counselling
-                    </button>
+            </select>
+        </div>
 
-                    <p class="text-[10px] sm:text-xs text-center text-slate-400 uppercase tracking-widest mt-4">
-                        Safe & Secure Lead Processing
-                    </p>
+        <!-- PHONE -->
+        <div>
+            <label class="text-xs font-bold uppercase text-slate-400">
+                Phone Number
+            </label>
 
-                </form>
+            <input type="tel" name="phone_number" id="phonenumber"
+                   placeholder="+971 XXXXX XXXXX"
+                   class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+        </div>
+
+    </div>
+
+    <!-- EMAIL -->
+    <div>
+        <label class="text-xs font-bold uppercase text-slate-400">
+            Email Address
+        </label>
+
+        <input type="email" name="email_address" id="emailaddress"
+               placeholder="Enter Email Address"
+               class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+    </div>
+
+    <!-- PREFERRED PROGRAM -->
+    <div>
+        <label class="text-xs font-bold uppercase text-slate-400">
+            Preferred Program
+        </label>
+
+        <select name="preferred_program" id="programs" class="w-full p-3 sm:p-4 bg-slate-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+
+            <option selected disabled>Select Program</option>
+
+            <option>B.E. Computer Science and Engineering (CSE)</option>
+
+            <option>B.Tech Artificial Intelligence & Data Science (AI & DS)</option>
+
+            <option>B.Tech Artificial Intelligence & Machine Learning (AI & ML)</option>
+
+            <option>B.E. Cyber Security</option>
+
+            <option>B.E. Information Technology (IT)</option>
+
+            <option>B.E. Electronics and Communication Engineering (ECE)</option>
+
+            <option>B.E. Electrical and Electronics Engineering (EEE)</option>
+
+            <option>B.E. Mechanical Engineering</option>
+
+            <option>B.E. Civil Engineering</option>
+
+        </select>
+    </div>
+
+    <!-- CTA BUTTON -->
+    <button   type="submit" class="w-full bg-msec-navy text-white py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-slate-800 transition shadow-xl">
+        Schedule Virtual Counselling
+    </button>
+
+    <!-- FOOT NOTE -->
+    <p id="formMessage" class="text-center text-sm mt-3"></p>
+
+
+</form>
 
             </div>
 
@@ -1079,5 +1139,89 @@
             once: true
         });
     </script>
+    <script id="n0d5hf">
+
+document.getElementById("nriForm").addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    // INPUT VALUES
+    const fullname = document.getElementById("fullname").value.trim();
+    const country = document.getElementById("country").value.trim();
+    const phone_number = document.getElementById("phonenumber").value.trim();
+    const email_address = document.getElementById("emailaddress").value.trim();
+    const preferred_program = document.getElementById("programs").value.trim();
+
+    const formMessage = document.getElementById("formMessage");
+
+    // EMPTY CHECK
+    if (
+        fullname === "" ||
+        country === "" ||
+        phone_number === "" ||
+        email_address === "" ||
+        preferred_program === ""
+    ) {
+
+        formMessage.innerHTML = "Please fill all fields.";
+        formMessage.className = "text-red-500 text-center text-sm mt-3";
+
+        return;
+    }
+
+    // GOOGLE APPS SCRIPT URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxAh2KwXIDwciK3mjXlLI0zHEepYy6FFUfYPhMG3KYfQaeQkhqzuUe76m6yBpPHsCOF/exec";
+
+    // FORM DATA
+    const formData = {
+        fullname,
+        country,
+        phone_number,
+        email_address,
+        preferred_program
+    };
+
+    try {
+
+        const response = await fetch(scriptURL, {
+
+            method: "POST",
+
+            body: JSON.stringify(formData),
+
+            headers: {
+                "Content-Type": "application/json"
+            }
+
+        });
+
+        const result = await response.json();
+
+        if(result.result === "success") {
+
+            formMessage.innerHTML = "Form submitted successfully!";
+            formMessage.className = "text-green-600 text-center text-sm mt-3";
+
+            document.getElementById("nriForm").reset();
+
+        } else {
+
+            formMessage.innerHTML = "Something went wrong.";
+            formMessage.className = "text-red-500 text-center text-sm mt-3";
+
+        }
+
+    } catch(error) {
+
+        formMessage.innerHTML = "Submission failed.";
+        formMessage.className = "text-red-500 text-center text-sm mt-3";
+
+        console.error(error);
+
+    }
+
+});
+
+</script>
 </body>
 </html>

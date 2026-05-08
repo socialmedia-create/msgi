@@ -1139,13 +1139,13 @@
             once: true
         });
     </script>
-    <script id="n0d5hf">
+<script>
 
 document.getElementById("nriForm").addEventListener("submit", async function(e) {
 
     e.preventDefault();
 
-    // INPUT VALUES
+    // VALUES
     const fullname = document.getElementById("fullname").value.trim();
     const country = document.getElementById("country").value.trim();
     const phone_number = document.getElementById("phonenumber").value.trim();
@@ -1169,54 +1169,38 @@ document.getElementById("nriForm").addEventListener("submit", async function(e) 
         return;
     }
 
-    // GOOGLE APPS SCRIPT URL
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxAh2KwXIDwciK3mjXlLI0zHEepYy6FFUfYPhMG3KYfQaeQkhqzuUe76m6yBpPHsCOF/exec";
+    // GOOGLE SCRIPT URL
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxbvHsG0XpfYllrzPXHnKwv7TXzhDyfuPtX_h6r4itWcJhssHOuO59exG-ZgZar1_vn/exec";
 
-    // FORM DATA
-    const formData = {
-        fullname,
-        country,
-        phone_number,
-        email_address,
-        preferred_program
-    };
+    // FORMDATA
+    const formData = new FormData();
+
+    formData.append("fullname", fullname);
+    formData.append("country", country);
+    formData.append("phone_number", phone_number);
+    formData.append("email_address", email_address);
+    formData.append("preferred_program", preferred_program);
 
     try {
 
-        const response = await fetch(scriptURL, {
+        await fetch(scriptURL, {
 
             method: "POST",
-
-            body: JSON.stringify(formData),
-
-            headers: {
-                "Content-Type": "application/json"
-            }
+            body: formData
 
         });
 
-        const result = await response.json();
+        formMessage.innerHTML = "Form submitted successfully!";
+        formMessage.className = "text-green-600 text-center text-sm mt-3";
 
-        if(result.result === "success") {
-
-            formMessage.innerHTML = "Form submitted successfully!";
-            formMessage.className = "text-green-600 text-center text-sm mt-3";
-
-            document.getElementById("nriForm").reset();
-
-        } else {
-
-            formMessage.innerHTML = "Something went wrong.";
-            formMessage.className = "text-red-500 text-center text-sm mt-3";
-
-        }
+        document.getElementById("nriForm").reset();
 
     } catch(error) {
 
+        console.error(error);
+
         formMessage.innerHTML = "Submission failed.";
         formMessage.className = "text-red-500 text-center text-sm mt-3";
-
-        console.error(error);
 
     }
 

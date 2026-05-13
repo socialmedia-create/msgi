@@ -1140,12 +1140,10 @@
         });
     </script>
 <script>
-
-document.getElementById("nriForm").addEventListener("submit", async function(e) {
+document.getElementById("nriForm").addEventListener("submit", function(e) {
 
     e.preventDefault();
 
-    // VALUES
     const fullname = document.getElementById("fullname").value.trim();
     const country = document.getElementById("country").value.trim();
     const phone_number = document.getElementById("phonenumber").value.trim();
@@ -1154,7 +1152,6 @@ document.getElementById("nriForm").addEventListener("submit", async function(e) 
 
     const formMessage = document.getElementById("formMessage");
 
-    // EMPTY CHECK
     if (
         fullname === "" ||
         country === "" ||
@@ -1162,17 +1159,13 @@ document.getElementById("nriForm").addEventListener("submit", async function(e) 
         email_address === "" ||
         preferred_program === ""
     ) {
-
         formMessage.innerHTML = "Please fill all fields.";
         formMessage.className = "text-red-500 text-center text-sm mt-3";
-
         return;
     }
 
-    // GOOGLE SCRIPT URL
     const scriptURL = "https://script.google.com/macros/s/AKfycbxbvHsG0XpfYllrzPXHnKwv7TXzhDyfuPtX_h6r4itWcJhssHOuO59exG-ZgZar1_vn/exec";
 
-    // FORMDATA
     const formData = new FormData();
 
     formData.append("fullname", fullname);
@@ -1181,31 +1174,21 @@ document.getElementById("nriForm").addEventListener("submit", async function(e) 
     formData.append("email_address", email_address);
     formData.append("preferred_program", preferred_program);
 
-    try {
+    formMessage.innerHTML = "Submitting...";
+    formMessage.className = "text-orange-500 text-center text-sm mt-3";
 
-        await fetch(scriptURL, {
+    fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    });
 
-            method: "POST",
-            body: formData
-
-        });
-
-        formMessage.innerHTML = "Form submitted successfully!";
-        formMessage.className = "text-green-600 text-center text-sm mt-3";
-
+    setTimeout(function() {
         document.getElementById("nriForm").reset();
-
-    } catch(error) {
-
-        console.error(error);
-
-        formMessage.innerHTML = "Submission failed.";
-        formMessage.className = "text-red-500 text-center text-sm mt-3";
-
-    }
+        window.location.href = "https://forms.gle/KJHibitVpSvb2SZRA";
+    }, 1500);
 
 });
-
 </script>
 </body>
 </html>

@@ -11,12 +11,12 @@
 <div class=\"grid md:grid-cols-2 lg:grid-cols-4 gap-8\">
   <div class=\"bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-2 transition-transform duration-300\">
   <div class=\"h-64 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-primary/5 transition-colors relative\">
-    <img alt=\"Soheil Nazarian\" class=\"w-full h-full object-cover\" src=\"/images/keynote/Soheil-Nazarian.jpg\"/>
+  <img alt="Dr. Xiao-Zhi Gao" class="w-full h-full object-cover" src="/images/keynote/Soheil-Nazarian.jpg"/>
   </div>
   <div class=\"p-6 text-center\">
-    <h3 class=\"font-bold text-lg text-dark mb-2\">Soheil Nazarian</h3>
-    <p class=\"text-primary text-sm font-semibold mb-2\">Director</p>
-    <p class=\"text-gray-500 text-xs\">ASPIRE NSF ERC, Professor of Civil Engineering, Center for Transportation Infrastructure Systems (CTIS), UTEP, USA</p>
+  <h3 class="font-bold text-lg text-dark mb-2">Dr. Xiao-Zhi Gao</h3>
+  <p class="text-primary text-sm font-semibold mb-2">Professor, Computing</p>
+  <p class="text-gray-500 text-xs">University of Eastern Finland, Finland</p>
   </div>
 </div><div class=\"bg-white rounded-xl shadow-lg overflow-hidden group hover:-translate-y-2 transition-transform duration-300\">
   <div class=\"h-64 bg-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-primary/5 transition-colors relative\">

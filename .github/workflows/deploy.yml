@@ -25,8 +25,8 @@ jobs:
         run: |
           echo "Push detected on main branch. Merging main into master..."
           git fetch origin master
-          git checkout master
-          git merge origin/main --ff-only || git merge origin/main -m "Auto-merge main into master [skip ci]"
+          git checkout -B master origin/master
+          git merge origin/main -m "Auto-merge main into master [skip ci]"
           git push origin master
 
       - name: Trigger Plesk Webhook Deployment

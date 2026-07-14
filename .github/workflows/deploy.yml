@@ -1,0 +1,35 @@
+name: Auto Deploy & Sync Branches
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git Credentials
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync main to master if push was on main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Push detected on main branch. Merging main into master..."
+          git fetch origin master
+          git checkout master
+          git merge origin/main --ff-only || git merge origin/main -m "Auto-merge main into master [skip ci]"
+          git push origin master
+
+      - name: Trigger Plesk Webhook Deployment
+        run: |
+          echo "Triggering Plesk auto-deployment webhook..."
+          curl -X POST "${{ secrets.PLESK_WEBHOOK_URL }}" || echo "Webhook trigger executed."

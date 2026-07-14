@@ -52,7 +52,7 @@ querySnapshot.forEach((doc) => {
 
   const card = `
     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-      <a href="https://staff-management-msec.web.app/" target="_blank" style="text-decoration: none; color: inherit;">
+      <a href="staff-profile.html?id=${doc.id}" style="text-decoration: none; color: inherit;">
         <div class="faculty-card m-1 row align-items-center justify-content-center">
           <div class="faculty-image1 d-flex align-items-center justify-content-center" style="height: 120px; width: 120px; background-color: #f8f9fa; border-radius: 50%;">
             ${

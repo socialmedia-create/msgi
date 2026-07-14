@@ -54,7 +54,7 @@ async function loadFacultyByDepartments() {
   // Group staff
   const groupedFaculty = {};
   querySnapshot.docs.forEach(doc => {
-    const staff = doc.data();
+    const staff = { id: doc.id, ...doc.data() };
     const dept = staff.department?.trim();
     if (departments[dept]) {
       if (!groupedFaculty[dept]) groupedFaculty[dept] = [];
@@ -94,7 +94,7 @@ async function loadFacultyByDepartments() {
            </div>`;
 
       card.innerHTML = `
-        <a href="https://staff-management-msec.web.app/" target="_blank" style="text-decoration: none; color: inherit;">
+        <a href="staff-profile.html?id=${staff.id}" style="text-decoration: none; color: inherit;">
           <div class="faculty-card m-1 row align-items-center justify-content-center">
             <div class="faculty-image1 text-center mb-2">
               ${imageHTML}

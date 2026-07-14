@@ -26,11 +26,11 @@ function getDesignationPriority(designation = "") {
   return 5;
 }
 
-// Load and display only CSE faculty, sorted by priority
+// Load and display only AI DS faculty, sorted by priority
 async function loadCSEFaculty() {
   const querySnapshot = await getDocs(collection(db, "staff"));
   const cseFaculty = querySnapshot.docs
-    .map(doc => doc.data())
+    .map(doc => ({ id: doc.id, ...doc.data() }))
     .filter(staff => staff.department?.trim() === "AI DS");
 
   const container = document.getElementById("aidsfaculty");
@@ -52,33 +52,30 @@ async function loadCSEFaculty() {
   );
 
   sortedFaculty.forEach((staff) => {
-    const photoUrl = staff.imageUrl || "https://via.placeholder.com/80";
-
     const card = document.createElement("div");
     card.className = "col-md-6 col-lg-4";
     card.setAttribute("data-aos", "fade-up");
     card.setAttribute("data-aos-delay", "200");
 
     card.innerHTML = `
-      <a href="https://staff-management-msec.web.app/" target="_blank" style="text-decoration: none; color: inherit;">
+      <a href="staff-profile.html?id=${staff.id}" style="text-decoration: none; color: inherit;">
         <div class="faculty-card m-1 row align-items-center justify-content-center">
           <div class="faculty-image1 text-center mb-2">
             ${
-  staff.imageUrl && (staff.imageUrl.startsWith("data:image") || staff.imageUrl.includes("http"))
-    ? `<img src="${staff.imageUrl}" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">`
-    : `<div class="d-flex align-items-center justify-content-center rounded-circle text-danger"
-           style="
-             width: 100px;
-             height: 100px;
-             font-size: 36px;
-             font-weight: bold;
-             text-transform: uppercase;
-             margin: 0 auto;">
-         ${getInitials(staff.firstName, staff.lastName)}
-       </div>`
-}
-
-            </div>
+              staff.imageUrl && (staff.imageUrl.startsWith("data:image") || staff.imageUrl.includes("http"))
+                ? `<img src="${staff.imageUrl}" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">`
+                : `<div class="d-flex align-items-center justify-content-center rounded-circle text-danger"
+                       style="
+                         width: 100px;
+                         height: 100px;
+                         font-size: 36px;
+                         font-weight: bold;
+                         text-transform: uppercase;
+                         margin: 0 auto;">
+                     ${getInitials(staff.firstName, staff.lastName)}
+                   </div>`
+            }
+          </div>
 
           <div class="faculty-info">
             <h4 class="text-center">${staff.firstName || 'No Name'} ${staff.lastName || ''}</h4>
@@ -102,4 +99,5 @@ function getInitials(firstName = "", lastName = "") {
   const l = lastName.trim().charAt(0).toUpperCase();
   return `${f}${l}`;
 }
+
 loadCSEFaculty();

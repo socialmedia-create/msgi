@@ -30,7 +30,7 @@ function getDesignationPriority(designation = "") {
 async function loadCSEFaculty() {
   const querySnapshot = await getDocs(collection(db, "staff"));
   const cseFaculty = querySnapshot.docs
-    .map(doc => doc.data())
+    .map(doc => ({ id: doc.id, ...doc.data() }))
     .filter(staff => staff.department?.trim() === "CSE");
 
   const container = document.getElementById("csefaculty");
@@ -60,7 +60,7 @@ async function loadCSEFaculty() {
     card.setAttribute("data-aos-delay", "200");
 
     card.innerHTML = `
-      <a href="https://staff-management-msec.web.app/" target="_blank" style="text-decoration: none; color: inherit;">
+      <a href="staff-profile.html?id=${staff.id}" style="text-decoration: none; color: inherit;">
         <div class="faculty-card m-1 row align-items-center justify-content-center">
           <div class="faculty-image1">
             <img src="${photoUrl}" class="img-fluid" alt="${getInitials(staff.firstName, staff.lastName)}">

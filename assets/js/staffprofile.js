@@ -167,7 +167,9 @@ async function loadStaffProfile() {
     const profileDesignation = document.getElementById("profileDesignation");
     const profileDepartment = document.getElementById("profileDepartment");
     const profileEmail = document.getElementById("profileEmail");
+    const profileStaffId = document.getElementById("profileStaffId");
     const profileStatus = document.getElementById("profileStatus");
+    const profileAicteCode = document.getElementById("profileAicteCode");
     const profileTotalExperience = document.getElementById("profileTotalExperience");
     const imageWrapper = document.getElementById("profileImageWrapper");
 
@@ -175,6 +177,8 @@ async function loadStaffProfile() {
     if (profileDesignation) profileDesignation.textContent = staff.designation || 'Faculty Member';
     if (profileDepartment) profileDepartment.textContent = staff.department || 'NIL';
     if (profileEmail) profileEmail.innerHTML = renderLinkOrText(staff.email || 'NIL');
+    if (profileStaffId) profileStaffId.textContent = staff.staffId || staff.employeeId || staffId || 'NIL';
+    if (profileAicteCode) profileAicteCode.textContent = staff.aicteCode || staff.aicte || 'NIL';
     
     // Status Badge
     if (profileStatus) {

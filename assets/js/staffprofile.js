@@ -26,7 +26,11 @@ const StandardKeys = new Set([
 
 // Sensitive/Private Keys explicitly excluded for privacy/security
 const ExcludedPrivateKeys = new Set([
-  "gender", "sex", "age", "bloodgroup", "blood_group", "bloodgroup", "blood",
+  "education", "qualifications", "qualification",
+  "title", "salutation", "prefix",
+  "passport", "passportno", "passport_no", "passportnumber", "passport_number",
+  "communityother", "community_other", "custombloodgroup", "custom_blood_group", "customblood",
+  "gender", "sex", "age", "bloodgroup", "blood_group", "blood",
   "pan", "panno", "pan_no", "pancard", "pannumber", "pan_number",
   "phone", "mobile", "contact", "phonenumber", "phone_number", "mobile_number",
   "dob", "dateofbirth", "date_of_birth", "birthdate", "password", "pass", "pwd",
@@ -195,18 +199,6 @@ async function loadStaffProfile() {
       }
     }
 
-    // Render Education Section
-    const educationContainer = document.getElementById("profileEducation");
-    const educationSection = document.getElementById("educationSection");
-    const educationData = staff.education || staff.qualifications || staff.qualification;
-    if (educationContainer) {
-      if (educationData && educationData !== '[]') {
-        educationContainer.innerHTML = renderValueToHTML(educationData);
-      } else {
-        educationContainer.innerHTML = '<p class="text-muted fst-italic ps-2">NIL</p>';
-      }
-    }
-
     // Render Experience Section
     const experienceContainer = document.getElementById("profileExperience");
     const experienceSection = document.getElementById("experienceSection");
@@ -248,7 +240,7 @@ async function loadStaffProfile() {
       }
     }
 
-    // DYNAMIC SCHEMA REFLECTION: Vertical alignment & NIL fallback for empty/blank values
+    // DYNAMIC SCHEMA REFLECTION: Two-column vertical layout grid with NIL fallbacks
     const dynamicFieldsContainer = document.getElementById("dynamicSchemaFields");
     if (dynamicFieldsContainer) {
       const extraPublicFields = Object.keys(staff).filter(key => {
@@ -257,21 +249,24 @@ async function loadStaffProfile() {
       });
 
       if (extraPublicFields.length > 0) {
-        let dynamicHTML = ``;
+        let dynamicHTML = `<div class="row g-4">`;
         
         extraPublicFields.forEach(key => {
           const val = staff[key];
           const formattedContent = renderValueToHTML(val);
           
           dynamicHTML += `
-            <div class="mb-4">
-              <h5 class="fw-bold text-dark border-bottom pb-2 mb-3"><i class="bi bi-journal-text text-danger me-2"></i>${formatLabel(key)}</h5>
-              <div class="ps-2">
-                ${formattedContent}
+            <div class="col-md-6">
+              <div class="p-3 bg-white border rounded-3 h-100">
+                <h5 class="fw-bold text-dark border-bottom pb-2 mb-3"><i class="bi bi-journal-text text-danger me-2"></i>${formatLabel(key)}</h5>
+                <div class="ps-1">
+                  ${formattedContent}
+                </div>
               </div>
             </div>`;
         });
 
+        dynamicHTML += `</div>`;
         dynamicFieldsContainer.innerHTML = dynamicHTML;
       }
     }

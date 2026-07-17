@@ -1097,6 +1097,77 @@
               </div>
             </div>
           </div>
+          <div class="mt-16 w-full" id="registration-fees-container">
+            <div class="text-center mb-10">
+              <h3 class="text-2xl font-bold text-primary inline-block bg-white px-4 relative z-10 border border-gray-100 rounded-full py-2 shadow-sm uppercase">Registration Fees</h3>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <!-- Table 1: Registration Fees -->
+              <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-[#1e1b4b] px-6 py-4">
+                  <h4 class="text-lg font-bold text-white text-center">Registration Fees (Authors)</h4>
+                </div>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left border-collapse">
+                    <thead>
+                      <tr class="bg-gray-50 border-b border-gray-100">
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Category</th>
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Early Registration<br><span class="text-[10px] text-gray-400 lowercase font-normal">(till 15th November 2026)</span></th>
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Late Registration<br><span class="text-[10px] text-gray-400 lowercase font-normal">(After 15th November 2026)</span></th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                      <tr class="hover:bg-gray-50/50 transition-colors">
+                        <td class="px-6 py-4 text-sm font-semibold text-gray-900">Research Scholar / Student</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 105</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 115</td>
+                      </tr>
+                      <tr class="hover:bg-gray-50/50 transition-colors">
+                        <td class="px-6 py-4 text-sm font-semibold text-gray-900">Academician</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 125</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 135</td>
+                      </tr>
+                      <tr class="hover:bg-gray-50/50 transition-colors">
+                        <td class="px-6 py-4 text-sm font-semibold text-gray-900">Industrial Participant</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 150</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 160</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Table 2: Conference Attendee Registration -->
+              <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="bg-[#1e1b4b] px-6 py-4">
+                  <h4 class="text-lg font-bold text-white text-center">Conference Attendee Registration</h4>
+                </div>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left border-collapse">
+                    <thead>
+                      <tr class="bg-gray-50 border-b border-gray-100">
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Category</th>
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Early Registration<br><span class="text-[10px] text-gray-400 lowercase font-normal">(till 15th November 2026)</span></th>
+                        <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Late Registration<br><span class="text-[10px] text-gray-400 lowercase font-normal">(After 15th November 2026)</span></th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                      <tr class="hover:bg-gray-50/50 transition-colors">
+                        <td class="px-6 py-4 text-sm font-semibold text-gray-900">Research Student Attendee</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 50</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 75</td>
+                      </tr>
+                      <tr class="hover:bg-gray-50/55 transition-colors">
+                        <td class="px-6 py-4 text-sm font-semibold text-gray-900">Standard Attendee</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 75</td>
+                        <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 100</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section class="py-20 bg-gray-50 text-gray-900" id="call-for-papers">
@@ -2276,6 +2347,106 @@
             drawer.classList.add('hidden');
           });
         });
+      }
+    })();
+  </script>
+  <script>
+    (function() {
+      function injectTables() {
+        var datesDiv = document.getElementById('dates');
+        if (!datesDiv) return;
+        
+        // Check if the tables are already there
+        if (document.getElementById('registration-fees-container')) return;
+        
+        var container = document.createElement('div');
+        container.id = 'registration-fees-container';
+        container.className = 'mt-16 w-full';
+        container.innerHTML = `
+          <div class="text-center mb-10">
+            <h3 class="text-2xl font-bold text-primary inline-block bg-white px-4 relative z-10 border border-gray-100 rounded-full py-2 shadow-sm uppercase">Registration Fees</h3>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <!-- Table 1: Registration Fees -->
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div class="bg-[#1e1b4b] px-6 py-4">
+                <h4 class="text-lg font-bold text-white text-center">Registration Fees (Authors)</h4>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="bg-gray-50 border-b border-gray-100">
+                      <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Category</th>
+                      <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Early Registration<br><span class="text-[10px] text-gray-400 lowercase font-normal">(till 15th November 2026)</span></th>
+                      <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Late Registration<br><span class="text-[10px] text-gray-400 lowercase font-normal">(After 15th November 2026)</span></th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100">
+                    <tr class="hover:bg-gray-50/50 transition-colors">
+                      <td class="px-6 py-4 text-sm font-semibold text-gray-900">Research Scholar / Student</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 105</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 115</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50/50 transition-colors">
+                      <td class="px-6 py-4 text-sm font-semibold text-gray-900">Academician</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 125</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 135</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50/50 transition-colors">
+                      <td class="px-6 py-4 text-sm font-semibold text-gray-900">Industrial Participant</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 150</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 160</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Table 2: Conference Attendee Registration -->
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div class="bg-[#1e1b4b] px-6 py-4">
+                <h4 class="text-lg font-bold text-white text-center">Conference Attendee Registration</h4>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="bg-gray-50 border-b border-gray-100">
+                      <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Category</th>
+                      <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Early Registration<br><span class="text-[10px] text-gray-400 lowercase font-normal">(till 15th November 2026)</span></th>
+                      <th class="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Late Registration<br><span class="text-[10px] text-gray-400 lowercase font-normal">(After 15th November 2026)</span></th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100">
+                    <tr class="hover:bg-gray-50/50 transition-colors">
+                      <td class="px-6 py-4 text-sm font-semibold text-gray-900">Research Student Attendee</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 50</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 75</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50/50 transition-colors">
+                      <td class="px-6 py-4 text-sm font-semibold text-gray-900">Standard Attendee</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-[#1e1b4b]">USD 75</td>
+                      <td class="px-6 py-4 text-sm font-bold text-center text-gray-600">USD 100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        datesDiv.parentNode.insertBefore(container, datesDiv.nextSibling);
+      }
+
+      injectTables();
+      
+      // Observe modifications in the DOM
+      var observer = new MutationObserver(function(mutations) {
+        injectTables();
+      });
+      
+      var publicationsSection = document.getElementById('publications');
+      if (publicationsSection) {
+        observer.observe(publicationsSection, { childList: true, subtree: true });
       }
     })();
   </script>

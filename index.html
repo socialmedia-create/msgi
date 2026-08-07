@@ -747,8 +747,10 @@
       </div>
 
     </div>
+    
 
   </div>
+
 </div>
 
 
@@ -1908,8 +1910,28 @@ document.addEventListener("DOMContentLoaded", function () {
         .sort((a, b) => new Date(a.start) - new Date(b.start));
         
       if (currentMonthEvents.length === 0) {
-        container.innerHTML = "<p class='text-center'>No upcoming events this month.</p>";
-      } else {
+    container.innerHTML = `
+        <div class="text-center p-3">
+
+            <img
+                src="assets/img/krs-memorial.jpeg"
+                alt="KRS Memorial Trophy 2026"
+                class="img-fluid rounded shadow"
+                style="width:100%; height:auto;">
+
+            <h3 class="mt-3 text-danger fw-bold">
+                KRS Memorial Trophy 2026
+            </h3>
+
+            <p>12–14 August 2026</p>
+
+            <a href="news.html" class="btn btn-danger">
+                View Details
+            </a>
+
+        </div>
+    `;
+} else {
         const track = document.createElement("div");
         track.classList.add("ticker-track");
 

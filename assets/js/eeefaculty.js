@@ -61,7 +61,7 @@ async function loadCSEFaculty() {
     card.setAttribute("data-aos-delay", "200");
 
     card.innerHTML = `
-      <a href="staff-profile.html?id=${staff.id}" style="text-decoration: none; color: inherit;">
+      <a href="https://staff-management-msec.web.app" style="text-decoration: none; color: inherit;">
         <div class="faculty-card m-1 row align-items-center justify-content-center">
           <div class="faculty-image1 text-center mb-2">
             ${

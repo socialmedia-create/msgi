@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
-// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyAJm0LiLJchN86HzeCJHn3qKqdOhv0H_DE",
   authDomain: "niranjan-58d39.firebaseapp.com",
@@ -15,89 +14,202 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Designation priority logic
-function getDesignationPriority(designation = "") {
-  const d = designation.trim().toLowerCase();
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 
-  if (d.includes("hod")) return 1;
-  if (d === "professor") return 2;
-  if (d.includes("LAB ASSISTANT")) return 3;
-  if (d.includes("assistant")) return 4;
-  return 5;
+function isITDepartment(dept = "") {
+  const d = dept.trim().toLowerCase();
+  return d.includes("information technology") || d === "it" || d.includes("dept of it");
 }
 
-// Load and display only IT faculty, sorted by priority
-async function loadCSEFaculty() {
-  const querySnapshot = await getDocs(collection(db, "staff"));
-  const cseFaculty = querySnapshot.docs
-    .map(doc => ({ id: doc.id, ...doc.data() }))
-    .filter(staff => staff.department?.trim() === "Department of Information Technology");
+function getDesignationPriority(designation = "") {
+  const d = designation.trim().toLowerCase();
+  if (d.includes("hod"))        return 1;
+  if (d === "professor")        return 2;
+  if (d.includes("associate"))  return 3;
+  if (d.includes("assistant"))  return 4;
+  if (d.includes("lab"))        return 5;
+  return 6;
+}
+
+function formatName(firstName = "", lastName = "") {
+  let raw = `${firstName} ${lastName}`.trim();
+  if (!raw) return "Faculty Member";
+  raw = raw.replace(/([A-Za-z])\.([A-Za-z])/g, "$1. $2");
+  return raw.split(/\s+/).map(w => {
+    const lower = w.toLowerCase();
+    if (lower === "dr" || lower === "dr.")   return "Dr.";
+    if (lower === "mr" || lower === "mr.")   return "Mr.";
+    if (lower === "mrs" || lower === "mrs.") return "Mrs.";
+    if (lower === "ms" || lower === "ms.")   return "Ms.";
+    if (lower === "prof" || lower === "prof.") return "Prof.";
+    if (/^[a-z]\.?$/i.test(w)) return w.charAt(0).toUpperCase() + ".";
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  }).join(" ");
+}
+
+function formatDesignation(desig = "") {
+  return (desig || "").trim().split(/\s+/).map(w => {
+    const l = w.toLowerCase().replace(/,$/,"");
+    if (l === "hod") return "HOD";
+    if (l === "lab") return "Lab";
+    if (l === "and" || l === "&") return "and";
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  }).join(" ").trim() || "Faculty";
+}
+
+function getInitials(name = "") {
+  const parts = name.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s+/i, "").split(/\s+/).filter(Boolean);
+  if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  return parts[0] ? parts[0].substring(0, 2).toUpperCase() : "MS";
+}
+
+// ─── Card Styles (injected once) ─────────────────────────────────────────────
+function injectCardStyles() {
+  if (document.getElementById("it-faculty-card-styles")) return;
+  const style = document.createElement("style");
+  style.id = "it-faculty-card-styles";
+  style.textContent = `
+    .msec-faculty-card {
+      background: #ffffff;
+      border: 1px solid #f1f1f1;
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .msec-faculty-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(220,38,38,0.13);
+    }
+    .msec-faculty-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fca5a5;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .msec-faculty-initials {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fee2e2, #fef2f2);
+      border: 3px solid #fca5a5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+      font-size: 32px;
+      font-weight: 700;
+      color: #dc2626;
+      letter-spacing: 1px;
+    }
+    .msec-faculty-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .msec-faculty-designation {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #dc2626;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .msec-faculty-dept-badge {
+      display: inline-block;
+      background: #fef2f2;
+      color: #7f1d1d;
+      border: 1px solid #fecaca;
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-top: 6px;
+    }
+    .msec-faculty-specialty {
+      display: inline-block;
+      background: #f8fafc;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 0.73rem;
+      margin: 2px;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// ─── Main Loader ──────────────────────────────────────────────────────────────
+async function loadITFaculty() {
+  injectCardStyles();
 
   const container = document.getElementById("itfaculty");
   if (!container) return;
 
-  // Section heading
+  const querySnapshot = await getDocs(collection(db, "staff"));
+
+  const itStaff = querySnapshot.docs
+    .map(doc => ({ id: doc.id, ...doc.data() }))
+    .filter(staff => isITDepartment(staff.department))
+    .sort((a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation));
+
+  if (itStaff.length === 0) return;
+
   const heading = document.createElement("h2");
   heading.className = "text-center mb-4";
   heading.textContent = "Faculty – Information Technology";
   container.appendChild(heading);
 
-  // Card wrapper
   const cardRow = document.createElement("div");
-  cardRow.className = "row g-4 mb-5";
+  cardRow.className = "row g-4 mb-5 justify-content-center";
 
-  // Sort by designation
-  const sortedFaculty = cseFaculty.sort(
-    (a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation)
-  );
+  itStaff.forEach(staff => {
+    const name    = formatName(staff.firstName, staff.lastName);
+    const desig   = formatDesignation(staff.designation);
+    const dept    = (staff.department || "Information Technology").trim();
+    const initials = getInitials(name);
+    const hasImg  = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
 
-  sortedFaculty.forEach((staff) => {
-    const card = document.createElement("div");
-    card.className = "col-md-6 col-lg-4";
-    card.setAttribute("data-aos", "fade-up");
-    card.setAttribute("data-aos-delay", "200");
+    const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)
+      ? `<div class="mt-2">${staff.specialties.map(s => `<span class="msec-faculty-specialty">${s}</span>`).join("")}</div>`
+      : "";
 
-    card.innerHTML = `
-      <a href="https://staff-management-msec.web.app" style="text-decoration: none; color: inherit;">
-        <div class="faculty-card m-1 row align-items-center justify-content-center">
-          <div class="faculty-image1 text-center mb-2">
-            ${
-              staff.imageUrl && (staff.imageUrl.startsWith("data:image") || staff.imageUrl.includes("http"))
-                ? `<img src="${staff.imageUrl}" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">`
-                : `<div class="d-flex align-items-center justify-content-center rounded-circle text-danger"
-                       style="
-                         width: 100px;
-                         height: 100px;
-                         font-size: 36px;
-                         font-weight: bold;
-                         text-transform: uppercase;
-                         margin: 0 auto;">
-                     ${getInitials(staff.firstName, staff.lastName)}
-                   </div>`
-            }
-          </div>
+    const avatarHtml = hasImg
+      ? `<img src="${staff.imageUrl}" class="msec-faculty-avatar shadow-sm" alt="${name}" loading="lazy">`
+      : `<div class="msec-faculty-initials shadow-sm">${initials}</div>`;
 
-          <div class="faculty-info">
-            <h4 class="text-center">${staff.firstName || 'No Name'} ${staff.lastName || ''}</h4>
-            <p class="faculty-title text-center text-danger">${staff.designation || ''}</p>
-            <div class="faculty-specialties">
-              ${(staff.specialties || []).map(spec => `<span>${spec}</span>`).join('')}
-            </div>
-          </div>
+    const col = document.createElement("div");
+    col.className = "col-md-6 col-lg-4 mb-4 d-flex";
+    col.setAttribute("data-aos", "fade-up");
+    col.setAttribute("data-aos-delay", "100");
+    col.innerHTML = `
+      <a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">
+        <div class="msec-faculty-card">
+          ${avatarHtml}
+          <h5 class="msec-faculty-name">${name}</h5>
+          <p class="msec-faculty-designation">${desig}</p>
+          <span class="msec-faculty-dept-badge">${dept}</span>
+          ${specialtiesHtml}
         </div>
-      </a>
-    `;
-    cardRow.appendChild(card);
+      </a>`;
+
+    cardRow.appendChild(col);
   });
 
   container.appendChild(cardRow);
-  AOS.init();
+  if (window.AOS) window.AOS.refresh();
 }
 
-function getInitials(firstName = "", lastName = "") {
-  const f = firstName.trim().charAt(0).toUpperCase();
-  const l = lastName.trim().charAt(0).toUpperCase();
-  return `${f}${l}`;
-}
-
-loadCSEFaculty();
+loadITFaculty();

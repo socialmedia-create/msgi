@@ -31,7 +31,7 @@ async function loadCSEFaculty() {
   const querySnapshot = await getDocs(collection(db, "staff"));
   const cseFaculty = querySnapshot.docs
     .map(doc => ({ id: doc.id, ...doc.data() }))
-    .filter(staff => staff.department?.trim() === "AI DS");
+    .filter(staff => { const d = (staff.department||"").trim().toLowerCase(); return d.includes("artificial intelligence") || d.includes("ai ds") || d.includes("ai & ds") || d.includes("data science"); });
 
   const container = document.getElementById("aidsfaculty");
   if (!container) return;

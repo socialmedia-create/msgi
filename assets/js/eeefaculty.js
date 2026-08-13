@@ -32,7 +32,7 @@ async function loadCSEFaculty() {
   const cseFaculty = querySnapshot.docs
     .map(doc => ({ id: doc.id, ...doc.data() }))
     .filter(staff =>
-      staff.department?.trim() === "EEE" &&
+      (()=>{ const d=(staff.department||"").trim().toLowerCase(); return d.includes("electrical and electronics")||d.includes("electrical & electronics")||d==="eee"; })() &&
       staff.email?.toLowerCase() !== "lalettan@gmail.com"
     );
 

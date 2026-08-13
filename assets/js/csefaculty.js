@@ -31,7 +31,7 @@ async function loadCSEFaculty() {
   const querySnapshot = await getDocs(collection(db, "staff"));
   const cseFaculty = querySnapshot.docs
     .map(doc => ({ id: doc.id, ...doc.data() }))
-    .filter(staff => staff.department?.trim() === "CSE");
+    .filter(staff => { const d = (staff.department||"").trim().toLowerCase(); return d.includes("computer science") || d === "cse"; });
 
   const container = document.getElementById("csefaculty");
   if (!container) return;

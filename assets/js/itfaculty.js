@@ -32,11 +32,25 @@ function getDesignationPriority(designation = "") {
 }
 
 function formatName(title = "", firstName = "", lastName = "") {
-  // Combine title + first + last, then normalise
-  let raw = `${title} ${firstName} ${lastName}`.trim();
+  title     = (title     || "").trim();
+  firstName = (firstName || "").trim();
+  lastName  = (lastName  || "").trim();
+
+  // Fix missing space: "Dr.Sandhya" → "Dr. Sandhya"
+  firstName = firstName.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
+
+  // If title field is empty but firstName starts with a prefix, extract it
+  if (!title) {
+    const prefixMatch = firstName.match(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i);
+    if (prefixMatch) {
+      title     = prefixMatch[1];
+      firstName = firstName.slice(prefixMatch[0].length).trim();
+    }
+  }
+
+  const raw = [title, firstName, lastName].filter(Boolean).join(" ");
   if (!raw) return "Faculty Member";
-  // Fix missing space after initials: "Dr.Sandhya" → "Dr. Sandhya"
-  raw = raw.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
+
   return raw.split(/\s+/).map(w => {
     const lower = w.toLowerCase().replace(/\.$/,"");
     if (lower === "dr")   return "Dr.";

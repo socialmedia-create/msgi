@@ -18,12 +18,26 @@ const db = getFirestore(app);
 
 // Title-case a faculty name, handling prefixes & single initials
 function formatFacultyName(title = "", firstName = "", lastName = "") {
-  // Prepend title (Dr./Mr./Mrs./Ms./Prof.) from Firestore title field
-  let raw = `${title || ""} ${firstName || ""} ${lastName || ""}`.trim();
-  if (!raw) return "Faculty Member";
+  // Normalise inputs
+  title     = (title     || "").trim();
+  firstName = (firstName || "").trim();
+  lastName  = (lastName  || "").trim();
 
-  // Fix missing space after period initials: C.Kannan → C. Kannan, Dr.Sandhya → Dr. Sandhya
-  raw = raw.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
+  // Fix missing space after period: "Dr.Sandhya" → "Dr. Sandhya", "Ms.Dharani" → "Ms. Dharani"
+  firstName = firstName.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
+
+  // If title field is empty but firstName starts with a known prefix, split it out
+  if (!title) {
+    const prefixMatch = firstName.match(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i);
+    if (prefixMatch) {
+      title     = prefixMatch[1];
+      firstName = firstName.slice(prefixMatch[0].length).trim();
+    }
+  }
+
+  // Combine and build the final title-cased name
+  const raw = [title, firstName, lastName].filter(Boolean).join(" ");
+  if (!raw) return "Faculty Member";
 
   return raw.split(/\s+/).map(w => {
     const lower = w.toLowerCase().replace(/\.$/, "");
@@ -32,7 +46,7 @@ function formatFacultyName(title = "", firstName = "", lastName = "") {
     if (lower === "mrs")  return "Mrs.";
     if (lower === "ms")   return "Ms.";
     if (lower === "prof") return "Prof.";
-    // single letter initial
+    // single letter initial like "C." or "A"
     if (/^[a-z]\.?$/i.test(w)) return w.charAt(0).toUpperCase() + ".";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
   }).join(" ");

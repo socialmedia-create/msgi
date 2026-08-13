@@ -15,24 +15,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   fetch("googlereview.php")
-    .then((response) => response.json())
+    .then((response) => response.text())
+    .then((text) => {
+      const trimmed = text ? text.trim() : "";
+      if (!trimmed || trimmed.startsWith("<?") || trimmed.startsWith("<")) return [];
+      try { return JSON.parse(trimmed); } catch (e) { return []; }
+    })
     .then((reviews) => {
       const carouselInner = document.querySelector("#google-carousel-inner");
-      if (!carouselInner) return;
-      // console.log(carouselInner.innerHTML);
+      if (!carouselInner || !Array.isArray(reviews) || reviews.length === 0) return;
 
       carouselInner.innerHTML = ""; // Clear existing content
 
       reviews.forEach((review, index) => {
-        const stars = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
+        const stars = "★".repeat(review.rating || 5) + "☆".repeat(5 - (review.rating || 5));
         const activeClass = index === 0 ? "active" : "";
 
         const item = `
           <div class="carousel-item ${activeClass}">
             <div class="p-4 centertext testimonial-card bg-white text-center">
               <div class="text-warning mb-2 fs-5">${stars}</div>
-              <p class="mb-2 testimonialtext">"${review.text}"</p>
-              <small class="fw-bold">– ${review.author_name}</small>
+              <p class="mb-2 testimonialtext">"${review.text || ''}"</p>
+              <small class="fw-bold">– ${review.author_name || ''}</small>
             </div>
           </div>
         `;
@@ -40,9 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         carouselInner.insertAdjacentHTML("beforeend", item);
       });
     })
-    .catch((error) => {
-      console.error("Failed to load Google reviews:", error);
-    });
+    .catch(() => {});
 
   // Select all dropdown toggles
   const dropdownToggles = document.querySelectorAll(".dropdown-toggle");

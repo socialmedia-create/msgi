@@ -17,20 +17,21 @@ const db = getFirestore(app);
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
 // Title-case a faculty name, handling prefixes & single initials
-function formatFacultyName(firstName = "", lastName = "") {
-  let raw = `${firstName || ""} ${lastName || ""}`.trim();
+function formatFacultyName(title = "", firstName = "", lastName = "") {
+  // Prepend title (Dr./Mr./Mrs./Ms./Prof.) from Firestore title field
+  let raw = `${title || ""} ${firstName || ""} ${lastName || ""}`.trim();
   if (!raw) return "Faculty Member";
 
-  // Fix missing space after period initials: C.Kannan → C. Kannan
-  raw = raw.replace(/([A-Za-z])\.([A-Za-z])/g, "$1. $2");
+  // Fix missing space after period initials: C.Kannan → C. Kannan, Dr.Sandhya → Dr. Sandhya
+  raw = raw.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
 
   return raw.split(/\s+/).map(w => {
-    const lower = w.toLowerCase();
-    if (lower === "dr"  || lower === "dr.")  return "Dr.";
-    if (lower === "mr"  || lower === "mr.")  return "Mr.";
-    if (lower === "mrs" || lower === "mrs.") return "Mrs.";
-    if (lower === "ms"  || lower === "ms.")  return "Ms.";
-    if (lower === "prof"|| lower === "prof.") return "Prof.";
+    const lower = w.toLowerCase().replace(/\.$/, "");
+    if (lower === "dr")   return "Dr.";
+    if (lower === "mr")   return "Mr.";
+    if (lower === "mrs")  return "Mrs.";
+    if (lower === "ms")   return "Ms.";
+    if (lower === "prof") return "Prof.";
     // single letter initial
     if (/^[a-z]\.?$/i.test(w)) return w.charAt(0).toUpperCase() + ".";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
@@ -176,7 +177,7 @@ async function loadFaculty() {
     const tabContainer = document.querySelector(`#${tabId} .row.g-4`);
     if (!tabContainer) return;
 
-    const name    = formatFacultyName(staff.firstName, staff.lastName);
+    const name    = formatFacultyName(staff.title, staff.firstName, staff.lastName);
     const desig   = formatDesignation(staff.designation);
     const dept    = (staff.department || "").trim();
     const initials = getInitials(name);

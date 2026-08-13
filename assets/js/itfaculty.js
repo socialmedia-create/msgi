@@ -31,17 +31,19 @@ function getDesignationPriority(designation = "") {
   return 6;
 }
 
-function formatName(firstName = "", lastName = "") {
-  let raw = `${firstName} ${lastName}`.trim();
+function formatName(title = "", firstName = "", lastName = "") {
+  // Combine title + first + last, then normalise
+  let raw = `${title} ${firstName} ${lastName}`.trim();
   if (!raw) return "Faculty Member";
-  raw = raw.replace(/([A-Za-z])\.([A-Za-z])/g, "$1. $2");
+  // Fix missing space after initials: "Dr.Sandhya" → "Dr. Sandhya"
+  raw = raw.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
   return raw.split(/\s+/).map(w => {
-    const lower = w.toLowerCase();
-    if (lower === "dr" || lower === "dr.")   return "Dr.";
-    if (lower === "mr" || lower === "mr.")   return "Mr.";
-    if (lower === "mrs" || lower === "mrs.") return "Mrs.";
-    if (lower === "ms" || lower === "ms.")   return "Ms.";
-    if (lower === "prof" || lower === "prof.") return "Prof.";
+    const lower = w.toLowerCase().replace(/\.$/,"");
+    if (lower === "dr")   return "Dr.";
+    if (lower === "mr")   return "Mr.";
+    if (lower === "mrs")  return "Mrs.";
+    if (lower === "ms")   return "Ms.";
+    if (lower === "prof") return "Prof.";
     if (/^[a-z]\.?$/i.test(w)) return w.charAt(0).toUpperCase() + ".";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
   }).join(" ");
@@ -176,7 +178,7 @@ async function loadITFaculty() {
   cardRow.className = "row g-4 mb-5 justify-content-center";
 
   itStaff.forEach(staff => {
-    const name    = formatName(staff.firstName, staff.lastName);
+    const name    = formatName(staff.title, staff.firstName, staff.lastName);
     const desig   = formatDesignation(staff.designation);
     const dept    = (staff.department || "Information Technology").trim();
     const initials = getInitials(name);

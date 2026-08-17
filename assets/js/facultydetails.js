@@ -22,7 +22,7 @@ const IT_STAFF_PREFERRED_ORDER = [
   { keywords: ["mohan raj", "mohanraj", "mohan"], rank: 4 },
   { keywords: ["babitha"], rank: 5 },
   { keywords: ["abinaya", "abhinaya"], rank: 6 },
-  { keywords: ["shruthi", "shruti"], rank: 7 },
+  { keywords: ["shruthi", "shruti", "suruthi"], rank: 7 },
   { keywords: ["padmapriya", "padma priya", "padma"], rank: 8 },
   { keywords: ["vidhya", "vidya"], rank: 9 },
   { keywords: ["lalitha"], rank: 10 },
@@ -223,11 +223,11 @@ function getStaffPreviewUrl(staff) {
 }
 
 function createCardHTML(staff) {
-  const name     = formatFacultyName(staff.title, staff.firstName, staff.lastName);
-  const desig    = formatDesignation(staff.designation);
-  const dept     = (staff.department || "").trim();
+  const name = formatFacultyName(staff.title, staff.firstName, staff.lastName);
+  const desig = formatDesignation(staff.designation);
+  const dept = (staff.department || "").trim();
   const initials = getInitials(name);
-  const hasImg   = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
+  const hasImg = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
   const profileUrl = getStaffPreviewUrl(staff);
 
   const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)

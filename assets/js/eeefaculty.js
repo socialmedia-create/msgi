@@ -60,8 +60,11 @@ async function loadCSEFaculty() {
     card.setAttribute("data-aos", "fade-up");
     card.setAttribute("data-aos-delay", "200");
 
+    const fnSlug = encodeURIComponent(((staff.firstName || "").replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim() || "faculty").toLowerCase());
+    const profileUrl = `https://staff-management-inky.vercel.app/preview/${fnSlug}`;
+
     card.innerHTML = `
-      <a href="https://staff-management-msec.web.app" style="text-decoration: none; color: inherit;">
+      <a href="${profileUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
         <div class="faculty-card m-1 row align-items-center justify-content-center">
           <div class="faculty-image1 text-center mb-2">
             ${

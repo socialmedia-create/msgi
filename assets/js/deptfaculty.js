@@ -139,12 +139,25 @@ function injectCardStyles() {
   document.head.appendChild(s);
 }
 
+function getStaffPreviewUrl(staff) {
+  let fn = (staff.firstName || "").trim();
+  if (!fn) {
+    const raw = (staff.name || staff.fullName || "").trim();
+    fn = raw.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim().split(/\s+/)[0] || "";
+  } else {
+    fn = fn.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim();
+  }
+  const slug = encodeURIComponent(fn.toLowerCase());
+  return `https://staff-management-inky.vercel.app/preview/${slug}`;
+}
+
 function createDeptCardHTML(s) {
   const name = formatName(s.title, s.firstName, s.lastName);
   const desig = formatDesignation(s.designation);
   const dept = (s.department || "").trim();
   const inits = getInitials(name);
   const hasImg = s.imageUrl && (s.imageUrl.startsWith("http") || s.imageUrl.startsWith("data:image"));
+  const profileUrl = getStaffPreviewUrl(s);
 
   const avatar = hasImg
     ? '<img src="' + s.imageUrl + '" class="msec-faculty-avatar shadow-sm" alt="' + name + '" loading="lazy">'
@@ -157,7 +170,7 @@ function createDeptCardHTML(s) {
     : "";
 
   return '<div class="col-md-6 col-lg-4 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">' +
-    '<a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">' +
+    '<a href="' + profileUrl + '" target="_blank" rel="noopener noreferrer" class="w-100 text-decoration-none" style="color:inherit;">' +
     '<div class="msec-faculty-card">' +
     avatar +
     '<h5 class="msec-faculty-name">' + name + '</h5>' +

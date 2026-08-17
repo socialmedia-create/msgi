@@ -210,12 +210,25 @@ function injectCardStyles() {
   document.head.appendChild(style);
 }
 
+function getStaffPreviewUrl(staff) {
+  let fn = (staff.firstName || "").trim();
+  if (!fn) {
+    const raw = (staff.name || staff.fullName || "").trim();
+    fn = raw.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim().split(/\s+/)[0] || "";
+  } else {
+    fn = fn.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim();
+  }
+  const slug = encodeURIComponent(fn.toLowerCase());
+  return `https://staff-management-inky.vercel.app/preview/${slug}`;
+}
+
 function createCardHTML(staff) {
   const name     = formatFacultyName(staff.title, staff.firstName, staff.lastName);
   const desig    = formatDesignation(staff.designation);
   const dept     = (staff.department || "").trim();
   const initials = getInitials(name);
   const hasImg   = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
+  const profileUrl = getStaffPreviewUrl(staff);
 
   const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)
     ? `<div class="mt-2">${staff.specialties.map(s => `<span class="msec-faculty-specialty">${s}</span>`).join("")}</div>`
@@ -227,7 +240,7 @@ function createCardHTML(staff) {
 
   return `
     <div class="col-md-6 col-lg-4 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">
-      <a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">
+      <a href="${profileUrl}" target="_blank" rel="noopener noreferrer" class="w-100 text-decoration-none" style="color:inherit;">
         <div class="msec-faculty-card">
           ${avatarHtml}
           <h5 class="msec-faculty-name">${name}</h5>

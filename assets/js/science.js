@@ -93,8 +93,10 @@ async function loadFacultyByDepartments() {
               ${getInitials(staff.firstName, staff.lastName)}
            </div>`;
 
-      const fnSlug = encodeURIComponent(((staff.firstName || "").replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim() || "faculty").toLowerCase());
-      const profileUrl = `https://staff-management-inky.vercel.app/preview/${fnSlug}`;
+      const rawName = [staff.title, staff.firstName, staff.lastName].filter(Boolean).join(" ") || staff.fullName || staff.name || "";
+      const cleanName = rawName.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim();
+      const nameSlug = cleanName.replace(/[^a-zA-Z0-9]/g, "").toLowerCase() || "faculty";
+      const profileUrl = `https://staff-management-inky.vercel.app/preview/${nameSlug}`;
 
       card.innerHTML = `
         <a href="${profileUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">

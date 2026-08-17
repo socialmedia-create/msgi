@@ -140,15 +140,15 @@ function injectCardStyles() {
 }
 
 function getStaffPreviewUrl(staff) {
-  let fn = (staff.firstName || "").trim();
-  if (!fn) {
-    const raw = (staff.name || staff.fullName || "").trim();
-    fn = raw.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim().split(/\s+/)[0] || "";
+  let raw = "";
+  if (staff.title || staff.firstName || staff.lastName) {
+    raw = [staff.title, staff.firstName, staff.lastName].filter(Boolean).join(" ");
   } else {
-    fn = fn.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim();
+    raw = staff.fullName || staff.name || "";
   }
-  const slug = encodeURIComponent(fn.toLowerCase());
-  return `https://staff-management-inky.vercel.app/preview/${slug}`;
+  const clean = raw.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim();
+  const slug = clean.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  return `https://staff-management-inky.vercel.app/preview/${slug || "faculty"}`;
 }
 
 function createDeptCardHTML(s) {

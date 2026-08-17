@@ -17,20 +17,20 @@ const db = getFirestore(app);
 // ─── Preferred Staff Ordering for Information Technology ───────────────────
 const IT_STAFF_PREFERRED_ORDER = [
   { keywords: ["selvi"], rank: 1 },
-  { keywords: ["priskilla", "priscilla"], rank: 2 },
+  { keywords: ["priskilla", "priscilla", "priskila", "priscila"], rank: 2 },
   { keywords: ["gayathri", "gayatri"], rank: 3 },
   { keywords: ["mohan raj", "mohanraj", "mohan"], rank: 4 },
-  { keywords: ["babitha"], rank: 5 },
+  { keywords: ["babitha", "babita"], rank: 5 },
   { keywords: ["abinaya", "abhinaya"], rank: 6 },
-  { keywords: ["shruthi", "shruti", "suruthi"], rank: 7 },
-  { keywords: ["padmapriya", "padma priya", "padma"], rank: 8 },
+  { keywords: ["shruthi", "shruti", "suruthi", "sruthi", "sruti", "suruti"], rank: 7 },
+  { keywords: ["padmapriya", "padma priya", "padmapiriya", "padma piriya", "padma"], rank: 8 },
   { keywords: ["vidhya", "vidya"], rank: 9 },
-  { keywords: ["lalitha"], rank: 10 },
+  { keywords: ["lalitha", "lalita"], rank: 10 },
   { keywords: ["kannan", "chenna krishnan", "krishnan"], rank: 11 },
   { keywords: ["aravind", "aravindh", "gosh"], rank: 12 },
-  { keywords: ["sowndhariya", "sowndarya", "soundarya"], rank: 13 },
+  { keywords: ["sowndhariya", "sowndarya", "soundarya", "soundhariya"], rank: 13 },
   { keywords: ["angelin", "angelin joy", "joy"], rank: 14 },
-  { keywords: ["umamaheswari", "uma maheswari", "umamaheshwari"], rank: 15 }
+  { keywords: ["umamaheswari", "uma maheswari", "umamaheshwari", "uma maheshwari"], rank: 15 }
 ];
 
 function getITStaffRank(staff) {

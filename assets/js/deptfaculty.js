@@ -21,20 +21,55 @@ function isDeptMatch(dept, keywords) {
   return keywords.some(k => d.includes(k));
 }
 
+const IT_STAFF_PREFERRED_ORDER = [
+  { keywords: ["selvi"], rank: 1 },
+  { keywords: ["priskilla", "priscilla"], rank: 2 },
+  { keywords: ["gayathri", "gayatri"], rank: 3 },
+  { keywords: ["mohan raj", "mohanraj"], rank: 4 },
+  { keywords: ["babitha"], rank: 5 },
+  { keywords: ["abinaya"], rank: 6 },
+  { keywords: ["shruthi", "shruti"], rank: 7 },
+  { keywords: ["padmapriya", "padma priya"], rank: 8 },
+  { keywords: ["vidhya", "vidya"], rank: 9 },
+  { keywords: ["lalitha"], rank: 10 },
+  { keywords: ["kannan"], rank: 11 },
+  { keywords: ["aravind", "aravindh"], rank: 12 },
+  { keywords: ["sowndhariya", "sowndarya", "soundarya"], rank: 13 },
+  { keywords: ["angelin"], rank: 14 },
+  { keywords: ["umamaheswari", "uma maheswari", "umamaheshwari"], rank: 15 }
+];
+
+function getITStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < IT_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = IT_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
 function getDesignationPriority(designation) {
   const d = (designation || "").trim().toLowerCase();
-  if (d.includes("hod"))        return 1;
-  if (d === "professor")        return 2;
-  if (d.includes("associate"))  return 3;
-  if (d.includes("assistant"))  return 4;
-  if (d.includes("lab"))        return 5;
+  if (d.includes("hod")) return 1;
+  if (d === "professor") return 2;
+  if (d.includes("associate")) return 3;
+  if (d.includes("assistant")) return 4;
+  if (d.includes("lab")) return 5;
   return 6;
 }
 
 function formatName(title, firstName, lastName) {
-  title     = (title     || "").trim();
+  title = (title || "").trim();
   firstName = (firstName || "").trim();
-  lastName  = (lastName  || "").trim();
+  lastName = (lastName || "").trim();
 
   // Fix missing space: "Dr.Sandhya" -> "Dr. Sandhya"
   firstName = firstName.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
@@ -43,7 +78,7 @@ function formatName(title, firstName, lastName) {
   if (!title) {
     const m = firstName.match(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i);
     if (m) {
-      title     = m[1];
+      title = m[1];
       firstName = firstName.slice(m[0].length).trim();
     }
   }
@@ -53,10 +88,10 @@ function formatName(title, firstName, lastName) {
 
   return raw.split(/\s+/).map(w => {
     const l = w.toLowerCase().replace(/\.$/, "");
-    if (l === "dr")   return "Dr.";
-    if (l === "mr")   return "Mr.";
-    if (l === "mrs")  return "Mrs.";
-    if (l === "ms")   return "Ms.";
+    if (l === "dr") return "Dr.";
+    if (l === "mr") return "Mr.";
+    if (l === "mrs") return "Mrs.";
+    if (l === "ms") return "Ms.";
     if (l === "prof") return "Prof.";
     if (/^[a-z]\.?$/i.test(w)) return w.charAt(0).toUpperCase() + ".";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
@@ -66,8 +101,8 @@ function formatName(title, firstName, lastName) {
 function formatDesignation(desig) {
   return (desig || "").trim().split(/\s+/).map(w => {
     const l = w.toLowerCase().replace(/,$/, "");
-    if (l === "hod")              return "HOD";
-    if (l === "lab")              return "Lab";
+    if (l === "hod") return "HOD";
+    if (l === "lab") return "Lab";
     if (l === "and" || l === "&") return "and";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
   }).join(" ").trim() || "Faculty";
@@ -104,6 +139,35 @@ function injectCardStyles() {
   document.head.appendChild(s);
 }
 
+function createDeptCardHTML(s) {
+  const name = formatName(s.title, s.firstName, s.lastName);
+  const desig = formatDesignation(s.designation);
+  const dept = (s.department || "").trim();
+  const inits = getInitials(name);
+  const hasImg = s.imageUrl && (s.imageUrl.startsWith("http") || s.imageUrl.startsWith("data:image"));
+
+  const avatar = hasImg
+    ? '<img src="' + s.imageUrl + '" class="msec-faculty-avatar shadow-sm" alt="' + name + '" loading="lazy">'
+    : '<div class="msec-faculty-initials shadow-sm">' + inits + '</div>';
+
+  const specHtml = (s.specialties && s.specialties.length)
+    ? '<div class="mt-2">' + s.specialties.map(function (sp) {
+      return '<span class="msec-faculty-specialty">' + sp + '</span>';
+    }).join("") + '</div>'
+    : "";
+
+  return '<div class="col-md-6 col-lg-4 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">' +
+    '<a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">' +
+    '<div class="msec-faculty-card">' +
+    avatar +
+    '<h5 class="msec-faculty-name">' + name + '</h5>' +
+    '<p class="msec-faculty-designation">' + desig + '</p>' +
+    '<span class="msec-faculty-dept-badge">' + dept + '</span>' +
+    specHtml +
+    '</div>' +
+    '</a></div>';
+}
+
 // ─── Generic Department Loader ────────────────────────────────────────────────
 async function loadDeptFaculty(containerId, deptKeywords, headingText) {
   injectCardStyles();
@@ -111,13 +175,64 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
+  const isIT = containerId === "itfaculty" || deptKeywords.some(k => k.includes("information technology") || k === "it");
   const querySnapshot = await getDocs(collection(db, "staff"));
   const staffList = querySnapshot.docs
     .map(d => Object.assign({ id: d.id }, d.data()))
     .filter(s => isDeptMatch(s.department, deptKeywords))
-    .sort((a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation));
+    .sort((a, b) => {
+      if (isIT) {
+        const rankA = getITStaffRank(a);
+        const rankB = getITStaffRank(b);
+        if (rankA !== rankB) return rankA - rankB;
+      }
+      return getDesignationPriority(a.designation) - getDesignationPriority(b.designation);
+    });
 
-  if (staffList.length === 0) return;
+  if (isIT) {
+    const headList = staffList.filter(s => getITStaffRank(s) <= 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
+    const facultyList = staffList.filter(s => getITStaffRank(s) > 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
+
+    const heading = document.createElement("h2");
+    heading.className = "text-center mb-4";
+    heading.textContent = headingText;
+    container.appendChild(heading);
+
+    // Section 1: Professor and Head (Max 2 cards)
+    if (headList.length > 0) {
+      const headSection = document.createElement("div");
+      headSection.className = "mb-5";
+      headSection.innerHTML = `
+        <div class="text-center mb-4">
+          <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+            Professor and Head
+          </h4>
+        </div>
+        <div class="row g-4 justify-content-center"></div>`;
+      const headRow = headSection.querySelector(".row");
+      headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createDeptCardHTML(s)));
+      container.appendChild(headSection);
+    }
+
+    // Section 2: Remaining Staff
+    if (facultyList.length > 0) {
+      const facultySection = document.createElement("div");
+      facultySection.className = "mb-5";
+      facultySection.innerHTML = `
+        <div class="text-center mb-4">
+          <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+            Faculty Members
+          </h4>
+        </div>
+        <div class="row g-4 justify-content-center"></div>`;
+      const facultyRow = facultySection.querySelector(".row");
+      facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createDeptCardHTML(s)));
+      container.appendChild(facultySection);
+    }
+
+    if (window.AOS) window.AOS.refresh();
+    return;
+  }
 
   const heading = document.createElement("h2");
   heading.className = "text-center mb-4";
@@ -127,39 +242,8 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
   const row = document.createElement("div");
   row.className = "row g-4 mb-5 justify-content-center";
 
-  staffList.forEach(function(s) {
-    const name  = formatName(s.title, s.firstName, s.lastName);
-    const desig = formatDesignation(s.designation);
-    const dept  = (s.department || "").trim();
-    const inits = getInitials(name);
-    const hasImg = s.imageUrl && (s.imageUrl.startsWith("http") || s.imageUrl.startsWith("data:image"));
-
-    const avatar = hasImg
-      ? '<img src="' + s.imageUrl + '" class="msec-faculty-avatar shadow-sm" alt="' + name + '" loading="lazy">'
-      : '<div class="msec-faculty-initials shadow-sm">' + inits + '</div>';
-
-    const specHtml = (s.specialties && s.specialties.length)
-      ? '<div class="mt-2">' + s.specialties.map(function(sp) {
-          return '<span class="msec-faculty-specialty">' + sp + '</span>';
-        }).join("") + '</div>'
-      : "";
-
-    const col = document.createElement("div");
-    col.className = "col-md-6 col-lg-4 mb-4 d-flex";
-    col.setAttribute("data-aos", "fade-up");
-    col.setAttribute("data-aos-delay", "100");
-    col.innerHTML =
-      '<a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">' +
-        '<div class="msec-faculty-card">' +
-          avatar +
-          '<h5 class="msec-faculty-name">' + name + '</h5>' +
-          '<p class="msec-faculty-designation">' + desig + '</p>' +
-          '<span class="msec-faculty-dept-badge">' + dept + '</span>' +
-          specHtml +
-        '</div>' +
-      '</a>';
-
-    row.appendChild(col);
+  staffList.forEach(function (s) {
+    row.insertAdjacentHTML("beforeend", createDeptCardHTML(s));
   });
 
   container.appendChild(row);
@@ -168,28 +252,28 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
 
 // ─── Department Configs ────────────────────────────────────────────────────────
 var DEPT_CONFIG = [
-  { id: "aidsfaculty",   keywords: ["artificial intelligence","ai ds","ai & ds","data science"], heading: "Faculty \u2013 Artificial Intelligence and Data Science" },
-  { id: "csefaculty",    keywords: ["computer science"],                                          heading: "Faculty \u2013 Computer Science and Engineering" },
-  { id: "ecefaculty",    keywords: ["electronics and communication","electronics & communication","ece"], heading: "Faculty \u2013 Electronics and Communication Engineering" },
-  { id: "eeefaculty",    keywords: ["electrical and electronics","electrical & electronics","eee"], heading: "Faculty \u2013 Electrical and Electronics Engineering" },
-  { id: "itfaculty",     keywords: ["information technology","dept of it"],                       heading: "Faculty \u2013 Information Technology" },
-  { id: "mechfaculty",   keywords: ["mechanical"],                                                heading: "Faculty \u2013 Mechanical Engineering" },
-  { id: "civilfaculty",  keywords: ["civil"],                                                     heading: "Faculty \u2013 Civil Engineering" }
+  { id: "aidsfaculty", keywords: ["artificial intelligence", "ai ds", "ai & ds", "data science"], heading: "Faculty \u2013 Artificial Intelligence and Data Science" },
+  { id: "csefaculty", keywords: ["computer science"], heading: "Faculty \u2013 Computer Science and Engineering" },
+  { id: "ecefaculty", keywords: ["electronics and communication", "electronics & communication", "ece"], heading: "Faculty \u2013 Electronics and Communication Engineering" },
+  { id: "eeefaculty", keywords: ["electrical and electronics", "electrical & electronics", "eee"], heading: "Faculty \u2013 Electrical and Electronics Engineering" },
+  { id: "itfaculty", keywords: ["information technology", "dept of it"], heading: "Faculty \u2013 Information Technology" },
+  { id: "mechfaculty", keywords: ["mechanical"], heading: "Faculty \u2013 Mechanical Engineering" },
+  { id: "civilfaculty", keywords: ["civil"], heading: "Faculty \u2013 Civil Engineering" }
 ];
 
 // ─── Science & Humanities (multi-container page) ──────────────────────────────
 var SCIENCE_CONTAINERS = [
-  { id: "mathsfaculty",     dept: "Mathematics" },
-  { id: "physicsfaculty",   dept: "Physics" },
-  { id: "englishfaculty",   dept: "English" },
-  { id: "tamilfaculty",     dept: "Tamil" },
+  { id: "mathsfaculty", dept: "Mathematics" },
+  { id: "physicsfaculty", dept: "Physics" },
+  { id: "englishfaculty", dept: "English" },
+  { id: "tamilfaculty", dept: "Tamil" },
   { id: "chemistryfaculty", dept: "Chemistry" }
 ];
 
 async function loadScienceFaculty() {
   injectCardStyles();
   var querySnapshot = await getDocs(collection(db, "staff"));
-  var allStaff = querySnapshot.docs.map(function(d) { return Object.assign({ id: d.id }, d.data()); });
+  var allStaff = querySnapshot.docs.map(function (d) { return Object.assign({ id: d.id }, d.data()); });
 
   for (var j = 0; j < SCIENCE_CONTAINERS.length; j++) {
     var sc = SCIENCE_CONTAINERS[j];
@@ -197,8 +281,8 @@ async function loadScienceFaculty() {
     if (!container) continue;
 
     var deptStaff = allStaff
-      .filter(function(s) { return (s.department || "").trim().toLowerCase() === sc.dept.toLowerCase(); })
-      .sort(function(a, b) { return getDesignationPriority(a.designation) - getDesignationPriority(b.designation); });
+      .filter(function (s) { return (s.department || "").trim().toLowerCase() === sc.dept.toLowerCase(); })
+      .sort(function (a, b) { return getDesignationPriority(a.designation) - getDesignationPriority(b.designation); });
 
     if (deptStaff.length === 0) continue;
 
@@ -210,10 +294,10 @@ async function loadScienceFaculty() {
     var row = document.createElement("div");
     row.className = "row g-4 mb-5 justify-content-center";
 
-    deptStaff.forEach(function(s) {
-      var name  = formatName(s.title, s.firstName, s.lastName);
+    deptStaff.forEach(function (s) {
+      var name = formatName(s.title, s.firstName, s.lastName);
       var desig = formatDesignation(s.designation);
-      var dept  = (s.department || "").trim();
+      var dept = (s.department || "").trim();
       var inits = getInitials(name);
       var hasImg = s.imageUrl && (s.imageUrl.startsWith("http") || s.imageUrl.startsWith("data:image"));
 
@@ -222,7 +306,7 @@ async function loadScienceFaculty() {
         : '<div class="msec-faculty-initials shadow-sm">' + inits + '</div>';
 
       var specHtml = (s.specialties && s.specialties.length)
-        ? '<div class="mt-2">' + s.specialties.map(function(sp) { return '<span class="msec-faculty-specialty">' + sp + '</span>'; }).join("") + '</div>'
+        ? '<div class="mt-2">' + s.specialties.map(function (sp) { return '<span class="msec-faculty-specialty">' + sp + '</span>'; }).join("") + '</div>'
         : "";
 
       var col = document.createElement("div");
@@ -231,13 +315,13 @@ async function loadScienceFaculty() {
       col.setAttribute("data-aos-delay", "100");
       col.innerHTML =
         '<a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">' +
-          '<div class="msec-faculty-card">' +
-            avatar +
-            '<h5 class="msec-faculty-name">' + name + '</h5>' +
-            '<p class="msec-faculty-designation">' + desig + '</p>' +
-            '<span class="msec-faculty-dept-badge">' + dept + '</span>' +
-            specHtml +
-          '</div>' +
+        '<div class="msec-faculty-card">' +
+        avatar +
+        '<h5 class="msec-faculty-name">' + name + '</h5>' +
+        '<p class="msec-faculty-designation">' + desig + '</p>' +
+        '<span class="msec-faculty-dept-badge">' + dept + '</span>' +
+        specHtml +
+        '</div>' +
         '</a>';
       row.appendChild(col);
     });
@@ -249,7 +333,7 @@ async function loadScienceFaculty() {
 
 // ─── Auto-detect and run ───────────────────────────────────────────────────────
 // Check if this is the Science & Humanities page
-var isSciencePage = SCIENCE_CONTAINERS.some(function(sc) { return !!document.getElementById(sc.id); });
+var isSciencePage = SCIENCE_CONTAINERS.some(function (sc) { return !!document.getElementById(sc.id); });
 if (isSciencePage) {
   loadScienceFaculty();
 } else {

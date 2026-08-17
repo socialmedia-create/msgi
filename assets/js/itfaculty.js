@@ -21,6 +21,41 @@ function isITDepartment(dept = "") {
   return d.includes("information technology") || d === "it" || d.includes("dept of it");
 }
 
+const IT_STAFF_PREFERRED_ORDER = [
+  { keywords: ["selvi"], rank: 1 },
+  { keywords: ["priskilla", "priscilla"], rank: 2 },
+  { keywords: ["gayathri", "gayatri"], rank: 3 },
+  { keywords: ["mohan raj", "mohanraj"], rank: 4 },
+  { keywords: ["babitha"], rank: 5 },
+  { keywords: ["abhinaya"], rank: 6 },
+  { keywords: ["shruthi", "shruti"], rank: 7 },
+  { keywords: ["padmapriya", "padma priya"], rank: 8 },
+  { keywords: ["vidhya", "vidya"], rank: 9 },
+  { keywords: ["lalitha"], rank: 10 },
+  { keywords: ["kannan"], rank: 11 },
+  { keywords: ["aravind", "aravindh"], rank: 12 },
+  { keywords: ["sowndhariya", "sowndarya", "soundarya"], rank: 13 },
+  { keywords: ["angelin"], rank: 14 },
+  { keywords: ["umamaheswari", "uma maheswari", "umamaheshwari"], rank: 15 }
+];
+
+function getITStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < IT_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = IT_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
 function getDesignationPriority(designation = "") {
   const d = designation.trim().toLowerCase();
   if (d.includes("hod"))        return 1;
@@ -179,19 +214,26 @@ async function loadITFaculty() {
   const itStaff = querySnapshot.docs
     .map(doc => ({ id: doc.id, ...doc.data() }))
     .filter(staff => isITDepartment(staff.department))
-    .sort((a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation));
+    .sort((a, b) => {
+      const rankA = getITStaffRank(a);
+      const rankB = getITStaffRank(b);
+      if (rankA !== rankB) return rankA - rankB;
+      return getDesignationPriority(a.designation) - getDesignationPriority(b.designation);
+    });
 
   if (itStaff.length === 0) return;
+
+  const headList = itStaff.filter(s => getITStaffRank(s) <= 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
+  const facultyList = itStaff.filter(s => getITStaffRank(s) > 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
+
+  container.innerHTML = "";
 
   const heading = document.createElement("h2");
   heading.className = "text-center mb-4";
   heading.textContent = "Faculty – Information Technology";
   container.appendChild(heading);
 
-  const cardRow = document.createElement("div");
-  cardRow.className = "row g-4 mb-5 justify-content-center";
-
-  itStaff.forEach(staff => {
+  function createCard(staff) {
     const name    = formatName(staff.title, staff.firstName, staff.lastName);
     const desig   = formatDesignation(staff.designation);
     const dept    = (staff.department || "Information Technology").trim();
@@ -206,25 +248,52 @@ async function loadITFaculty() {
       ? `<img src="${staff.imageUrl}" class="msec-faculty-avatar shadow-sm" alt="${name}" loading="lazy">`
       : `<div class="msec-faculty-initials shadow-sm">${initials}</div>`;
 
-    const col = document.createElement("div");
-    col.className = "col-md-6 col-lg-4 mb-4 d-flex";
-    col.setAttribute("data-aos", "fade-up");
-    col.setAttribute("data-aos-delay", "100");
-    col.innerHTML = `
-      <a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">
-        <div class="msec-faculty-card">
-          ${avatarHtml}
-          <h5 class="msec-faculty-name">${name}</h5>
-          <p class="msec-faculty-designation">${desig}</p>
-          <span class="msec-faculty-dept-badge">${dept}</span>
-          ${specialtiesHtml}
-        </div>
-      </a>`;
+    return `
+      <div class="col-md-6 col-lg-4 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+        <a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">
+          <div class="msec-faculty-card">
+            ${avatarHtml}
+            <h5 class="msec-faculty-name">${name}</h5>
+            <p class="msec-faculty-designation">${desig}</p>
+            <span class="msec-faculty-dept-badge">${dept}</span>
+            ${specialtiesHtml}
+          </div>
+        </a>
+      </div>`;
+  }
 
-    cardRow.appendChild(col);
-  });
+  // Section 1: Professor and Head (Max 2 cards: HOD & AHOD)
+  if (headList.length > 0) {
+    const headSection = document.createElement("div");
+    headSection.className = "mb-5";
+    headSection.innerHTML = `
+      <div class="text-center mb-4">
+        <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+          Professor and Head
+        </h4>
+      </div>
+      <div class="row g-4 justify-content-center"></div>`;
+    const headRow = headSection.querySelector(".row");
+    headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createCard(s)));
+    container.appendChild(headSection);
+  }
 
-  container.appendChild(cardRow);
+  // Section 2: Remaining Staff
+  if (facultyList.length > 0) {
+    const facultySection = document.createElement("div");
+    facultySection.className = "mb-5";
+    facultySection.innerHTML = `
+      <div class="text-center mb-4">
+        <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+          Faculty Members
+        </h4>
+      </div>
+      <div class="row g-4 justify-content-center"></div>`;
+    const facultyRow = facultySection.querySelector(".row");
+    facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCard(s)));
+    container.appendChild(facultySection);
+  }
+
   if (window.AOS) window.AOS.refresh();
 }
 

@@ -14,78 +14,115 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// ─── Preferred Staff Ordering for Information Technology ───────────────────
+const IT_STAFF_PREFERRED_ORDER = [
+  { keywords: ["selvi"], rank: 1 },
+  { keywords: ["priskilla", "priscilla"], rank: 2 },
+  { keywords: ["gayathri", "gayatri"], rank: 3 },
+  { keywords: ["mohan raj", "mohanraj", "mohan"], rank: 4 },
+  { keywords: ["babitha"], rank: 5 },
+  { keywords: ["abinaya", "abhinaya"], rank: 6 },
+  { keywords: ["shruthi", "shruti"], rank: 7 },
+  { keywords: ["padmapriya", "padma priya", "padma"], rank: 8 },
+  { keywords: ["vidhya", "vidya"], rank: 9 },
+  { keywords: ["lalitha"], rank: 10 },
+  { keywords: ["kannan", "chenna krishnan", "krishnan"], rank: 11 },
+  { keywords: ["aravind", "aravindh", "gosh"], rank: 12 },
+  { keywords: ["sowndhariya", "sowndarya", "soundarya"], rank: 13 },
+  { keywords: ["angelin", "angelin joy", "joy"], rank: 14 },
+  { keywords: ["umamaheswari", "uma maheswari", "umamaheshwari"], rank: 15 }
+];
+
+function getITStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < IT_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = IT_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
+function getDesignationPriority(designation = "") {
+  const d = designation.trim().toLowerCase();
+  if (d.includes("hod")) return 1;
+  if (d === "professor") return 2;
+  if (d.includes("associate")) return 3;
+  if (d.includes("assistant")) return 4;
+  if (d.includes("lab")) return 5;
+  return 6;
+}
+
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
-// Title-case a faculty name, handling prefixes & single initials
 function formatFacultyName(title = "", firstName = "", lastName = "") {
-  // Normalise inputs
-  title     = (title     || "").trim();
+  title = (title || "").trim();
   firstName = (firstName || "").trim();
-  lastName  = (lastName  || "").trim();
+  lastName = (lastName || "").trim();
 
-  // Fix missing space after period: "Dr.Sandhya" → "Dr. Sandhya", "Ms.Dharani" → "Ms. Dharani"
   firstName = firstName.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
 
-  // If title field is empty but firstName starts with a known prefix, split it out
   if (!title) {
     const prefixMatch = firstName.match(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i);
     if (prefixMatch) {
-      title     = prefixMatch[1];
+      title = prefixMatch[1];
       firstName = firstName.slice(prefixMatch[0].length).trim();
     }
   }
 
-  // Combine and build the final title-cased name
   const raw = [title, firstName, lastName].filter(Boolean).join(" ");
   if (!raw) return "Faculty Member";
 
   return raw.split(/\s+/).map(w => {
     const lower = w.toLowerCase().replace(/\.$/, "");
-    if (lower === "dr")   return "Dr.";
-    if (lower === "mr")   return "Mr.";
-    if (lower === "mrs")  return "Mrs.";
-    if (lower === "ms")   return "Ms.";
+    if (lower === "dr") return "Dr.";
+    if (lower === "mr") return "Mr.";
+    if (lower === "mrs") return "Mrs.";
+    if (lower === "ms") return "Ms.";
     if (lower === "prof") return "Prof.";
-    // single letter initial like "C." or "A"
     if (/^[a-z]\.?$/i.test(w)) return w.charAt(0).toUpperCase() + ".";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
   }).join(" ");
 }
 
-// Title-case designation only (no department appended)
 function formatDesignation(desig = "") {
   return (desig || "").trim().split(/\s+/).map(w => {
-    const l = w.toLowerCase().replace(/,$/,"");
-    if (l === "hod")       return "HOD";
-    if (l === "lab")       return "Lab";
+    const l = w.toLowerCase().replace(/,$/, "");
+    if (l === "hod") return "HOD";
+    if (l === "lab") return "Lab";
     if (l === "and" || l === "&") return "and";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
   }).join(" ").trim() || "Faculty";
 }
 
-// Generate 2-letter initials from formatted name
 function getInitials(name = "") {
   const parts = name.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s+/i, "").split(/\s+/).filter(Boolean);
   if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   return parts[0] ? parts[0].substring(0, 2).toUpperCase() : "MS";
 }
 
-// Map department field to tab container ID
 function getTabIdForDepartment(dept) {
   if (!dept) return null;
   const d = dept.trim().toLowerCase();
-  if (d.includes("information technology") || d === "it") return "faculty--staff-tab-1";
-  if (d.includes("computer science") || d === "cse")     return "faculty--staff-tab-2";
+  if (d.includes("information technology") || d === "it" || d.includes("dept of it")) return "faculty--staff-tab-1";
+  if (d.includes("computer science") || d === "cse") return "faculty--staff-tab-2";
   if (d.includes("artificial intelligence") || d.includes("ai ds") || d.includes("ai & ds") || d.includes("data science")) return "faculty--staff-tab-3";
   if (d.includes("electronics and communication") || d.includes("electronics & communication") || d === "ece") return "faculty--staff-tab-4";
   if (d.includes("electrical and electronics") || d.includes("electrical & electronics") || d === "eee") return "faculty--staff-tab-5";
-  if (d.includes("mechanical") || d === "mech")          return "faculty--staff-tab-6";
-  if (d.includes("civil"))                               return "faculty--staff-tab-7";
+  if (d.includes("mechanical") || d === "mech") return "faculty--staff-tab-6";
+  if (d.includes("civil")) return "faculty--staff-tab-7";
   if (d.includes("physics") || d.includes("math") || d.includes("english") || d.includes("chemistry") || d.includes("tamil") || d.includes("humanities") || d.includes("science")) return "faculty--staff-tab-8";
   return null;
 }
 
-// ─── Inline styles injected once ─────────────────────────────────────────────
 function injectCardStyles() {
   if (document.getElementById("faculty-card-styles")) return;
   const style = document.createElement("style");
@@ -173,11 +210,42 @@ function injectCardStyles() {
   document.head.appendChild(style);
 }
 
+function createCardHTML(staff) {
+  const name     = formatFacultyName(staff.title, staff.firstName, staff.lastName);
+  const desig    = formatDesignation(staff.designation);
+  const dept     = (staff.department || "").trim();
+  const initials = getInitials(name);
+  const hasImg   = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
+
+  const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)
+    ? `<div class="mt-2">${staff.specialties.map(s => `<span class="msec-faculty-specialty">${s}</span>`).join("")}</div>`
+    : "";
+
+  const avatarHtml = hasImg
+    ? `<img src="${staff.imageUrl}" class="msec-faculty-avatar shadow-sm" alt="${name}" loading="lazy">`
+    : `<div class="msec-faculty-initials shadow-sm">${initials}</div>`;
+
+  return `
+    <div class="col-md-6 col-lg-4 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+      <a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">
+        <div class="msec-faculty-card">
+          ${avatarHtml}
+          <h5 class="msec-faculty-name">${name}</h5>
+          <p class="msec-faculty-designation">${desig}</p>
+          <span class="msec-faculty-dept-badge">${dept}</span>
+          ${specialtiesHtml}
+        </div>
+      </a>
+    </div>`;
+}
+
 // ─── Main loader ──────────────────────────────────────────────────────────────
 async function loadFaculty() {
   injectCardStyles();
 
   const querySnapshot = await getDocs(collection(db, "staff"));
+
+  const staffByTab = {};
 
   querySnapshot.forEach((doc) => {
     const staff = doc.data();
@@ -188,37 +256,70 @@ async function loadFaculty() {
     const tabId = getTabIdForDepartment(staff.department);
     if (!tabId) return;
 
-    const tabContainer = document.querySelector(`#${tabId} .row.g-4`);
-    if (!tabContainer) return;
+    if (!staffByTab[tabId]) {
+      staffByTab[tabId] = [];
+    }
+    staffByTab[tabId].push(staff);
+  });
 
-    const name    = formatFacultyName(staff.title, staff.firstName, staff.lastName);
-    const desig   = formatDesignation(staff.designation);
-    const dept    = (staff.department || "").trim();
-    const initials = getInitials(name);
-    const hasImg  = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
+  Object.keys(staffByTab).forEach((tabId) => {
+    const isIT = tabId === "faculty--staff-tab-1";
+    const tabPane = document.getElementById(tabId);
+    if (!tabPane) return;
 
-    const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)
-      ? `<div class="mt-2">${staff.specialties.map(s => `<span class="msec-faculty-specialty">${s}</span>`).join("")}</div>`
-      : "";
+    const list = staffByTab[tabId];
 
-    const avatarHtml = hasImg
-      ? `<img src="${staff.imageUrl}" class="msec-faculty-avatar shadow-sm" alt="${name}" loading="lazy">`
-      : `<div class="msec-faculty-initials shadow-sm">${initials}</div>`;
+    if (isIT) {
+      // Split into Leadership (HOD & AHOD: rank <= 2) and Remaining Faculty (rank > 2)
+      const headList = list.filter(s => getITStaffRank(s) <= 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
+      const facultyList = list.filter(s => getITStaffRank(s) > 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
 
-    const card = `
-      <div class="col-md-6 col-lg-4 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">
-          <div class="msec-faculty-card">
-            ${avatarHtml}
-            <h5 class="msec-faculty-name">${name}</h5>
-            <p class="msec-faculty-designation">${desig}</p>
-            <span class="msec-faculty-dept-badge">${dept}</span>
-            ${specialtiesHtml}
+      const deptInfo = tabPane.querySelector(".department-info");
+      tabPane.innerHTML = "";
+      if (deptInfo) tabPane.appendChild(deptInfo);
+
+      // Section 1: Professor and Head (Max 2 cards: HOD & AHOD)
+      if (headList.length > 0) {
+        const headSection = document.createElement("div");
+        headSection.className = "mb-5";
+        headSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Professor and Head
+            </h4>
           </div>
-        </a>
-      </div>`;
+          <div class="row g-4 justify-content-center"></div>`;
+        const headRow = headSection.querySelector(".row");
+        headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(headSection);
+      }
 
-    tabContainer.insertAdjacentHTML("beforeend", card);
+      // Section 2: Remaining Staff
+      if (facultyList.length > 0) {
+        const facultySection = document.createElement("div");
+        facultySection.className = "mb-5";
+        facultySection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Faculty Members
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const facultyRow = facultySection.querySelector(".row");
+        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(facultySection);
+      }
+
+      return;
+    }
+
+    // Default rendering for other department tabs
+    const tabContainer = tabPane.querySelector(".row.g-4");
+    if (!tabContainer) return;
+    tabContainer.innerHTML = "";
+
+    list.sort((a, b) => getDesignationPriority(a.designation || "") - getDesignationPriority(b.designation || ""));
+    list.forEach(staff => tabContainer.insertAdjacentHTML("beforeend", createCardHTML(staff)));
   });
 
   if (window.AOS) window.AOS.refresh();

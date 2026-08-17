@@ -28,7 +28,7 @@ const IT_STAFF_PREFERRED_ORDER = [
   { keywords: ["mohan raj", "mohanraj"], rank: 4 },
   { keywords: ["babitha"], rank: 5 },
   { keywords: ["abhinaya"], rank: 6 },
-  { keywords: ["shruthi", "shruti"], rank: 7 },
+  { keywords: ["shruthi", "shruti", "suruthi"], rank: 7 },
   { keywords: ["padmapriya", "padma priya"], rank: 8 },
   { keywords: ["vidhya", "vidya"], rank: 9 },
   { keywords: ["lalitha"], rank: 10 },
@@ -58,18 +58,18 @@ function getITStaffRank(staff) {
 
 function getDesignationPriority(designation = "") {
   const d = designation.trim().toLowerCase();
-  if (d.includes("hod"))        return 1;
-  if (d === "professor")        return 2;
-  if (d.includes("associate"))  return 3;
-  if (d.includes("assistant"))  return 4;
-  if (d.includes("lab"))        return 5;
+  if (d.includes("hod")) return 1;
+  if (d === "professor") return 2;
+  if (d.includes("associate")) return 3;
+  if (d.includes("assistant")) return 4;
+  if (d.includes("lab")) return 5;
   return 6;
 }
 
 function formatName(title = "", firstName = "", lastName = "") {
-  title     = (title     || "").trim();
+  title = (title || "").trim();
   firstName = (firstName || "").trim();
-  lastName  = (lastName  || "").trim();
+  lastName = (lastName || "").trim();
 
   // Fix missing space: "Dr.Sandhya" → "Dr. Sandhya"
   firstName = firstName.replace(/([A-Za-z])\.(\S)/g, "$1. $2");
@@ -78,7 +78,7 @@ function formatName(title = "", firstName = "", lastName = "") {
   if (!title) {
     const prefixMatch = firstName.match(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i);
     if (prefixMatch) {
-      title     = prefixMatch[1];
+      title = prefixMatch[1];
       firstName = firstName.slice(prefixMatch[0].length).trim();
     }
   }
@@ -87,11 +87,11 @@ function formatName(title = "", firstName = "", lastName = "") {
   if (!raw) return "Faculty Member";
 
   return raw.split(/\s+/).map(w => {
-    const lower = w.toLowerCase().replace(/\.$/,"");
-    if (lower === "dr")   return "Dr.";
-    if (lower === "mr")   return "Mr.";
-    if (lower === "mrs")  return "Mrs.";
-    if (lower === "ms")   return "Ms.";
+    const lower = w.toLowerCase().replace(/\.$/, "");
+    if (lower === "dr") return "Dr.";
+    if (lower === "mr") return "Mr.";
+    if (lower === "mrs") return "Mrs.";
+    if (lower === "ms") return "Ms.";
     if (lower === "prof") return "Prof.";
     if (/^[a-z]\.?$/i.test(w)) return w.charAt(0).toUpperCase() + ".";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
@@ -100,7 +100,7 @@ function formatName(title = "", firstName = "", lastName = "") {
 
 function formatDesignation(desig = "") {
   return (desig || "").trim().split(/\s+/).map(w => {
-    const l = w.toLowerCase().replace(/,$/,"");
+    const l = w.toLowerCase().replace(/,$/, "");
     if (l === "hod") return "HOD";
     if (l === "lab") return "Lab";
     if (l === "and" || l === "&") return "and";
@@ -246,11 +246,11 @@ async function loadITFaculty() {
   }
 
   function createCard(staff) {
-    const name    = formatName(staff.title, staff.firstName, staff.lastName);
-    const desig   = formatDesignation(staff.designation);
-    const dept    = (staff.department || "Information Technology").trim();
+    const name = formatName(staff.title, staff.firstName, staff.lastName);
+    const desig = formatDesignation(staff.designation);
+    const dept = (staff.department || "Information Technology").trim();
     const initials = getInitials(name);
-    const hasImg  = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
+    const hasImg = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
     const profileUrl = getStaffPreviewUrl(staff);
 
     const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)

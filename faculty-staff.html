@@ -669,7 +669,13 @@
                   <h3>Research Dean</h3>
                 </div>
                 <div class="row g-4 justify-content-center">
-
+                  <div class="col-12 text-center py-5">
+                    <div class="p-4 bg-white shadow-sm rounded-4 border d-inline-block" style="max-width: 460px;">
+                      <i class="bi bi-award text-danger display-5 mb-3 d-block"></i>
+                      <h5 class="fw-bold text-dark mb-2">Research Dean Office</h5>
+                      <p class="text-muted small mb-0">Faculty and staff details for Research Dean will be updated soon.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -678,7 +684,13 @@
                   <h3>Research IQAC</h3>
                 </div>
                 <div class="row g-4 justify-content-center">
-
+                  <div class="col-12 text-center py-5">
+                    <div class="p-4 bg-white shadow-sm rounded-4 border d-inline-block" style="max-width: 460px;">
+                      <i class="bi bi-shield-check text-danger display-5 mb-3 d-block"></i>
+                      <h5 class="fw-bold text-dark mb-2">Research IQAC Cell</h5>
+                      <p class="text-muted small mb-0">Internal Quality Assurance Cell (IQAC) details will be updated soon.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -687,7 +699,13 @@
                   <h3>Research Academics</h3>
                 </div>
                 <div class="row g-4 justify-content-center">
-
+                  <div class="col-12 text-center py-5">
+                    <div class="p-4 bg-white shadow-sm rounded-4 border d-inline-block" style="max-width: 460px;">
+                      <i class="bi bi-book text-danger display-5 mb-3 d-block"></i>
+                      <h5 class="fw-bold text-dark mb-2">Research Academics Office</h5>
+                      <p class="text-muted small mb-0">Research Academics faculty & staff details will be updated soon.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -881,7 +899,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/script.min.js"></script>
-  <script type="module" src="assets/js/facultydetails.js?v=1.0.7"></script>
+  <script type="module" src="assets/js/facultydetails.js?v=1.0.8"></script>
 
 
   <!--Start of Tawk.to Script-->
@@ -914,6 +932,27 @@
           });
 
           dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+      });
+
+      // Ensure nested tab buttons switch tab panes smoothly
+      const allTabBtns = document.querySelectorAll('[data-bs-toggle="tab"]');
+      allTabBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+          const targetSel = btn.getAttribute("data-bs-target");
+          if (!targetSel) return;
+          const targetPane = document.querySelector(targetSel);
+          if (!targetPane) return;
+
+          allTabBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          document.querySelectorAll(".tab-content .tab-pane").forEach(pane => {
+            pane.classList.remove("show", "active");
+          });
+
+          targetPane.classList.add("show", "active");
+          if (window.AOS) window.AOS.refresh();
         });
       });
 

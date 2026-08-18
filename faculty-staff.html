@@ -439,30 +439,35 @@
                   <button class="nav-link active" data-bs-toggle="tab"
                     data-bs-target="#faculty--staff-tab-management">Management</button>
                 </li>
-                <li class="nav-item dropdown">
-                  <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Administration</button>
-                  <ul class="dropdown-menu w-100 shadow-sm border-0 mt-1" style="border-radius: 12px; padding: 6px 0;">
-                    <li>
-                      <button class="dropdown-item py-2 px-3 fw-medium" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-0">
-                        <i class="bi bi-person-badge me-2 text-danger"></i>Principal
-                      </button>
-                    </li>
-                    <li>
-                      <button class="dropdown-item py-2 px-3 fw-medium" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-dean">
-                        <i class="bi bi-award me-2 text-danger"></i>Research Dean
-                      </button>
-                    </li>
-                    <li>
-                      <button class="dropdown-item py-2 px-3 fw-medium" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-iqac">
-                        <i class="bi bi-shield-check me-2 text-danger"></i>Research IQAC
-                      </button>
-                    </li>
-                    <li>
-                      <button class="dropdown-item py-2 px-3 fw-medium" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-academics">
-                        <i class="bi bi-book me-2 text-danger"></i>Research Academics
-                      </button>
-                    </li>
-                  </ul>
+                <li class="nav-item">
+                  <button class="nav-link d-flex align-items-center justify-content-between w-100" type="button" data-bs-toggle="collapse" data-bs-target="#adminSubNav" aria-expanded="false" aria-controls="adminSubNav">
+                    <span>Administration</span>
+                    <i class="bi bi-chevron-down ms-2" style="font-size: 0.8rem;"></i>
+                  </button>
+                  <div class="collapse mt-1" id="adminSubNav">
+                    <ul class="nav flex-column ps-3 py-1" style="background: #f8fafc; border-radius: 8px;">
+                      <li class="nav-item">
+                        <button class="nav-link text-start py-2 px-3 fs-6 border-0" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-0">
+                          <i class="bi bi-person-badge me-2 text-danger"></i>Principal
+                        </button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="nav-link text-start py-2 px-3 fs-6 border-0" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-dean">
+                          <i class="bi bi-award me-2 text-danger"></i>Research Dean
+                        </button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="nav-link text-start py-2 px-3 fs-6 border-0" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-iqac">
+                          <i class="bi bi-shield-check me-2 text-danger"></i>Research IQAC
+                        </button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="nav-link text-start py-2 px-3 fs-6 border-0" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-academics">
+                          <i class="bi bi-book me-2 text-danger"></i>Research Academics
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
                 <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-1">Information
@@ -876,7 +881,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/script.min.js"></script>
-  <script type="module" src="assets/js/facultydetails.js?v=1.0.6"></script>
+  <script type="module" src="assets/js/facultydetails.js?v=1.0.7"></script>
 
 
   <!--Start of Tawk.to Script-->
@@ -900,7 +905,9 @@
       toggles.forEach(toggle => {
         toggle.addEventListener("click", function () {
           const targetId = toggle.getAttribute("data-target");
+          if (!targetId) return;
           const dropdown = document.getElementById(targetId);
+          if (!dropdown) return;
 
           document.querySelectorAll(".custom-dropdown-content").forEach(menu => {
             if (menu !== dropdown) menu.style.display = "none";

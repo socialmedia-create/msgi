@@ -120,6 +120,9 @@ function getTabIdForDepartment(dept) {
   if (d.includes("mechanical") || d === "mech") return "faculty--staff-tab-6";
   if (d.includes("civil")) return "faculty--staff-tab-7";
   if (d.includes("physics") || d.includes("math") || d.includes("english") || d.includes("chemistry") || d.includes("tamil") || d.includes("humanities") || d.includes("science")) return "faculty--staff-tab-8";
+  if (d.includes("dean")) return "faculty--staff-tab-admin-dean";
+  if (d.includes("iqac")) return "faculty--staff-tab-admin-iqac";
+  if (d.includes("academic")) return "faculty--staff-tab-admin-academics";
   return null;
 }
 

@@ -439,9 +439,30 @@
                   <button class="nav-link active" data-bs-toggle="tab"
                     data-bs-target="#faculty--staff-tab-management">Management</button>
                 </li>
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab"
-                    data-bs-target="#faculty--staff-tab-0">Administration</button>
+                <li class="nav-item dropdown">
+                  <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Administration</button>
+                  <ul class="dropdown-menu w-100 shadow-sm border-0 mt-1" style="border-radius: 12px; padding: 6px 0;">
+                    <li>
+                      <button class="dropdown-item py-2 px-3 fw-medium" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-0">
+                        <i class="bi bi-person-badge me-2 text-danger"></i>Principal
+                      </button>
+                    </li>
+                    <li>
+                      <button class="dropdown-item py-2 px-3 fw-medium" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-dean">
+                        <i class="bi bi-award me-2 text-danger"></i>Research Dean
+                      </button>
+                    </li>
+                    <li>
+                      <button class="dropdown-item py-2 px-3 fw-medium" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-iqac">
+                        <i class="bi bi-shield-check me-2 text-danger"></i>Research IQAC
+                      </button>
+                    </li>
+                    <li>
+                      <button class="dropdown-item py-2 px-3 fw-medium" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-admin-academics">
+                        <i class="bi bi-book me-2 text-danger"></i>Research Academics
+                      </button>
+                    </li>
+                  </ul>
                 </li>
                 <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-1">Information
@@ -636,10 +657,35 @@
                         </div>
                       </div>
                     </a>
-                  </div>
-                </div>
-
               </div>
+
+              <div class="tab-pane fade" id="faculty--staff-tab-admin-dean">
+                <div class="department-info mb-4">
+                  <h3>Research Dean</h3>
+                </div>
+                <div class="row g-4 justify-content-center">
+
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="faculty--staff-tab-admin-iqac">
+                <div class="department-info mb-4">
+                  <h3>Research IQAC</h3>
+                </div>
+                <div class="row g-4 justify-content-center">
+
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="faculty--staff-tab-admin-academics">
+                <div class="department-info mb-4">
+                  <h3>Research Academics</h3>
+                </div>
+                <div class="row g-4 justify-content-center">
+
+                </div>
+              </div>
+
               <div class="tab-pane fade" id="faculty--staff-tab-1">
                 <div class="department-info mb-4">
                   <h3>Information Technology</h3>
@@ -830,7 +876,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/script.min.js"></script>
-  <script type="module" src="assets/js/facultydetails.js?v=1.0.5"></script>
+  <script type="module" src="assets/js/facultydetails.js?v=1.0.6"></script>
 
 
   <!--Start of Tawk.to Script-->

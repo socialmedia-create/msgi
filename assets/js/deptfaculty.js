@@ -278,9 +278,9 @@ var DEPT_CONFIG = [
 var SCIENCE_CONTAINERS = [
   { id: "mathsfaculty", dept: "Mathematics" },
   { id: "physicsfaculty", dept: "Physics" },
+  { id: "chemistryfaculty", dept: "Chemistry" },
   { id: "englishfaculty", dept: "English" },
-  { id: "tamilfaculty", dept: "Tamil" },
-  { id: "chemistryfaculty", dept: "Chemistry" }
+  { id: "tamilfaculty", dept: "Tamil" }
 ];
 
 async function loadScienceFaculty() {

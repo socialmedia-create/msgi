@@ -46,9 +46,9 @@ async function loadFacultyByDepartments() {
   const departments = {
     "Mathematics": "mathsfaculty",
     "Physics": "physicsfaculty",
+    "Chemistry": "chemistryfaculty",
     "English": "englishfaculty",
-    "Tamil": "tamilfaculty",
-    "Chemistry": "chemistryfaculty"
+    "Tamil": "tamilfaculty"
   };
 
   // Group staff

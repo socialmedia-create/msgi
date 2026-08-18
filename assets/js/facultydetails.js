@@ -326,6 +326,70 @@ async function loadFaculty() {
       return;
     }
 
+    const isScience = tabId === "faculty--staff-tab-8";
+    if (isScience) {
+      const deptInfo = tabPane.querySelector(".department-info");
+      tabPane.innerHTML = "";
+      if (deptInfo) tabPane.appendChild(deptInfo);
+
+      const scienceClusters = ["Mathematics", "Physics", "Chemistry", "English", "Tamil"];
+
+      const getCluster = (dept = "") => {
+        const d = dept.trim().toLowerCase();
+        if (d.includes("math")) return "Mathematics";
+        if (d.includes("physics")) return "Physics";
+        if (d.includes("chemistry")) return "Chemistry";
+        if (d.includes("english")) return "English";
+        if (d.includes("tamil")) return "Tamil";
+        return "Other";
+      };
+
+      const grouped = {};
+      list.forEach(s => {
+        const c = getCluster(s.department);
+        if (!grouped[c]) grouped[c] = [];
+        grouped[c].push(s);
+      });
+
+      scienceClusters.forEach(clusterName => {
+        const clusterList = grouped[clusterName];
+        if (clusterList && clusterList.length > 0) {
+          clusterList.sort((a, b) => getDesignationPriority(a.designation || "") - getDesignationPriority(b.designation || ""));
+
+          const sec = document.createElement("div");
+          sec.className = "mb-5";
+          sec.innerHTML = `
+            <div class="text-center mb-4">
+              <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+                ${clusterName}
+              </h4>
+            </div>
+            <div class="row g-4 justify-content-center"></div>`;
+          const row = sec.querySelector(".row");
+          clusterList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+          tabPane.appendChild(sec);
+        }
+      });
+
+      if (grouped["Other"] && grouped["Other"].length > 0) {
+        grouped["Other"].sort((a, b) => getDesignationPriority(a.designation || "") - getDesignationPriority(b.designation || ""));
+        const sec = document.createElement("div");
+        sec.className = "mb-5";
+        sec.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Other Disciplines
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const row = sec.querySelector(".row");
+        grouped["Other"].forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(sec);
+      }
+
+      return;
+    }
+
     // Default rendering for other department tabs
     const tabContainer = tabPane.querySelector(".row.g-4");
     if (!tabContainer) return;

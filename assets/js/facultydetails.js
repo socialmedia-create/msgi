@@ -85,6 +85,41 @@ function getCSEStaffRank(staff) {
     if (item.keywords.some(kw => nameStr.includes(kw))) {
       return item.rank;
     }
+  return 999;
+}
+
+const AIDS_STAFF_PREFERRED_ORDER = [
+  { keywords: ["mathangi"], rank: 1 },
+  { keywords: ["ramasubramanian"], rank: 2 },
+  { keywords: ["madhurikkha", "madhurikha"], rank: 3 },
+  { keywords: ["dhivya"], rank: 4 },
+  { keywords: ["jaya", "priya"], rank: 5 },
+  { keywords: ["valentina", "puffi"], rank: 6 },
+  { keywords: ["swathy"], rank: 7 },
+  { keywords: ["prema"], rank: 8 },
+  { keywords: ["punitha"], rank: 9 },
+  { keywords: ["reenie", "tanya"], rank: 10 },
+  { keywords: ["parthiban"], rank: 11 },
+  { keywords: ["tameem", "parvana"], rank: 12 },
+  { keywords: ["vinothini"], rank: 13 },
+  { keywords: ["hemalatha"], rank: 14 },
+  { keywords: ["vetrivel", "murugan"], rank: 15 }
+];
+
+function getAIDSStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < AIDS_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = AIDS_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
   }
   return 999;
 }
@@ -441,6 +476,47 @@ function renderAllTabs(staffArray) {
           <div class="row g-4 justify-content-center"></div>`;
         const headRow = headSection.querySelector(".row");
         headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(headSection);
+      }
+
+      if (facultyList.length > 0) {
+        const facultySection = document.createElement("div");
+        facultySection.className = "mb-5";
+        facultySection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Faculty Members
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const facultyRow = facultySection.querySelector(".row");
+        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(facultySection);
+      }
+      return;
+    }
+
+    const isAIDS = tabId === "faculty--staff-tab-3";
+    if (isAIDS) {
+      const headList = list.filter(s => getAIDSStaffRank(s) <= 1).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
+      const facultyList = list.filter(s => getAIDSStaffRank(s) > 1).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
+
+      const deptInfo = tabPane.querySelector(".department-info");
+      tabPane.innerHTML = "";
+      if (deptInfo) tabPane.appendChild(deptInfo);
+
+      if (headList.length > 0) {
+        const headSection = document.createElement("div");
+        headSection.className = "mb-5";
+        headSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Professor and Head
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const headRow = headSection.querySelector(".row");
+        headList.slice(0, 1).forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
         tabPane.appendChild(headSection);
       }
 

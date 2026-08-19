@@ -298,7 +298,7 @@ function createDeptCardHTML(s) {
     '</a></div>';
 }
 
-const DEPT_CACHE_KEY = "msec_staff_data_v1";
+const DEPT_CACHE_KEY = "msec_staff_data_v2";
 
 function renderDeptStaff(containerId, deptKeywords, headingText, staffList) {
   const container = document.getElementById(containerId);

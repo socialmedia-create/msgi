@@ -440,7 +440,7 @@ function createCardHTML(staff) {
     </div>`;
 }
 
-const CACHE_KEY = "msec_staff_data_v1";
+const CACHE_KEY = "msec_staff_data_v2";
 
 function renderAllTabs(staffArray) {
   const staffByTab = {};

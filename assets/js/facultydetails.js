@@ -85,6 +85,7 @@ function getCSEStaffRank(staff) {
     if (item.keywords.some(kw => nameStr.includes(kw))) {
       return item.rank;
     }
+  }
   return 999;
 }
 

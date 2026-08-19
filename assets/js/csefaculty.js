@@ -15,56 +15,53 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Designation priority logic
-function getDesignationPriority(designation = "") {
-  const d = designation.trim().toLowerCase();
+// ─── Preferred Staff Ordering for Computer Science & Engineering ───────────
+const CSE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["aarthi"], rank: 1 },
+  { keywords: ["sandhya"], rank: 2 },
+  { keywords: ["jerin", "mahibha"], rank: 3 },
+  { keywords: ["sundari"], rank: 4 },
+  { keywords: ["yamuna"], rank: 5 },
+  { keywords: ["nithya"], rank: 6 },
+  { keywords: ["sowmiya"], rank: 7 },
+  { keywords: ["kasithangam"], rank: 8 },
+  { keywords: ["shafrin", "jeba"], rank: 9 },
+  { keywords: ["preethi"], rank: 10 },
+  { keywords: ["jebima", "jessy"], rank: 11 },
+  { keywords: ["arnold"], rank: 12 },
+  { keywords: ["meenachi"], rank: 13 },
+  { keywords: ["jeevan"], rank: 14 },
+  { keywords: ["kaviya"], rank: 15 },
+  { keywords: ["haritha"], rank: 16 }
+];
 
-  if (d.includes("hod")) return 1;
-  if (d === "professor") return 2;
-  if (d.includes("associate")) return 3;
-  if (d.includes("assistant")) return 4;
-  return 5;
+function getCSEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < CSE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = CSE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
 }
 
-// Load and display only CSE faculty, sorted by priority
-async function loadCSEFaculty() {
-  const querySnapshot = await getDocs(collection(db, "staff"));
-  const cseFaculty = querySnapshot.docs
-    .map(doc => ({ id: doc.id, ...doc.data() }))
-    .filter(staff => { const d = (staff.department||"").trim().toLowerCase(); return d.includes("computer science") || d === "cse"; });
+function createCardHTML(staff) {
+  const photoUrl = staff.imageUrl || "https://via.placeholder.com/80";
+  const rawName = [staff.title, staff.firstName, staff.lastName].filter(Boolean).join(" ") || staff.fullName || staff.name || "";
+  const cleanName = rawName.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim();
+  const nameSlug = cleanName.replace(/[^a-zA-Z0-9]/g, "").toLowerCase() || "faculty";
+  const profileUrl = `https://staff-management-inky.vercel.app/preview/${nameSlug}`;
 
-  const container = document.getElementById("csefaculty");
-  if (!container) return;
-
-  // Section heading
-  const heading = document.createElement("h2");
-  heading.className = "text-center mb-4";
-  heading.textContent = "Faculty – Computer Science and Engineering";
-  container.appendChild(heading);
-
-  // Card wrapper
-  const cardRow = document.createElement("div");
-  cardRow.className = "row g-4 mb-5";
-
-  // Sort by designation
-  const sortedFaculty = cseFaculty.sort(
-    (a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation)
-  );
-
-  sortedFaculty.forEach((staff) => {
-    const photoUrl = staff.imageUrl || "https://via.placeholder.com/80";
-
-    const card = document.createElement("div");
-    card.className = "col-md-6 col-lg-4";
-    card.setAttribute("data-aos", "fade-up");
-    card.setAttribute("data-aos-delay", "200");
-
-    const rawName = [staff.title, staff.firstName, staff.lastName].filter(Boolean).join(" ") || staff.fullName || staff.name || "";
-    const cleanName = rawName.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s*/i, "").trim();
-    const nameSlug = cleanName.replace(/[^a-zA-Z0-9]/g, "").toLowerCase() || "faculty";
-    const profileUrl = `https://staff-management-inky.vercel.app/preview/${nameSlug}`;
-
-    card.innerHTML = `
+  return `
+    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
       <a href="${profileUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
         <div class="faculty-card m-1 row align-items-center justify-content-center">
           <div class="faculty-image1">
@@ -79,12 +76,63 @@ async function loadCSEFaculty() {
           </div>
         </div>
       </a>
-    `;
-    cardRow.appendChild(card);
-  });
+    </div>
+  `;
+}
 
-  container.appendChild(cardRow);
-  AOS.init();
+// Load and display only CSE faculty, sorted in 2 sections (Professor and Head + Faculty Members)
+async function loadCSEFaculty() {
+  const querySnapshot = await getDocs(collection(db, "staff"));
+  const cseFaculty = querySnapshot.docs
+    .map(doc => ({ id: doc.id, ...doc.data() }))
+    .filter(staff => { const d = (staff.department||"").trim().toLowerCase(); return d.includes("computer science") || d === "cse"; });
+
+  const container = document.getElementById("csefaculty");
+  if (!container) return;
+  container.innerHTML = "";
+
+  // Section heading
+  const heading = document.createElement("h2");
+  heading.className = "text-center mb-4";
+  heading.textContent = "Faculty – Computer Science and Engineering";
+  container.appendChild(heading);
+
+  const headList = cseFaculty.filter(s => getCSEStaffRank(s) <= 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
+  const facultyList = cseFaculty.filter(s => getCSEStaffRank(s) > 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
+
+  // Section 1: Professor and Head (Dr. S. Aarthi & Dr. M. K. Sandhya)
+  if (headList.length > 0) {
+    const headSection = document.createElement("div");
+    headSection.className = "mb-5";
+    headSection.innerHTML = `
+      <div class="text-center mb-4">
+        <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+          Professor and Head
+        </h4>
+      </div>
+      <div class="row g-4 justify-content-center"></div>`;
+    const headRow = headSection.querySelector(".row");
+    headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+    container.appendChild(headSection);
+  }
+
+  // Section 2: Remaining Staff
+  if (facultyList.length > 0) {
+    const facultySection = document.createElement("div");
+    facultySection.className = "mb-5";
+    facultySection.innerHTML = `
+      <div class="text-center mb-4">
+        <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+          Faculty Members
+        </h4>
+      </div>
+      <div class="row g-4 justify-content-center"></div>`;
+    const facultyRow = facultySection.querySelector(".row");
+    facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+    container.appendChild(facultySection);
+  }
+
+  if (window.AOS) window.AOS.init();
 }
 
 function getInitials(firstName = "", lastName = "") {

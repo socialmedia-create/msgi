@@ -56,6 +56,43 @@ function getITStaffRank(staff) {
   return 999;
 }
 
+const CSE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["aarthi"], rank: 1 },
+  { keywords: ["sandhya"], rank: 2 },
+  { keywords: ["jerin", "mahibha"], rank: 3 },
+  { keywords: ["sundari"], rank: 4 },
+  { keywords: ["yamuna"], rank: 5 },
+  { keywords: ["nithya"], rank: 6 },
+  { keywords: ["sowmiya"], rank: 7 },
+  { keywords: ["kasithangam"], rank: 8 },
+  { keywords: ["shafrin", "jeba"], rank: 9 },
+  { keywords: ["preethi"], rank: 10 },
+  { keywords: ["jebima", "jessy"], rank: 11 },
+  { keywords: ["arnold"], rank: 12 },
+  { keywords: ["meenachi"], rank: 13 },
+  { keywords: ["jeevan"], rank: 14 },
+  { keywords: ["kaviya"], rank: 15 },
+  { keywords: ["haritha"], rank: 16 }
+];
+
+function getCSEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < CSE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = CSE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
 function getDesignationPriority(designation) {
   const d = (designation || "").trim().toLowerCase();
   if (d.includes("hod")) return 1;
@@ -189,6 +226,7 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
   if (!container) return;
 
   const isIT = containerId === "itfaculty" || deptKeywords.some(k => k.includes("information technology") || k === "it");
+  const isCSE = containerId === "csefaculty" || deptKeywords.some(k => k.includes("computer science") || k === "cse");
   const querySnapshot = await getDocs(collection(db, "staff"));
   const staffList = querySnapshot.docs
     .map(d => Object.assign({ id: d.id }, d.data()))
@@ -199,12 +237,18 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
         const rankB = getITStaffRank(b);
         if (rankA !== rankB) return rankA - rankB;
       }
+      if (isCSE) {
+        const rankA = getCSEStaffRank(a);
+        const rankB = getCSEStaffRank(b);
+        if (rankA !== rankB) return rankA - rankB;
+      }
       return getDesignationPriority(a.designation) - getDesignationPriority(b.designation);
     });
 
-  if (isIT) {
-    const headList = staffList.filter(s => getITStaffRank(s) <= 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
-    const facultyList = staffList.filter(s => getITStaffRank(s) > 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
+  if (isIT || isCSE) {
+    const getRank = isIT ? getITStaffRank : getCSEStaffRank;
+    const headList = staffList.filter(s => getRank(s) <= 2).sort((a, b) => getRank(a) - getRank(b));
+    const facultyList = staffList.filter(s => getRank(s) > 2).sort((a, b) => getRank(a) - getRank(b));
 
     const heading = document.createElement("h2");
     heading.className = "text-center mb-4";

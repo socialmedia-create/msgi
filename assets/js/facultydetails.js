@@ -51,6 +51,44 @@ function getITStaffRank(staff) {
   return 999;
 }
 
+// ─── Preferred Staff Ordering for Computer Science & Engineering ───────────
+const CSE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["aarthi"], rank: 1 },
+  { keywords: ["sandhya"], rank: 2 },
+  { keywords: ["jerin", "mahibha"], rank: 3 },
+  { keywords: ["sundari"], rank: 4 },
+  { keywords: ["yamuna"], rank: 5 },
+  { keywords: ["nithya"], rank: 6 },
+  { keywords: ["sowmiya"], rank: 7 },
+  { keywords: ["kasithangam"], rank: 8 },
+  { keywords: ["shafrin", "jeba"], rank: 9 },
+  { keywords: ["preethi"], rank: 10 },
+  { keywords: ["jebima", "jessy"], rank: 11 },
+  { keywords: ["arnold"], rank: 12 },
+  { keywords: ["meenachi"], rank: 13 },
+  { keywords: ["jeevan"], rank: 14 },
+  { keywords: ["kaviya"], rank: 15 },
+  { keywords: ["haritha"], rank: 16 }
+];
+
+function getCSEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < CSE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = CSE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
 function getDesignationPriority(designation = "") {
   const d = designation.trim().toLowerCase();
   if (d.includes("hod")) return 1;
@@ -295,6 +333,50 @@ async function loadFaculty() {
       if (deptInfo) tabPane.appendChild(deptInfo);
 
       // Section 1: Professor and Head (Max 2 cards: HOD & AHOD)
+      if (headList.length > 0) {
+        const headSection = document.createElement("div");
+        headSection.className = "mb-5";
+        headSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Professor and Head
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const headRow = headSection.querySelector(".row");
+        headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(headSection);
+      }
+
+      // Section 2: Remaining Staff
+      if (facultyList.length > 0) {
+        const facultySection = document.createElement("div");
+        facultySection.className = "mb-5";
+        facultySection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Faculty Members
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const facultyRow = facultySection.querySelector(".row");
+        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(facultySection);
+      }
+
+      return;
+    }
+
+    const isCSE = tabId === "faculty--staff-tab-2";
+    if (isCSE) {
+      const headList = list.filter(s => getCSEStaffRank(s) <= 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
+      const facultyList = list.filter(s => getCSEStaffRank(s) > 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
+
+      const deptInfo = tabPane.querySelector(".department-info");
+      tabPane.innerHTML = "";
+      if (deptInfo) tabPane.appendChild(deptInfo);
+
+      // Section 1: Professor and Head (Max 2 cards: Dr. S. Aarthi & Dr. M. K. Sandhya)
       if (headList.length > 0) {
         const headSection = document.createElement("div");
         headSection.className = "mb-5";

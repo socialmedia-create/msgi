@@ -321,7 +321,14 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
   try {
     const querySnapshot = await getDocs(collection(db, "staff"));
     const freshStaff = querySnapshot.docs.map(d => Object.assign({ id: d.id }, d.data()));
-    sessionStorage.setItem(DEPT_CACHE_KEY, JSON.stringify(freshStaff));
+    try {
+      const cacheable = freshStaff.map(s => {
+        const copy = { ...s };
+        if (copy.imageUrl && copy.imageUrl.startsWith("data:image")) delete copy.imageUrl;
+        return copy;
+      });
+      sessionStorage.setItem(DEPT_CACHE_KEY, JSON.stringify(cacheable));
+    } catch (e) {}
     renderDeptStaff(containerId, deptKeywords, headingText, freshStaff);
   } catch (err) {
     console.error("Error fetching dept staff:", err);
@@ -393,7 +400,14 @@ async function loadScienceFaculty() {
   try {
     var querySnapshot = await getDocs(collection(db, "staff"));
     var freshStaff = querySnapshot.docs.map(function (d) { return Object.assign({ id: d.id }, d.data()); });
-    sessionStorage.setItem(DEPT_CACHE_KEY, JSON.stringify(freshStaff));
+    try {
+      var cacheable = freshStaff.map(function (s) {
+        var copy = Object.assign({}, s);
+        if (copy.imageUrl && copy.imageUrl.indexOf("data:image") === 0) delete copy.imageUrl;
+        return copy;
+      });
+      sessionStorage.setItem(DEPT_CACHE_KEY, JSON.stringify(cacheable));
+    } catch (e) {}
     renderScienceStaff(freshStaff);
   } catch (err) {
     console.error("Error loading science faculty:", err);

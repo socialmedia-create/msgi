@@ -562,7 +562,18 @@ async function loadFaculty() {
       }
     });
 
-    sessionStorage.setItem(CACHE_KEY, JSON.stringify(freshStaff));
+    try {
+      const cacheableStaff = freshStaff.map(s => {
+        const copy = { ...s };
+        if (copy.imageUrl && copy.imageUrl.startsWith("data:image")) {
+          delete copy.imageUrl;
+        }
+        return copy;
+      });
+      sessionStorage.setItem(CACHE_KEY, JSON.stringify(cacheableStaff));
+    } catch (qErr) {
+      console.warn("Storage quota limit reached for staff cache:", qErr);
+    }
     renderAllTabs(freshStaff);
   } catch (err) {
     console.error("Error fetching staff from Firestore:", err);

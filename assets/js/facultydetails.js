@@ -122,6 +122,8 @@ function getAIDSStaffRank(staff) {
       return item.rank;
     }
   }
+  return 999;
+}
 const ECE_STAFF_PREFERRED_ORDER = [
   { keywords: ["arul", "karthick"], rank: 1 },
   { keywords: ["sheeba", "joice"], rank: 2 },

@@ -122,10 +122,63 @@ function getAIDSStaffRank(staff) {
       return item.rank;
     }
   }
+const ECE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["arul", "karthick"], rank: 1 },
+  { keywords: ["sheeba", "joice"], rank: 2 },
+  { keywords: ["babiyola"], rank: 3 },
+  { keywords: ["siji", "sivanandan"], rank: 4 },
+  { keywords: ["balasubramanian"], rank: 5 },
+  { keywords: ["meenakshi"], rank: 6 },
+  { keywords: ["sowmya"], rank: 7 },
+  { keywords: ["vinoth"], rank: 8 },
+  { keywords: ["nooruuzzaman", "khan"], rank: 9 },
+  { keywords: ["satheesh"], rank: 10 },
+  { keywords: ["velu"], rank: 11 },
+  { keywords: ["r.lakshmi", "r. lakshmi", "r lakshmi"], rank: 12 },
+  { keywords: ["annamalai"], rank: 13 },
+  { keywords: ["sasikala"], rank: 14 },
+  { keywords: ["arif"], rank: 15 },
+  { keywords: ["selvarani"], rank: 16 },
+  { keywords: ["mahalakshmi"], rank: 17 },
+  { keywords: ["sandhya"], rank: 18 },
+  { keywords: ["durkadevi"], rank: 19 },
+  { keywords: ["nadhiya"], rank: 20 },
+  { keywords: ["krithika"], rank: 21 },
+  { keywords: ["janani"], rank: 22 },
+  { keywords: ["sruthi"], rank: 23 }
+];
+
+function getECEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < ECE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = ECE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
   return 999;
 }
 
-function getDesignationPriority(designation = "") {
+function formatDesignation(desig = "") {
+  return (desig || "").trim().split(/\s+/).map(w => {
+    const l = w.toLowerCase().replace(/,$/, "");
+    if (l === "hod") return "HOD";
+    if (l === "ahod") return "AHOD";
+    if (l === "coe") return "COE";
+    if (l === "iqac") return "IQAC";
+    if (l === "dean") return "Dean";
+    if (l === "lab") return "Lab";
+    if (l === "and" || l === "&") return "and";
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  }).join(" ").trim() || "Faculty";
+}
   const d = designation.trim().toLowerCase();
   if (d.includes("hod")) return 1;
   if (d === "professor") return 2;
@@ -518,6 +571,47 @@ function renderAllTabs(staffArray) {
           <div class="row g-4 justify-content-center"></div>`;
         const headRow = headSection.querySelector(".row");
         headList.slice(0, 1).forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(headSection);
+      }
+
+      if (facultyList.length > 0) {
+        const facultySection = document.createElement("div");
+        facultySection.className = "mb-5";
+        facultySection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Faculty Members
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const facultyRow = facultySection.querySelector(".row");
+        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(facultySection);
+      }
+      return;
+    }
+
+    const isECE = tabId === "faculty--staff-tab-4";
+    if (isECE) {
+      const headList = list.filter(s => getECEStaffRank(s) <= 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+      const facultyList = list.filter(s => getECEStaffRank(s) > 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+
+      const deptInfo = tabPane.querySelector(".department-info");
+      tabPane.innerHTML = "";
+      if (deptInfo) tabPane.appendChild(deptInfo);
+
+      if (headList.length > 0) {
+        const headSection = document.createElement("div");
+        headSection.className = "mb-5";
+        headSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Deans, COE and Heads
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const headRow = headSection.querySelector(".row");
+        headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
         tabPane.appendChild(headSection);
       }
 

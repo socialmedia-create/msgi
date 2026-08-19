@@ -129,6 +129,50 @@ function getAIDSStaffRank(staff) {
   return 999;
 }
 
+const ECE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["arul", "karthick"], rank: 1 },
+  { keywords: ["sheeba", "joice"], rank: 2 },
+  { keywords: ["babiyola"], rank: 3 },
+  { keywords: ["siji", "sivanandan"], rank: 4 },
+  { keywords: ["balasubramanian"], rank: 5 },
+  { keywords: ["meenakshi"], rank: 6 },
+  { keywords: ["sowmya"], rank: 7 },
+  { keywords: ["vinoth"], rank: 8 },
+  { keywords: ["nooruuzzaman", "khan"], rank: 9 },
+  { keywords: ["satheesh"], rank: 10 },
+  { keywords: ["velu"], rank: 11 },
+  { keywords: ["r.lakshmi", "r. lakshmi", "r lakshmi"], rank: 12 },
+  { keywords: ["annamalai"], rank: 13 },
+  { keywords: ["sasikala"], rank: 14 },
+  { keywords: ["arif"], rank: 15 },
+  { keywords: ["selvarani"], rank: 16 },
+  { keywords: ["mahalakshmi"], rank: 17 },
+  { keywords: ["sandhya"], rank: 18 },
+  { keywords: ["durkadevi"], rank: 19 },
+  { keywords: ["nadhiya"], rank: 20 },
+  { keywords: ["krithika"], rank: 21 },
+  { keywords: ["janani"], rank: 22 },
+  { keywords: ["sruthi"], rank: 23 }
+];
+
+function getECEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < ECE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = ECE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
 function getDesignationPriority(designation) {
   const d = (designation || "").trim().toLowerCase();
   if (d.includes("hod")) return 1;
@@ -263,6 +307,7 @@ function renderDeptStaff(containerId, deptKeywords, headingText, staffList) {
   const isIT = containerId === "itfaculty" || deptKeywords.some(k => k.includes("information technology") || k === "it");
   const isCSE = containerId === "csefaculty" || deptKeywords.some(k => k.includes("computer science") || k === "cse");
   const isAIDS = containerId === "aidsfaculty" || deptKeywords.some(k => k.includes("artificial intelligence") || k.includes("ai ds") || k.includes("ai & ds") || k.includes("data science"));
+  const isECE = containerId === "ecefaculty" || deptKeywords.some(k => k.includes("electronics and communication") || k.includes("electronics & communication") || k === "ece");
 
   const filtered = staffList
     .filter(s => isDeptMatch(s.department, deptKeywords))
@@ -282,14 +327,20 @@ function renderDeptStaff(containerId, deptKeywords, headingText, staffList) {
         const rankB = getAIDSStaffRank(b);
         if (rankA !== rankB) return rankA - rankB;
       }
+      if (isECE) {
+        const rankA = getECEStaffRank(a);
+        const rankB = getECEStaffRank(b);
+        if (rankA !== rankB) return rankA - rankB;
+      }
       return getDesignationPriority(a.designation) - getDesignationPriority(b.designation);
     });
 
   container.innerHTML = "";
 
-  if (isIT || isCSE || isAIDS) {
-    const getRank = isIT ? getITStaffRank : (isCSE ? getCSEStaffRank : getAIDSStaffRank);
-    const maxHead = isAIDS ? 1 : 2;
+  if (isIT || isCSE || isAIDS || isECE) {
+    const getRank = isIT ? getITStaffRank : (isCSE ? getCSEStaffRank : (isAIDS ? getAIDSStaffRank : getECEStaffRank));
+    const maxHead = isAIDS ? 1 : (isECE ? 5 : 2);
+    const headSectionTitle = isECE ? "Deans, COE and Heads" : "Professor and Head";
     const headList = filtered.filter(s => getRank(s) <= maxHead).sort((a, b) => getRank(a) - getRank(b));
     const facultyList = filtered.filter(s => getRank(s) > maxHead).sort((a, b) => getRank(a) - getRank(b));
 
@@ -304,12 +355,12 @@ function renderDeptStaff(containerId, deptKeywords, headingText, staffList) {
       headSection.innerHTML = `
         <div class="text-center mb-4">
           <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-            Professor and Head
+            ${headSectionTitle}
           </h4>
         </div>
         <div class="row g-4 justify-content-center"></div>`;
       const headRow = headSection.querySelector(".row");
-      headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createDeptCardHTML(s)));
+      headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createDeptCardHTML(s)));
       container.appendChild(headSection);
     }
 

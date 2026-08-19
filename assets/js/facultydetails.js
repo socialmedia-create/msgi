@@ -224,15 +224,7 @@ function formatFacultyName(title = "", firstName = "", lastName = "") {
   }).join(" ");
 }
 
-function formatDesignation(desig = "") {
-  return (desig || "").trim().split(/\s+/).map(w => {
-    const l = w.toLowerCase().replace(/,$/, "");
-    if (l === "hod") return "HOD";
-    if (l === "lab") return "Lab";
-    if (l === "and" || l === "&") return "and";
-    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
-  }).join(" ").trim() || "Faculty";
-}
+
 
 function getInitials(name = "") {
   const parts = name.replace(/^(Dr\.|Mr\.|Mrs\.|Ms\.|Prof\.)\s+/i, "").split(/\s+/).filter(Boolean);

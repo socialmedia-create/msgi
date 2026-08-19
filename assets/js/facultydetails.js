@@ -179,6 +179,8 @@ function formatDesignation(desig = "") {
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
   }).join(" ").trim() || "Faculty";
 }
+
+function getDesignationPriority(designation = "") {
   const d = designation.trim().toLowerCase();
   if (d.includes("hod")) return 1;
   if (d === "professor") return 2;

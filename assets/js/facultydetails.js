@@ -247,8 +247,70 @@ function injectCardStyles() {
       font-size: 0.73rem;
       margin: 2px;
     }
+    @keyframes msec-skeleton-glow {
+      0% { opacity: 0.6; }
+      50% { opacity: 0.25; }
+      100% { opacity: 0.6; }
+    }
+    .msec-skeleton-card {
+      background: #fff;
+      border: 1px solid #f1f1f1;
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 2px 14px rgba(0,0,0,.04);
+      animation: msec-skeleton-glow 1.4s infinite ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .msec-skeleton-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      margin-bottom: 18px;
+    }
+    .msec-skeleton-line {
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 7px;
+      margin-bottom: 10px;
+    }
   `;
   document.head.appendChild(style);
+}
+
+function showSkeletonLoaders() {
+  const tabs = [
+    "faculty--staff-tab-1",
+    "faculty--staff-tab-2",
+    "faculty--staff-tab-3",
+    "faculty--staff-tab-4",
+    "faculty--staff-tab-5",
+    "faculty--staff-tab-6",
+    "faculty--staff-tab-7",
+    "faculty--staff-tab-8"
+  ];
+  tabs.forEach(tabId => {
+    const pane = document.getElementById(tabId);
+    if (!pane) return;
+    const row = pane.querySelector(".row.g-4");
+    if (row && row.children.length === 0) {
+      row.innerHTML = Array(3).fill(0).map(() => `
+        <div class="col-md-6 col-lg-4 mb-4 d-flex">
+          <div class="msec-skeleton-card">
+            <div class="msec-skeleton-avatar"></div>
+            <div class="msec-skeleton-line" style="width: 70%;"></div>
+            <div class="msec-skeleton-line" style="width: 50%;"></div>
+            <div class="msec-skeleton-line" style="width: 40%;"></div>
+          </div>
+        </div>
+      `).join("");
+    }
+  });
 }
 
 function getStaffPreviewUrl(staff) {
@@ -293,18 +355,12 @@ function createCardHTML(staff) {
     </div>`;
 }
 
-// ─── Main loader ──────────────────────────────────────────────────────────────
-async function loadFaculty() {
-  injectCardStyles();
+const CACHE_KEY = "msec_staff_data_v1";
 
-  const querySnapshot = await getDocs(collection(db, "staff"));
-
+function renderAllTabs(staffArray) {
   const staffByTab = {};
 
-  querySnapshot.forEach((doc) => {
-    const staff = doc.data();
-
-    // Skip placeholder
+  staffArray.forEach((staff) => {
     if (staff.email?.toLowerCase() === "lalettan@gmail.com") return;
 
     const tabId = getTabIdForDepartment(staff.department);
@@ -318,13 +374,14 @@ async function loadFaculty() {
 
   Object.keys(staffByTab).forEach((tabId) => {
     const isIT = tabId === "faculty--staff-tab-1";
+    const isCSE = tabId === "faculty--staff-tab-2";
+    const isScience = tabId === "faculty--staff-tab-8";
     const tabPane = document.getElementById(tabId);
     if (!tabPane) return;
 
     const list = staffByTab[tabId];
 
     if (isIT) {
-      // Split into Leadership (HOD & AHOD: rank <= 2) and Remaining Faculty (rank > 2)
       const headList = list.filter(s => getITStaffRank(s) <= 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
       const facultyList = list.filter(s => getITStaffRank(s) > 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
 
@@ -332,7 +389,6 @@ async function loadFaculty() {
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      // Section 1: Professor and Head (Max 2 cards: HOD & AHOD)
       if (headList.length > 0) {
         const headSection = document.createElement("div");
         headSection.className = "mb-5";
@@ -348,7 +404,6 @@ async function loadFaculty() {
         tabPane.appendChild(headSection);
       }
 
-      // Section 2: Remaining Staff
       if (facultyList.length > 0) {
         const facultySection = document.createElement("div");
         facultySection.className = "mb-5";
@@ -363,11 +418,9 @@ async function loadFaculty() {
         facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
         tabPane.appendChild(facultySection);
       }
-
       return;
     }
 
-    const isCSE = tabId === "faculty--staff-tab-2";
     if (isCSE) {
       const headList = list.filter(s => getCSEStaffRank(s) <= 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
       const facultyList = list.filter(s => getCSEStaffRank(s) > 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
@@ -376,7 +429,6 @@ async function loadFaculty() {
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      // Section 1: Professor and Head (Max 2 cards: Dr. S. Aarthi & Dr. M. K. Sandhya)
       if (headList.length > 0) {
         const headSection = document.createElement("div");
         headSection.className = "mb-5";
@@ -392,7 +444,6 @@ async function loadFaculty() {
         tabPane.appendChild(headSection);
       }
 
-      // Section 2: Remaining Staff
       if (facultyList.length > 0) {
         const facultySection = document.createElement("div");
         facultySection.className = "mb-5";
@@ -407,18 +458,15 @@ async function loadFaculty() {
         facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
         tabPane.appendChild(facultySection);
       }
-
       return;
     }
 
-    const isScience = tabId === "faculty--staff-tab-8";
     if (isScience) {
       const deptInfo = tabPane.querySelector(".department-info");
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
       const scienceClusters = ["Mathematics", "Physics", "Chemistry", "English", "Tamil"];
-
       const getCluster = (dept = "") => {
         const d = dept.trim().toLowerCase();
         if (d.includes("math")) return "Mathematics";
@@ -471,11 +519,9 @@ async function loadFaculty() {
         grouped["Other"].forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
         tabPane.appendChild(sec);
       }
-
       return;
     }
 
-    // Default rendering for other department tabs
     const tabContainer = tabPane.querySelector(".row.g-4");
     if (!tabContainer) return;
     tabContainer.innerHTML = "";
@@ -485,6 +531,42 @@ async function loadFaculty() {
   });
 
   if (window.AOS) window.AOS.refresh();
+}
+
+async function loadFaculty() {
+  injectCardStyles();
+
+  // 1. Instant load from SessionStorage cache
+  const cachedData = sessionStorage.getItem(CACHE_KEY);
+  if (cachedData) {
+    try {
+      const cachedStaff = JSON.parse(cachedData);
+      renderAllTabs(cachedStaff);
+    } catch (e) {
+      console.warn("Failed reading cached staff:", e);
+      showSkeletonLoaders();
+    }
+  } else {
+    showSkeletonLoaders();
+  }
+
+  // 2. Asynchronous background revalidation from Firestore
+  try {
+    const querySnapshot = await getDocs(collection(db, "staff"));
+    const freshStaff = [];
+
+    querySnapshot.forEach((doc) => {
+      const staff = doc.data();
+      if (staff.email?.toLowerCase() !== "lalettan@gmail.com") {
+        freshStaff.push(staff);
+      }
+    });
+
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify(freshStaff));
+    renderAllTabs(freshStaff);
+  } catch (err) {
+    console.error("Error fetching staff from Firestore:", err);
+  }
 }
 
 loadFaculty();

@@ -218,18 +218,16 @@ function createDeptCardHTML(s) {
     '</a></div>';
 }
 
-// ─── Generic Department Loader ────────────────────────────────────────────────
-async function loadDeptFaculty(containerId, deptKeywords, headingText) {
-  injectCardStyles();
+const DEPT_CACHE_KEY = "msec_staff_data_v1";
 
+function renderDeptStaff(containerId, deptKeywords, headingText, staffList) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
   const isIT = containerId === "itfaculty" || deptKeywords.some(k => k.includes("information technology") || k === "it");
   const isCSE = containerId === "csefaculty" || deptKeywords.some(k => k.includes("computer science") || k === "cse");
-  const querySnapshot = await getDocs(collection(db, "staff"));
-  const staffList = querySnapshot.docs
-    .map(d => Object.assign({ id: d.id }, d.data()))
+
+  const filtered = staffList
     .filter(s => isDeptMatch(s.department, deptKeywords))
     .sort((a, b) => {
       if (isIT) {
@@ -245,17 +243,18 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
       return getDesignationPriority(a.designation) - getDesignationPriority(b.designation);
     });
 
+  container.innerHTML = "";
+
   if (isIT || isCSE) {
     const getRank = isIT ? getITStaffRank : getCSEStaffRank;
-    const headList = staffList.filter(s => getRank(s) <= 2).sort((a, b) => getRank(a) - getRank(b));
-    const facultyList = staffList.filter(s => getRank(s) > 2).sort((a, b) => getRank(a) - getRank(b));
+    const headList = filtered.filter(s => getRank(s) <= 2).sort((a, b) => getRank(a) - getRank(b));
+    const facultyList = filtered.filter(s => getRank(s) > 2).sort((a, b) => getRank(a) - getRank(b));
 
     const heading = document.createElement("h2");
     heading.className = "text-center mb-4";
     heading.textContent = headingText;
     container.appendChild(heading);
 
-    // Section 1: Professor and Head (Max 2 cards)
     if (headList.length > 0) {
       const headSection = document.createElement("div");
       headSection.className = "mb-5";
@@ -271,7 +270,6 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
       container.appendChild(headSection);
     }
 
-    // Section 2: Remaining Staff
     if (facultyList.length > 0) {
       const facultySection = document.createElement("div");
       facultySection.className = "mb-5";
@@ -299,12 +297,35 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
   const row = document.createElement("div");
   row.className = "row g-4 mb-5 justify-content-center";
 
-  staffList.forEach(function (s) {
+  filtered.forEach(function (s) {
     row.insertAdjacentHTML("beforeend", createDeptCardHTML(s));
   });
 
   container.appendChild(row);
   if (window.AOS) window.AOS.refresh();
+}
+
+async function loadDeptFaculty(containerId, deptKeywords, headingText) {
+  injectCardStyles();
+
+  // Instant render from SessionStorage
+  const cached = sessionStorage.getItem(DEPT_CACHE_KEY);
+  if (cached) {
+    try {
+      const cachedStaff = JSON.parse(cached);
+      renderDeptStaff(containerId, deptKeywords, headingText, cachedStaff);
+    } catch (e) {}
+  }
+
+  // Background fetch
+  try {
+    const querySnapshot = await getDocs(collection(db, "staff"));
+    const freshStaff = querySnapshot.docs.map(d => Object.assign({ id: d.id }, d.data()));
+    sessionStorage.setItem(DEPT_CACHE_KEY, JSON.stringify(freshStaff));
+    renderDeptStaff(containerId, deptKeywords, headingText, freshStaff);
+  } catch (err) {
+    console.error("Error fetching dept staff:", err);
+  }
 }
 
 // ─── Department Configs ────────────────────────────────────────────────────────
@@ -327,11 +348,7 @@ var SCIENCE_CONTAINERS = [
   { id: "tamilfaculty", dept: "Tamil" }
 ];
 
-async function loadScienceFaculty() {
-  injectCardStyles();
-  var querySnapshot = await getDocs(collection(db, "staff"));
-  var allStaff = querySnapshot.docs.map(function (d) { return Object.assign({ id: d.id }, d.data()); });
-
+function renderScienceStaff(allStaff) {
   for (var j = 0; j < SCIENCE_CONTAINERS.length; j++) {
     var sc = SCIENCE_CONTAINERS[j];
     var container = document.getElementById(sc.id);
@@ -342,6 +359,7 @@ async function loadScienceFaculty() {
       .sort(function (a, b) { return getDesignationPriority(a.designation) - getDesignationPriority(b.designation); });
 
     if (deptStaff.length === 0) continue;
+    container.innerHTML = "";
 
     var heading = document.createElement("h2");
     heading.className = "text-center mb-4";
@@ -352,40 +370,34 @@ async function loadScienceFaculty() {
     row.className = "row g-4 mb-5 justify-content-center";
 
     deptStaff.forEach(function (s) {
-      var name = formatName(s.title, s.firstName, s.lastName);
-      var desig = formatDesignation(s.designation);
-      var dept = (s.department || "").trim();
-      var inits = getInitials(name);
-      var hasImg = s.imageUrl && (s.imageUrl.startsWith("http") || s.imageUrl.startsWith("data:image"));
-
-      var avatar = hasImg
-        ? '<img src="' + s.imageUrl + '" class="msec-faculty-avatar shadow-sm" alt="' + name + '" loading="lazy">'
-        : '<div class="msec-faculty-initials shadow-sm">' + inits + '</div>';
-
-      var specHtml = (s.specialties && s.specialties.length)
-        ? '<div class="mt-2">' + s.specialties.map(function (sp) { return '<span class="msec-faculty-specialty">' + sp + '</span>'; }).join("") + '</div>'
-        : "";
-
-      var col = document.createElement("div");
-      col.className = "col-md-6 col-lg-4 mb-4 d-flex";
-      col.setAttribute("data-aos", "fade-up");
-      col.setAttribute("data-aos-delay", "100");
-      col.innerHTML =
-        '<a href="https://staff-management-msec.web.app" class="w-100 text-decoration-none" style="color:inherit;">' +
-        '<div class="msec-faculty-card">' +
-        avatar +
-        '<h5 class="msec-faculty-name">' + name + '</h5>' +
-        '<p class="msec-faculty-designation">' + desig + '</p>' +
-        '<span class="msec-faculty-dept-badge">' + dept + '</span>' +
-        specHtml +
-        '</div>' +
-        '</a>';
-      row.appendChild(col);
+      row.insertAdjacentHTML("beforeend", createDeptCardHTML(s));
     });
 
     container.appendChild(row);
   }
   if (window.AOS) window.AOS.refresh();
+}
+
+async function loadScienceFaculty() {
+  injectCardStyles();
+
+  // Instant render from SessionStorage
+  const cached = sessionStorage.getItem(DEPT_CACHE_KEY);
+  if (cached) {
+    try {
+      const cachedStaff = JSON.parse(cached);
+      renderScienceStaff(cachedStaff);
+    } catch (e) {}
+  }
+
+  try {
+    var querySnapshot = await getDocs(collection(db, "staff"));
+    var freshStaff = querySnapshot.docs.map(function (d) { return Object.assign({ id: d.id }, d.data()); });
+    sessionStorage.setItem(DEPT_CACHE_KEY, JSON.stringify(freshStaff));
+    renderScienceStaff(freshStaff);
+  } catch (err) {
+    console.error("Error loading science faculty:", err);
+  }
 }
 
 // ─── Auto-detect and run ───────────────────────────────────────────────────────

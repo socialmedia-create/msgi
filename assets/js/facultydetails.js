@@ -663,26 +663,74 @@ function renderAllTabs(staffArray) {
 
     const isECE = tabId === "faculty--staff-tab-4";
     if (isECE) {
-      const headList = list.filter(s => getECEStaffRank(s) <= 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+      const deansList = list.filter(s => getECEStaffRank(s) >= 1 && getECEStaffRank(s) <= 2).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+      const coeList = list.filter(s => getECEStaffRank(s) === 3).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+      const hodList = list.filter(s => getECEStaffRank(s) === 4).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+      const ahodList = list.filter(s => getECEStaffRank(s) === 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
       const facultyList = list.filter(s => getECEStaffRank(s) > 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
 
       const deptInfo = tabPane.querySelector(".department-info");
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      if (headList.length > 0) {
-        const headSection = document.createElement("div");
-        headSection.className = "mb-5";
-        headSection.innerHTML = `
+      if (deansList.length > 0) {
+        const section = document.createElement("div");
+        section.className = "mb-5";
+        section.innerHTML = `
           <div class="text-center mb-4">
             <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              Deans, COE and Heads
+              Deans
             </h4>
           </div>
           <div class="row g-4 justify-content-center"></div>`;
-        const headRow = headSection.querySelector(".row");
-        headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(headSection);
+        const row = section.querySelector(".row");
+        deansList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(section);
+      }
+
+      if (coeList.length > 0) {
+        const section = document.createElement("div");
+        section.className = "mb-5";
+        section.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Controller of Examinations (COE)
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const row = section.querySelector(".row");
+        coeList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(section);
+      }
+
+      if (hodList.length > 0) {
+        const section = document.createElement("div");
+        section.className = "mb-5";
+        section.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Head of the Department
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const row = section.querySelector(".row");
+        hodList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(section);
+      }
+
+      if (ahodList.length > 0) {
+        const section = document.createElement("div");
+        section.className = "mb-5";
+        section.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Associate Head of the Department
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const row = section.querySelector(".row");
+        ahodList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(section);
       }
 
       if (facultyList.length > 0) {

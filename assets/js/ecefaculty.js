@@ -15,15 +15,49 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Designation priority logic
-function getDesignationPriority(designation = "") {
-  const d = designation.trim().toLowerCase();
+// Preferred ECE Staff Ordering
+const ECE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["arul", "karthick"], rank: 1 },
+  { keywords: ["sheeba", "joice"], rank: 2 },
+  { keywords: ["babiyola"], rank: 3 },
+  { keywords: ["siji", "sivanandan"], rank: 4 },
+  { keywords: ["balasubramanian"], rank: 5 },
+  { keywords: ["meenakshi"], rank: 6 },
+  { keywords: ["sowmya"], rank: 7 },
+  { keywords: ["vinoth"], rank: 8 },
+  { keywords: ["nooruuzzaman", "khan"], rank: 9 },
+  { keywords: ["satheesh"], rank: 10 },
+  { keywords: ["velu"], rank: 11 },
+  { keywords: ["r.lakshmi", "r. lakshmi", "r lakshmi"], rank: 12 },
+  { keywords: ["annamalai"], rank: 13 },
+  { keywords: ["sasikala"], rank: 14 },
+  { keywords: ["arif"], rank: 15 },
+  { keywords: ["selvarani"], rank: 16 },
+  { keywords: ["mahalakshmi"], rank: 17 },
+  { keywords: ["sandhya"], rank: 18 },
+  { keywords: ["durkadevi"], rank: 19 },
+  { keywords: ["nadhiya"], rank: 20 },
+  { keywords: ["krithika"], rank: 21 },
+  { keywords: ["janani"], rank: 22 },
+  { keywords: ["sruthi"], rank: 23 }
+];
 
-  if (d.includes("hod")) return 1;
-  if (d === "professor") return 2;
-  if (d.includes("associate")) return 3;
-  if (d.includes("assistant")) return 4;
-  return 5;
+function getECEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < ECE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = ECE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
 }
 
 // Load and display only ECE faculty, sorted by priority
@@ -46,9 +80,9 @@ async function loadCSEFaculty() {
   const cardRow = document.createElement("div");
   cardRow.className = "row g-4 mb-5";
 
-  // Sort by designation
+  // Sort by preferred rank
   const sortedFaculty = cseFaculty.sort(
-    (a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation)
+    (a, b) => getECEStaffRank(a) - getECEStaffRank(b)
   );
 
   sortedFaculty.forEach((staff) => {

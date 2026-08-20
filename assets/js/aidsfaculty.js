@@ -110,7 +110,7 @@ async function loadAIDSFaculty() {
     headSec.innerHTML = `
       <div class="text-center mb-4">
         <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-          Professor and Head
+          Heads
         </h4>
       </div>
       <div class="row g-4 justify-content-center"></div>`;

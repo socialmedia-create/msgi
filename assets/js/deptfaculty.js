@@ -340,7 +340,7 @@ function renderDeptStaff(containerId, deptKeywords, headingText, staffList) {
   if (isIT || isCSE || isAIDS || isECE) {
     const getRank = isIT ? getITStaffRank : (isCSE ? getCSEStaffRank : (isAIDS ? getAIDSStaffRank : getECEStaffRank));
     const maxHead = isAIDS ? 1 : (isECE ? 5 : 2);
-    const headSectionTitle = isECE ? "Deans, COE and Heads" : "Professor and Head";
+    const headSectionTitle = isECE ? "Deans, COE and Heads" : "Heads";
     const headList = filtered.filter(s => getRank(s) <= maxHead).sort((a, b) => getRank(a) - getRank(b));
     const facultyList = filtered.filter(s => getRank(s) > maxHead).sort((a, b) => getRank(a) - getRank(b));
 
@@ -408,7 +408,7 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
     try {
       const cachedStaff = JSON.parse(cached);
       renderDeptStaff(containerId, deptKeywords, headingText, cachedStaff);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   // Background fetch
@@ -422,7 +422,7 @@ async function loadDeptFaculty(containerId, deptKeywords, headingText) {
         return copy;
       });
       sessionStorage.setItem(DEPT_CACHE_KEY, JSON.stringify(cacheable));
-    } catch (e) {}
+    } catch (e) { }
     renderDeptStaff(containerId, deptKeywords, headingText, freshStaff);
   } catch (err) {
     console.error("Error fetching dept staff:", err);
@@ -488,7 +488,7 @@ async function loadScienceFaculty() {
     try {
       const cachedStaff = JSON.parse(cached);
       renderScienceStaff(cachedStaff);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   try {
@@ -501,7 +501,7 @@ async function loadScienceFaculty() {
         return copy;
       });
       sessionStorage.setItem(DEPT_CACHE_KEY, JSON.stringify(cacheable));
-    } catch (e) {}
+    } catch (e) { }
     renderScienceStaff(freshStaff);
   } catch (err) {
     console.error("Error loading science faculty:", err);

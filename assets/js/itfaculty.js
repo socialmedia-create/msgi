@@ -275,14 +275,14 @@ async function loadITFaculty() {
       </div>`;
   }
 
-  // Section 1: Professor and Head (Max 2 cards: HOD & AHOD)
+  // Section 1: Heads (Max 2 cards: HOD & AHOD)
   if (headList.length > 0) {
     const headSection = document.createElement("div");
     headSection.className = "mb-5";
     headSection.innerHTML = `
       <div class="text-center mb-4">
         <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-          Professor and Head
+          Heads
         </h4>
       </div>
       <div class="row g-4 justify-content-center"></div>`;

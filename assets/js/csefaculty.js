@@ -80,12 +80,12 @@ function createCardHTML(staff) {
   `;
 }
 
-// Load and display only CSE faculty, sorted in 2 sections (Professor and Head + Faculty Members)
+// Load and display only CSE faculty, sorted in 2 sections (Heads + Faculty Members)
 async function loadCSEFaculty() {
   const querySnapshot = await getDocs(collection(db, "staff"));
   const cseFaculty = querySnapshot.docs
     .map(doc => ({ id: doc.id, ...doc.data() }))
-    .filter(staff => { const d = (staff.department||"").trim().toLowerCase(); return d.includes("computer science") || d === "cse"; });
+    .filter(staff => { const d = (staff.department || "").trim().toLowerCase(); return d.includes("computer science") || d === "cse"; });
 
   const container = document.getElementById("csefaculty");
   if (!container) return;
@@ -100,14 +100,14 @@ async function loadCSEFaculty() {
   const headList = cseFaculty.filter(s => getCSEStaffRank(s) <= 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
   const facultyList = cseFaculty.filter(s => getCSEStaffRank(s) > 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
 
-  // Section 1: Professor and Head (Dr. S. Aarthi & Dr. M. K. Sandhya)
+  // Section 1: Heads (Dr. S. Aarthi & Dr. M. K. Sandhya)
   if (headList.length > 0) {
     const headSection = document.createElement("div");
     headSection.className = "mb-5";
     headSection.innerHTML = `
       <div class="text-center mb-4">
         <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-          Professor and Head
+          Heads
         </h4>
       </div>
       <div class="row g-4 justify-content-center"></div>`;

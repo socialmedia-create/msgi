@@ -678,6 +678,23 @@ function createPrincipalCardHTML(staff) {
 const CACHE_KEY = "msec_staff_data_v2";
 
 function renderAllTabs(staffArray) {
+  const sheebaStaff = staffArray.find(s => {
+    const nameStr = `${s.title || ""} ${s.firstName || ""} ${s.lastName || ""} ${s.name || ""} ${s.fullName || ""}`.toLowerCase();
+    return nameStr.includes("sheeba") || nameStr.includes("joice");
+  });
+
+  if (sheebaStaff && sheebaStaff.imageUrl) {
+    const frame = document.querySelector("#faculty--staff-tab-admin-academics .sheeba-photo-frame");
+    if (frame) {
+      frame.outerHTML = `<img src="${sheebaStaff.imageUrl}" alt="Dr. Sheeba Joice C" class="shadow-sm sheeba-photo" style="width: 155px; height: 155px; border-radius: 12px; border: 2px solid #fee2e2; margin-bottom: 14px; object-fit: cover;">`;
+    } else {
+      const existingImg = document.querySelector("#faculty--staff-tab-admin-academics img.sheeba-photo");
+      if (existingImg) {
+        existingImg.src = sheebaStaff.imageUrl;
+      }
+    }
+  }
+
   const staffByTab = {};
 
   staffArray.forEach((staff) => {
@@ -1078,12 +1095,12 @@ function renderAllTabs(staffArray) {
         </div>
         <div class="row g-4 justify-content-center"></div>`;
       const principalRow = principalSection.querySelector(".row");
-      const principalStaff = (principalList.length > 0) ? principalList[0] : {
-        title: "Dr.",
-        firstName: "S. V.",
-        lastName: "SARAVANAN",
-        designation: "Principal & Professor",
-        department: "Mechanical Engineering",
+      const principalStaff = {
+        title: (principalList[0]?.title) || "Dr.",
+        firstName: (principalList[0]?.firstName) || "S. V.",
+        lastName: (principalList[0]?.lastName) || "SARAVANAN",
+        designation: (principalList[0]?.designation) || "Principal & Professor",
+        department: (principalList[0]?.department) || "Mechanical Engineering",
         imageUrl: "assets/img/principal.png"
       };
       principalRow.insertAdjacentHTML("beforeend", createPrincipalCardHTML(principalStaff));

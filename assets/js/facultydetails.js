@@ -239,14 +239,16 @@ function getECEStaffRank(staff) {
 
 function formatDesignation(desig = "") {
   return (desig || "").trim().split(/\s+/).map(w => {
-    const l = w.toLowerCase().replace(/,$/, "");
-    if (l === "hod") return "HOD";
-    if (l === "ahod") return "AHOD";
+    const l = w.toLowerCase().replace(/,$/, "").replace(/^\(/, "").replace(/\)$/, "");
+    if (l === "hod") return w.includes("(") ? "(HOD)" : "HOD";
+    if (l === "ahod" || l === "a.hod") return w.includes("(") ? "(AHOD)" : "AHOD";
     if (l === "coe") return "COE";
     if (l === "iqac") return "IQAC";
     if (l === "dean") return "Dean";
+    if (l === "ug") return "UG";
+    if (l === "pg") return "PG";
     if (l === "lab") return "Lab";
-    if (l === "and" || l === "&") return "and";
+    if (l === "and" || l === "&") return "&";
     return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
   }).join(" ").trim() || "Faculty";
 }
@@ -699,26 +701,42 @@ function renderAllTabs(staffArray) {
 
     const isEEE = tabId === "faculty--staff-tab-5";
     if (isEEE) {
-      const headList = list.filter(s => getEEEStaffRank(s) <= 2).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
+      const hodList = list.filter(s => getEEEStaffRank(s) === 1).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
+      const ahodList = list.filter(s => getEEEStaffRank(s) === 2).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
       const facultyList = list.filter(s => getEEEStaffRank(s) > 2).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
 
       const deptInfo = tabPane.querySelector(".department-info");
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      if (headList.length > 0) {
-        const headSection = document.createElement("div");
-        headSection.className = "mb-5";
-        headSection.innerHTML = `
+      if (hodList.length > 0) {
+        const hodSection = document.createElement("div");
+        hodSection.className = "mb-5";
+        hodSection.innerHTML = `
           <div class="text-center mb-4">
             <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              Heads of the Department
+              Head of the Department
             </h4>
           </div>
           <div class="row g-4 justify-content-center"></div>`;
-        const headRow = headSection.querySelector(".row");
-        headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(headSection);
+        const hodRow = hodSection.querySelector(".row");
+        hodList.forEach(s => hodRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(hodSection);
+      }
+
+      if (ahodList.length > 0) {
+        const ahodSection = document.createElement("div");
+        ahodSection.className = "mb-5";
+        ahodSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Associate Head of the Department
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const ahodRow = ahodSection.querySelector(".row");
+        ahodList.forEach(s => ahodRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(ahodSection);
       }
 
       if (facultyList.length > 0) {
@@ -740,26 +758,42 @@ function renderAllTabs(staffArray) {
 
     const isCivil = tabId === "faculty--staff-tab-7";
     if (isCivil) {
-      const headList = list.filter(s => getCivilStaffRank(s) <= 2).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
+      const pgHeadList = list.filter(s => getCivilStaffRank(s) === 1).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
+      const ugHeadAndAhodList = list.filter(s => getCivilStaffRank(s) === 2).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
       const facultyList = list.filter(s => getCivilStaffRank(s) > 2).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
 
       const deptInfo = tabPane.querySelector(".department-info");
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      if (headList.length > 0) {
-        const headSection = document.createElement("div");
-        headSection.className = "mb-5";
-        headSection.innerHTML = `
+      if (pgHeadList.length > 0) {
+        const pgSection = document.createElement("div");
+        pgSection.className = "mb-5";
+        pgSection.innerHTML = `
           <div class="text-center mb-4">
             <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              Heads of the Department
+              Head of the Department – PG
             </h4>
           </div>
           <div class="row g-4 justify-content-center"></div>`;
-        const headRow = headSection.querySelector(".row");
-        headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(headSection);
+        const pgRow = pgSection.querySelector(".row");
+        pgHeadList.forEach(s => pgRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(pgSection);
+      }
+
+      if (ugHeadAndAhodList.length > 0) {
+        const ugSection = document.createElement("div");
+        ugSection.className = "mb-5";
+        ugSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Head of the Department – UG &amp; Associate Head
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const ugRow = ugSection.querySelector(".row");
+        ugHeadAndAhodList.forEach(s => ugRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(ugSection);
       }
 
       if (facultyList.length > 0) {

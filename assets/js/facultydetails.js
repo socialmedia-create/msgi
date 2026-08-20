@@ -663,26 +663,58 @@ function renderAllTabs(staffArray) {
 
     const isECE = tabId === "faculty--staff-tab-4";
     if (isECE) {
-      const headList = list.filter(s => getECEStaffRank(s) <= 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+      const deansList = list.filter(s => getECEStaffRank(s) >= 1 && getECEStaffRank(s) <= 2).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+      const coeList = list.filter(s => getECEStaffRank(s) === 3).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+      const headsList = list.filter(s => getECEStaffRank(s) >= 4 && getECEStaffRank(s) <= 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
       const facultyList = list.filter(s => getECEStaffRank(s) > 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
 
       const deptInfo = tabPane.querySelector(".department-info");
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      if (headList.length > 0) {
-        const headSection = document.createElement("div");
-        headSection.className = "mb-5";
-        headSection.innerHTML = `
+      if (deansList.length > 0) {
+        const section = document.createElement("div");
+        section.className = "mb-5";
+        section.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Deans
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const row = section.querySelector(".row");
+        deansList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(section);
+      }
+
+      if (coeList.length > 0) {
+        const section = document.createElement("div");
+        section.className = "mb-5";
+        section.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Controller of Examinations (COE)
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const row = section.querySelector(".row");
+        coeList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(section);
+      }
+
+      if (headsList.length > 0) {
+        const section = document.createElement("div");
+        section.className = "mb-5";
+        section.innerHTML = `
           <div class="text-center mb-4">
             <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
               Professor and Heads
             </h4>
           </div>
           <div class="row g-4 justify-content-center"></div>`;
-        const headRow = headSection.querySelector(".row");
-        headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(headSection);
+        const row = section.querySelector(".row");
+        headsList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(section);
       }
 
       if (facultyList.length > 0) {
@@ -745,26 +777,42 @@ function renderAllTabs(staffArray) {
 
     const isCivil = tabId === "faculty--staff-tab-7";
     if (isCivil) {
-      const headList = list.filter(s => getCivilStaffRank(s) <= 2).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
+      const pgHeadList = list.filter(s => getCivilStaffRank(s) === 1).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
+      const headsList = list.filter(s => getCivilStaffRank(s) === 2).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
       const facultyList = list.filter(s => getCivilStaffRank(s) > 2).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
 
       const deptInfo = tabPane.querySelector(".department-info");
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      if (headList.length > 0) {
-        const headSection = document.createElement("div");
-        headSection.className = "mb-5";
-        headSection.innerHTML = `
+      if (pgHeadList.length > 0) {
+        const pgSection = document.createElement("div");
+        pgSection.className = "mb-5";
+        pgSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Head of the Department – PG
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const pgRow = pgSection.querySelector(".row");
+        pgHeadList.forEach(s => pgRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(pgSection);
+      }
+
+      if (headsList.length > 0) {
+        const headsSection = document.createElement("div");
+        headsSection.className = "mb-5";
+        headsSection.innerHTML = `
           <div class="text-center mb-4">
             <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
               Professor and Heads
             </h4>
           </div>
           <div class="row g-4 justify-content-center"></div>`;
-        const headRow = headSection.querySelector(".row");
-        headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(headSection);
+        const headsRow = headsSection.querySelector(".row");
+        headsList.forEach(s => headsRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(headsSection);
       }
 
       if (facultyList.length > 0) {

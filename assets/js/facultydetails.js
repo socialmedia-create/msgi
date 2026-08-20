@@ -122,8 +122,41 @@ function getAIDSStaffRank(staff) {
       return item.rank;
     }
   }
+const EEE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["maya"], rank: 1 },
+  { keywords: ["venkatesh"], rank: 2 },
+  { keywords: ["mahalakshmi"], rank: 3 },
+  { keywords: ["saji"], rank: 4 },
+  { keywords: ["rajeswari", "rajeshwari"], rank: 5 },
+  { keywords: ["vanathi"], rank: 6 },
+  { keywords: ["manikandan"], rank: 7 },
+  { keywords: ["bhasker", "bhaskar"], rank: 8 },
+  { keywords: ["sivasubramaniyan", "sivasubramanian"], rank: 9 },
+  { keywords: ["angelin", "stefi", "steffi"], rank: 10 },
+  { keywords: ["hamsavalli"], rank: 11 },
+  { keywords: ["nadhia", "nadhiya"], rank: 12 },
+  { keywords: ["irfana"], rank: 13 },
+  { keywords: ["shanmathi", "sanmathi"], rank: 14 }
+];
+
+function getEEEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < EEE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = EEE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
   return 999;
 }
+
 const ECE_STAFF_PREFERRED_ORDER = [
   { keywords: ["arul", "karthick"], rank: 1 },
   { keywords: ["sheeba", "joice"], rank: 2 },
@@ -603,6 +636,47 @@ function renderAllTabs(staffArray) {
           <div class="text-center mb-4">
             <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
               Deans, COE and Heads
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const headRow = headSection.querySelector(".row");
+        headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(headSection);
+      }
+
+      if (facultyList.length > 0) {
+        const facultySection = document.createElement("div");
+        facultySection.className = "mb-5";
+        facultySection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Faculty Members
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const facultyRow = facultySection.querySelector(".row");
+        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(facultySection);
+      }
+      return;
+    }
+
+    const isEEE = tabId === "faculty--staff-tab-5";
+    if (isEEE) {
+      const headList = list.filter(s => getEEEStaffRank(s) <= 2).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
+      const facultyList = list.filter(s => getEEEStaffRank(s) > 2).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
+
+      const deptInfo = tabPane.querySelector(".department-info");
+      tabPane.innerHTML = "";
+      if (deptInfo) tabPane.appendChild(deptInfo);
+
+      if (headList.length > 0) {
+        const headSection = document.createElement("div");
+        headSection.className = "mb-5";
+        headSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Heads of the Department
             </h4>
           </div>
           <div class="row g-4 justify-content-center"></div>`;

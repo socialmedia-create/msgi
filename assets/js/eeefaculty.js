@@ -15,15 +15,40 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Designation priority logic
-function getDesignationPriority(designation = "") {
-  const d = designation.trim().toLowerCase();
+// Preferred EEE Staff Ordering
+const EEE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["maya"], rank: 1 },
+  { keywords: ["venkatesh"], rank: 2 },
+  { keywords: ["mahalakshmi"], rank: 3 },
+  { keywords: ["saji"], rank: 4 },
+  { keywords: ["rajeswari", "rajeshwari"], rank: 5 },
+  { keywords: ["vanathi"], rank: 6 },
+  { keywords: ["manikandan"], rank: 7 },
+  { keywords: ["bhasker", "bhaskar"], rank: 8 },
+  { keywords: ["sivasubramaniyan", "sivasubramanian"], rank: 9 },
+  { keywords: ["angelin", "stefi", "steffi"], rank: 10 },
+  { keywords: ["hamsavalli"], rank: 11 },
+  { keywords: ["nadhia", "nadhiya"], rank: 12 },
+  { keywords: ["irfana"], rank: 13 },
+  { keywords: ["shanmathi", "sanmathi"], rank: 14 }
+];
 
-  if (d.includes("hod")) return 1;
-  if (d === "professor") return 2;
-  if (d.includes("associate")) return 3;
-  if (d.includes("assistant")) return 4;
-  return 5;
+function getEEEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < EEE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = EEE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
 }
 
 // Load and display only EEE faculty, sorted by priority
@@ -49,9 +74,9 @@ async function loadCSEFaculty() {
   const cardRow = document.createElement("div");
   cardRow.className = "row g-4 mb-5";
 
-  // Sort by designation
+  // Sort by preferred rank
   const sortedFaculty = cseFaculty.sort(
-    (a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation)
+    (a, b) => getEEEStaffRank(a) - getEEEStaffRank(b)
   );
 
   sortedFaculty.forEach((staff) => {

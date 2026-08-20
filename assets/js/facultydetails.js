@@ -1068,20 +1068,26 @@ function renderAllTabs(staffArray) {
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      if (principalList.length > 0) {
-        const principalSection = document.createElement("div");
-        principalSection.className = "mb-5";
-        principalSection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              Principal
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const principalRow = principalSection.querySelector(".row");
-        principalList.forEach(s => principalRow.insertAdjacentHTML("beforeend", createPrincipalCardHTML(s)));
-        tabPane.appendChild(principalSection);
-      }
+      const principalSection = document.createElement("div");
+      principalSection.className = "mb-5";
+      principalSection.innerHTML = `
+        <div class="text-center mb-4">
+          <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+            Principal
+          </h4>
+        </div>
+        <div class="row g-4 justify-content-center"></div>`;
+      const principalRow = principalSection.querySelector(".row");
+      const principalStaff = (principalList.length > 0) ? principalList[0] : {
+        title: "Dr.",
+        firstName: "S. V.",
+        lastName: "SARAVANAN",
+        designation: "Principal & Professor",
+        department: "Mechanical Engineering",
+        imageUrl: "assets/img/principal.png"
+      };
+      principalRow.insertAdjacentHTML("beforeend", createPrincipalCardHTML(principalStaff));
+      tabPane.appendChild(principalSection);
 
       if (headsList.length > 0) {
         const HEADSection = document.createElement("div");

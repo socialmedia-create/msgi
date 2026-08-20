@@ -608,6 +608,73 @@ function createCardHTML(staff) {
     </div>`;
 }
 
+window.switchToPrincipalTab = function () {
+  const adminSubNav = document.getElementById("adminSubNav");
+  if (adminSubNav && !adminSubNav.classList.contains("show")) {
+    const adminToggle = document.querySelector('[data-bs-target="#adminSubNav"]');
+    if (adminToggle) {
+      if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+        const bsCollapse = bootstrap.Collapse.getInstance(adminSubNav) || new bootstrap.Collapse(adminSubNav, { toggle: false });
+        bsCollapse.show();
+      } else {
+        adminSubNav.classList.add("show");
+      }
+    }
+  }
+
+  const principalTabBtn = document.querySelector('button[data-bs-target="#faculty--staff-tab-0"]');
+  if (principalTabBtn) {
+    if (typeof bootstrap !== 'undefined' && bootstrap.Tab) {
+      const tabTrigger = bootstrap.Tab.getInstance(principalTabBtn) || new bootstrap.Tab(principalTabBtn);
+      tabTrigger.show();
+    } else {
+      principalTabBtn.click();
+    }
+    const tabTarget = document.querySelector('#faculty--staff-tab-0');
+    if (tabTarget) {
+      tabTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (window.location.hash) {
+    const targetHash = window.location.hash;
+    if (targetHash === "#faculty--staff-tab-0" || targetHash.includes("admin")) {
+      window.switchToPrincipalTab();
+    }
+  }
+});
+
+function createPrincipalCardHTML(staff) {
+  const name = formatFacultyName(staff.title, staff.firstName, staff.lastName);
+  const desig = formatDesignation(staff.designation);
+  const dept = (staff.department || "").trim();
+  const initials = getInitials(name);
+  const hasImg = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
+
+  const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)
+    ? `<div class="mt-2">${staff.specialties.map(s => `<span class="msec-faculty-specialty">${s}</span>`).join("")}</div>`
+    : "";
+
+  const avatarHtml = hasImg
+    ? `<img src="${staff.imageUrl}" class="msec-faculty-avatar shadow-sm" alt="${name}" loading="lazy">`
+    : `<div class="msec-faculty-initials shadow-sm">${initials}</div>`;
+
+  return `
+    <div class="col-md-6 col-lg-4 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+      <a href="javascript:void(0);" onclick="switchToPrincipalTab()" class="w-100 text-decoration-none" style="color:inherit; cursor: pointer;">
+        <div class="msec-faculty-card">
+          ${avatarHtml}
+          <h5 class="msec-faculty-name">${name}</h5>
+          <p class="msec-faculty-designation">${desig}</p>
+          <span class="msec-faculty-dept-badge">${dept}</span>
+          ${specialtiesHtml}
+        </div>
+      </a>
+    </div>`;
+}
+
 const CACHE_KEY = "msec_staff_data_v2";
 
 function renderAllTabs(staffArray) {
@@ -1012,7 +1079,7 @@ function renderAllTabs(staffArray) {
           </div>
           <div class="row g-4 justify-content-center"></div>`;
         const principalRow = principalSection.querySelector(".row");
-        principalList.forEach(s => principalRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        principalList.forEach(s => principalRow.insertAdjacentHTML("beforeend", createPrincipalCardHTML(s)));
         tabPane.appendChild(principalSection);
       }
 

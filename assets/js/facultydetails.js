@@ -122,6 +122,9 @@ function getAIDSStaffRank(staff) {
       return item.rank;
     }
   }
+  return 999;
+}
+
 const EEE_STAFF_PREFERRED_ORDER = [
   { keywords: ["maya"], rank: 1 },
   { keywords: ["venkatesh"], rank: 2 },

@@ -583,7 +583,7 @@ function createCardHTML(staff) {
   const desig = formatDesignation(staff.designation);
   const dept = (staff.department || "").trim();
   const initials = getInitials(name);
-  const hasImg = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
+  const hasImg = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image") || staff.imageUrl.startsWith("assets/"));
   const profileUrl = getStaffPreviewUrl(staff);
 
   const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)
@@ -651,14 +651,15 @@ function createPrincipalCardHTML(staff) {
   const desig = formatDesignation(staff.designation);
   const dept = (staff.department || "").trim();
   const initials = getInitials(name);
-  const hasImg = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:image"));
+  const imageUrl = staff.imageUrl || "assets/img/principal.png";
+  const hasImg = imageUrl && (imageUrl.startsWith("http") || imageUrl.startsWith("data:image") || imageUrl.startsWith("assets/"));
 
   const specialtiesHtml = (staff.specialties && staff.specialties.length > 0)
     ? `<div class="mt-2">${staff.specialties.map(s => `<span class="msec-faculty-specialty">${s}</span>`).join("")}</div>`
     : "";
 
   const avatarHtml = hasImg
-    ? `<img src="${staff.imageUrl}" class="msec-faculty-avatar shadow-sm" alt="${name}" loading="lazy">`
+    ? `<img src="${imageUrl}" class="msec-faculty-avatar shadow-sm" alt="${name}" loading="lazy">`
     : `<div class="msec-faculty-initials shadow-sm">${initials}</div>`;
 
   return `

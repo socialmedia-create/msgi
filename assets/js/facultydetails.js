@@ -230,6 +230,66 @@ function getMECHStaffRank(staff) {
   return 999;
 }
 
+const SCIENCE_STAFF_PREFERRED_ORDER = [
+  // Physics
+  { keywords: ["subathra"], rank: 1 },
+  { keywords: ["ajitha"], rank: 2 },
+  { keywords: ["thilageswari"], rank: 3 },
+  { keywords: ["muthulakshmi"], rank: 4 },
+  { keywords: ["mahalakshmi"], rank: 5 },
+  { keywords: ["jinitha"], rank: 6 },
+  { keywords: ["beena"], rank: 7 },
+
+  // Chemistry
+  { keywords: ["sowndarya"], rank: 1 },
+  { keywords: ["srividya"], rank: 2 },
+  { keywords: ["sujee"], rank: 3 },
+  { keywords: ["madhavi"], rank: 4 },
+  { keywords: ["vijayaragini"], rank: 5 },
+  { keywords: ["jeyashri", "jeyasri"], rank: 6 },
+
+  // Mathematics
+  { keywords: ["amutha"], rank: 1 },
+  { keywords: ["subashini"], rank: 2 },
+  { keywords: ["purnalakshimi", "purnalakshmi"], rank: 3 },
+  { keywords: ["muthuracku"], rank: 4 },
+  { keywords: ["manjula"], rank: 5 },
+  { keywords: ["bhuvana"], rank: 6 },
+  { keywords: ["sengole", "elavarasi"], rank: 7 },
+  { keywords: ["nalini"], rank: 8 },
+  { keywords: ["adeline"], rank: 9 },
+  { keywords: ["betsy"], rank: 10 },
+  { keywords: ["angela", "constant"], rank: 11 },
+
+  // English
+  { keywords: ["riswana"], rank: 1 },
+  { keywords: ["lavanya"], rank: 2 },
+  { keywords: ["rajathi"], rank: 3 },
+  { keywords: ["prabi"], rank: 4 },
+
+  // Tamil
+  { keywords: ["chitra"], rank: 1 },
+  { keywords: ["vinnarasi"], rank: 2 }
+];
+
+function getScienceStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < SCIENCE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = SCIENCE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
 const ECE_STAFF_PREFERRED_ORDER = [
   { keywords: ["arul", "karthick"], rank: 1 },
   { keywords: ["sheeba", "joice"], rank: 2 },
@@ -928,12 +988,12 @@ function renderAllTabs(staffArray) {
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
 
-      const scienceClusters = ["Mathematics", "Physics", "Chemistry", "English", "Tamil"];
+      const scienceClusters = ["Physics", "Chemistry", "Mathematics", "English", "Tamil"];
       const getCluster = (dept = "") => {
         const d = dept.trim().toLowerCase();
-        if (d.includes("math")) return "Mathematics";
         if (d.includes("physics")) return "Physics";
         if (d.includes("chemistry")) return "Chemistry";
+        if (d.includes("math")) return "Mathematics";
         if (d.includes("english")) return "English";
         if (d.includes("tamil")) return "Tamil";
         return "Other";
@@ -949,7 +1009,7 @@ function renderAllTabs(staffArray) {
       scienceClusters.forEach(clusterName => {
         const clusterList = grouped[clusterName];
         if (clusterList && clusterList.length > 0) {
-          clusterList.sort((a, b) => getDesignationPriority(a.designation || "") - getDesignationPriority(b.designation || ""));
+          clusterList.sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
 
           const sec = document.createElement("div");
           sec.className = "mb-5";
@@ -967,7 +1027,7 @@ function renderAllTabs(staffArray) {
       });
 
       if (grouped["Other"] && grouped["Other"].length > 0) {
-        grouped["Other"].sort((a, b) => getDesignationPriority(a.designation || "") - getDesignationPriority(b.designation || ""));
+        grouped["Other"].sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
         const sec = document.createElement("div");
         sec.className = "mb-5";
         sec.innerHTML = `

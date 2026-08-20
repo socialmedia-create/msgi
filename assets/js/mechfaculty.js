@@ -15,15 +15,39 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Designation priority logic
-function getDesignationPriority(designation = "") {
-  const d = designation.trim().toLowerCase();
+// Preferred Mechanical Staff Ordering
+const MECH_STAFF_PREFERRED_ORDER = [
+  { keywords: ["saravanan"], rank: 1 },
+  { keywords: ["thiyaghu", "thyagu"], rank: 2 },
+  { keywords: ["kamatchi", "sankaran"], rank: 3 },
+  { keywords: ["vijayan"], rank: 4 },
+  { keywords: ["srimanickam", "sri manickam"], rank: 5 },
+  { keywords: ["prabakaran", "prabhakaran"], rank: 6 },
+  { keywords: ["chidambaram"], rank: 7 },
+  { keywords: ["iyyanar"], rank: 8 },
+  { keywords: ["arul"], rank: 9 },
+  { keywords: ["rajkumar", "raj kumar"], rank: 10 },
+  { keywords: ["brithivi", "prithivi"], rank: 11 },
+  { keywords: ["daniel"], rank: 12 },
+  { keywords: ["dhinakaran"], rank: 13 }
+];
 
-  if (d.includes("hod")) return 1;
-  if (d === "professor") return 2;
-  if (d.includes("LAB ASSISTANT")) return 3;
-  if (d.includes("assistant")) return 4;
-  return 5;
+function getMECHStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < MECH_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = MECH_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
 }
 
 // Load and display only Mechanical faculty, sorted by priority
@@ -46,9 +70,9 @@ async function loadCSEFaculty() {
   const cardRow = document.createElement("div");
   cardRow.className = "row g-4 mb-5";
 
-  // Sort by designation
+  // Sort by preferred rank
   const sortedFaculty = cseFaculty.sort(
-    (a, b) => getDesignationPriority(a.designation) - getDesignationPriority(b.designation)
+    (a, b) => getMECHStaffRank(a) - getMECHStaffRank(b)
   );
 
   sortedFaculty.forEach((staff) => {

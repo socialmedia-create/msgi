@@ -196,6 +196,40 @@ function getCivilStaffRank(staff) {
   return 999;
 }
 
+const MECH_STAFF_PREFERRED_ORDER = [
+  { keywords: ["saravanan"], rank: 1 },
+  { keywords: ["thiyaghu", "thyagu"], rank: 2 },
+  { keywords: ["kamatchi", "sankaran"], rank: 3 },
+  { keywords: ["vijayan"], rank: 4 },
+  { keywords: ["srimanickam", "sri manickam"], rank: 5 },
+  { keywords: ["prabakaran", "prabhakaran"], rank: 6 },
+  { keywords: ["chidambaram"], rank: 7 },
+  { keywords: ["iyyanar"], rank: 8 },
+  { keywords: ["arul"], rank: 9 },
+  { keywords: ["rajkumar", "raj kumar"], rank: 10 },
+  { keywords: ["brithivi", "prithivi"], rank: 11 },
+  { keywords: ["daniel"], rank: 12 },
+  { keywords: ["dhinakaran"], rank: 13 }
+];
+
+function getMECHStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < MECH_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = MECH_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
 const ECE_STAFF_PREFERRED_ORDER = [
   { keywords: ["arul", "karthick"], rank: 1 },
   { keywords: ["sheeba", "joice"], rank: 2 },
@@ -243,8 +277,8 @@ function getECEStaffRank(staff) {
 function formatDesignation(desig = "") {
   return (desig || "").trim().split(/\s+/).map(w => {
     const l = w.toLowerCase().replace(/,$/, "").replace(/^\(/, "").replace(/\)$/, "");
-    if (l === "hod") return w.includes("(") ? "(HOD)" : "HOD";
-    if (l === "ahod" || l === "a.hod") return w.includes("(") ? "(AHOD)" : "AHOD";
+    if (l === "hod") return w.includes("(") ? "(HoD)" : "HoD";
+    if (l === "ahod" || l === "a.hod") return w.includes("(") ? "(AHoD)" : "AHoD";
     if (l === "coe") return "COE";
     if (l === "iqac") return "IQAC";
     if (l === "dean") return "Dean";
@@ -798,6 +832,63 @@ function renderAllTabs(staffArray) {
         const pgRow = pgSection.querySelector(".row");
         pgHeadList.forEach(s => pgRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
         tabPane.appendChild(pgSection);
+      }
+
+      if (headsList.length > 0) {
+        const headsSection = document.createElement("div");
+        headsSection.className = "mb-5";
+        headsSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Professor and Heads
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const headsRow = headsSection.querySelector(".row");
+        headsList.forEach(s => headsRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(headsSection);
+      }
+
+      if (facultyList.length > 0) {
+        const facultySection = document.createElement("div");
+        facultySection.className = "mb-5";
+        facultySection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Faculty Members
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const facultyRow = facultySection.querySelector(".row");
+        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(facultySection);
+      }
+      return;
+    }
+
+    const isMech = tabId === "faculty--staff-tab-6";
+    if (isMech) {
+      const principalList = list.filter(s => getMECHStaffRank(s) === 1).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+      const headsList = list.filter(s => getMECHStaffRank(s) >= 2 && getMECHStaffRank(s) <= 3).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+      const facultyList = list.filter(s => getMECHStaffRank(s) > 3).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+
+      const deptInfo = tabPane.querySelector(".department-info");
+      tabPane.innerHTML = "";
+      if (deptInfo) tabPane.appendChild(deptInfo);
+
+      if (principalList.length > 0) {
+        const principalSection = document.createElement("div");
+        principalSection.className = "mb-5";
+        principalSection.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              Principal
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const principalRow = principalSection.querySelector(".row");
+        principalList.forEach(s => principalRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(principalSection);
       }
 
       if (headsList.length > 0) {

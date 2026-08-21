@@ -1653,7 +1653,7 @@ transition: all 0.2s ease-in-out;
 /* Popup box */
 .popup-content {
   position: relative;
-  max-width: 900px;
+  max-width: 440px;
   width: 90%;
   animation: fadeIn 0.4s ease-in-out;
 }
@@ -1661,7 +1661,8 @@ transition: all 0.2s ease-in-out;
 /* Image */
 .popup-img {
   width: 100%;
-  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
   border-radius: 10px;
   display: block;
   cursor: pointer;

@@ -160,6 +160,33 @@ function getEEEStaffRank(staff) {
   return 999;
 }
 
+const ECE_STAFF_PREFERRED_ORDER = [
+  { keywords: ["sheeba", "joice"], rank: 1 },
+  { keywords: ["usha"], rank: 2 },
+  { keywords: ["sathish", "sathishkumar", "sathish kumar"], rank: 3 },
+  { keywords: ["babiyola"], rank: 4 },
+  { keywords: ["mahalakshmi"], rank: 5 },
+  { keywords: ["arul", "karthick", "arul karthick"], rank: 6 }
+];
+
+function getECEStaffRank(staff) {
+  const nameStr = [
+    staff.title || "",
+    staff.firstName || "",
+    staff.lastName || "",
+    staff.name || "",
+    staff.fullName || ""
+  ].join(" ").toLowerCase();
+
+  for (let i = 0; i < ECE_STAFF_PREFERRED_ORDER.length; i++) {
+    const item = ECE_STAFF_PREFERRED_ORDER[i];
+    if (item.keywords.some(kw => nameStr.includes(kw))) {
+      return item.rank;
+    }
+  }
+  return 999;
+}
+
 const CIVIL_STAFF_PREFERRED_ORDER = [
   { keywords: ["asha"], rank: 1 },
   { keywords: ["nirmalambal"], rank: 2 },
@@ -737,12 +764,87 @@ function renderDepartmentPane(tabId, list, tabPane) {
     });
     facultyList = list.filter(s => getAIDSStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
   } else if (isECE) {
-    headList = list.filter(s => getECEStaffRank(s) <= 2).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
-    profList = list.filter(s => {
-      const r = getECEStaffRank(s);
-      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
-    });
-    facultyList = list.filter(s => getECEStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const deansList = list.filter(s => getECEStaffRank(s) >= 1 && getECEStaffRank(s) <= 2).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const coeList = list.filter(s => getECEStaffRank(s) === 3).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const headsList = list.filter(s => getECEStaffRank(s) >= 4 && getECEStaffRank(s) <= 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const profList = list.filter(s => getECEStaffRank(s) === 6 || ((s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant") && getECEStaffRank(s) > 5)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const facultyList = list.filter(s => getECEStaffRank(s) > 6 && !deansList.includes(s) && !coeList.includes(s) && !headsList.includes(s) && !profList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+
+    if (deansList.length > 0) {
+      const section = document.createElement("div");
+      section.className = "mb-5";
+      section.innerHTML = `
+        <div class="text-center mb-4">
+          <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+            Deans
+          </h4>
+        </div>
+        <div class="row g-4 justify-content-center"></div>`;
+      const row = section.querySelector(".row");
+      deansList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+      tabPane.appendChild(section);
+    }
+
+    if (coeList.length > 0) {
+      const section = document.createElement("div");
+      section.className = "mb-5";
+      section.innerHTML = `
+        <div class="text-center mb-4">
+          <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+            Controller of Examinations (COE)
+          </h4>
+        </div>
+        <div class="row g-4 justify-content-center"></div>`;
+      const row = section.querySelector(".row");
+      coeList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+      tabPane.appendChild(section);
+    }
+
+    if (headsList.length > 0) {
+      const section = document.createElement("div");
+      section.className = "mb-5";
+      section.innerHTML = `
+        <div class="text-center mb-4">
+          <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+            HEADS
+          </h4>
+        </div>
+        <div class="row g-4 justify-content-center"></div>`;
+      const row = section.querySelector(".row");
+      headsList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+      tabPane.appendChild(section);
+    }
+
+    if (profList.length > 0) {
+      const profSection = document.createElement("div");
+      profSection.className = "mb-5";
+      profSection.innerHTML = `
+        <div class="text-center mb-4">
+          <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+            PROFESSORS
+          </h4>
+        </div>
+        <div class="row g-4 justify-content-center"></div>`;
+      const profRow = profSection.querySelector(".row");
+      profList.forEach(s => profRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+      tabPane.appendChild(profSection);
+    }
+
+    if (facultyList.length > 0) {
+      const facultySection = document.createElement("div");
+      facultySection.className = "mb-5";
+      facultySection.innerHTML = `
+        <div class="text-center mb-4">
+          <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+            FACULTY MEMBERS
+          </h4>
+        </div>
+        <div class="row g-4 justify-content-center"></div>`;
+      const facultyRow = facultySection.querySelector(".row");
+      facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+      tabPane.appendChild(facultySection);
+    }
+    return;
   } else if (isEEE) {
     headList = list.filter(s => getEEEStaffRank(s) <= 2).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
     profList = list.filter(s => {
@@ -840,34 +942,7 @@ function renderDepartmentPane(tabId, list, tabPane) {
   }
 }
 
-function filterRedundantStaff(staffArray) {
-  const seenPriskillaWithImg = staffArray.some(s => {
-    const nameStr = `${s.title || ""} ${s.firstName || ""} ${s.lastName || ""} ${s.name || ""} ${s.fullName || ""}`.toLowerCase();
-    const hasImg = s.imageUrl && (s.imageUrl.startsWith("http") || s.imageUrl.startsWith("data:") || s.imageUrl.startsWith("assets/"));
-    return nameStr.includes("priskilla") && hasImg;
-  });
-
-  return staffArray.filter(staff => {
-    if (staff.email?.toLowerCase() === "lalettan@gmail.com") return false;
-
-    const nameStr = `${staff.title || ""} ${staff.firstName || ""} ${staff.lastName || ""} ${staff.name || ""} ${staff.fullName || ""}`.toLowerCase();
-    const desigStr = (staff.designation || "").toLowerCase();
-
-    if (desigStr.includes("professoer")) return false;
-
-    if (nameStr.includes("priskilla")) {
-      const hasImg = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:") || staff.imageUrl.startsWith("assets/"));
-      if (seenPriskillaWithImg && !hasImg) {
-        return false;
-      }
-    }
-
-    return true;
-  });
-}
-
-function renderAllTabs(rawStaffArray) {
-  const staffArray = filterRedundantStaff(rawStaffArray);
+function renderAllTabs(staffArray) {
   const sheebaStaff = staffArray.find(s => {
     const nameStr = `${s.title || ""} ${s.firstName || ""} ${s.lastName || ""} ${s.name || ""} ${s.fullName || ""}`.toLowerCase();
     return nameStr.includes("sheeba") || nameStr.includes("joice");
@@ -888,6 +963,8 @@ function renderAllTabs(rawStaffArray) {
   const staffByTab = {};
 
   staffArray.forEach((staff) => {
+    if (staff.email?.toLowerCase() === "lalettan@gmail.com") return;
+
     const tabId = getTabIdForDepartment(staff.department);
     if (!tabId) return;
 
@@ -918,7 +995,7 @@ function renderAllTabs(rawStaffArray) {
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v5";
+const CACHE_KEY = "msec_staff_data_v4";
 
 async function loadFaculty() {
   injectCardStyles();

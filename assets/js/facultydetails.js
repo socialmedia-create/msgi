@@ -943,6 +943,9 @@ function renderAllTabs(staffArray) {
   staffArray.forEach((staff) => {
     if (staff.email?.toLowerCase() === "lalettan@gmail.com") return;
 
+    const nameStr = `${staff.title || ""} ${staff.firstName || ""} ${staff.lastName || ""} ${staff.name || ""} ${staff.fullName || ""}`.toLowerCase();
+    if (nameStr.includes("santhanakrishnan") || nameStr.includes("santhana krishnan") || nameStr.includes("santhankrishnan")) return;
+
     const tabId = getTabIdForDepartment(staff.department);
     if (!tabId) return;
 
@@ -973,7 +976,7 @@ function renderAllTabs(staffArray) {
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v6";
+const CACHE_KEY = "msec_staff_data_v7";
 
 async function loadFaculty() {
   injectCardStyles();

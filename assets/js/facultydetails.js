@@ -161,12 +161,29 @@ function getEEEStaffRank(staff) {
 }
 
 const ECE_STAFF_PREFERRED_ORDER = [
-  { keywords: ["sheeba", "joice"], rank: 1 },
-  { keywords: ["usha"], rank: 2 },
-  { keywords: ["sathish", "sathishkumar", "sathish kumar"], rank: 3 },
-  { keywords: ["babiyola"], rank: 4 },
-  { keywords: ["mahalakshmi"], rank: 5 },
-  { keywords: ["arul", "karthick", "arul karthick"], rank: 6 }
+  { keywords: ["arul", "karthick"], rank: 1 },
+  { keywords: ["sheeba", "joice"], rank: 2 },
+  { keywords: ["babiyola"], rank: 3 },
+  { keywords: ["siji", "sivanandan"], rank: 4 },
+  { keywords: ["balasubramanian"], rank: 5 },
+  { keywords: ["meenakshi"], rank: 6 },
+  { keywords: ["sowmya"], rank: 7 },
+  { keywords: ["vinoth"], rank: 8 },
+  { keywords: ["nooruuzzaman", "khan"], rank: 9 },
+  { keywords: ["satheesh"], rank: 10 },
+  { keywords: ["velu"], rank: 11 },
+  { keywords: ["r.lakshmi", "r. lakshmi", "r lakshmi"], rank: 12 },
+  { keywords: ["annamalai"], rank: 13 },
+  { keywords: ["sasikala"], rank: 14 },
+  { keywords: ["arif"], rank: 15 },
+  { keywords: ["selvarani"], rank: 16 },
+  { keywords: ["mahalakshmi"], rank: 17 },
+  { keywords: ["sandhya"], rank: 18 },
+  { keywords: ["durkadevi"], rank: 19 },
+  { keywords: ["nadhiya"], rank: 20 },
+  { keywords: ["krithika"], rank: 21 },
+  { keywords: ["janani"], rank: 22 },
+  { keywords: ["sruthi"], rank: 23 }
 ];
 
 function getECEStaffRank(staff) {
@@ -317,32 +334,6 @@ function getScienceStaffRank(staff) {
   }
   return 999;
 }
-
-const ECE_STAFF_PREFERRED_ORDER = [
-  { keywords: ["arul", "karthick"], rank: 1 },
-  { keywords: ["sheeba", "joice"], rank: 2 },
-  { keywords: ["babiyola"], rank: 3 },
-  { keywords: ["siji", "sivanandan"], rank: 4 },
-  { keywords: ["balasubramanian"], rank: 5 },
-  { keywords: ["meenakshi"], rank: 6 },
-  { keywords: ["sowmya"], rank: 7 },
-  { keywords: ["vinoth"], rank: 8 },
-  { keywords: ["nooruuzzaman", "khan"], rank: 9 },
-  { keywords: ["satheesh"], rank: 10 },
-  { keywords: ["velu"], rank: 11 },
-  { keywords: ["r.lakshmi", "r. lakshmi", "r lakshmi"], rank: 12 },
-  { keywords: ["annamalai"], rank: 13 },
-  { keywords: ["sasikala"], rank: 14 },
-  { keywords: ["arif"], rank: 15 },
-  { keywords: ["selvarani"], rank: 16 },
-  { keywords: ["mahalakshmi"], rank: 17 },
-  { keywords: ["sandhya"], rank: 18 },
-  { keywords: ["durkadevi"], rank: 19 },
-  { keywords: ["nadhiya"], rank: 20 },
-  { keywords: ["krithika"], rank: 21 },
-  { keywords: ["janani"], rank: 22 },
-  { keywords: ["sruthi"], rank: 23 }
-];
 
 function getECEStaffRank(staff) {
   const nameStr = [

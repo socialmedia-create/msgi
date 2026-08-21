@@ -648,6 +648,11 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+function isMainFacultyStaffPage() {
+  const path = window.location.pathname.toLowerCase();
+  return path.endsWith("faculty-staff.html") || path.endsWith("faculty-staff") || path.endsWith("faculty-staff/");
+}
+
 function getDepartmentFromPath() {
   const path = window.location.pathname.toLowerCase();
   if (path.includes("informationtechnology.html")) return "faculty--staff-tab-1";
@@ -867,26 +872,28 @@ function renderAllTabs(staffArray) {
     staffByTab[tabId].push(staff);
   });
 
-  const standaloneTabId = getDepartmentFromPath();
-  if (standaloneTabId) {
-    const standalonePane = document.getElementById("faculty--staff-tab-3");
-    if (standalonePane) {
-      const deptList = staffByTab[standaloneTabId] || [];
-      renderDepartmentPane(standaloneTabId, deptList, standalonePane);
+  if (isMainFacultyStaffPage()) {
+    Object.keys(staffByTab).forEach((tabId) => {
+      const tabPane = document.getElementById(tabId);
+      if (tabPane) {
+        renderDepartmentPane(tabId, staffByTab[tabId], tabPane);
+      }
+    });
+  } else {
+    const standaloneTabId = getDepartmentFromPath();
+    if (standaloneTabId) {
+      const standalonePane = document.getElementById("faculty--staff-tab-3");
+      if (standalonePane) {
+        const deptList = staffByTab[standaloneTabId] || [];
+        renderDepartmentPane(standaloneTabId, deptList, standalonePane);
+      }
     }
   }
-
-  Object.keys(staffByTab).forEach((tabId) => {
-    const tabPane = document.getElementById(tabId);
-    if (tabPane) {
-      renderDepartmentPane(tabId, staffByTab[tabId], tabPane);
-    }
-  });
 
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v3";
+const CACHE_KEY = "msec_staff_data_v4";
 
 async function loadFaculty() {
   injectCardStyles();

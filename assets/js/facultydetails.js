@@ -840,7 +840,34 @@ function renderDepartmentPane(tabId, list, tabPane) {
   }
 }
 
-function renderAllTabs(staffArray) {
+function filterRedundantStaff(staffArray) {
+  const seenPriskillaWithImg = staffArray.some(s => {
+    const nameStr = `${s.title || ""} ${s.firstName || ""} ${s.lastName || ""} ${s.name || ""} ${s.fullName || ""}`.toLowerCase();
+    const hasImg = s.imageUrl && (s.imageUrl.startsWith("http") || s.imageUrl.startsWith("data:") || s.imageUrl.startsWith("assets/"));
+    return nameStr.includes("priskilla") && hasImg;
+  });
+
+  return staffArray.filter(staff => {
+    if (staff.email?.toLowerCase() === "lalettan@gmail.com") return false;
+
+    const nameStr = `${staff.title || ""} ${staff.firstName || ""} ${staff.lastName || ""} ${staff.name || ""} ${staff.fullName || ""}`.toLowerCase();
+    const desigStr = (staff.designation || "").toLowerCase();
+
+    if (desigStr.includes("professoer")) return false;
+
+    if (nameStr.includes("priskilla")) {
+      const hasImg = staff.imageUrl && (staff.imageUrl.startsWith("http") || staff.imageUrl.startsWith("data:") || staff.imageUrl.startsWith("assets/"));
+      if (seenPriskillaWithImg && !hasImg) {
+        return false;
+      }
+    }
+
+    return true;
+  });
+}
+
+function renderAllTabs(rawStaffArray) {
+  const staffArray = filterRedundantStaff(rawStaffArray);
   const sheebaStaff = staffArray.find(s => {
     const nameStr = `${s.title || ""} ${s.firstName || ""} ${s.lastName || ""} ${s.name || ""} ${s.fullName || ""}`.toLowerCase();
     return nameStr.includes("sheeba") || nameStr.includes("joice");
@@ -861,10 +888,6 @@ function renderAllTabs(staffArray) {
   const staffByTab = {};
 
   staffArray.forEach((staff) => {
-    if (staff.email?.toLowerCase() === "lalettan@gmail.com") return;
-    const nameStr = `${staff.title || ""} ${staff.firstName || ""} ${staff.lastName || ""} ${staff.name || ""} ${staff.fullName || ""}`.toLowerCase();
-    if (nameStr.includes("manonmani")) return;
-
     const tabId = getTabIdForDepartment(staff.department);
     if (!tabId) return;
 
@@ -921,8 +944,7 @@ async function loadFaculty() {
 
     querySnapshot.forEach((doc) => {
       const staff = doc.data();
-      const nameStr = `${staff.title || ""} ${staff.firstName || ""} ${staff.lastName || ""} ${staff.name || ""} ${staff.fullName || ""}`.toLowerCase();
-      if (staff.email?.toLowerCase() !== "lalettan@gmail.com" && !nameStr.includes("manonmani")) {
+      if (staff.email?.toLowerCase() !== "lalettan@gmail.com") {
         freshStaff.push(staff);
       }
     });

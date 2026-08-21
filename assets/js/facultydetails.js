@@ -886,7 +886,7 @@ function renderAllTabs(staffArray) {
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v2";
+const CACHE_KEY = "msec_staff_data_v3";
 
 async function loadFaculty() {
   injectCardStyles();

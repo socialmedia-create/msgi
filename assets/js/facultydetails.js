@@ -335,23 +335,23 @@ function getScienceStaffRank(staff) {
   return 999;
 }
 
-function getECEStaffRank(staff) {
-  const nameStr = [
-    staff.title || "",
-    staff.firstName || "",
-    staff.lastName || "",
-    staff.name || "",
-    staff.fullName || ""
-  ].join(" ").toLowerCase();
+// function getECEStaffRank(staff) {
+//   const nameStr = [
+//     staff.title || "",
+//     staff.firstName || "",
+//     staff.lastName || "",
+//     staff.name || "",
+//     staff.fullName || ""
+//   ].join(" ").toLowerCase();
 
-  for (let i = 0; i < ECE_STAFF_PREFERRED_ORDER.length; i++) {
-    const item = ECE_STAFF_PREFERRED_ORDER[i];
-    if (item.keywords.some(kw => nameStr.includes(kw))) {
-      return item.rank;
-    }
-  }
-  return 999;
-}
+//   for (let i = 0; i < ECE_STAFF_PREFERRED_ORDER.length; i++) {
+//     const item = ECE_STAFF_PREFERRED_ORDER[i];
+//     if (item.keywords.some(kw => nameStr.includes(kw))) {
+//       return item.rank;
+//     }
+//   }
+//   return 999;
+// }
 
 function formatDesignation(desig = "") {
   return (desig || "").trim().split(/\s+/).map(w => {
@@ -666,6 +666,11 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+function isFullProfessor(desig = "") {
+  const d = (desig || "").toLowerCase().trim();
+  return d.includes("professor") && !d.includes("associate") && !d.includes("assistant");
+}
+
 function isMainFacultyStaffPage() {
   const path = window.location.pathname.toLowerCase();
   return path.endsWith("faculty-staff.html") || path.endsWith("faculty-staff") || path.endsWith("faculty-staff/");
@@ -735,31 +740,22 @@ function renderDepartmentPane(tabId, list, tabPane) {
 
   if (isIT) {
     headList = list.filter(s => getITStaffRank(s) <= 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
-    profList = list.filter(s => {
-      const r = getITStaffRank(s);
-      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
-    });
+    profList = list.filter(s => getITStaffRank(s) > 2 && isFullProfessor(s.designation)).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
     facultyList = list.filter(s => getITStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
   } else if (isCSE) {
     headList = list.filter(s => getCSEStaffRank(s) <= 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
-    profList = list.filter(s => {
-      const r = getCSEStaffRank(s);
-      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
-    });
+    profList = list.filter(s => getCSEStaffRank(s) > 2 && isFullProfessor(s.designation)).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
     facultyList = list.filter(s => getCSEStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
   } else if (isAIDS) {
     headList = list.filter(s => getAIDSStaffRank(s) <= 2).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
-    profList = list.filter(s => {
-      const r = getAIDSStaffRank(s);
-      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
-    });
+    profList = list.filter(s => getAIDSStaffRank(s) > 2 && isFullProfessor(s.designation)).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
     facultyList = list.filter(s => getAIDSStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
   } else if (isECE) {
     const deansList = list.filter(s => getECEStaffRank(s) >= 1 && getECEStaffRank(s) <= 2).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
     const coeList = list.filter(s => getECEStaffRank(s) === 3).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
     const headsList = list.filter(s => getECEStaffRank(s) >= 4 && getECEStaffRank(s) <= 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
-    const profList = list.filter(s => getECEStaffRank(s) === 6 || ((s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant") && getECEStaffRank(s) > 5)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
-    const facultyList = list.filter(s => getECEStaffRank(s) > 6 && !deansList.includes(s) && !coeList.includes(s) && !headsList.includes(s) && !profList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const profList = list.filter(s => (getECEStaffRank(s) === 6 || isFullProfessor(s.designation)) && !deansList.includes(s) && !coeList.includes(s) && !headsList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const facultyList = list.filter(s => getECEStaffRank(s) > 5 && !deansList.includes(s) && !coeList.includes(s) && !headsList.includes(s) && !profList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
 
     if (deansList.length > 0) {
       const section = document.createElement("div");
@@ -838,16 +834,13 @@ function renderDepartmentPane(tabId, list, tabPane) {
     return;
   } else if (isEEE) {
     headList = list.filter(s => getEEEStaffRank(s) <= 2).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
-    profList = list.filter(s => {
-      const r = getEEEStaffRank(s);
-      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
-    });
+    profList = list.filter(s => getEEEStaffRank(s) > 2 && isFullProfessor(s.designation)).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
     facultyList = list.filter(s => getEEEStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
   } else if (isMech) {
     const principalList = list.filter(s => getMECHStaffRank(s) === 1).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
     headList = list.filter(s => getMECHStaffRank(s) >= 2 && getMECHStaffRank(s) <= 3).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
-    profList = list.filter(s => getMECHStaffRank(s) >= 4 && getMECHStaffRank(s) <= 5).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
-    facultyList = list.filter(s => getMECHStaffRank(s) > 5).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+    profList = list.filter(s => getMECHStaffRank(s) >= 4 && isFullProfessor(s.designation)).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+    facultyList = list.filter(s => getMECHStaffRank(s) > 1 && !headList.includes(s) && !profList.includes(s)).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
 
     const principalSection = document.createElement("div");
     principalSection.className = "mb-5";
@@ -871,17 +864,11 @@ function renderDepartmentPane(tabId, list, tabPane) {
     tabPane.appendChild(principalSection);
   } else if (isCivil) {
     headList = list.filter(s => getCivilStaffRank(s) <= 2).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
-    profList = list.filter(s => {
-      const r = getCivilStaffRank(s);
-      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
-    });
+    profList = list.filter(s => getCivilStaffRank(s) > 2 && isFullProfessor(s.designation)).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
     facultyList = list.filter(s => getCivilStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
   } else if (isScience) {
     headList = list.filter(s => getScienceStaffRank(s) <= 3).sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
-    profList = list.filter(s => {
-      const r = getScienceStaffRank(s);
-      return r > 3 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
-    });
+    profList = list.filter(s => getScienceStaffRank(s) > 3 && isFullProfessor(s.designation)).sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
     facultyList = list.filter(s => getScienceStaffRank(s) > 3 && !profList.includes(s)).sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
   } else {
     facultyList = list;
@@ -986,7 +973,7 @@ function renderAllTabs(staffArray) {
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v4";
+const CACHE_KEY = "msec_staff_data_v5";
 
 async function loadFaculty() {
   injectCardStyles();

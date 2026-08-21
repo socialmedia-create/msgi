@@ -754,8 +754,8 @@ function renderDepartmentPane(tabId, list, tabPane) {
     const deansList = list.filter(s => getECEStaffRank(s) >= 1 && getECEStaffRank(s) <= 2).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
     const coeList = list.filter(s => getECEStaffRank(s) === 3).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
     const headsList = list.filter(s => getECEStaffRank(s) >= 4 && getECEStaffRank(s) <= 5).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
-    const profList = list.filter(s => (getECEStaffRank(s) === 6 || isFullProfessor(s.designation)) && !deansList.includes(s) && !coeList.includes(s) && !headsList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
-    const facultyList = list.filter(s => getECEStaffRank(s) > 5 && !deansList.includes(s) && !coeList.includes(s) && !headsList.includes(s) && !profList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const profList = list.filter(s => isFullProfessor(s.designation) && !deansList.includes(s) && !coeList.includes(s) && !headsList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    const facultyList = list.filter(s => !deansList.includes(s) && !coeList.includes(s) && !headsList.includes(s) && !profList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
 
     if (deansList.length > 0) {
       const section = document.createElement("div");
@@ -973,7 +973,7 @@ function renderAllTabs(staffArray) {
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v5";
+const CACHE_KEY = "msec_staff_data_v6";
 
 async function loadFaculty() {
   injectCardStyles();

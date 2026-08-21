@@ -195,6 +195,7 @@ function getCivilStaffRank(staff) {
   }
   return 999;
 }
+const getCIVILStaffRank = getCivilStaffRank;
 
 const MECH_STAFF_PREFERRED_ORDER = [
   { keywords: ["saravanan"], rank: 1 },
@@ -771,12 +772,12 @@ function renderDepartmentPane(tabId, list, tabPane) {
     principalRow.insertAdjacentHTML("beforeend", createPrincipalCardHTML(principalStaff));
     tabPane.appendChild(principalSection);
   } else if (isCivil) {
-    headList = list.filter(s => getCIVILStaffRank(s) <= 2).sort((a, b) => getCIVILStaffRank(a) - getCIVILStaffRank(b));
+    headList = list.filter(s => getCivilStaffRank(s) <= 2).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
     profList = list.filter(s => {
-      const r = getCIVILStaffRank(s);
+      const r = getCivilStaffRank(s);
       return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
     });
-    facultyList = list.filter(s => getCIVILStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getCIVILStaffRank(a) - getCIVILStaffRank(b));
+    facultyList = list.filter(s => getCivilStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getCivilStaffRank(a) - getCivilStaffRank(b));
   } else if (isScience) {
     headList = list.filter(s => getScienceStaffRank(s) <= 3).sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
     profList = list.filter(s => {

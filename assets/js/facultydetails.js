@@ -609,21 +609,20 @@ function createCardHTML(staff) {
 }
 
 window.switchToPrincipalTab = function () {
-  const adminSubNav = document.getElementById("adminSubNav");
-  if (adminSubNav && !adminSubNav.classList.contains("show")) {
-    const adminToggle = document.querySelector('[data-bs-target="#adminSubNav"]');
-    if (adminToggle) {
-      if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
-        const bsCollapse = bootstrap.Collapse.getInstance(adminSubNav) || new bootstrap.Collapse(adminSubNav, { toggle: false });
-        bsCollapse.show();
-      } else {
-        adminSubNav.classList.add("show");
-      }
-    }
-  }
-
   const principalTabBtn = document.querySelector('button[data-bs-target="#faculty--staff-tab-0"]');
   if (principalTabBtn) {
+    const adminSubNav = document.getElementById("adminSubNav");
+    if (adminSubNav && !adminSubNav.classList.contains("show")) {
+      const adminToggle = document.querySelector('[data-bs-target="#adminSubNav"]');
+      if (adminToggle) {
+        if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+          const bsCollapse = bootstrap.Collapse.getInstance(adminSubNav) || new bootstrap.Collapse(adminSubNav, { toggle: false });
+          bsCollapse.show();
+        } else {
+          adminSubNav.classList.add("show");
+        }
+      }
+    }
     if (typeof bootstrap !== 'undefined' && bootstrap.Tab) {
       const tabTrigger = bootstrap.Tab.getInstance(principalTabBtn) || new bootstrap.Tab(principalTabBtn);
       tabTrigger.show();
@@ -634,6 +633,8 @@ window.switchToPrincipalTab = function () {
     if (tabTarget) {
       tabTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  } else {
+    window.location.href = "faculty-staff.html#faculty--staff-tab-0";
   }
 };
 
@@ -645,6 +646,19 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+function getDepartmentFromPath() {
+  const path = window.location.pathname.toLowerCase();
+  if (path.includes("informationtechnology.html")) return "faculty--staff-tab-1";
+  if (path.includes("computerscience.html") || path.includes("csepostgraduate.html")) return "faculty--staff-tab-2";
+  if (path.includes("aids.html")) return "faculty--staff-tab-3";
+  if (path.includes("ece.html") || path.includes("ecepostgraduate.html")) return "faculty--staff-tab-4";
+  if (path.includes("eee.html") || path.includes("eee copy.html")) return "faculty--staff-tab-5";
+  if (path.includes("mech.html") || path.includes("mechpostgraduate.html")) return "faculty--staff-tab-6";
+  if (path.includes("civil.html") || path.includes("civilpostgraduate.html")) return "faculty--staff-tab-7";
+  if (path.includes("humanitiesscience.html")) return "faculty--staff-tab-8";
+  return null;
+}
 
 function createPrincipalCardHTML(staff) {
   const name = formatFacultyName(staff.title, staff.firstName, staff.lastName);
@@ -676,7 +690,149 @@ function createPrincipalCardHTML(staff) {
     </div>`;
 }
 
-const CACHE_KEY = "msec_staff_data_v2";
+function renderDepartmentPane(tabId, list, tabPane) {
+  if (!tabPane) return;
+  const isIT = tabId === "faculty--staff-tab-1";
+  const isCSE = tabId === "faculty--staff-tab-2";
+  const isAIDS = tabId === "faculty--staff-tab-3";
+  const isECE = tabId === "faculty--staff-tab-4";
+  const isEEE = tabId === "faculty--staff-tab-5";
+  const isMech = tabId === "faculty--staff-tab-6";
+  const isCivil = tabId === "faculty--staff-tab-7";
+  const isScience = tabId === "faculty--staff-tab-8";
+
+  const deptInfo = tabPane.querySelector(".department-info");
+  tabPane.innerHTML = "";
+  if (deptInfo) tabPane.appendChild(deptInfo);
+
+  let headList = [];
+  let profList = [];
+  let facultyList = [];
+
+  if (isIT) {
+    headList = list.filter(s => getITStaffRank(s) <= 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
+    profList = list.filter(s => {
+      const r = getITStaffRank(s);
+      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
+    });
+    facultyList = list.filter(s => getITStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
+  } else if (isCSE) {
+    headList = list.filter(s => getCSEStaffRank(s) <= 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
+    profList = list.filter(s => {
+      const r = getCSEStaffRank(s);
+      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
+    });
+    facultyList = list.filter(s => getCSEStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
+  } else if (isAIDS) {
+    headList = list.filter(s => getAIDSStaffRank(s) <= 2).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
+    profList = list.filter(s => {
+      const r = getAIDSStaffRank(s);
+      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
+    });
+    facultyList = list.filter(s => getAIDSStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
+  } else if (isECE) {
+    headList = list.filter(s => getECEStaffRank(s) <= 2).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+    profList = list.filter(s => {
+      const r = getECEStaffRank(s);
+      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
+    });
+    facultyList = list.filter(s => getECEStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getECEStaffRank(a) - getECEStaffRank(b));
+  } else if (isEEE) {
+    headList = list.filter(s => getEEEStaffRank(s) <= 2).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
+    profList = list.filter(s => {
+      const r = getEEEStaffRank(s);
+      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
+    });
+    facultyList = list.filter(s => getEEEStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getEEEStaffRank(a) - getEEEStaffRank(b));
+  } else if (isMech) {
+    const principalList = list.filter(s => getMECHStaffRank(s) === 1).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+    headList = list.filter(s => getMECHStaffRank(s) >= 2 && getMECHStaffRank(s) <= 3).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+    profList = list.filter(s => getMECHStaffRank(s) >= 4 && getMECHStaffRank(s) <= 5).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+    facultyList = list.filter(s => getMECHStaffRank(s) > 5).sort((a, b) => getMECHStaffRank(a) - getMECHStaffRank(b));
+
+    const principalSection = document.createElement("div");
+    principalSection.className = "mb-5";
+    principalSection.innerHTML = `
+      <div class="text-center mb-4">
+        <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+          Principal
+        </h4>
+      </div>
+      <div class="row g-4 justify-content-center"></div>`;
+    const principalRow = principalSection.querySelector(".row");
+    const principalStaff = {
+      title: (principalList[0]?.title) || "Dr.",
+      firstName: (principalList[0]?.firstName) || "S. V.",
+      lastName: (principalList[0]?.lastName) || "SARAVANAN",
+      designation: (principalList[0]?.designation) || "Principal & Professor",
+      department: (principalList[0]?.department) || "Mechanical Engineering",
+      imageUrl: "assets/img/principal.png"
+    };
+    principalRow.insertAdjacentHTML("beforeend", createPrincipalCardHTML(principalStaff));
+    tabPane.appendChild(principalSection);
+  } else if (isCivil) {
+    headList = list.filter(s => getCIVILStaffRank(s) <= 2).sort((a, b) => getCIVILStaffRank(a) - getCIVILStaffRank(b));
+    profList = list.filter(s => {
+      const r = getCIVILStaffRank(s);
+      return r > 2 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
+    });
+    facultyList = list.filter(s => getCIVILStaffRank(s) > 2 && !profList.includes(s)).sort((a, b) => getCIVILStaffRank(a) - getCIVILStaffRank(b));
+  } else if (isScience) {
+    headList = list.filter(s => getScienceStaffRank(s) <= 3).sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
+    profList = list.filter(s => {
+      const r = getScienceStaffRank(s);
+      return r > 3 && (s.designation || "").toLowerCase().includes("professor") && !(s.designation || "").toLowerCase().includes("assistant");
+    });
+    facultyList = list.filter(s => getScienceStaffRank(s) > 3 && !profList.includes(s)).sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
+  } else {
+    facultyList = list;
+  }
+
+  if (headList.length > 0) {
+    const headSection = document.createElement("div");
+    headSection.className = "mb-5";
+    headSection.innerHTML = `
+      <div class="text-center mb-4">
+        <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+          HEADS
+        </h4>
+      </div>
+      <div class="row g-4 justify-content-center"></div>`;
+    const headRow = headSection.querySelector(".row");
+    headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+    tabPane.appendChild(headSection);
+  }
+
+  if (profList.length > 0) {
+    const profSection = document.createElement("div");
+    profSection.className = "mb-5";
+    profSection.innerHTML = `
+      <div class="text-center mb-4">
+        <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+          PROFESSORS
+        </h4>
+      </div>
+      <div class="row g-4 justify-content-center"></div>`;
+    const profRow = profSection.querySelector(".row");
+    profList.forEach(s => profRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+    tabPane.appendChild(profSection);
+  }
+
+  if (facultyList.length > 0) {
+    const facultySection = document.createElement("div");
+    facultySection.className = "mb-5";
+    facultySection.innerHTML = `
+      <div class="text-center mb-4">
+        <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+          FACULTY MEMBERS
+        </h4>
+      </div>
+      <div class="row g-4 justify-content-center"></div>`;
+    const facultyRow = facultySection.querySelector(".row");
+    facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
+    tabPane.appendChild(facultySection);
+  }
+}
 
 function renderAllTabs(staffArray) {
   const sheebaStaff = staffArray.find(s => {
@@ -710,121 +866,17 @@ function renderAllTabs(staffArray) {
     staffByTab[tabId].push(staff);
   });
 
+  const standaloneTabId = getDepartmentFromPath();
+  if (standaloneTabId) {
+    const standalonePane = document.getElementById("faculty--staff-tab-3");
+    if (standalonePane) {
+      const deptList = staffByTab[standaloneTabId] || [];
+      renderDepartmentPane(standaloneTabId, deptList, standalonePane);
+    }
+  }
+
   Object.keys(staffByTab).forEach((tabId) => {
-    const isIT = tabId === "faculty--staff-tab-1";
-    const isCSE = tabId === "faculty--staff-tab-2";
-    const isScience = tabId === "faculty--staff-tab-8";
     const tabPane = document.getElementById(tabId);
-    if (!tabPane) return;
-
-    const list = staffByTab[tabId];
-
-    if (isIT) {
-      const headList = list.filter(s => getITStaffRank(s) <= 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
-      const facultyList = list.filter(s => getITStaffRank(s) > 2).sort((a, b) => getITStaffRank(a) - getITStaffRank(b));
-
-      const deptInfo = tabPane.querySelector(".department-info");
-      tabPane.innerHTML = "";
-      if (deptInfo) tabPane.appendChild(deptInfo);
-
-      if (headList.length > 0) {
-        const headSection = document.createElement("div");
-        headSection.className = "mb-5";
-        headSection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              HEADS
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const headRow = headSection.querySelector(".row");
-        headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(headSection);
-      }
-
-      if (facultyList.length > 0) {
-        const facultySection = document.createElement("div");
-        facultySection.className = "mb-5";
-        facultySection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              Faculty Members
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const facultyRow = facultySection.querySelector(".row");
-        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(facultySection);
-      }
-      return;
-    }
-
-    if (isCSE) {
-      const headList = list.filter(s => getCSEStaffRank(s) <= 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
-      const facultyList = list.filter(s => getCSEStaffRank(s) > 2).sort((a, b) => getCSEStaffRank(a) - getCSEStaffRank(b));
-
-      const deptInfo = tabPane.querySelector(".department-info");
-      tabPane.innerHTML = "";
-      if (deptInfo) tabPane.appendChild(deptInfo);
-
-      if (headList.length > 0) {
-        const headSection = document.createElement("div");
-        headSection.className = "mb-5";
-        headSection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              HEADS
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const headRow = headSection.querySelector(".row");
-        headList.slice(0, 2).forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(headSection);
-      }
-
-      if (facultyList.length > 0) {
-        const facultySection = document.createElement("div");
-        facultySection.className = "mb-5";
-        facultySection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              Faculty Members
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const facultyRow = facultySection.querySelector(".row");
-        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(facultySection);
-      }
-      return;
-    }
-
-    const isAIDS = tabId === "faculty--staff-tab-3";
-    if (isAIDS) {
-      const headList = list.filter(s => getAIDSStaffRank(s) <= 2).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
-      const profList = list.filter(s => getAIDSStaffRank(s) >= 3 && getAIDSStaffRank(s) <= 4).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
-      const facultyList = list.filter(s => getAIDSStaffRank(s) > 4).sort((a, b) => getAIDSStaffRank(a) - getAIDSStaffRank(b));
-
-      const deptInfo = tabPane.querySelector(".department-info");
-      tabPane.innerHTML = "";
-      if (deptInfo) tabPane.appendChild(deptInfo);
-
-      if (headList.length > 0) {
-        const headSection = document.createElement("div");
-        headSection.className = "mb-5";
-        headSection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              HEADS
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const headRow = headSection.querySelector(".row");
-        headList.forEach(s => headRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(headSection);
-      }
-
-      if (profList.length > 0) {
         const profSection = document.createElement("div");
         profSection.className = "mb-5";
         profSection.innerHTML = `
@@ -1085,143 +1137,6 @@ function renderAllTabs(staffArray) {
       const deptInfo = tabPane.querySelector(".department-info");
       tabPane.innerHTML = "";
       if (deptInfo) tabPane.appendChild(deptInfo);
-
-      const principalSection = document.createElement("div");
-      principalSection.className = "mb-5";
-      principalSection.innerHTML = `
-        <div class="text-center mb-4">
-          <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-            Principal
-          </h4>
-        </div>
-        <div class="row g-4 justify-content-center"></div>`;
-      const principalRow = principalSection.querySelector(".row");
-      const principalStaff = {
-        title: (principalList[0]?.title) || "Dr.",
-        firstName: (principalList[0]?.firstName) || "S. V.",
-        lastName: (principalList[0]?.lastName) || "SARAVANAN",
-        designation: (principalList[0]?.designation) || "Principal & Professor",
-        department: (principalList[0]?.department) || "Mechanical Engineering",
-        imageUrl: "assets/img/principal.png"
-      };
-      principalRow.insertAdjacentHTML("beforeend", createPrincipalCardHTML(principalStaff));
-      tabPane.appendChild(principalSection);
-
-      if (headsList.length > 0) {
-        const HEADSection = document.createElement("div");
-        HEADSection.className = "mb-5";
-        HEADSection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              HEADS
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const headsRow = HEADSection.querySelector(".row");
-        headsList.forEach(s => headsRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(HEADSection);
-      }
-
-      if (profList.length > 0) {
-        const profSection = document.createElement("div");
-        profSection.className = "mb-5";
-        profSection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              PROFESSORS
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const profRow = profSection.querySelector(".row");
-        profList.forEach(s => profRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(profSection);
-      }
-
-      if (facultyList.length > 0) {
-        const facultySection = document.createElement("div");
-        facultySection.className = "mb-5";
-        facultySection.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              Faculty Members
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const facultyRow = facultySection.querySelector(".row");
-        facultyList.forEach(s => facultyRow.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(facultySection);
-      }
-      return;
-    }
-
-    if (isScience) {
-      const deptInfo = tabPane.querySelector(".department-info");
-      tabPane.innerHTML = "";
-      if (deptInfo) tabPane.appendChild(deptInfo);
-
-      const scienceClusters = ["Physics", "Chemistry", "Mathematics", "English", "Tamil"];
-      const getCluster = (dept = "") => {
-        const d = dept.trim().toLowerCase();
-        if (d.includes("physics")) return "Physics";
-        if (d.includes("chemistry")) return "Chemistry";
-        if (d.includes("math")) return "Mathematics";
-        if (d.includes("english")) return "English";
-        if (d.includes("tamil")) return "Tamil";
-        return "Other";
-      };
-
-      const grouped = {};
-      list.forEach(s => {
-        const c = getCluster(s.department);
-        if (!grouped[c]) grouped[c] = [];
-        grouped[c].push(s);
-      });
-
-      scienceClusters.forEach(clusterName => {
-        const clusterList = grouped[clusterName];
-        if (clusterList && clusterList.length > 0) {
-          clusterList.sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
-
-          const sec = document.createElement("div");
-          sec.className = "mb-5";
-          sec.innerHTML = `
-            <div class="text-center mb-4">
-              <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-                ${clusterName}
-              </h4>
-            </div>
-            <div class="row g-4 justify-content-center"></div>`;
-          const row = sec.querySelector(".row");
-          clusterList.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
-          tabPane.appendChild(sec);
-        }
-      });
-
-      if (grouped["Other"] && grouped["Other"].length > 0) {
-        grouped["Other"].sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
-        const sec = document.createElement("div");
-        sec.className = "mb-5";
-        sec.innerHTML = `
-          <div class="text-center mb-4">
-            <h4 class="fw-bold text-uppercase" style="color: #0f172a; border-bottom: 2px solid #e2e8f0; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
-              Other Disciplines
-            </h4>
-          </div>
-          <div class="row g-4 justify-content-center"></div>`;
-        const row = sec.querySelector(".row");
-        grouped["Other"].forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
-        tabPane.appendChild(sec);
-      }
-      return;
-    }
-
-    const tabContainer = tabPane.querySelector(".row.g-4");
-    if (!tabContainer) return;
-    tabContainer.innerHTML = "";
-
-    list.sort((a, b) => getDesignationPriority(a.designation || "") - getDesignationPriority(b.designation || ""));
-    list.forEach(staff => tabContainer.insertAdjacentHTML("beforeend", createCardHTML(staff)));
-  });
 
   if (window.AOS) window.AOS.refresh();
 }

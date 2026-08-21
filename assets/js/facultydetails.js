@@ -862,6 +862,8 @@ function renderAllTabs(staffArray) {
 
   staffArray.forEach((staff) => {
     if (staff.email?.toLowerCase() === "lalettan@gmail.com") return;
+    const nameStr = `${staff.title || ""} ${staff.firstName || ""} ${staff.lastName || ""} ${staff.name || ""} ${staff.fullName || ""}`.toLowerCase();
+    if (nameStr.includes("manonmani")) return;
 
     const tabId = getTabIdForDepartment(staff.department);
     if (!tabId) return;
@@ -893,7 +895,7 @@ function renderAllTabs(staffArray) {
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v4";
+const CACHE_KEY = "msec_staff_data_v5";
 
 async function loadFaculty() {
   injectCardStyles();
@@ -919,7 +921,8 @@ async function loadFaculty() {
 
     querySnapshot.forEach((doc) => {
       const staff = doc.data();
-      if (staff.email?.toLowerCase() !== "lalettan@gmail.com") {
+      const nameStr = `${staff.title || ""} ${staff.firstName || ""} ${staff.lastName || ""} ${staff.name || ""} ${staff.fullName || ""}`.toLowerCase();
+      if (staff.email?.toLowerCase() !== "lalettan@gmail.com" && !nameStr.includes("manonmani")) {
         freshStaff.push(staff);
       }
     });

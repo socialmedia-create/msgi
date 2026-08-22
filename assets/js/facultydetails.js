@@ -907,8 +907,108 @@ function renderDepartmentPane(tabId, list, tabPane) {
     }
     return;
   } else if (isScience) {
-    headList = list.filter(s => getScienceStaffRank(s) <= 3).sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
-    facultyList = list.filter(s => getScienceStaffRank(s) > 3).sort((a, b) => getScienceStaffRank(a) - getScienceStaffRank(b));
+    const subjects = [
+      {
+        name: "Mathematics",
+        keywords: ["amutha", "subashini", "purnalakshimi", "purnalakshmi", "muthuracku", "manjula", "bhuvana", "sengole", "elavarasi", "nalini", "adeline", "betsy", "angela", "constant"],
+        order: [
+          { keywords: ["amutha"], rank: 1 },
+          { keywords: ["subashini"], rank: 2 },
+          { keywords: ["purnalakshimi", "purnalakshmi"], rank: 3 },
+          { keywords: ["muthuracku"], rank: 4 },
+          { keywords: ["manjula"], rank: 5 },
+          { keywords: ["bhuvana"], rank: 6 },
+          { keywords: ["sengole", "elavarasi"], rank: 7 },
+          { keywords: ["nalini"], rank: 8 },
+          { keywords: ["adeline"], rank: 9 },
+          { keywords: ["betsy", "betsyprabhakar"], rank: 10 },
+          { keywords: ["angela", "constant"], rank: 11 }
+        ]
+      },
+      {
+        name: "Physics",
+        keywords: ["subathra", "ajitha", "thilageswari", "muthulakshmi", "mahalakshmi", "jinitha", "beena"],
+        order: [
+          { keywords: ["subathra"], rank: 1 },
+          { keywords: ["ajitha"], rank: 2 },
+          { keywords: ["thilageswari"], rank: 3 },
+          { keywords: ["muthulakshmi"], rank: 4 },
+          { keywords: ["mahalakshmi"], rank: 5 },
+          { keywords: ["jinitha"], rank: 6 },
+          { keywords: ["beena"], rank: 7 }
+        ]
+      },
+      {
+        name: "Chemistry",
+        keywords: ["sowndarya", "srividya", "sujee", "madhavi", "vijayaragini", "jeyashri", "jeyasri"],
+        order: [
+          { keywords: ["sowndarya"], rank: 1 },
+          { keywords: ["srividya"], rank: 2 },
+          { keywords: ["sujee"], rank: 3 },
+          { keywords: ["madhavi"], rank: 4 },
+          { keywords: ["vijayaragini"], rank: 5 },
+          { keywords: ["jeyashri", "jeyasri"], rank: 6 }
+        ]
+      },
+      {
+        name: "English",
+        keywords: ["riswana", "lavanya", "rajathi", "prabi"],
+        order: [
+          { keywords: ["riswana"], rank: 1 },
+          { keywords: ["lavanya"], rank: 2 },
+          { keywords: ["rajathi"], rank: 3 },
+          { keywords: ["prabi"], rank: 4 }
+        ]
+      },
+      {
+        name: "Tamil",
+        keywords: ["chitra", "vinnarasi"],
+        order: [
+          { keywords: ["chitra"], rank: 1 },
+          { keywords: ["vinnarasi"], rank: 2 }
+        ]
+      }
+    ];
+
+    function getSubjectRank(staff, orderList) {
+      const nameStr = [
+        staff.title || "",
+        staff.firstName || "",
+        staff.lastName || "",
+        staff.name || "",
+        staff.fullName || ""
+      ].join(" ").toLowerCase();
+
+      for (let i = 0; i < orderList.length; i++) {
+        if (orderList[i].keywords.some(kw => nameStr.includes(kw))) {
+          return orderList[i].rank;
+        }
+      }
+      return 999;
+    }
+
+    subjects.forEach(subj => {
+      const subjStaff = list.filter(s => {
+        const nameStr = [s.title || "", s.firstName || "", s.lastName || "", s.name || "", s.fullName || ""].join(" ").toLowerCase();
+        return subj.keywords.some(kw => nameStr.includes(kw));
+      }).sort((a, b) => getSubjectRank(a, subj.order) - getSubjectRank(b, subj.order));
+
+      if (subjStaff.length > 0) {
+        const section = document.createElement("div");
+        section.className = "mb-5";
+        section.innerHTML = `
+          <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase" style="color: #dc2626; border-bottom: 2px solid #fee2e2; display: inline-block; padding-bottom: 6px; letter-spacing: 0.05em;">
+              ${subj.name}
+            </h4>
+          </div>
+          <div class="row g-4 justify-content-center"></div>`;
+        const row = section.querySelector(".row");
+        subjStaff.forEach(s => row.insertAdjacentHTML("beforeend", createCardHTML(s)));
+        tabPane.appendChild(section);
+      }
+    });
+    return;
   } else {
     facultyList = list;
   }
@@ -1000,7 +1100,7 @@ function renderAllTabs(staffArray) {
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v10";
+const CACHE_KEY = "msec_staff_data_v11";
 
 async function loadFaculty() {
   injectCardStyles();

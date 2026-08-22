@@ -422,12 +422,12 @@ function getInitials(name = "") {
 function getTabIdForDepartment(dept) {
   if (!dept) return null;
   const d = dept.trim().toLowerCase();
-  if (d.includes("information technology") || d === "it" || d.includes("dept of it")) return "faculty--staff-tab-1";
-  if (d.includes("computer science") || d === "cse") return "faculty--staff-tab-2";
-  if (d.includes("artificial intelligence") || d.includes("ai ds") || d.includes("ai & ds") || d.includes("data science")) return "faculty--staff-tab-3";
-  if (d.includes("electronics and communication") || d.includes("electronics & communication") || d === "ece") return "faculty--staff-tab-4";
-  if (d.includes("electrical and electronics") || d.includes("electrical & electronics") || d === "eee") return "faculty--staff-tab-5";
-  if (d.includes("mechanical") || d === "mech") return "faculty--staff-tab-6";
+  if (d.includes("information technology") || d.includes("it") || d.includes("dept of it")) return "faculty--staff-tab-1";
+  if (d.includes("computer science") || d.includes("cse")) return "faculty--staff-tab-2";
+  if (d.includes("artificial intelligence") || d.includes("ai ds") || d.includes("ai & ds") || d.includes("aids") || d.includes("data science")) return "faculty--staff-tab-3";
+  if (d.includes("electronics and communication") || d.includes("electronics & communication") || d.includes("ece")) return "faculty--staff-tab-4";
+  if (d.includes("electrical and electronics") || d.includes("electrical & electronics") || d.includes("electrical") || d.includes("eee")) return "faculty--staff-tab-5";
+  if (d.includes("mechanical") || d.includes("mech")) return "faculty--staff-tab-6";
   if (d.includes("civil")) return "faculty--staff-tab-7";
   if (d.includes("physics") || d.includes("math") || d.includes("english") || d.includes("chemistry") || d.includes("tamil") || d.includes("humanities") || d.includes("science")) return "faculty--staff-tab-8";
   if (d.includes("dean")) return "faculty--staff-tab-admin-dean";
@@ -1100,7 +1100,7 @@ function renderAllTabs(staffArray) {
   if (window.AOS) window.AOS.refresh();
 }
 
-const CACHE_KEY = "msec_staff_data_v12";
+const CACHE_KEY = "msec_staff_data_v13";
 
 async function loadFaculty() {
   injectCardStyles();

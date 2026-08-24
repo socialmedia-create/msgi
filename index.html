@@ -212,9 +212,16 @@
     .legacy-content h2 {
       margin-bottom: 18px;
       color: #243f5a;
-      font-size: clamp(2rem, 4vw, 3.25rem);
-      line-height: 1.08;
+      font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+      line-height: 1.2;
       font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .legacy-content h2 span {
+      color: #e31837;
+      display: inline-block;
+      white-space: nowrap;
     }
 
     .legacy-content h2 span {
@@ -1651,7 +1658,142 @@
       transform: translateY(-3px);
       box-shadow: 0 14px 35px rgba(227, 24, 55, 0.35);
     }
-  </style>
+  
+    /* Story Card Header Layout */
+    .story-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .story-card-header .story-icon {
+      margin-bottom: 0 !important;
+      min-width: 44px;
+    }
+
+    .story-card-header span {
+      color: #ffbdc8;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    /* Compact Course Card */
+    .course-card-compact {
+      height: 100%;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(36, 63, 90, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card-compact:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(36, 63, 90, 0.12);
+      border-color: #cbd5e1;
+    }
+
+    .course-compact-img {
+      position: relative;
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      background: #0f172a;
+    }
+
+    .course-compact-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .course-card-compact:hover .course-compact-img img {
+      transform: scale(1.08);
+    }
+
+    .course-compact-img .course-degree-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .course-compact-img .course-degree-badge.ug {
+      background: #e31837;
+    }
+
+    .course-compact-img .course-degree-badge.pg {
+      background: #243f5a;
+    }
+
+    .course-compact-img .course-duration-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.68rem;
+      font-weight: 750;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+    }
+
+    .course-compact-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      background: #ffffff;
+    }
+
+    .course-compact-body h4 {
+      margin: 0 0 8px;
+      color: #243f5a;
+      font-size: 1.02rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .course-compact-body p {
+      margin: 0 0 16px;
+      color: #64748b;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+
+    .course-compact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #e31837;
+      font-weight: 750;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+
+    .course-compact-btn:hover {
+      color: #b91c1c;
+      gap: 10px;
+    }
+
+</style>
 </head>
 
 
@@ -2054,8 +2196,10 @@
             <div class="col-lg-6">
               <div class="legacy-content">
                 <span class="legacy-eyebrow">OUR LEGACY</span>
-                <h2>75 Years of Educational Legacy.<br>
-                  <span>25 Years of Engineering Excellence.</span>
+                <h2>75 Years of<br>
+                  Educational Legacy.<br>
+                  <span>25 Years of</span><br>
+                  <span>Engineering Excellence.</span>
                 </h2>
 
                 <p class="legacy-lead">
@@ -2092,93 +2236,6 @@
 
     </section><!-- /Educational Legacy Section -->
 
-    <!-- Why MSEC Section -->
-    <section id="about" class="about section why-msec-section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="section-title text-center mb-5">
-          <h2>WHY MSEC?</h2>
-          <p class="lead fw-semibold">More Than a Degree. A Future in the Making.</p>
-          <p class="msectextdesign">
-            At MSEC, students learn, innovate, experience and prepare for the world beyond the classroom.
-          </p>
-        </div>
-
-        <div class="row align-items-center g-5">
-
-          <!-- YouTube Video -->
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="why-msec-video shadow-lg">
-              <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
-                <iframe src="https://www.youtube.com/embed/TFMRgLTcpng"
-                  title="Why MSEC - Meenakshi Sundararajan Engineering College"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
-              </div>
-            </div>
-          </div>
-
-          <!-- Why Choose MSEC -->
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-            <div class="why-msec-content">
-              <h3 class="fw-bold mb-4">Why Choose MSEC?</h3>
-
-              <div class="why-msec-item">
-                <div class="why-msec-number">01</div>
-                <div>
-                  <h4>Learn with Purpose</h4>
-                  <p>Industry-focused academics &amp; hands-on learning.</p>
-                </div>
-              </div>
-
-              <div class="why-msec-item">
-                <div class="why-msec-number">02</div>
-                <div>
-                  <h4>Industry Ready</h4>
-                  <p>Internships, live projects &amp; industry exposure.</p>
-                </div>
-              </div>
-
-              <div class="why-msec-item">
-                <div class="why-msec-number">03</div>
-                <div>
-                  <h4>Innovate &amp; Create</h4>
-                  <p>Research, technology, entrepreneurship &amp; innovation.</p>
-                </div>
-              </div>
-
-              <div class="why-msec-item">
-                <div class="why-msec-number">04</div>
-                <div>
-                  <h4>Build Your Career</h4>
-                  <p>Skill development, career guidance &amp; placement support.</p>
-                </div>
-              </div>
-
-              <div class="why-msec-item">
-                <div class="why-msec-number">05</div>
-                <div>
-                  <h4>Discover Yourself</h4>
-                  <p>Clubs, sports, events, leadership &amp; campus life.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-        <div class="text-center mt-5" data-aos="fade-up">
-          <h3 class="fw-bold text-danger mb-2">Learn. Innovate. Lead.</h3>
-          <p class="lead mb-0">Your journey from classroom to career starts at MSEC.</p>
-        </div>
-
-      </div>
-
-    </section><!-- /Why MSEC Section -->
-
     <!-- Learn Beyond the Classroom Section -->
     <section id="learn-beyond-classroom" class="learn-beyond-classroom section">
 
@@ -2208,8 +2265,10 @@
           <div class="story-step">
             <div class="story-number">01</div>
             <div class="story-card">
-              <div class="story-icon"><i class="bi bi-mortarboard-fill"></i></div>
-              <span>CLASSROOM</span>
+              <div class="story-card-header">
+                <div class="story-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                <span>CLASSROOM</span>
+              </div>
               <h3>Learn the foundations</h3>
               <p>Concepts become skills through hands-on learning, experimentation and problem solving.</p>
             </div>
@@ -2218,8 +2277,10 @@
           <div class="story-step">
             <div class="story-number">02</div>
             <div class="story-card">
-              <div class="story-icon"><i class="bi bi-cpu-fill"></i></div>
-              <span>CENTRE</span>
+              <div class="story-card-header">
+                <div class="story-icon"><i class="bi bi-cpu-fill"></i></div>
+                <span>CENTRE</span>
+              </div>
               <h3>Explore ICE, AI &amp; Data Science</h3>
               <p>Students move beyond lectures into Centres of Excellence, technology labs and specialised learning.</p>
               <div class="story-mini-tags">
@@ -2231,8 +2292,10 @@
           <div class="story-step">
             <div class="story-number">03</div>
             <div class="story-card">
-              <div class="story-icon"><i class="bi bi-lightbulb-fill"></i></div>
-              <span>PROJECT</span>
+              <div class="story-card-header">
+                <div class="story-icon"><i class="bi bi-lightbulb-fill"></i></div>
+                <span>PROJECT</span>
+              </div>
               <h3>Build, research &amp; prototype</h3>
               <p>Ideas become working systems through research, prototypes, innovation challenges and hackathons.</p>
               <div class="story-mini-tags">
@@ -2244,8 +2307,10 @@
           <div class="story-step">
             <div class="story-number">04</div>
             <div class="story-card">
-              <div class="story-icon"><i class="bi bi-buildings-fill"></i></div>
-              <span>INDUSTRY</span>
+              <div class="story-card-header">
+                <div class="story-icon"><i class="bi bi-buildings-fill"></i></div>
+                <span>INDUSTRY</span>
+              </div>
               <h3>Work on real problems</h3>
               <p>Industry projects, internships and external exposure connect classroom knowledge with real-world needs.
               </p>
@@ -2258,8 +2323,10 @@
           <div class="story-step">
             <div class="story-number">05</div>
             <div class="story-card story-card-final">
-              <div class="story-icon"><i class="bi bi-briefcase-fill"></i></div>
-              <span>CAREER</span>
+              <div class="story-card-header">
+                <div class="story-icon"><i class="bi bi-briefcase-fill"></i></div>
+                <span>CAREER</span>
+              </div>
               <h3>Turn capability into opportunity</h3>
               <p>Experience, projects and professional skills become the foundation for meaningful career pathways.</p>
             </div>
@@ -2679,98 +2746,206 @@
       <div class="container section-title" data-aos="fade-up">
         <span class="courses-eyebrow">ACADEMIC EXCELLENCE</span>
         <h2>Courses Offered</h2>
-        <p>Explore industry-aligned undergraduate and postgraduate engineering programs at MSEC.</p>
+        <p>Explore all 12 undergraduate and postgraduate engineering departments at MSEC.</p>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-4">
 
-          <!-- Program 1: CSE -->
-          <div class="col-lg-6">
-            <article class="course-card-modern">
-              <div class="course-image-top">
-                <img src="assets/img/csedepart.webp" alt="Computer Science and Engineering" loading="lazy">
-                <span class="course-degree-badge ug">B.E. DEGREE</span>
-              </div>
-              <div class="course-card-body">
-                <h3>B.E. Computer Science and Engineering</h3>
-                <div class="course-highlights-pills">
-                  <span><i class="bi bi-clock-fill"></i> 4 Years</span>
-                  <span><i class="bi bi-cpu-fill"></i> AI &amp; Software Labs</span>
-                  <span><i class="bi bi-briefcase-fill"></i> High Placements</span>
-                </div>
-                <p>Moulding engineers with strong analytical skills, software design capabilities, research innovation,
-                  and hands-on coding expertise for industrial demands.</p>
-                <a href="computerscience.html" target="_blank" class="course-btn-action">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- Program 2: AI & DS -->
-          <div class="col-lg-6">
-            <article class="course-card-modern">
-              <div class="course-image-top">
+          <!-- 1. AI & DS -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
                 <img src="assets/img/aidsdepart.webp" alt="Artificial Intelligence and Data Science" loading="lazy">
-                <span class="course-degree-badge ug">B.TECH. DEGREE</span>
+                <span class="course-degree-badge ug">B.TECH</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
               </div>
-              <div class="course-card-body">
-                <h3>B.Tech. Artificial Intelligence &amp; Data Science</h3>
-                <div class="course-highlights-pills">
-                  <span><i class="bi bi-clock-fill"></i> 4 Years</span>
-                  <span><i class="bi bi-graph-up-arrow"></i> Machine Learning</span>
-                  <span><i class="bi bi-kanban-fill"></i> Live Projects</span>
-                </div>
-                <p>Preparing engineers to innovate in machine learning, deep learning, data analytics, and intelligent
-                  computing systems for global technology challenges.</p>
-                <a href="aids.html" target="_blank" class="course-btn-action">
+              <div class="course-compact-body">
+                <h4>Artificial Intelligence &amp; Data Science</h4>
+                <p>Machine learning, data analytics, deep learning &amp; intelligent computing systems.</p>
+                <a href="aids.html" target="_blank" class="course-compact-btn">
                   <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
             </article>
           </div>
 
-          <!-- Program 3: M.E. Construction Management -->
-          <div class="col-lg-6">
-            <article class="course-card-modern">
-              <div class="course-image-top">
-                <img src="assets/img/civildept.jpg" alt="Construction Engineering and Management" loading="lazy">
-                <span class="course-degree-badge pg">M.E. DEGREE</span>
+          <!-- 2. Civil -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/civildept.jpg" alt="Civil Engineering" loading="lazy">
+                <span class="course-degree-badge ug">B.E.</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
               </div>
-              <div class="course-card-body">
-                <h3>M.E. Construction Engineering &amp; Management</h3>
-                <div class="course-highlights-pills">
-                  <span><i class="bi bi-clock-fill"></i> 2 Years</span>
-                  <span><i class="bi bi-building"></i> Infrastructure</span>
-                  <span><i class="bi bi-check-circle-fill"></i> Advanced Research</span>
-                </div>
-                <p>Master complex infrastructure projects from concept to execution. Gain skills in modern structural
-                  design, resource planning, and project leadership.</p>
-                <a href="civilpostgraduate.html" target="_blank" class="course-btn-action">
+              <div class="course-compact-body">
+                <h4>Civil Engineering</h4>
+                <p>Structural engineering, smart city planning, surveying &amp; sustainable infrastructure.</p>
+                <a href="civil.html" target="_blank" class="course-compact-btn">
                   <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
             </article>
           </div>
 
-          <!-- Program 4: M.E. CSE -->
-          <div class="col-lg-6">
-            <article class="course-card-modern">
-              <div class="course-image-top">
-                <img src="assets/img/itdepart.webp" alt="M.E. Computer Science and Engineering" loading="lazy">
-                <span class="course-degree-badge pg">M.E. DEGREE</span>
+          <!-- 3. CSE -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/csedepart.webp" alt="Computer Science and Engineering" loading="lazy">
+                <span class="course-degree-badge ug">B.E.</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
               </div>
-              <div class="course-card-body">
-                <h3>M.E. Computer Science &amp; Engineering</h3>
-                <div class="course-highlights-pills">
-                  <span><i class="bi bi-clock-fill"></i> 2 Years</span>
-                  <span><i class="bi bi-shield-lock-fill"></i> Advanced Computing</span>
-                  <span><i class="bi bi-journal-bookmark-fill"></i> Research Focus</span>
-                </div>
-                <p>Advanced study in algorithms, cloud computing, cybersecurity, and data systems designed to foster
-                  next-gen tech leaders and researchers.</p>
-                <a href="csepostgraduate.html" target="_blank" class="course-btn-action">
+              <div class="course-compact-body">
+                <h4>Computer Science &amp; Engineering</h4>
+                <p>Algorithms, software design, cloud computing &amp; hands-on coding innovation.</p>
+                <a href="computerscience.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- 4. EEE -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/eeedepart.webp" alt="Electrical and Electronics Engineering" loading="lazy">
+                <span class="course-degree-badge ug">B.E.</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>Electrical &amp; Electronics Engineering</h4>
+                <p>Power systems, renewable energy, smart grids &amp; industrial control automation.</p>
+                <a href="eee.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- 5. ECE -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/ecedepart.webp" alt="Electronics and Communication Engineering" loading="lazy">
+                <span class="course-degree-badge ug">B.E.</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>Electronics &amp; Communication</h4>
+                <p>VLSI design, embedded systems, signal processing &amp; wireless communications.</p>
+                <a href="ece.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- 6. IT -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/itdepart.webp" alt="Information Technology" loading="lazy">
+                <span class="course-degree-badge ug">B.TECH</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>Information Technology</h4>
+                <p>Web technologies, cybersecurity, database management &amp; enterprise software.</p>
+                <a href="it.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- 7. Mech -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/mechdepart.webp" alt="Mechanical Engineering" loading="lazy">
+                <span class="course-degree-badge ug">B.E.</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>Mechanical Engineering</h4>
+                <p>Thermal engineering, CAD/CAM, robotics &amp; advanced manufacturing processes.</p>
+                <a href="mech.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- 8. Science & Humanities -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/shdepart.webp" alt="Science and Humanities" loading="lazy">
+                <span class="course-degree-badge ug">S&amp;H</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> DEPT</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>Science &amp; Humanities</h4>
+                <p>Fundamental physics, chemistry, mathematics &amp; professional communication.</p>
+                <a href="sh.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- 9. ME CSE -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/csedepart.webp" alt="M.E. Computer Science and Engineering" loading="lazy">
+                <span class="course-degree-badge pg">M.E.</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 2 YRS</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>M.E. Computer Science &amp; Engg.</h4>
+                <p>Advanced algorithms, distributed systems, AI research &amp; cybersecurity.</p>
+                <a href="csepostgraduate.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- 10. ME CEM -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/civildept.jpg" alt="M.E. Construction Engineering and Management" loading="lazy">
+                <span class="course-degree-badge pg">M.E.</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 2 YRS</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>M.E. Construction Management</h4>
+                <p>Infrastructure project leadership, BIM &amp; modern construction practices.</p>
+                <a href="civilpostgraduate.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          
+
+          <!-- 12. ME Energy -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/eeedepart.webp" alt="M.E. Energy Engineering" loading="lazy">
+                <span class="course-degree-badge pg">M.E.</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> 2 YRS</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>M.E. Energy Engineering</h4>
+                <p>Renewable energy systems, energy auditing, solar technology &amp; sustainability.</p>
+                <a href="energy.html" target="_blank" class="course-compact-btn">
                   <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -2779,11 +2954,6 @@
 
         </div>
 
-        <div class="text-center mt-5" data-aos="fade-up">
-          <a href="academics.html" target="_blank" class="explore-all-courses-btn">
-            <span>Explore All 12 Departments</span> <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
       </div>
 
     </section><!-- /Featured Programs Section -->

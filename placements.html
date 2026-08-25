@@ -109,6 +109,37 @@
     ]
   }
   </script>
+
+  <style>
+    /* Batch Placements Posters - Fit Screen Cleanly Without Massive White Gaps */
+    .placement-poster-wrap {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .placement-poster-img {
+      width: 100% !important;
+      max-width: 880px !important;
+      height: auto !important;
+      max-height: 72vh !important;
+      object-fit: contain !important;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .style2024, .style2023, .style2022 {
+      height: auto !important;
+    }
+  </style>
+
 </head>
 
 
@@ -537,44 +568,41 @@
               </div>
               </div>
 
+                            <!-- 2026 Batch -->
               <div class="tab-pane fade" id="faculty--staff-tab-2026">
-                <div class="row g-4">
-                  <div class="col-lg-10">
-                    <img src="./assets/img/2026-batch-placement.jpg" alt="2026 Batch Placements Record" loading="lazy" class="img-fluid"/>
-                  </div>
+                <div class="placement-poster-wrap">
+                  <img src="./assets/img/2026-batch-placement.jpg" alt="2026 Batch Placements Record" loading="lazy" class="placement-poster-img"/>
                 </div>
               </div>
 
+              <!-- 2025 Batch -->
               <div class="tab-pane fade" id="faculty--staff-tab-3">
-                <div class="row g-4">
-                  <div class="col-lg-10">
-                    <img src="./assets/img/2025.webp" alt="2025placement" loading="lazy" class="img-fluid"/>
-                  </div>
+                <div class="placement-poster-wrap">
+                  <img src="./assets/img/2025.webp" alt="2025 Batch Placements Record" loading="lazy" class="placement-poster-img"/>
                 </div>
               </div>
 
+              <!-- 2024 Batch -->
               <div class="tab-pane fade" id="faculty--staff-tab-4">
-                <div class="row g-4">
-                  <div class="col-lg-10 ">
-                    <img src="./assets/img/2024.webp" alt="2024placement" loading="lazy" class="img-fluid w-100 style2024" />
-                  </div>
+                <div class="placement-poster-wrap">
+                  <img src="./assets/img/2024.webp" alt="2024 Batch Placements Record" loading="lazy" class="placement-poster-img"/>
                 </div>
               </div>
 
+              <!-- 2023 Batch -->
               <div class="tab-pane fade" id="faculty--staff-tab-5">
-                <div class="row g-4">
-                  <div class="col-lg-10 ">
-                    <img src="./assets/img/2023.webp" alt="2023placement" loading="lazy" class="img-fluid w-100 style2023" />
-                  </div>
+                <div class="placement-poster-wrap">
+                  <img src="./assets/img/2023.webp" alt="2023 Batch Placements Record" loading="lazy" class="placement-poster-img"/>
                 </div>
               </div>
+
+              <!-- 2022 Batch -->
               <div class="tab-pane fade" id="faculty--staff-tab-6">
-                <div class="row g-4">
-                  <div class="col-lg-10 ">
-                    <img src="./assets/img/2022.webp" alt="2022placement" loading="lazy" class="img-fluid w-100 style2022"/>
-                  </div>
+                <div class="placement-poster-wrap">
+                  <img src="./assets/img/2022.webp" alt="2022 Batch Placements Record" loading="lazy" class="placement-poster-img"/>
                 </div>
               </div>
+
               <div class="tab-pane fade" id="faculty--staff-tab-7">
                 <div class="container my-4">
                   <div class="card shadow rounded-4 p-4 border-0">

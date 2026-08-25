@@ -1898,6 +1898,37 @@
       transform: translateY(-3px);
       box-shadow: 0 14px 30px rgba(227, 24, 55, 0.35);
     }
+
+    .nh-ticker-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: 8px;
+      padding: 3px 12px;
+      border-radius: 50px;
+      background: #e31837;
+      color: #ffffff !important;
+      font-weight: 750;
+      font-size: 0.78rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .nh-ticker-link:hover {
+      background: #ffffff;
+      color: #e31837 !important;
+      box-shadow: 0 6px 16px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Ticker Scroller Speed Fix - Slow, Smooth & Readable */
+    .nh-ticker {
+      --speed-px-per-sec: 25 !important;
+    }
+
+    .nh-ticker__scroller {
+      animation-duration: 40s !important;
+    }
   </style>
 </head>
 
@@ -2258,25 +2289,50 @@
 
     </section><!-- /Hero Section -->
     <div class="nh-ticker" role="region" aria-label="Site announcements ticker">
-      <!-- <div class="nh-ticker__label" aria-hidden="true">Announcement</div> -->
-
       <div class="nh-ticker__track" tabindex="0">
         <!-- scroller contains two copies of the message for seamless loop -->
         <div class="nh-ticker__scroller" id="nhTickerScroller" aria-live="polite">
           <span class="nh-ticker__item">
-            Placement <a class="text-white" href="./placements.html">Click Here</a>
+            🎓 <strong>Admissions Open 2026</strong> &mdash; Explore UG &amp; PG Engineering Programs
+            <a class="nh-ticker-link" href="./admission2026/">Apply Now <i class="bi bi-arrow-right-short"></i></a>
           </span>
           <span class="nh-ticker__item">
-            Events <a class="text-white" href="./news.html/">Click Here</a>
+            💼 <strong>Career Placement Highlights</strong> &mdash; High Placement Rates Across Top Tech Leaders
+            <a class="nh-ticker-link" href="./placements.html">View Records <i class="bi bi-arrow-right-short"></i></a>
           </span>
-          <!-- <span class="nh-ticker__item">
-            Ph.D. Degree Programme (Full time &amp; Part-time) &mdash; Admissions open to January-2026 session
-          </span> -->
-          <!-- <span class="nh-ticker__item">
-            Nov/Dec 2025 Exam Results &mdash; published in coe.html page
-          </span> -->
           <span class="nh-ticker__item">
-            International Conference <a class="text-white" href="./internationalconference/">Click Here</a>
+            🌐 <strong>International Conference 2026</strong> &mdash; Connecting Global Researchers &amp; Industry Leaders
+            <a class="nh-ticker-link" href="./internationalconference/">Learn More <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item">
+            ✨ <strong>Campus Highlights &amp; Events</strong> &mdash; Discover Fests, Workshops &amp; Student Clubs
+            <a class="nh-ticker-link" href="news.html">Explore Events <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item">
+            📜 <strong>Controller of Examinations</strong> &mdash; Curriculum, Regulations &amp; Exam Updates
+            <a class="nh-ticker-link" href="coe.html">View Updates <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+
+          <!-- Duplicate set for seamless loop -->
+          <span class="nh-ticker__item">
+            🎓 <strong>Admissions Open 2026</strong> &mdash; Explore UG &amp; PG Engineering Programs
+            <a class="nh-ticker-link" href="./admission2026/">Apply Now <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item">
+            💼 <strong>Career Placement Highlights</strong> &mdash; High Placement Rates Across Top Tech Leaders
+            <a class="nh-ticker-link" href="./placements.html">View Records <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item">
+            🌐 <strong>International Conference 2026</strong> &mdash; Connecting Global Researchers &amp; Industry Leaders
+            <a class="nh-ticker-link" href="./internationalconference/">Learn More <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item">
+            ✨ <strong>Campus Highlights &amp; Events</strong> &mdash; Discover Fests, Workshops &amp; Student Clubs
+            <a class="nh-ticker-link" href="news.html">Explore Events <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item">
+            📜 <strong>Controller of Examinations</strong> &mdash; Curriculum, Regulations &amp; Exam Updates
+            <a class="nh-ticker-link" href="coe.html">View Updates <i class="bi bi-arrow-right-short"></i></a>
           </span>
         </div>
       </div>

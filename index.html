@@ -1658,7 +1658,7 @@
       transform: translateY(-3px);
       box-shadow: 0 14px 35px rgba(227, 24, 55, 0.35);
     }
-  
+
     /* Story Card Header Layout */
     .story-card-header {
       display: flex;
@@ -1793,7 +1793,112 @@
       gap: 10px;
     }
 
-</style>
+
+    /* Learn Beyond the Classroom - Bright White Typography */
+    .learn-beyond-classroom {
+      position: relative;
+      overflow: hidden;
+      padding-top: 95px;
+      padding-bottom: 95px;
+      background: #0b2442;
+      color: #ffffff !important;
+    }
+
+    .learn-beyond-classroom .section-title h2,
+    .learn-beyond-classroom .section-title p,
+    .story-hero-overlay h3,
+    .story-hero-overlay p,
+    .story-card h3,
+    .story-card p,
+    .story-focus span,
+    .learning-gallery-heading h3,
+    .learning-gallery-heading p,
+    .learning-gallery-content h4,
+    .learning-gallery-content p {
+      color: #ffffff !important;
+    }
+
+    .story-card h3 {
+      margin: 8px 0 10px;
+      font-size: 1.15rem;
+      line-height: 1.3;
+      font-weight: 750;
+      color: #ffffff !important;
+    }
+
+    .story-card p {
+      margin: 0;
+      color: #ffffff !important;
+      font-size: .92rem;
+      line-height: 1.65;
+      opacity: 0.92;
+    }
+
+    .story-card-header span {
+      color: #ffffff !important;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .story-focus span {
+      color: #ffffff !important;
+      font-size: .66rem;
+      font-weight: 800;
+    }
+
+    .story-mini-tags b {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .15);
+      color: #ffffff !important;
+      font-size: .62rem;
+      letter-spacing: .05em;
+    }
+
+
+    /* Upcoming Events Carousel - Ultra Smooth Left-to-Right Infinite Loop */
+    #upcomingEventsCarousel {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(36, 63, 90, 0.08);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+
+    #upcomingEventsCarousel .carousel-inner {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    #upcomingEventsCarousel .carousel-item {
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .explore-all-news-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 34px;
+      border-radius: 50px;
+      background: #243f5a;
+      color: #ffffff !important;
+      font-weight: 750;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(36, 63, 90, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .explore-all-news-btn:hover {
+      background: #e31837;
+      color: #ffffff !important;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(227, 24, 55, 0.35);
+    }
+  </style>
 </head>
 
 
@@ -2444,7 +2549,8 @@
       <div class="container">
         <div class="upcoming-events-carousel-container" data-aos="fade-up" data-aos-delay="100">
 
-          <div id="upcomingEventsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+          <div id="upcomingEventsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000"
+            data-bs-wrap="true">
 
             <!-- Controls Inside Card -->
             <button class="carousel-control-prev upcoming-carousel-control" type="button"
@@ -2461,16 +2567,18 @@
               <i class="bi bi-chevron-right"></i>
             </button>
 
-            <!-- Indicators -->
+            <!-- Indicators for 5 slides -->
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Event 1"></button>
+                aria-current="true" aria-label="Event 1: International Conference"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="1"
-                aria-label="Event 2"></button>
+                aria-label="Event 2: Aarambam"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="2"
-                aria-label="Event 3"></button>
+                aria-label="Event 3: Euphoria"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="3"
-                aria-label="Event 4"></button>
+                aria-label="Event 4: Graduation"></button>
+              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="4"
+                aria-label="Event 5: Alumni Meet"></button>
             </div>
 
             <div class="carousel-inner">
@@ -2499,104 +2607,134 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Slide 2: Euphoria -->
-            <div class="carousel-item">
-              <div class="upcoming-event-slide row align-items-center g-4">
-                <div class="col-lg-5">
-                  <div class="upcoming-poster-box">
-                    <img src="./assets/img/upcoming-euphoria.webp" class="upcoming-event-poster"
-                      alt="Euphoria - 17 and 18 September 2026">
+              <!-- Slide 2: Aarambam -->
+              <div class="carousel-item">
+                <div class="upcoming-event-slide row align-items-center g-4">
+                  <div class="col-lg-5">
+                    <div class="upcoming-poster-box">
+                      <img src="assets/img/upcoming-aarambam.jpeg" class="upcoming-event-poster"
+                        alt="Aarambham – A New Beginning">
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-7 d-flex flex-column justify-content-center">
-                  <div>
-                    <span class="upcoming-event-badge"><i class="bi bi-music-note-beamed"></i> CULTURAL FEST</span>
-                  </div>
-                  <h3>EUPHORIA 2026</h3>
-                  <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> 17 &amp; 18 September 2026</div>
-                  <p>Two days of technical innovations, music, dance, and creative celebrations. Unleash your talent and
-                    celebrate the vibrant student culture of MSEC.</p>
-                  <div>
-                    <a href="news.html" class="upcoming-event-btn">
-                      <span>Explore Fest</span> <i class="bi bi-arrow-right"></i>
-                    </a>
+                  <div class="col-lg-7 d-flex flex-column justify-content-center">
+                    <div>
+                      <span class="upcoming-event-badge"><i class="bi bi-stars"></i> ORIENTATION DAY</span>
+                    </div>
+                    <h3>Aarambham – A New Beginning</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> Orientation Day</div>
+                    <p><strong>Aarambham</strong>, the Orientation Day, marks the beginning of an exciting new chapter
+                      for our students. It is a warm welcome into a vibrant learning community where new faces become
+                      friends, curiosity becomes possibility, and every new experience opens the door to something
+                      greater.</p>
+                    <p class="mb-2">Designed to help students connect, explore and feel at home, Aarambham sets the
+                      stage for a journey filled with learning, discovery, collaboration and growth.</p>
+                    <p class="fw-bold mb-3" style="color: #243f5a;">Come, begin your journey. Come, be part of something
+                      new.</p>
+                    <div>
+                      <a href="news.html" class="upcoming-event-btn">
+                        <span>Explore Orientation</span> <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Slide 3: Graduation Day -->
-            <div class="carousel-item">
-              <div class="upcoming-event-slide row align-items-center g-4">
-                <div class="col-lg-5">
-                  <div class="upcoming-poster-box">
-                    <img src="./assets/img/upcoming-graduation.webp" class="upcoming-event-poster"
-                      alt="MSEC Graduation Day - Batch of 2021-25">
+              <!-- Slide 3: Euphoria -->
+              <div class="carousel-item">
+                <div class="upcoming-event-slide row align-items-center g-4">
+                  <div class="col-lg-5">
+                    <div class="upcoming-poster-box">
+                      <img src="./assets/img/upcoming-euphoria.webp" class="upcoming-event-poster"
+                        alt="Euphoria - 17 and 18 September 2026">
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-7 d-flex flex-column justify-content-center">
-                  <div>
-                    <span class="upcoming-event-badge"><i class="bi bi-mortarboard-fill"></i> ACADEMIC CEREMONY</span>
-                  </div>
-                  <h3>Graduation Day</h3>
-                  <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> MSEC Batch of 2021–25</div>
-                  <p>Honoring academic dedication, perseverance, and achievements. Celebrating our graduating engineers
-                    as they step forward into successful global careers.</p>
-                  <div>
-                    <a href="news.html" class="upcoming-event-btn">
-                      <span>Graduation Details</span> <i class="bi bi-arrow-right"></i>
-                    </a>
+                  <div class="col-lg-7 d-flex flex-column justify-content-center">
+                    <div>
+                      <span class="upcoming-event-badge"><i class="bi bi-music-note-beamed"></i> CULTURAL FEST</span>
+                    </div>
+                    <h3>EUPHORIA 2026</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> 17 &amp; 18 September 2026
+                    </div>
+                    <p>Two days of technical innovations, music, dance, and creative celebrations. Unleash your talent
+                      and celebrate the vibrant student culture of MSEC.</p>
+                    <div>
+                      <a href="news.html" class="upcoming-event-btn">
+                        <span>Explore Fest</span> <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Slide 4: Alumni Meet -->
-            <div class="carousel-item">
-              <div class="upcoming-event-slide row align-items-center g-4">
-                <div class="col-lg-5">
-                  <div class="upcoming-poster-box">
-                    <img src="./assets/img/upcoming-alumni-meet.webp" class="upcoming-event-poster"
-                      alt="MSEC Alumni Meet 2026 - 12 December 2026">
+              <!-- Slide 4: Graduation Day -->
+              <div class="carousel-item">
+                <div class="upcoming-event-slide row align-items-center g-4">
+                  <div class="col-lg-5">
+                    <div class="upcoming-poster-box">
+                      <img src="./assets/img/upcoming-graduation.webp" class="upcoming-event-poster"
+                        alt="MSEC Graduation Day - Batch of 2021-25">
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-7 d-flex flex-column justify-content-center">
-                  <div>
-                    <span class="upcoming-event-badge"><i class="bi bi-people-fill"></i> ALUMNI REUNION</span>
-                  </div>
-                  <h3>MSEC Alumni Meet 2026</h3>
-                  <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> 12 December 2026</div>
-                  <p>Back to where it all began. Reconnect with mentors, relive campus memories, and celebrate 25 years
-                    of engineering excellence with the global MSEC family.</p>
-                  <div>
-                    <a href="alumni.html" class="upcoming-event-btn">
-                      <span>Reunion Info</span> <i class="bi bi-arrow-right"></i>
-                    </a>
+                  <div class="col-lg-7 d-flex flex-column justify-content-center">
+                    <div>
+                      <span class="upcoming-event-badge"><i class="bi bi-mortarboard-fill"></i> ACADEMIC CEREMONY</span>
+                    </div>
+                    <h3>Graduation Day</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> MSEC Batch of 2021–25</div>
+                    <p>Honoring academic dedication, perseverance, and achievements. Celebrating our graduating
+                      engineers as they step forward into successful global careers.</p>
+                    <div>
+                      <a href="news.html" class="upcoming-event-btn">
+                        <span>Graduation Details</span> <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Slide 5: Alumni Meet -->
+              <div class="carousel-item">
+                <div class="upcoming-event-slide row align-items-center g-4">
+                  <div class="col-lg-5">
+                    <div class="upcoming-poster-box">
+                      <img src="./assets/img/upcoming-alumni-meet.webp" class="upcoming-event-poster"
+                        alt="Annual Alumni Reunion 2026">
+                    </div>
+                  </div>
+                  <div class="col-lg-7 d-flex flex-column justify-content-center">
+                    <div>
+                      <span class="upcoming-event-badge"><i class="bi bi-people-fill"></i> ALUMNI REUNION</span>
+                    </div>
+                    <h3>Annual Alumni Reunion 2026</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> December 2026</div>
+                    <p>Reconnecting generations of MSEC graduates. Share industry experiences, mentor current students,
+                      and strengthen our global alumni network.</p>
+                    <div>
+                      <a href="alumni.html" class="upcoming-event-btn">
+                        <span>Alumni Details</span> <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
           </div>
 
         </div>
 
-      </div>
+        <div class="text-center mt-5" data-aos="fade-up">
+          <a href="news.html" target="_blank" class="explore-all-news-btn">
+            <span>Explore All News &amp; Events</span> <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
       </div>
 
     </section><!-- /Upcoming Events Section -->
 
-
-    </div>
-
-    </div>
-    </div>
-    </section>
-
-
-    <!-- Upcoming Events Section -->
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials-section section">
 
@@ -2746,13 +2884,13 @@
       <div class="container section-title" data-aos="fade-up">
         <span class="courses-eyebrow">ACADEMIC EXCELLENCE</span>
         <h2>Courses Offered</h2>
-        <p>Explore all 12 undergraduate and postgraduate engineering departments at MSEC.</p>
+        <p>Explore all undergraduate and postgraduate engineering departments at MSEC.</p>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-4">
 
-          <!-- 1. AI & DS -->
+          <!-- 1. Artificial Intelligence & Data Science -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
@@ -2770,7 +2908,7 @@
             </article>
           </div>
 
-          <!-- 2. Civil -->
+          <!-- 2. Civil Engineering -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
@@ -2788,7 +2926,7 @@
             </article>
           </div>
 
-          <!-- 3. CSE -->
+          <!-- 3. Computer Science & Engineering -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
@@ -2806,7 +2944,7 @@
             </article>
           </div>
 
-          <!-- 4. EEE -->
+          <!-- 4. Electrical & Electronics Engineering -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
@@ -2824,11 +2962,11 @@
             </article>
           </div>
 
-          <!-- 5. ECE -->
+          <!-- 5. Electronics & Communication Engineering -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
-                <img src="assets/img/ecedepart.webp" alt="Electronics and Communication Engineering" loading="lazy">
+                <img src="assets/img/ece.webp" alt="Electronics and Communication Engineering" loading="lazy">
                 <span class="course-degree-badge ug">B.E.</span>
                 <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
               </div>
@@ -2842,7 +2980,7 @@
             </article>
           </div>
 
-          <!-- 6. IT -->
+          <!-- 6. Information Technology -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
@@ -2860,11 +2998,11 @@
             </article>
           </div>
 
-          <!-- 7. Mech -->
+          <!-- 7. Mechanical Engineering -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
-                <img src="assets/img/mechdepart.webp" alt="Mechanical Engineering" loading="lazy">
+                <img src="assets/img/mechdept.webp" alt="Mechanical Engineering" loading="lazy">
                 <span class="course-degree-badge ug">B.E.</span>
                 <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
               </div>
@@ -2878,25 +3016,7 @@
             </article>
           </div>
 
-          <!-- 8. Science & Humanities -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/shdepart.webp" alt="Science and Humanities" loading="lazy">
-                <span class="course-degree-badge ug">S&amp;H</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> DEPT</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Science &amp; Humanities</h4>
-                <p>Fundamental physics, chemistry, mathematics &amp; professional communication.</p>
-                <a href="sh.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 9. ME CSE -->
+          <!-- 8. M.E. Computer Science & Engineering -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
@@ -2914,7 +3034,7 @@
             </article>
           </div>
 
-          <!-- 10. ME CEM -->
+          <!-- 9. M.E. Construction Engineering & Management -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
@@ -2932,9 +3052,7 @@
             </article>
           </div>
 
-          
-
-          <!-- 12. ME Energy -->
+          <!-- 10. M.E. Energy Engineering -->
           <div class="col-xl-3 col-lg-4 col-md-6">
             <article class="course-card-compact">
               <div class="course-compact-img">
@@ -2946,6 +3064,24 @@
                 <h4>M.E. Energy Engineering</h4>
                 <p>Renewable energy systems, energy auditing, solar technology &amp; sustainability.</p>
                 <a href="energy.html" target="_blank" class="course-compact-btn">
+                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- 11. Science & Humanities -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <article class="course-card-compact">
+              <div class="course-compact-img">
+                <img src="assets/img/humanscience.webp" alt="Science and Humanities" loading="lazy">
+                <span class="course-degree-badge ug">S&amp;H</span>
+                <span class="course-duration-badge"><i class="bi bi-clock"></i> DEPT</span>
+              </div>
+              <div class="course-compact-body">
+                <h4>Science &amp; Humanities</h4>
+                <p>Fundamental physics, chemistry, mathematics &amp; professional communication.</p>
+                <a href="sh.html" target="_blank" class="course-compact-btn">
                   <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
                 </a>
               </div>

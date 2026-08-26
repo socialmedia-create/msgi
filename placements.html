@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- âœ… Preload Bootstrap Icons font -->
+<!-- ✅ Preload Bootstrap Icons font -->
 <!-- <link rel="preload" as="font" href="assets/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2?e34853135f9e39acf64315236852cd5a" type="font/woff2" crossorigin="anonymous"> -->
 
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
@@ -109,6 +109,238 @@
     ]
   }
   </script>
+
+  <style>
+    /* Redesigned Placement Page Styling */
+    .placement-hero-stats {
+      margin-top: -30px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .p-stat-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 10px 25px rgba(36, 63, 90, 0.07);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .p-stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(36, 63, 90, 0.12);
+    }
+
+    .p-stat-icon {
+      width: 54px;
+      height: 54px;
+      min-width: 54px;
+      border-radius: 14px;
+      background: rgba(227, 24, 55, 0.1);
+      color: #e31837;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .p-stat-info h3 {
+      font-size: 1.5rem;
+      font-weight: 850;
+      color: #243f5a;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .p-stat-info p {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #64748b;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Sidebar Navigation */
+    .placement-sidebar-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(36, 63, 90, 0.06);
+      position: sticky;
+      top: 100px;
+    }
+
+    .placement-sidebar-card .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #243f5a;
+      padding-bottom: 12px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .placement-nav-tabs {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .placement-nav-tabs .nav-link {
+      border: none !important;
+      border-radius: 12px !important;
+      padding: 12px 16px !important;
+      color: #475569 !important;
+      font-size: 0.9rem !important;
+      font-weight: 650 !important;
+      text-align: left !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      transition: all 0.25s ease !important;
+      background: transparent !important;
+    }
+
+    .placement-nav-tabs .nav-link:hover {
+      background: #f8fafc !important;
+      color: #e31837 !important;
+      transform: translateX(3px);
+    }
+
+    .placement-nav-tabs .nav-link.active {
+      background: #e31837 !important;
+      color: #ffffff !important;
+      box-shadow: 0 8px 20px rgba(227, 24, 55, 0.3) !important;
+    }
+
+    .placement-nav-tabs .nav-link i {
+      font-size: 1.1rem;
+    }
+
+    /* Content Cards */
+    .placement-content-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(36, 63, 90, 0.06);
+    }
+
+    .p-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .p-card-header h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #243f5a;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .p-card-badge {
+      background: rgba(227, 24, 55, 0.1);
+      color: #e31837;
+      font-size: 0.8rem;
+      font-weight: 750;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    /* Feature Grid in About Tab */
+    .about-feature-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px;
+      height: 100%;
+    }
+
+    .about-feature-box h5 {
+      color: #243f5a;
+      font-weight: 750;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .about-feature-box ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+      color: #475569;
+      font-size: 0.9rem;
+    }
+
+    .about-feature-box ul li {
+      margin-bottom: 6px;
+    }
+
+    /* Poster Viewer */
+    .poster-container {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .poster-container img {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 80vh !important;
+      object-fit: contain !important;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .btn-download-poster {
+      background: #243f5a;
+      color: #ffffff !important;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-download-poster:hover {
+      background: #e31837;
+      box-shadow: 0 6px 16px rgba(227, 24, 55, 0.3);
+    }
+
+    /* Recruiter Tool Track Styling */
+    .tools-section {
+      width: 100%;
+    }
+  </style>
+
 </head>
 
 
@@ -357,250 +589,370 @@
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Faculty  Staff Section -->
-    <section id="faculty--staff" class="faculty--staff section">
+    <!-- Placement Statistics & Interactive Records Section -->
+    <section id="faculty--staff" class="faculty--staff section pt-4">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <!-- <div class="row mb-5">
-          <div class="col-lg-8 mx-auto">
-            <div class="search-container" data-aos="fade-up" data-aos-delay="200">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search faculty &amp; staff by name, department, or expertise...">
-                <button class="btn search-btn" type="button"><i class="bi bi-search"></i></button>
+        <!-- Top Placement Highlight Stats -->
+        <div class="placement-hero-stats">
+          <div class="row g-3">
+            <div class="col-lg-3 col-sm-6">
+              <div class="p-stat-card">
+                <div class="p-stat-icon"><i class="bi bi-trophy-fill"></i></div>
+                <div class="p-stat-info">
+                  <h3>100%</h3>
+                  <p>Placement Goal</p>
+                </div>
               </div>
-              <div class="filters mt-3">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="facultyFilter" checked="">
-                  <label class="form-check-label" for="facultyFilter">Faculty</label>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="p-stat-card">
+                <div class="p-stat-icon"><i class="bi bi-briefcase-fill"></i></div>
+                <div class="p-stat-info">
+                  <h3>323+</h3>
+                  <p>Total Job Offers</p>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="staffFilter" checked="">
-                  <label class="form-check-label" for="staffFilter">Staff</label>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="p-stat-card">
+                <div class="p-stat-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <div class="p-stat-info">
+                  <h3>22 LPA</h3>
+                  <p>Highest CTC Package</p>
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="researchFilter" checked="">
-                  <label class="form-check-label" for="researchFilter">Research</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="adminFilter" checked="">
-                  <label class="form-check-label" for="adminFilter">Administration</label>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <div class="p-stat-card">
+                <div class="p-stat-icon"><i class="bi bi-building-check"></i></div>
+                <div class="p-stat-info">
+                  <h3>81+</h3>
+                  <p>Companies Visited</p>
                 </div>
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
-        <div class="row">
-          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
-            <div class="departments-nav">
-              <h4 class="departments-title">Placements</h4>
-              <ul class="nav nav-tabs flex-column">
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-1">About Placements</button>
+        <!-- Main Parallel Content Row -->
+        <div class="row g-4 align-items-start">
+          
+          <!-- Left Sidebar Tabs -->
+          <div class="col-lg-3" data-aos="fade-right" data-aos-delay="200">
+            <div class="placement-sidebar-card">
+              <div class="sidebar-title">
+                <i class="bi bi-layers-fill text-danger"></i> Placements Nav
+              </div>
+              <ul class="nav placement-nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="tab-about-btn" data-bs-toggle="tab" data-bs-target="#tab-about" type="button" role="tab">
+                    <span><i class="bi bi-info-circle me-2"></i>About Cell</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
                 </li>
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-0">Eminent Recruiters</button>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="tab-recruiters-btn" data-bs-toggle="tab" data-bs-target="#tab-recruiters" type="button" role="tab">
+                    <span><i class="bi bi-buildings me-2"></i>Eminent Recruiters</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
                 </li>
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-2026">2026 Batch Placements Record</button>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="tab-2026-btn" data-bs-toggle="tab" data-bs-target="#tab-2026" type="button" role="tab">
+                    <span><i class="bi bi-file-earmark-bar-graph me-2"></i>2026 Batch Record</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
                 </li>
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-3">2025 Batch Placements Record</button>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="tab-2025-btn" data-bs-toggle="tab" data-bs-target="#tab-2025" type="button" role="tab">
+                    <span><i class="bi bi-file-earmark-bar-graph me-2"></i>2025 Batch Record</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
                 </li>
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-4">2024 Batch Placements Record</button>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="tab-2024-btn" data-bs-toggle="tab" data-bs-target="#tab-2024" type="button" role="tab">
+                    <span><i class="bi bi-file-earmark-bar-graph me-2"></i>2024 Batch Record</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
                 </li>
-                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-5">2023 Batch Placements Record</button>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="tab-2023-btn" data-bs-toggle="tab" data-bs-target="#tab-2023" type="button" role="tab">
+                    <span><i class="bi bi-file-earmark-bar-graph me-2"></i>2023 Batch Record</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
                 </li>
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-6">2022 Batch Placements Record</button>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="tab-2022-btn" data-bs-toggle="tab" data-bs-target="#tab-2022" type="button" role="tab">
+                    <span><i class="bi bi-file-earmark-bar-graph me-2"></i>2022 Batch Record</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
                 </li>
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faculty--staff-tab-7">Contact</button>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="tab-contact-btn" data-bs-toggle="tab" data-bs-target="#tab-contact" type="button" role="tab">
+                    <span><i class="bi bi-telephone-inbound me-2"></i>Contact Cell</span>
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="col-lg-9" data-aos="fade-up" data-aos-delay="400">
-            <div class="tab-content">
-              <div class="tab-pane fade show active" id="faculty--staff-tab-1">
-                <div class="container py-5 bg-white rounded-3 shadow-lg">
-                    <div class="text-center mb-5">
-                    <h2 class="fw-bold text-danger">Placement Cell</h2>
-                    <p class="lead">Empowering students with career-ready skills and opportunities</p>
-                    </div>                    <div class="mb-4">
-                    <h4 class="text-success"><i class="bi bi-bullseye me-2"></i>Our Goal</h4>
-                    <p>Meenakshi Sundararajan Engineering College, one of the most reputed institutions under Anna University, is committed to ensuring top-tier placement opportunities. Our Placement Cell strives to achieve <strong>100% placement</strong> by preparing students for the corporate world.</p>
-                    </div>
+          <!-- Right Content Area -->
+          <div class="col-lg-9" data-aos="fade-left" data-aos-delay="300">
+            <div class="tab-content m-0 p-0">
 
-                    <div class="mb-4">
-                    <h4 class="text-success"><i class="bi bi-people-fill me-2"></i>Team Structure</h4>
-                    <p>The Placement Cell functions under a dedicated <strong>Placement Officer</strong>, supported by <strong>faculty representatives</strong> and <strong>department coordinators</strong>.</p>
-                    </div>
+              <!-- Tab 1: About Placements -->
+              <div class="tab-pane fade show active" id="tab-about" role="tabpanel">
+                <div class="placement-content-card">
+                  <div class="p-card-header">
+                    <h3><i class="bi bi-bullseye text-danger"></i> Training & Placement Cell</h3>
+                    <span class="p-card-badge">MSEC Placement Cell</span>
+                  </div>
 
-                    <div class="mb-4">
-                    <h4 class="text-success"><i class="bi bi-briefcase-fill me-2"></i>Corporate Training Partners</h4>
-                    <p>Professional training partners coach students in:</p>
-                    <ul>
-                        <li>Aptitude Tests</li>
-                        <li>Group Discussions</li>
-                        <li>Technical & HR Interviews</li>
-                    </ul>
-                    </div>
+                  <p class="lead text-secondary mb-4">Meenakshi Sundararajan Engineering College is committed to fostering academic excellence and providing world-class placement opportunities. Our dedicated Placement Cell prepares students for corporate success with a 100% placement goal.</p>
 
-                    <div class="mb-4">
-                    <h4 class="text-success"><i class="bi bi-book-fill me-2"></i>Training Modules</h4>
-                    <ul>
-                        <li>Presentation Skills</li>
-                        <li>Verbal & Logical Reasoning</li>
-                        <li>Critical Thinking</li>
-                        <li>Group Discussions</li>
-                        <li>Interpersonal Skills</li>
-                    </ul>
+                  <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                      <div class="about-feature-box">
+                        <h5><i class="bi bi-person-badge text-danger"></i> Team Structure</h5>
+                        <p class="small text-muted mb-0">Functioning under a dedicated Placement Officer, supported by energetic faculty representatives and department student coordinators.</p>
+                      </div>
                     </div>
+                    <div class="col-md-6">
+                      <div class="about-feature-box">
+                        <h5><i class="bi bi-briefcase text-danger"></i> Corporate Training Partners</h5>
+                        <ul>
+                          <li>Aptitude & Quantitative Problem Solving</li>
+                          <li>Group Discussions & Public Speaking</li>
+                          <li>Technical Mock & HR Interview Coaching</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
 
-                    <div class="mb-4">
-                    <h4 class="text-success"><i class="bi bi-globe me-2"></i>Language & Communication</h4>
-                    <p><strong>JLPT - Japanese Language Proficiency Test (N5):</strong> Conducted during the first semester by <em>ABK-AOTS Dosokai</em>, this module focuses on basic Japanese communication skills.</p>
-                    <p><strong>English Department Initiatives:</strong></p>
-                    <ul>
-                        <li>Oratorical competitions for first-year students</li>
-                        <li>Third-semester project presentations (interviewing eminent industry professionals)</li>
-                    </ul>
+                  <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                      <div class="about-feature-box">
+                        <h5><i class="bi bi-journal-check text-danger"></i> Specialized Modules</h5>
+                        <ul>
+                          <li>Verbal & Logical Reasoning</li>
+                          <li>Presentation & Communication Skills</li>
+                          <li>Critical Thinking & Interpersonal Skills</li>
+                        </ul>
+                      </div>
                     </div>
+                    <div class="col-md-6">
+                      <div class="about-feature-box">
+                        <h5><i class="bi bi-translate text-danger"></i> Foreign Language (JLPT N5)</h5>
+                        <p class="small text-muted mb-0">Japanese Language Proficiency Test (N5) training conducted in Semester 1 via ABK-AOTS Dosokai to enhance international career readiness.</p>
+                      </div>
+                    </div>
+                  </div>
 
-                    <div class="mb-4">
-                    <h4 class="text-success"><i class="bi bi-laptop me-2"></i>Technical Proficiency</h4>
-                    <p>Comprehensive hands-on training in:</p>
-                    <ul>
-                        <li>C Programming</li>
-                        <li>C++ Programming</li>
-                    </ul>
-                    <p>These skills build strong technical foundations for project development and interviews.</p>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="about-feature-box">
+                        <h5><i class="bi bi-code-slash text-danger"></i> Technical Proficiency</h5>
+                        <p class="small text-muted mb-0">Hands-on coding bootcamps in C and C++ programming to strengthen algorithmic core foundations for technical interview rounds.</p>
+                      </div>
                     </div>
+                    <div class="col-md-6">
+                      <div class="about-feature-box">
+                        <h5><i class="bi bi-lightbulb text-danger"></i> Industry Seminars</h5>
+                        <p class="small text-muted mb-0">Monthly department technical seminars and expert-led workshops on emerging technologies to bridge industry-academia gaps.</p>
+                      </div>
+                    </div>
+                  </div>
 
-                    <div class="mb-4">
-                    <h4 class="text-success"><i class="bi bi-lightbulb-fill me-2"></i>Industry Interaction</h4>
-                    <ul>
-                        <li>Monthly technical seminars conducted by each department</li>
-                        <li>Expert-led seminars on trending technologies to bridge the industry-academia gap</li>
-                    </ul>
-                    </div>
-                    </div>
                 </div>
               </div>
 
-              <div class="tab-pane fade" id="faculty--staff-tab-0">
-                <div class="department-info mb-4">
-                  <h3>Recruiters</h3>
-                </div>
-                <div class="row g-4">
-                      <section class="tools-section">
-                        <h2>Our Eminent Recruiters</h2>
-                        <!-- <p>Empowering Strategies With Advanced Tools</p> -->
+              <!-- Tab 2: Eminent Recruiters -->
+              <div class="tab-pane fade" id="tab-recruiters" role="tabpanel">
+                <div class="placement-content-card">
+                  <div class="p-card-header">
+                    <h3><i class="bi bi-buildings text-danger"></i> Our Eminent Recruiters</h3>
+                    <span class="p-card-badge">Top Hiring Partners</span>
+                  </div>
 
-                        <div class="scroll-container my-3">
-                        <div class="tool-track p-3" data-aos="fade-up" data-aos-delay="400">
-                            <!-- Repeat twice for smooth infinite scroll -->
-                            <div class="tool"><img alt="cmpy logo"  src="./assets/img/cmpylogo02 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo"  src="./assets/img/cmpylogo03 (1).webp"width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo"  src="./assets/img/cmpylogo07 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo"  src="./assets/img/cmpylogo06 (1).webp" width="100" height="100"></div>
-                            <div class="tool"><img alt="cmpy logo"  src="./assets/img/jman.webp" width="100" height="100"></div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo08 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo09 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo10 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo20 (1).webp" width="100" height="100"></div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo30 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/kaar (1).webp" width="100" height="100"> </div>
+                  <p class="text-muted mb-4">MSEC proudly partners with top multinational corporations, core engineering companies, and innovative tech giants for campus placements.</p>
+
+                  <section class="tools-section">
+                    <div class="scroll-container my-3">
+                      <div class="tool-track p-3">
+                        <div class="tool"><img alt="cmpy logo" src="./assets/img/cmpylogo02 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" src="./assets/img/cmpylogo03 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" src="./assets/img/cmpylogo07 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" src="./assets/img/cmpylogo06 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" src="./assets/img/jman.webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo08 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo09 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo10 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo20 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo30 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/kaar (1).webp" width="100" height="100"></div>
+                      </div>
+                    </div>
+                    <div class="scroll-container my-3">
+                      <div class="tool-track p-3">
+                        <div class="tool"><img alt="cmpy logo" src="./assets/img/cmpylogo11 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" src="./assets/img/cmpylogo12 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" src="./assets/img/cmpylogo13 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo14 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo15 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo16 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo17 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo18 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo19 (1).webp" width="100" height="100"></div>
+                        <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo37 (1).webp" width="100" height="100"></div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+
+              <!-- Tab 3: 2026 Batch -->
+              <div class="tab-pane fade" id="tab-2026" role="tabpanel">
+                <div class="placement-content-card">
+                  <div class="p-card-header">
+                    <h3><i class="bi bi-file-earmark-bar-graph text-danger"></i> 2026 Batch Placements Record</h3>
+                    <a href="./assets/img/2026-batch-placement.jpg" target="_blank" class="btn-download-poster">
+                      <span>Full Poster</span> <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  </div>
+                  <div class="poster-container">
+                    <img src="./assets/img/2026-batch-placement.jpg" alt="2026 Batch Placements Record" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 4: 2025 Batch -->
+              <div class="tab-pane fade" id="tab-2025" role="tabpanel">
+                <div class="placement-content-card">
+                  <div class="p-card-header">
+                    <h3><i class="bi bi-file-earmark-bar-graph text-danger"></i> 2025 Batch Placements Record</h3>
+                    <a href="./assets/img/2025.webp" target="_blank" class="btn-download-poster">
+                      <span>Full Poster</span> <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  </div>
+                  <div class="poster-container">
+                    <img src="./assets/img/2025.webp" alt="2025 Batch Placements Record" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 5: 2024 Batch -->
+              <div class="tab-pane fade" id="tab-2024" role="tabpanel">
+                <div class="placement-content-card">
+                  <div class="p-card-header">
+                    <h3><i class="bi bi-file-earmark-bar-graph text-danger"></i> 2024 Batch Placements Record</h3>
+                    <a href="./assets/img/2024.webp" target="_blank" class="btn-download-poster">
+                      <span>Full Poster</span> <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  </div>
+                  <div class="poster-container">
+                    <img src="./assets/img/2024.webp" alt="2024 Batch Placements Record" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 6: 2023 Batch -->
+              <div class="tab-pane fade" id="tab-2023" role="tabpanel">
+                <div class="placement-content-card">
+                  <div class="p-card-header">
+                    <h3><i class="bi bi-file-earmark-bar-graph text-danger"></i> 2023 Batch Placements Record</h3>
+                    <a href="./assets/img/2023.webp" target="_blank" class="btn-download-poster">
+                      <span>Full Poster</span> <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  </div>
+                  <div class="poster-container">
+                    <img src="./assets/img/2023.webp" alt="2023 Batch Placements Record" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 7: 2022 Batch -->
+              <div class="tab-pane fade" id="tab-2022" role="tabpanel">
+                <div class="placement-content-card">
+                  <div class="p-card-header">
+                    <h3><i class="bi bi-file-earmark-bar-graph text-danger"></i> 2022 Batch Placements Record</h3>
+                    <a href="./assets/img/2022.webp" target="_blank" class="btn-download-poster">
+                      <span>Full Poster</span> <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                  </div>
+                  <div class="poster-container">
+                    <img src="./assets/img/2022.webp" alt="2022 Batch Placements Record" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 8: Contact Placement Cell -->
+              <div class="tab-pane fade" id="tab-contact" role="tabpanel">
+                <div class="placement-content-card">
+                  <div class="p-card-header">
+                    <h3><i class="bi bi-telephone-inbound text-danger"></i> Placement Officer Contact</h3>
+                    <span class="p-card-badge">Training & Placement Office</span>
+                  </div>
+
+                  <div class="row align-items-center g-4">
+                    <div class="col-md-7">
+                      <h4 class="fw-bold text-dark mb-1">Mr. S. Balasundaram</h4>
+                      <p class="text-danger fw-semibold mb-3">Head - Placements & Training</p>
+                      <p class="text-muted mb-4">Meenakshi Sundararajan Group of Institutions<br/>Kodambakkam, Chennai - 600024, Tamil Nadu.</p>
+
+                      <div class="d-flex flex-column gap-3 mb-4">
+                        <div class="d-flex align-items-center gap-3">
+                          <div class="p-stat-icon" style="width: 44px; height: 44px; min-width: 44px; font-size: 1.2rem;">
+                            <i class="bi bi-envelope-fill"></i>
+                          </div>
+                          <div>
+                            <div class="small text-muted fw-bold">EMAIL ADDRESS</div>
+                            <a href="mailto:placementcell@msec.edu.in" class="fw-bold text-dark text-decoration-none">placementcell@msec.edu.in</a>
+                          </div>
                         </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                          <div class="p-stat-icon" style="width: 44px; height: 44px; min-width: 44px; font-size: 1.2rem;">
+                            <i class="bi bi-telephone-fill"></i>
+                          </div>
+                          <div>
+                            <div class="small text-muted fw-bold">CONTACT NUMBER</div>
+                            <a href="tel:+919840801956" class="fw-bold text-dark text-decoration-none">+91 98408 01956</a>
+                          </div>
                         </div>
-                        <div class="scroll-container my-3">
-                        <div class="tool-track p-3">
-                            <!-- Repeat twice for smooth infinite scroll -->
-                            <div class="tool"><img alt="cmpy logo"  src="./assets/img/cmpylogo11 (1).webp"width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo"  src="./assets/img/cmpylogo12 (1).webp"width="100" height="100"></div>
-                            <div class="tool"><img alt="cmpy logo"  src="./assets/img/cmpylogo13 (1).webp"width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo14 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo15 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo16 (1).webp"width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo17 (1).webp" width="100" height="100"></div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo18 (1).webp"width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo19 (1).webp" width="100" height="100"> </div>
-                            <div class="tool"><img alt="cmpy logo" loading="lazy" src="./assets/img/cmpylogo37 (1).webp" width="100" height="100"> </div>
-                        </div>
-                        </div>
-                    </section>
-              </div>
-              </div>
+                      </div>
 
-              <div class="tab-pane fade" id="faculty--staff-tab-2026">
-                <div class="row g-4">
-                  <div class="col-lg-10">
-                    <img src="./assets/img/2026-batch-placement.jpg" alt="2026 Batch Placements Record" loading="lazy" class="img-fluid"/>
+                      <div class="d-flex gap-2">
+                        <a href="mailto:placementcell@msec.edu.in" class="btn btn-danger rounded-pill px-4 font-weight-bold">
+                          <i class="bi bi-send-fill me-1"></i> Email Placement Office
+                        </a>
+                        <a href="tel:+919840801956" class="btn btn-outline-dark rounded-pill px-4">
+                          <i class="bi bi-telephone me-1"></i> Call Officer
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="col-md-5">
+                      <div class="p-4 bg-light rounded-4 border text-center">
+                        <i class="bi bi-geo-alt-fill fs-1 text-danger mb-2"></i>
+                        <h6 class="fw-bold text-dark">Placement Office Location</h6>
+                        <p class="small text-muted mb-0">Main Administrative Block, MSEC Campus,<br/>Kodambakkam, Chennai.</p>
+                      </div>
+                    </div>
                   </div>
+
                 </div>
               </div>
 
-              <div class="tab-pane fade" id="faculty--staff-tab-3">
-                <div class="row g-4">
-                  <div class="col-lg-10">
-                    <img src="./assets/img/2025.webp" alt="2025placement" loading="lazy" class="img-fluid"/>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tab-pane fade" id="faculty--staff-tab-4">
-                <div class="row g-4">
-                  <div class="col-lg-10 ">
-                    <img src="./assets/img/2024.webp" alt="2024placement" loading="lazy" class="img-fluid w-100 style2024" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="tab-pane fade" id="faculty--staff-tab-5">
-                <div class="row g-4">
-                  <div class="col-lg-10 ">
-                    <img src="./assets/img/2023.webp" alt="2023placement" loading="lazy" class="img-fluid w-100 style2023" />
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="faculty--staff-tab-6">
-                <div class="row g-4">
-                  <div class="col-lg-10 ">
-                    <img src="./assets/img/2022.webp" alt="2022placement" loading="lazy" class="img-fluid w-100 style2022"/>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="faculty--staff-tab-7">
-                <div class="container my-4">
-                  <div class="card shadow rounded-4 p-4 border-0">
-                    <h5 class="card-title mb-3 fw-bold"><i class="bi bi-telephone-fill me-2 text-danger"></i>Contact</h5>
-                    <p class="mb-1"><strong>Mr.S.Balasundaram</strong></p>
-                    <p class="mb-1">Head - Placements</p>
-                    <p class="mb-1">Meenakshi Sundararajan Group of Institutions</p>
-                    <p class="mb-1">
-                      <i class="bi bi-envelope-fill"></i> 
-                      <a href="mailto:placementcell@msec.edu.in" class="text-decoration-none">placementcell@msec.edu.in</a>
-                    </p>
-                    <p class="mb-0">
-                      <i class="bi bi-telephone-fill"></i> 
-                      <a href="tel:+919840801956" class="text-decoration-none">9840801956</a>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
+            </div>
           </div>
+
         </div>
 
       </div>
 
-    </section><!-- /Faculty  Staff Section -->
+    </section><!-- /Placement Section -->
 
   </main>
 
@@ -674,7 +1026,7 @@ Email: principal@msec.edu.in</span></p>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>Copyright | All rights reserved Â© 2026 Meenakshi Sundararajan Group of Institutions (Managed by IIET Society). </p>
+      <p>Copyright | All rights reserved © 2026 Meenakshi Sundararajan Group of Institutions (Managed by IIET Society). </p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -750,17 +1102,17 @@ document.addEventListener("DOMContentLoaded", function () {
     subMenu.style.margin = "0";
 
     const departments = [
-      { name: "B.E. Computer Science and Engineering", href: "computerscience.html" },
-      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
-      { name: "B.E. Electronics and Communication Engineering", href: "ece.html" },
-      { name: "B.E. Electrical and Electronics Engineering", href: "eee.html" },
-      { name: "B.E. Mechanical Engineering", href: "mech.html" },
-      { name: "B.E. Civil Engineering", href: "civil.html" },
       { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
+      { name: "B.E. Civil Engineering", href: "civil.html" },
+      { name: "B.E. Computer Science and Engineering", href: "computerscience.html" },
+      { name: "B.E. Electrical and Electronics Engineering", href: "eee.html" },
+      { name: "B.E. Electronics and Communication Engineering", href: "ece.html" },
+      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
+      { name: "B.E. Mechanical Engineering", href: "mech.html" },
       { name: "Science and Humanities", href: "humanitiesscience.html" },
       { name: "M.E. Computer Science", href: "csepostgraduate.html" },
-      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
       { name: "M.E. Construction Engineering and Management", href: "civilpostgraduate.html" },
+      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
       { name: "M.E. Energy Engineering", href: "mechpostgraduate.html" }
     ];
 

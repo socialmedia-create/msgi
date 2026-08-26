@@ -1514,7 +1514,7 @@ transition: all 0.2s ease-in-out;
     animation-name: nhTickerScroll;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-duration: var(--duration, 10s);
+    animation-duration: var(--duration, 40s);
     animation-play-state: running;
   }
 

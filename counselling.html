@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -21,17 +21,17 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
 <link rel="manifest" href="./assets/img/site.webmanifest">
 
-<!-- âœ… Preconnect to Google Fonts -->
+<!-- ✅ Preconnect to Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- âœ… Preload Google Fonts without blocking rendering -->
+<!-- ✅ Preload Google Fonts without blocking rendering -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap">
 </noscript>
 
-<!-- âœ… Vendor CSS Files -->
+<!-- ✅ Vendor CSS Files -->
 <link rel="preload" as="style" href="assets/vendor/aos/aos.css" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="assets/vendor/aos/aos.css"></noscript>
 
@@ -41,13 +41,13 @@
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"></noscript>
 
-<!-- âœ… Bootstrap CSS -->
+<!-- ✅ Bootstrap CSS -->
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </noscript>
 
-<!-- âœ… Main CSS Files -->
+<!-- ✅ Main CSS Files -->
 <link rel="preload" as="style" href="assets/css/main.min.css" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="assets/css/main.min.css"></noscript>
 
@@ -343,400 +343,638 @@
     
   </div>
 </header>
-            <div class="page-title dark-background" style="background-image: url(assets/img/campus.jpeg);">
-      <div class="container position-relative">
-        <h1>Counselling</h1>
-        <!-- <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p> -->
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Counselling </li>
-          </ol>
-        </nav>
+    <style>
+    /* ===== COUNSELLING PAGE CUSTOM STYLES ===== */
+
+    /* Hero */
+    .counselling-hero {
+      background: linear-gradient(135deg, #1a3a6b 0%, #0d2a55 60%, #1e3f8a 100%);
+      color: #fff;
+      padding: 70px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .counselling-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 340px; height: 340px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .counselling-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 280px; height: 280px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .counselling-hero .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #93c5fd;
+      margin-bottom: 12px;
+    }
+    .counselling-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #ffffff !important;
+    }
+    .counselling-hero .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 480px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .btn-cta-primary {
+      background: #e31837;
+      color: #fff;
+      border: 2px solid #e31837;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-cta-primary:hover { background: #c01430; border-color: #c01430; color: #fff; }
+    .btn-cta-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.6);
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; }
+    .trust-badges { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
+    .trust-badge { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+    .trust-badge i { color: #93c5fd; }
+    .hero-img-wrap { position: relative; }
+    .hero-img-wrap img { border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-height: 380px; width: 100%; object-fit: cover; }
+
+    /* Section styling */
+    .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e31837; margin-bottom: 6px; }
+    .section-title-h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #1a2e5a; margin-bottom: 8px; }
+    .c-section { padding: 56px 0; }
+    .c-section-light { background: #f8f9fb; }
+    .c-section-white { background: #fff; }
+
+    /* Help Cards */
+    .help-card {
+      background: #fff;
+      border: 1px solid #e8edf5;
+      border-radius: 14px;
+      padding: 28px 22px;
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .help-card:hover { box-shadow: 0 8px 30px rgba(26,58,107,0.12); transform: translateY(-4px); border-color: #1a3a6b; }
+    .help-card .hc-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .hc-blue { background: #dbeafe; }
+    .hc-green { background: #d1fae5; }
+    .hc-amber { background: #fef3c7; }
+    .hc-rose { background: #fee2e2; }
+    .help-card h5 { font-weight: 700; color: #1a2e5a; font-size: 1rem; margin-bottom: 8px; }
+    .help-card p { font-size: 0.875rem; color: #6b7280; line-height: 1.55; margin-bottom: 14px; }
+    .help-card .hc-link { font-size: 0.85rem; font-weight: 600; color: #e31837; text-decoration: none; }
+    .help-card .hc-link:hover { text-decoration: underline; }
+
+    /* Topic Chips */
+    .topic-chip {
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      color: #334155;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+    .topic-chip:hover { border-color: #1a3a6b; background: #f0f4ff; color: #1a3a6b; }
+    .topic-chip .tc-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+    /* Process Steps */
+    .process-steps { display: flex; align-items: flex-start; gap: 0; flex-wrap: nowrap; }
+    @media (max-width: 768px) { .process-steps { flex-wrap: wrap; gap: 24px; } }
+    .step-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+    .step-item:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -12px;
+      top: 22px;
+      font-size: 1.4rem;
+      color: #94a3b8;
+      z-index: 1;
+    }
+    @media (max-width: 768px) { .step-item:not(:last-child)::after { display: none; } }
+    .step-circle {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .step-num { font-size: 0.65rem; font-weight: 800; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
+    .step-title { font-size: 0.9rem; font-weight: 700; color: #1a2e5a; margin-bottom: 4px; }
+    .step-desc { font-size: 0.78rem; color: #6b7280; line-height: 1.4; }
+
+    /* Counsellor Cards */
+    .counsellor-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      height: 100%;
+    }
+    .counsellor-card img {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #e31837;
+      margin-bottom: 12px;
+    }
+    .counsellor-card h6 { font-weight: 700; color: #1a2e5a; font-size: 0.95rem; margin-bottom: 4px; }
+    .counsellor-card .role { font-size: 0.8rem; color: #e31837; font-weight: 600; margin-bottom: 10px; }
+    .counsellor-card ul { list-style: none; padding: 0; text-align: left; }
+    .counsellor-card ul li { font-size: 0.78rem; color: #475569; padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
+    .counsellor-card ul li i { color: #22c55e; margin-top: 2px; flex-shrink: 0; }
+
+    /* Key Benefits */
+    .benefit-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
+    .benefit-item:last-child { border-bottom: none; }
+    .benefit-item .bi-icon { width: 34px; height: 34px; background: #fee2e2; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #e31837; font-size: 1rem; flex-shrink: 0; }
+    .benefit-item span { font-size: 0.85rem; font-weight: 600; color: #334155; }
+
+    /* Study Skills */
+    .skill-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-row .sk-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .skill-row span { font-size: 0.83rem; font-weight: 600; color: #334155; }
+
+    /* Info Cards */
+    .info-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; height: 100%; }
+    .info-card .ic-title { font-size: 1rem; font-weight: 700; color: #1a2e5a; margin-bottom: 16px; }
+
+    /* Progress Journey */
+    .progress-stage { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+    .progress-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #22c55e; }
+    .progress-stage .ps-text h6 { font-size: 0.875rem; font-weight: 700; color: #1a2e5a; margin-bottom: 2px; }
+    .progress-stage .ps-text p { font-size: 0.8rem; color: #6b7280; margin: 0; }
+    .weekly-note { font-size: 0.78rem; color: #6b7280; font-style: italic; margin-top: 10px; }
+
+    /* Approach list */
+    .approach-item { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid #f1f5f9; }
+    .approach-item:last-child { border-bottom: none; }
+    .approach-item i { color: #1a3a6b; font-size: 1rem; flex-shrink: 0; }
+    .approach-item span { font-size: 0.85rem; color: #334155; font-weight: 500; }
+
+    /* Grievance */
+    .grievance-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all 0.2s;
+    }
+    .grievance-link.student { background: #dbeafe; color: #1d4ed8; }
+    .grievance-link.faculty { background: #fef3c7; color: #92400e; }
+    .grievance-link.facility { background: #fee2e2; color: #991b1b; }
+    .grievance-link:hover { opacity: 0.85; transform: translateX(3px); }
+    .grievance-link .gl-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .grievance-link .gl-text strong { display: block; font-size: 0.85rem; font-weight: 700; }
+    .grievance-link .gl-text small { font-size: 0.75rem; opacity: 0.8; }
+    .grievance-process { font-size: 0.78rem; color: #94a3b8; margin-top: 8px; }
+
+    /* CTA Banner */
+    .help-cta-banner {
+      background: linear-gradient(135deg, #1a3a6b 0%, #0d2a55 100%);
+      color: #fff;
+      padding: 56px 0;
+      text-align: center;
+    }
+    .help-cta-banner h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 8px; }
+    .help-cta-banner p { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
+
+    /* Btn study skills */
+    .btn-study { background: #1a3a6b; color: #fff; border: none; padding: 11px 22px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; width: 100%; margin-top: 12px; cursor: pointer; transition: background 0.2s; }
+    .btn-study:hover { background: #0d2a55; }
+    </style>
+
+    <!-- ========== S1: HERO ========== -->
+    <section class="counselling-hero">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7" data-aos="fade-right">
+            <div class="eyebrow">COUNSELLING &amp; STUDENT SUPPORT</div>
+            <h1>You Don't Have to<br>Figure It Out Alone.</h1>
+            <p class="hero-sub">Confidential counselling, academic guidance and personal support for every MSEC student.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-cta-primary">
+                <i class="bi bi-chat-dots-fill"></i> Talk to a Counsellor
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-cta-outline">
+                <i class="bi bi-flag-fill"></i> Raise a Concern
+              </a>
+            </div>
+            <div class="trust-badges">
+              <span class="trust-badge"><i class="bi bi-shield-lock-fill"></i> Confidential</span>
+              <span class="trust-badge"><i class="bi bi-heart-fill"></i> Supportive</span>
+              <span class="trust-badge"><i class="bi bi-person-check-fill"></i> Student-Centred</span>
+            </div>
+          </div>
+          <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left">
+            <div class="hero-img-wrap">
+              <img src="assets/img/campus.jpeg" alt="Meenakshi Sundararajan Engineering College Campus" loading="eager">
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="container my-3">
+    </section>
 
-  <main class="main row align-items-center justify-content-center">
-    
-      <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+    <main id="counselling-main">
 
-        <!-- Introduction -->
+    <!-- ========== S2: HOW CAN WE HELP? ========== -->
+    <section class="c-section c-section-white">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <div class="section-eyebrow">OUR SERVICES</div>
+          <h2 class="section-title-h2">How Can We Help You?</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="100">
+            <div class="help-card">
+              <div class="hc-icon hc-blue"><i class="bi bi-book-fill"></i></div>
+              <h5>Academic Support</h5>
+              <p>Struggling with studies, concentration, time management or exams? We've got you covered.</p>
+              <a href="#" class="hc-link">Get Academic Guidance →</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="150">
+            <div class="help-card">
+              <div class="hc-icon hc-green"><i class="bi bi-emoji-smile-fill"></i></div>
+              <h5>Personal &amp; Emotional Support</h5>
+              <p>Feeling stressed, overwhelmed or finding it difficult to cope? Talk to a counsellor.</p>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="hc-link">Talk to a Counsellor →</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="200">
+            <div class="help-card">
+              <div class="hc-icon hc-amber"><i class="bi bi-compass-fill"></i></div>
+              <h5>Career Guidance</h5>
+              <p>Need help making decisions about your career or future? Explore career guidance with us.</p>
+              <a href="#" class="hc-link">Explore Career Guidance →</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="250">
+            <div class="help-card">
+              <div class="hc-icon hc-rose"><i class="bi bi-megaphone-fill"></i></div>
+              <h5>Grievance &amp; Feedback</h5>
+              <p>Have a concern that needs to be formally addressed? Submit a grievance confidentially.</p>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="hc-link">Submit a Grievance →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Facilities Tabs -->
-        <div class="facilities-tabs container-fluid mt-4" data-aos="fade-up" data-aos-delay="200">
-          <!-- Nav Tabs -->
-          <ul class="nav custom-tabs nav-tabs my-tab-style row gx-2 gy-2 d-flex flex-wrap align-items-stretch justify-content-start" role="tablist">
+    <!-- ========== S3: WHAT CAN YOU COME FOR? ========== -->
+    <section class="c-section c-section-light">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <div class="section-eyebrow">TOPICS WE COVER</div>
+          <h2 class="section-title-h2">What Can You Come to Counselling For?</h2>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="topic-chip"><span class="tc-icon">📚</span> Academic Stress</div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="130">
+            <div class="topic-chip"><span class="tc-icon">🧭</span> Career Decisions</div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+            <div class="topic-chip"><span class="tc-icon">👤</span> Personal Challenges</div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="190">
+            <div class="topic-chip"><span class="tc-icon">🧠</span> Stress &amp; Wellbeing</div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="220">
+            <div class="topic-chip"><span class="tc-icon">💬</span> Communication</div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+            <div class="topic-chip"><span class="tc-icon">🌱</span> Personal Growth</div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="280">
+            <div class="topic-chip"><span class="tc-icon">🔧</span> Problem Solving</div>
+          </div>
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="310">
+            <div class="topic-chip"><span class="tc-icon">❓</span> Difficult Situations</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <li class="nav-item col-auto my-2" role="presentation">
-              <button class="nav-link counselling active px-3 py-2 text-danger  fw-bold fs-5 rounded-3" id="academic-tab" data-bs-toggle="tab" data-bs-target="#campus-facilities-academic" type="button" role="tab" aria-selected="true">
-                <i class="bi bi-book me-1"></i> About
-              </button>
-            </li>
+    <!-- ========== S4: HOW COUNSELLING WORKS ========== -->
+    <section class="c-section c-section-white">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <div class="section-eyebrow">THE PROCESS</div>
+          <h2 class="section-title-h2">How Counselling Works</h2>
+        </div>
+        <div class="process-steps" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-item">
+            <div class="step-circle" style="background:#dbeafe;">📞</div>
+            <div class="step-num">01</div>
+            <div class="step-title">Reach Out</div>
+            <div class="step-desc">Choose the type of support you need.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle" style="background:#d1fae5;">💬</div>
+            <div class="step-num">02</div>
+            <div class="step-title">Talk</div>
+            <div class="step-desc">Meet your counsellor in a safe, supportive environment.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle" style="background:#fef3c7;">🔍</div>
+            <div class="step-num">03</div>
+            <div class="step-title">Understand</div>
+            <div class="step-desc">Identify challenges, strengths and positive solutions.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle" style="background:#fee2e2;">📋</div>
+            <div class="step-num">04</div>
+            <div class="step-title">Create a Plan</div>
+            <div class="step-desc">Work together on practical next steps.</div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle" style="background:#ede9fe;">✅</div>
+            <div class="step-num">05</div>
+            <div class="step-title">Follow Up</div>
+            <div class="step-desc">Track your progress and adjust your plan.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <li class="nav-item col-auto my-2" role="presentation">
-              <button class="nav-link px-3 py-2 text-danger  fw-bold fs-5 rounded-3" id="athletic-tab" data-bs-toggle="tab" data-bs-target="#campus-facilities-athletic" type="button" role="tab" aria-selected="false">
-                <i class="bi bi-trophy me-1"></i> Key Benefits
-              </button>
-            </li>
+    <!-- ========== S5: KEY BENEFITS | MEET COUNSELLORS | STUDY SKILLS ========== -->
+    <section class="c-section c-section-light">
+      <div class="container">
+        <div class="row g-4">
 
-            <li class="nav-item col-auto my-2" role="presentation">
-              <button class="nav-link px-3 py-2 text-danger  fw-bold fs-5 rounded-3" id="residential-tab" data-bs-toggle="tab" data-bs-target="#campus-facilities-residential" type="button" role="tab" aria-selected="false">
-                <i class="bi bi-house-door me-1"></i> Guidance Based on Student Skills
-              </button>
-            </li>
+          <!-- Key Benefits -->
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="info-card">
+              <div class="section-eyebrow">SUPPORT AREAS</div>
+              <div class="ic-title">Key Benefits</div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-heart-fill"></i></div>
+                <span>Emotional Support</span>
+              </div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                <span>Academic Guidance</span>
+              </div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-compass-fill"></i></div>
+                <span>Career Planning</span>
+              </div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-person-arms-up"></i></div>
+                <span>Personal Growth</span>
+              </div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-lightbulb-fill"></i></div>
+                <span>Problem Solving</span>
+              </div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-chat-dots-fill"></i></div>
+                <span>Communication Skills</span>
+              </div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-emoji-laughing-fill"></i></div>
+                <span>Stress Management</span>
+              </div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-shield-check-fill"></i></div>
+                <span>Resilience Building</span>
+              </div>
+              <div class="benefit-item">
+                <div class="bi-icon"><i class="bi bi-alarm-fill"></i></div>
+                <span>Crisis Intervention</span>
+              </div>
+            </div>
+          </div>
 
-            <li class="nav-item col-auto my-2" role="presentation">
-              <button class="nav-link px-3 py-2 text-danger  fw-bold fs-5 rounded-3" id="community-tab" data-bs-toggle="tab" data-bs-target="#campus-facilities-community" type="button" role="tab" aria-selected="false">
-                <i class="bi bi-people me-1"></i> Counselling Methods & Techniques
-              </button>
-            </li>
+          <!-- Meet Your Counsellors -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-card">
+              <div class="section-eyebrow">YOUR SUPPORT TEAM</div>
+              <div class="ic-title">Meet Your Counsellors</div>
 
-          </ul>
+              <div class="row g-3">
+                <!-- Dr. Suganthi -->
+                <div class="col-6">
+                  <div class="counsellor-card h-100">
+                    <img src="assets/img/suganthi.jpeg" alt="Dr. S. Suganthi">
+                    <h6>Dr. S. Suganthi, Ph.D</h6>
+                    <div class="role">Student Counsellor</div>
+                    <ul>
+                      <li><i class="bi bi-check-circle-fill"></i> Confidential Sessions</li>
+                      <li><i class="bi bi-check-circle-fill"></i> Academic Support</li>
+                      <li><i class="bi bi-check-circle-fill"></i> Personal Guidance</li>
+                      <li><i class="bi bi-check-circle-fill"></i> Career Guidance</li>
+                    </ul>
+                  </div>
+                </div>
 
-          <!-- Tab Contents -->
-          <div class="tab-content py-4">
-
-            <!-- Tab 1 -->
-            <div class="tab-pane fade show active" id="campus-facilities-academic" role="tabpanel" aria-labelledby="academic-tab">
-              <!-- Your academic content here -->
-              <p class="text-black justifytext">
-                Counselling can provide numerous benefits to engineering college students, helping them to navigate challenges during their academic journey and beyond.
-                It offers <strong class="stylemidpoint">academic support</strong>, <strong class="stylemidpoint">career guidance</strong>, and <strong class="stylemidpoint">emotional well-being</strong> aid.
-                Students also develop <strong class="stylemidpoint">soft skills</strong> and improve <strong class="stylemidpoint">decision-making</strong>.
-              </p>
-              <div class="col-auto" data-aos="fade-up" data-aos-delay="400">
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="faculty--staff-tab-8">
-                    <div class="container py-5 bg-white rounded-3 shadow-lg">
-                      <div class="text-center mb-5">
-                        <h2 class="fw-bold text-danger">Counselling & Grievance Redressal</h2>
-                        <p class="lead">Supporting students in academic, personal, and career development with care and integrity</p>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">🎯 Role of Counselling</h4>
-                        <p>The emerging role of counselling involves helping students to complete their academic objectives; the reduction of student attrition is a priority. Counselors must perform the roles of student developers and guides for learning. They communicate the importance of skill building and other academic requirements, encouraging students to build a pattern of success. Essential qualities include professional mission, rapport, and empathy.</p>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">ðŸ“ Responsibility</h4>
-                        <p>As student developers, counselors should emphasize academics realistically and vividly. They are responsible for providing counseling, information, and support services to help students make informed educational and career choices. Development includes social, intellectual, psychological, and ethical dimensions.</p>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">📌 Counselor Services</h4>
-                        <ul>
-                          <li>Assessing student ability using placement tests and interest inventories</li>
-                          <li>Clarifying education and career goals</li>
-                          <li>Helping students utilize college resources</li>
-                        </ul>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">📢 Grievances and Redressal</h4>
-                        <p>Meenakshi Sundararajan Engineering College ensures fair treatment of all community members. The grievance procedure ensures prompt and just resolutions.</p>
-                        <p><strong>Registry Location:</strong> Office of the main building, MSEC, 363 Arcot Road, Kodambakkam, Chennai-600024.</p>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">ðŸ” Grievance Redressal Cell</h4>
-                        <p>Established to address genuine student concerns efficiently, promoting transparency and a harmonious campus atmosphere.</p>
-                        <ul>
-                          <li>Academic grievances</li>
-                          <li>Non-Academic grievances</li>
-                        </ul>
-
-                        <h5 class="text-secondary">Objectives:</h5>
-                        <ul>
-                          <li>Ensure fair and impartial grievance redressal</li>
-                          <li>Maintain a respectful and responsive environment</li>
-                          <li>Promote cordial student-teacher relationships</li>
-                        </ul>
-
-                        <h5 class="text-secondary">Functions:</h5>
-                        <ul>
-                          <li>Review and act on written student grievances promptly</li>
-                          <li>Submit reports to authorities</li>
-                          <li>Seek guidance on unresolved cases</li>
-                        </ul>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">📑 Useful Links</h4>
-                        <ul class="list-group">
-                          <li class="list-group-item">
-                            📖 <a href="./CodeOfConduct.pdf" target="_blank"><strong>Code of Conduct</strong></a>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">👥 Counselors</h4>
-                        <p><strong>Dr. S. Suganthi, Ph.D</strong><br>
-                          <!-- <strong>Mrs. S. Sisira, M.Sc. Psychology</strong></p> -->
-                      </div>
-                      <div class="mb-4">
-                        <h4 class="text-success">ðŸ—£ï¸ Grievance Submission</h4>
-                        <ul class="list-group mb-3">
-                          <li class="list-group-item">
-                            📌 <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank"><strong>Click here for online grievance submission for Students</strong></a>
-                          </li>
-                          <li class="list-group-item">
-                            📌 <a href="https://docs.google.com/forms/d/e/1FAIpQLSccVTP4vyiFcS6_kTBVmOMUbfaCTUhXenwmMZ-_NS5RcDweQQ/viewform" target="_blank"><strong>Click here for online grievance submission for Faculty</strong></a>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">ðŸ¢ Facility Feedback</h4>
-                        <p>
-                          <a href="https://docs.google.com/forms/d/e/1FAIpQLSccVTP4vyiFcS6_kTBVmOMUbfaCTUhXenwmMZ-_NS5RcDweQQ/viewform" target="_blank" class="btn btn-outline-primary">
-                            Click here for online Facility Feedback
-                          </a>
-                        </p>
-                      </div>
-
-                      <div class="mb-4">
-                        <h4 class="text-success">📤 AICTE Feedback</h4>
-                        <ul class="list-group">
-                          <li class="list-group-item">
-                            📖 <a href="https://www.aicte-india.org/feedback/index.php" target="_blank"><strong>AICTE Feedback</strong></a>
-                          </li>
-                        </ul>
-                        <p>Students and faculty can submit feedback to AICTE through the designated channels provided by the institution.</p>
-                      </div>
-                    </div>
+                <!-- Agnes Shanthi -->
+                <div class="col-6">
+                  <div class="counsellor-card h-100">
+                    <img src="assets/img/Agnes-Shanthi.jpeg" alt="Agnes Shanthi">
+                    <h6>Agnes Shanthi</h6>
+                    <div class="role">Certified Counsellor &amp; Special Educator</div>
+                    <ul>
+                      <li><i class="bi bi-check-circle-fill"></i> M.Sc (Applied Psychology)</li>
+                      <li><i class="bi bi-check-circle-fill"></i> PG Dip Guidance &amp; Counselling</li>
+                      <li><i class="bi bi-check-circle-fill"></i> PG Dip – Education Leadership</li>
+                      <li><i class="bi bi-check-circle-fill"></i> Certified Special Educator (Dyslexia)</li>
+                      <li><i class="bi bi-check-circle-fill"></i> Family Therapy — Psyhub</li>
+                    </ul>
                   </div>
                 </div>
               </div>
 
             </div>
-
-            <!-- Tab 2 -->
-            <div class="tab-pane fade" id="campus-facilities-athletic" role="tabpanel" aria-labelledby="athletic-tab">
-              <section class="py-5">
-                <div class="container">
-                  <h2 class="text-center mb-5 fw-bold text-danger">Key Benefits of Counseling</h2>
-                  <div class="row g-4">
-                    
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">ðŸ™‹â€â™‚ï¸</div>
-                        <h5 class="fw-bold text-danger">Emotional Support</h5>
-                        <p>Guidance to manage emotions, anxiety, and life challenges.</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">🎓</div>
-                        <h5 class="fw-bold text-danger">Academic Guidance</h5>
-                        <p>Boost academic performance through structured support.</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">🌱</div>
-                        <h5 class="fw-bold text-danger">Personal Development</h5>
-                        <p>Grow in confidence, self-awareness, and life skills.</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">🧠</div>
-                        <h5 class="fw-bold text-danger">Problem-Solving Skills</h5>
-                        <p>Handle tough situations with logic and emotional control.</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">💬</div>
-                        <h5 class="fw-bold text-danger">Enhanced Communication</h5>
-                        <p>Build healthy relationships through clear expression.</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">😌</div>
-                        <h5 class="fw-bold text-danger">Stress Management</h5>
-                        <p>Learn techniques to reduce tension and pressure.</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">🧭</div>
-                        <h5 class="fw-bold text-danger">Career Planning</h5>
-                        <p>Identify career goals and make confident choices.</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">ðŸ›¡ï¸</div>
-                        <h5 class="fw-bold text-danger">Building Resilience</h5>
-                        <p>Recover from setbacks and grow stronger mentally.</p>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4">
-                      <div class="p-4 bg-white benefit-card text-center h-100">
-                        <div class="benefit-icon">🚨</div>
-                        <h5 class="fw-bold text-danger">Crisis Intervention</h5>
-                        <p>Immediate help in emotionally difficult situations.</p>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-            </div>
-
-            <!-- Tab 3 -->
-            <div class="tab-pane fade" id="campus-facilities-residential" role="tabpanel" aria-labelledby="residential-tab">
-              <section class="py-5 bg-white">
-                <div class="container">
-                  <div class="row justify-content-center align-items-center">
-                    
-
-                    <div class="col-lg-6">
-                      <h2 class="fw-bold mb-3 text-danger">Guidance Based on Your Academic Skills</h2>
-                      <p class="text-muted">Our counselors assist students in setting academic goals through a Study Skill Assessment Questionnaire. This helps you reflect on your current habits and strengths across 8 core areas:</p>
-                      
-                      <div class="mt-4">
-                        <div class="skill-item d-flex mb-3">
-                          <div class="skill-icon">â°</div> 
-                          <div><strong>Time Management & Procrastination</strong></div>
-                        </div>
-                        <div class="skill-item d-flex mb-3">
-                          <div class="skill-icon">🧠</div> 
-                          <div><strong>Concentration & Memory</strong></div>
-                        </div>
-                        <div class="skill-item d-flex mb-3">
-                          <div class="skill-icon">ðŸ“</div> 
-                          <div><strong>Study Aids & Note-taking</strong></div>
-                        </div>
-                        <div class="skill-item d-flex mb-3">
-                          <div class="skill-icon">📉</div> 
-                          <div><strong>Test Strategies & Test Anxiety</strong></div>
-                        </div>
-                        <div class="skill-item d-flex mb-3">
-                          <div class="skill-icon">📂</div> 
-                          <div><strong>Organising & Processing Information</strong></div>
-                        </div>
-                        <div class="skill-item d-flex mb-3" >
-                          <div class="skill-icon">💪</div> 
-                          <div><strong>Motivation & Attitude</strong></div>
-                        </div>
-                        <div class="skill-item d-flex mb-3">
-                          <div class="skill-icon">ðŸ“–</div> 
-                          <div><strong>Reading & Selecting Main Ideas</strong></div>
-                        </div>
-                        <div class="skill-item d-flex mb-3">
-                          <div class="skill-icon">âœï¸</div> 
-                          <div><strong>Writing</strong></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 text-center">
-                      <div id="carouselExample" class="carousel slide"data-bs-ride="carousel" data-bs-interval="1500">
-                          <div class="carousel-inner">
-                            <div class="carousel-item active">
-                              <img src="./assets/img/enhanced communication.webp" class="d-block img-fluid" alt="counselling">
-                            </div>
-                            <div class="carousel-item">
-                              <img src="./assets/img/stress management.webp" class="d-block img-fluid" loading="lazy" alt="counselling">
-                            </div>
-                            <div class="carousel-item">
-                              <img src="./assets/img/personal development.webp" class="d-block img-fluid" loading="lazy" alt="counselling">
-                            </div>
-                            <div class="carousel-item">
-                              <img src="./assets/img/personal development (2).webp" class="d-block img-fluid" loading="lazy" alt="counselling">
-                            </div>
-                            <div class="carousel-item">
-                              <img src="./assets/img/crisis intervention.webp" class="d-block img-fluid" loading="lazy" alt="counselling">
-                            </div>
-                            <div class="carousel-item">
-                              <img src="./assets/img/career planning.webp" class="d-block img-fluid" loading="lazy" alt="counselling">
-                            </div>
-                          </div>
-                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                          </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                          </button>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-
-            <!-- Tab 4 -->
-            <div class="tab-pane fade" id="campus-facilities-community" role="tabpanel" aria-labelledby="community-tab">
-              <section class="py-5 bg-light">
-                <div class="container">
-                  <div class="row g-5">
-                    
-                    <div class="col-lg-6">
-                      <h3 class="fw-bold text-danger mb-3">Counselling Methods & Techniques</h3>
-                      <p>Students are guided through various evidence-based therapy approaches including:</p>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="bi bi-heart-pulse-fill text-danger me-2"></i> Psychotherapy</li>
-                        <li class="list-group-item"><i class="bi bi-people-fill text-secondary me-2"></i> Transactional Analysis</li>
-                        <li class="list-group-item"><i class="bi bi-person-lines-fill text-info me-2"></i> Psychodrama</li>
-                        <li class="list-group-item"><i class="bi bi-body-text text-warning me-2"></i> JPMR</li>
-                        <li class="list-group-item"><i class="bi bi-bullseye text-success me-2"></i> Grounding techniques for focus & anxiety</li>
-                        <li class="list-group-item"><i class="bi bi-wind text-primary me-2"></i> Body Relaxation &ndash; Breathing Techniques</li>
-                        <li class="list-group-item"><i class="bi bi-person-walking text-danger me-2"></i> Physical Exercise &ndash; Yoga & Workouts</li>
-                        <li class="list-group-item"><i class="bi bi-peace text-success me-2"></i> Meditation</li>
-                        <li class="list-group-item"><i class="bi bi-chat-dots-fill text-dark me-2"></i> Talk Therapy</li>
-                      </ul>
-                    </div>
-
-                    <div class="col-lg-6">
-                      <h4 class="fw-bold text-danger mb-3">Academic Progress Monitoring</h4>
-                      <p>Students' academic improvement is monitored regularly and visually represented as:</p>
-                      <ul class="ps-3">
-                        <li><span class="badge bg-danger">Red</span> &ndash; Starting / Needs Guidance</li>
-                        <li><span class="badge bg-warning text-dark">Yellow</span> &ndash; Slight Improvement</li>
-                        <li><span class="badge bg-success">Green</span> &ndash; Full Improvement</li>
-                      </ul>
-                      <p class="mt-3">Progress is followed up <strong>weekly</strong> by the counselors.</p>
-
-                      <hr>
-
-                      <h5 class="fw-bold text-danger">Extended Support</h5>
-                      <ul class="ps-3">
-                        <li>Training sessions during Faculty Development Programs</li>
-                        <li>Sensitization of Class Teachers & HODs on <strong>Counseling Benefits</strong> and <strong>POSH</strong></li>
-                        <li>Career & Parental Counseling as required</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-
           </div>
-</div>
 
+          <!-- Study Skills Assessment -->
+          <div class="col-lg-4" data-aos="fade-left" data-aos-delay="150">
+            <div class="info-card">
+              <div class="section-eyebrow">ACADEMIC TOOL</div>
+              <div class="ic-title">Study Skills Assessment</div>
+              <p style="font-size:0.83rem; color:#6b7280; margin-bottom:14px;">Discover the strengths and areas where you can improve.</p>
+              <div class="skill-row"><span class="sk-icon">⏰</span><span>Time Management</span></div>
+              <div class="skill-row"><span class="sk-icon">💪</span><span>Motivation</span></div>
+              <div class="skill-row"><span class="sk-icon">🧠</span><span>Concentration &amp; Memory</span></div>
+              <div class="skill-row"><span class="sk-icon">📖</span><span>Reading Skills</span></div>
+              <div class="skill-row"><span class="sk-icon">📝</span><span>Note-taking</span></div>
+              <div class="skill-row"><span class="sk-icon">✏️</span><span>Writing Skills</span></div>
+              <div class="skill-row"><span class="sk-icon">📊</span><span>Test Strategies</span></div>
+              <div class="skill-row"><span class="sk-icon">📂</span><span>Information Processing</span></div>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank">
+                <button class="btn-study">Take the Study Skills Assessment →</button>
+              </a>
+            </div>
+          </div>
 
+        </div>
       </div>
+    </section>
 
+    <!-- ========== S6: PROGRESS | APPROACH | GRIEVANCE REDRESSAL ========== -->
+    <section class="c-section c-section-white">
+      <div class="container">
+        <div class="row g-4">
 
+          <!-- Progress Journey -->
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="info-card">
+              <div class="section-eyebrow">STUDENT TRACKING</div>
+              <div class="ic-title">Your Progress Journey</div>
+              <div class="progress-stage">
+                <div class="progress-dot dot-red"></div>
+                <div class="ps-text">
+                  <h6>Starting</h6>
+                  <p>We understand where you are.</p>
+                </div>
+              </div>
+              <div class="progress-stage">
+                <div class="progress-dot dot-yellow"></div>
+                <div class="ps-text">
+                  <h6>Improving</h6>
+                  <p>Small steps, big changes.</p>
+                </div>
+              </div>
+              <div class="progress-stage">
+                <div class="progress-dot dot-green"></div>
+                <div class="ps-text">
+                  <h6>Progressing</h6>
+                  <p>Building confidence and achieving goals.</p>
+                </div>
+              </div>
+              <p class="weekly-note">📅 Weekly follow-up helps students stay on track.</p>
+            </div>
+          </div>
 
-  </main>
-    </div>
+          <!-- Counselling Approach -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-card">
+              <div class="section-eyebrow">EVIDENCE-BASED METHODS</div>
+              <div class="ic-title">Our Counselling Approach</div>
+              <p style="font-size:0.83rem; color:#6b7280; margin-bottom:12px;">We use proven techniques to support your wellbeing and personal growth.</p>
+              <div class="approach-item"><i class="bi bi-heart-pulse-fill"></i><span>Talk Therapy</span></div>
+              <div class="approach-item"><i class="bi bi-peace-fill"></i><span>Mindfulness &amp; Meditation</span></div>
+              <div class="approach-item"><i class="bi bi-wind"></i><span>Breathing Techniques</span></div>
+              <div class="approach-item"><i class="bi bi-bullseye"></i><span>Grounding Techniques</span></div>
+              <div class="approach-item"><i class="bi bi-body-text"></i><span>Relaxation &amp; JPMR</span></div>
+              <div class="approach-item"><i class="bi bi-person-walking"></i><span>Yoga &amp; Physical Activity</span></div>
+              <div class="approach-item"><i class="bi bi-people-fill"></i><span>Transactional Analysis</span></div>
+              <div class="approach-item"><i class="bi bi-person-lines-fill"></i><span>Psychodrama</span></div>
+              <div class="approach-item"><i class="bi bi-house-heart-fill"></i><span>Family Therapy</span></div>
+            </div>
+          </div>
+
+          <!-- Grievance Redressal -->
+          <div class="col-lg-4" data-aos="fade-left" data-aos-delay="150">
+            <div class="info-card">
+              <div class="section-eyebrow">FORMAL SUPPORT</div>
+              <div class="ic-title">Grievance Redressal</div>
+              <p style="font-size:0.83rem; color:#6b7280; margin-bottom:14px;">Your voice matters. We ensure genuine concerns are heard and addressed fairly.</p>
+
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="grievance-link student">
+                <i class="bi bi-person-fill gl-icon"></i>
+                <div class="gl-text">
+                  <strong>Student Grievance</strong>
+                  <small>Submit Student Grievance Online</small>
+                </div>
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSccVTP4vyiFcS6_kTBVmOMUbfaCTUhXenwmMZ-_NS5RcDweQQ/viewform" target="_blank" class="grievance-link faculty">
+                <i class="bi bi-person-badge-fill gl-icon"></i>
+                <div class="gl-text">
+                  <strong>Faculty Grievance</strong>
+                  <small>Submit Faculty Grievance Online</small>
+                </div>
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSccVTP4vyiFcS6_kTBVmOMUbfaCTUhXenwmMZ-_NS5RcDweQQ/viewform" target="_blank" class="grievance-link facility">
+                <i class="bi bi-star-fill gl-icon"></i>
+                <div class="gl-text">
+                  <strong>Facility Feedback</strong>
+                  <small>Share Feedback</small>
+                </div>
+              </a>
+              <a href="https://www.aicte-india.org/feedback/index.php" target="_blank" class="grievance-link" style="background:#f0fdf4; color:#166534;">
+                <i class="bi bi-box-arrow-up-right gl-icon"></i>
+                <div class="gl-text">
+                  <strong>AICTE Feedback</strong>
+                  <small>Submit to AICTE Portal</small>
+                </div>
+              </a>
+              <p class="grievance-process mt-2">Process: Submit → Review → Action → Resolution</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== S7: CTA BANNER ========== -->
+    <section class="help-cta-banner" data-aos="fade-up">
+      <div class="container">
+        <h2>Need Help Now?</h2>
+        <p>We are here for you. Reach out anytime.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-cta-primary">
+            <i class="bi bi-chat-dots-fill"></i> Talk to a Counsellor
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-cta-outline">
+            <i class="bi bi-flag-fill"></i> Raise a Concern
+          </a>
+        </div>
+      </div>
+    </section>
+
+    </main>
+
   <footer id="footer" class="footer position-relative dark-background">
 
     <div class="container footer-top">
@@ -807,7 +1045,7 @@ Email: principal@msec.edu.in</span></p>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>Copyright | All rights reserved Â© 2026 Meenakshi Sundararajan Group of Institutions (Managed by IIET Society). </p>
+      <p>Copyright | All rights reserved © 2026 Meenakshi Sundararajan Group of Institutions (Managed by IIET Society). </p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -882,17 +1120,17 @@ document.addEventListener("DOMContentLoaded", function () {
     subMenu.style.margin = "0";
 
     const departments = [
-      { name: "B.E. Computer Science and Engineering", href: "computerscience.html" },
-      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
-      { name: "B.E. Electronics and Communication Engineering", href: "ece.html" },
-      { name: "B.E. Electrical and Electronics Engineering", href: "eee.html" },
-      { name: "B.E. Mechanical Engineering", href: "mech.html" },
-      { name: "B.E. Civil Engineering", href: "civil.html" },
       { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
+      { name: "B.E. Civil Engineering", href: "civil.html" },
+      { name: "B.E. Computer Science and Engineering", href: "computerscience.html" },
+      { name: "B.E. Electrical and Electronics Engineering", href: "eee.html" },
+      { name: "B.E. Electronics and Communication Engineering", href: "ece.html" },
+      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
+      { name: "B.E. Mechanical Engineering", href: "mech.html" },
       { name: "Science and Humanities", href: "humanitiesscience.html" },
       { name: "M.E. Computer Science", href: "csepostgraduate.html" },
-      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
       { name: "M.E. Construction Engineering and Management", href: "civilpostgraduate.html" },
+      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
       { name: "M.E. Energy Engineering", href: "mechpostgraduate.html" }
     ];
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,17 +23,17 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-<!-- âœ… Fonts Preconnect -->
+<!-- ✅ Fonts Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- âœ… Async Google Fonts (preload + load + noscript fallback) -->
+<!-- ✅ Async Google Fonts (preload + load + noscript fallback) -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </noscript>
 
-<!-- âœ… Vendor CSS Files (preload to defer render-blocking) -->
+<!-- ✅ Vendor CSS Files (preload to defer render-blocking) -->
 <link rel="preload" as="style" href="assets/vendor/aos/aos.css" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="assets/vendor/aos/aos.css" rel="stylesheet"></noscript>
 
@@ -43,11 +43,11 @@
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"></noscript>
 
-<!-- âœ… Bootstrap 5.3.3 CSS (non-blocking with integrity) -->
+<!-- ✅ Bootstrap 5.3.3 CSS (non-blocking with integrity) -->
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></noscript>
 
-<!-- âœ… Local Main CSS Files (preload + fallback) -->
+<!-- ✅ Local Main CSS Files (preload + fallback) -->
 <link rel="preload" as="style" href="assets/css/main.min.css" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="assets/css/main.min.css" rel="stylesheet"></noscript>
 
@@ -115,6 +115,166 @@
   ]
 }
 </script>
+
+  <style>
+    /* Fix Program Cards Responsive Grid & Typography */
+    .programs-content .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -12px;
+      margin-left: -12px;
+    }
+
+    .programs-content .col-lg-4,
+    .programs-content .col-md-6 {
+      padding-right: 12px;
+      padding-left: 12px;
+      margin-bottom: 24px;
+    }
+
+    .program-item {
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+      min-height: 380px !important;
+      width: 100% !important;
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 18px !important;
+      box-shadow: 0 8px 25px rgba(36, 63, 90, 0.06) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      overflow: hidden !important;
+    }
+
+    .program-item:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 16px 36px rgba(36, 63, 90, 0.12) !important;
+    }
+
+    .program-item .program-header {
+      padding: 24px 24px 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .program-item .program-header .program-icon {
+      width: 52px !important;
+      height: 52px !important;
+      min-width: 52px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-radius: 14px !important;
+      font-size: 1.5rem !important;
+      background: rgba(76, 175, 80, 0.12) !important;
+      color: #2e7d32 !important;
+    }
+
+    .program-item.graduate .program-header .program-icon {
+      background: rgba(36, 63, 90, 0.12) !important;
+      color: #243f5a !important;
+    }
+
+    .program-item .program-header .program-type {
+      font-size: 0.75rem !important;
+      font-weight: 800 !important;
+      padding: 5px 14px !important;
+      border-radius: 50px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+      background: rgba(76, 175, 80, 0.12) !important;
+      color: #2e7d32 !important;
+    }
+
+    .program-item.graduate .program-header .program-type {
+      background: rgba(36, 63, 90, 0.12) !important;
+      color: #243f5a !important;
+    }
+
+    .program-item .program-body {
+      padding: 0 24px 20px !important;
+      flex-grow: 1 !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .program-item .program-body h3 {
+      color: #243f5a !important;
+      font-size: 1.2rem !important;
+      font-weight: 800 !important;
+      margin-bottom: 12px !important;
+      line-height: 1.35 !important;
+    }
+
+    .program-item .program-body p {
+      color: #5f6368 !important;
+      font-size: 0.92rem !important;
+      line-height: 1.65 !important;
+      margin-bottom: 20px !important;
+      flex-grow: 1 !important;
+    }
+
+    .program-item .program-body .program-details {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 14px !important;
+    }
+
+    .program-item .program-body .program-details li {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      font-size: 0.84rem !important;
+      font-weight: 700 !important;
+      color: #243f5a !important;
+      background: #f1f5f9 !important;
+      padding: 4px 12px !important;
+      border-radius: 50px !important;
+    }
+
+    .program-item .program-footer {
+      padding: 16px 24px !important;
+      border-top: 1px solid #f1f5f9 !important;
+      background: #fafafa !important;
+      margin-top: auto !important;
+    }
+
+    .program-item .program-footer .program-link {
+      color: #e31837 !important;
+      font-weight: 750 !important;
+      font-size: 0.88rem !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+
+    .calendar-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .calendar-section iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 576px) {
+      .calendar-section iframe {
+        height: 450px;
+      }
+    }
+  </style>
+
 </head>
 
 
@@ -423,25 +583,73 @@
                       <span class="text">PostGraduate</span>
                     </button>
                   </li>
-                  <!-- <li class="nav-item" role="presentation">
+                  <li class="nav-item" role="presentation">
                     <button class="nav-link" id="doctoral-tab" data-bs-toggle="tab" data-bs-target="#academics-doctoral" type="button" role="tab">
                       <span class="icon"><i class="bi bi-award"></i></span>
-                      <span class="text">Doctoral</span>
+                      <span class="text">Ph.D</span>
                     </button>
-                  </li> -->
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="tab-content programs-content" data-aos="fade-up" data-aos-delay="200">
+                        <div class="tab-content programs-content" data-aos="fade-up" data-aos-delay="200">
           <!-- All Programs Tab -->
           <div class="tab-pane fade show active" id="academics-all" role="tabpanel">
-            <div class="row g-4">
-              <!-- Program Item -->
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="computerscience.html" style="text-decoration: none; color: inherit;">
+            <div class="row g-4 align-items-stretch">
+              <!-- Artificial Intelligence & Data Science -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="aids.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-robot"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Artificial Intelligence & Data Science</h3>
+                      <p>To achieve academic excellence by imparting state of the art technical education to mould engineers who contribute to society through innovation and research in AI and Data Science.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.Tech. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- Civil Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="civil.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-building"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Civil Engineering</h3>
+                      <p>To impart quality technical education in Civil Engineering, fostering sustainable infrastructure design, research, innovation, and professional ethics for societal growth.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- Computer Science & Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="computerscience.html" class="w-100 text-decoration-none color-inherit">
                   <div class="program-item undergraduate">
                     <div class="program-header">
                       <div class="program-icon">
@@ -450,297 +658,257 @@
                       <span class="program-type">Undergraduate</span>
                     </div>
                     <div class="program-body">
-                      <h3>Computer Science Engineering</h3>
-                      <p>To achieve academic excellence in Computer Science and Engineering by imparting 
-                        quality education, encouraging research activities and innovation, inculcating ethical values and preparing the students to face industrial demands, societal needs and technical challenges.</p>
+                      <h3>Computer Science & Engineering</h3>
+                      <p>To achieve academic excellence in Computer Science and Engineering by imparting quality education, encouraging research activities and innovation, inculcating ethical values and preparing the students to face industrial demands, societal needs and technical challenges.</p>
                       <ul class="program-details">
                         <li><i class="bi bi-clock"></i> 4 years</li>
                         <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
                       </ul>
                     </div>
                     <div class="program-footer">
-                    <a href="computerscience.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
                     </div>
                   </div>
                 </a>
               </div>
-
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="informationtechnology.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-hdd"></i>
+              <!-- Electrical & Electronics Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="eee.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-plug"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Electrical & Electronics Engineering</h3>
+                      <p>Electrical and Electronics Engineering prepares students to design, develop, and maintain smart power systems, electronic devices, renewable energy, and control automation.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Information Technology</h3>
-                    <p>Information Technology department have Produce technically savvy students, encourage innovative skills and inculcate moral and professional values</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="informationtechnology.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="civil.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-building"></i>
+              <!-- Electronics & Communication Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="ece.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-broadcast"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Electronics & Communication Engineering</h3>
+                      <p>To impart high quality technical education and training in Electronics and Communication Engineering to produce skilled, innovative and ethically strong engineers capable of leading global tech demands.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Civil Engineering</h3>
-                    <p>To develop technical man power by facing challenges in emerging technologies 
-                      through excellence in education, research and scientific training with socio-economic involvement.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="civil.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="mech.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-gear"></i>
+              <!-- Information Technology -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="informationtechnology.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-hdd"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Information Technology</h3>
+                      <p>Information Technology department produces technically savvy students, encourages innovative skills and inculcates moral and professional values for software and computing careers.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.Tech. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Mechanical Engineering</h3>
-                    <p>Mechanical Department has vision to To develop creative mechanical
-                       engineers by providing quality education, research and ethical values to make them future industrialist.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="mech.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-              <a href="ece.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-cpu"></i>
+              <!-- Mechanical Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="mech.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-gear-fill"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Mechanical Engineering</h3>
+                      <p>Mechanical Engineering focuses on thermal engineering, CAD/CAM, robotics, and advanced manufacturing to mould competent engineers for modern industrial environments.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Electronics and Communication Engineering</h3>
-                    <p>To emerge as a Centre of excellence in offering quality education to produce students technically competent, socially responsible and industry ready graduates in electronics and communication engineering.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="ece.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-              <a href="eee.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-plug"></i>
+              <!-- Science & Humanities -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="humanitiesscience.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-journal-bookmark-fill"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Science & Humanities</h3>
+                      <p>The department of Science and Humanities fosters innovative ideas and research among first-year students, forming the foundation of fundamental physics, chemistry, mathematics, and communication.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> Foundation</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> S&H Dept</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Electrical and Electronics Engineering</h3>
-                    <p>Electrical and Electronics Engineering focuses on the study and application of electricity, electronics, and electromagnetism.
-It prepares students to design, develop, and maintain power systems, electronic devices, and control systems</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="eee.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="aids.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-robot"></i>
+              <!-- Computer Science & Engineering (Cyber Security) -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="computerscience.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-shield-lock-fill"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Computer Science & Engineering (Cyber Security)</h3>
+                      <p>To achieve academic excellence in Computer Science and Engineering with a specialisation in Cyber Security by imparting quality education, fostering research and innovation, developing expertise in cyber defence and emerging technologies, and preparing students to address evolving digital threats, industry demands and societal challenges.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Artificial Intelligence and Data Science</h3>
-                    <p>To achieve academic excellence by imparting state of the art technical
-                       education to mould engineers who contribute to the society through innovation and research in the field of Artificial intelligence and Data science.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="aids.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-              <a href="humanitiesscience.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-beaker"></i>
+              <!-- Artificial Intelligence & Machine Learning -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="aids.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-cpu-fill"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
-                  </div>
-                  <div class="program-body">
-                    <h3> Science and Humanities </h3>
-                    <p>The department of Science and Humanities was established with vision to foster innovative ideas and 
-                      research among the students and faculty members. It serves as the basis of liberal arts education and provides a platform to explore
-                       new horizons in the world of science. The department consists of faculty from the disciplines of Mathematics, Physics, Chemistry, Tamil and English</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 1 year</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> UG 1st year</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="humanitiesscience.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-                </a>
-              </div> 
-
-              <!-- Program Item -->
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <a href="civilpostgraduate.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item graduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-building"></i>
+                    <div class="program-body">
+                      <h3>Artificial Intelligence & Machine Learning</h3>
+                      <p>To achieve academic excellence in Artificial Intelligence and Machine Learning by imparting quality education, fostering research and innovation, developing expertise in intelligent systems and emerging technologies, and preparing students to create AI-driven solutions that address industry demands, societal needs and real-world challenges.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.Tech. Degree</li>
+                      </ul>
                     </div>
-                    <span class="program-type">PostGraduate</span>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Construction Engineering and Management</h3>
-                    <p> Master the art of planning, designing, and executing construction projects with precision.
-Build your career with industry-driven insights and real-world applications at MSEC</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 2 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="civilpostgraduate.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <a href="csepostgraduate.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item graduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-cpu-fill"></i>
+              <!-- Computer Science & Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="csepostgraduate.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-cpu-fill"></i>
+                      </div>
+                      <span class="program-type">PostGraduate</span>
                     </div>
-                    <span class="program-type">PostGraduate</span>
-                  </div>
-                  <div class="program-body">
-                    <h3>Computer Science and Engineering</h3>
-                    <p>Explore the world of algorithms, AI, and advanced computing.
-Shape your future with industry-aligned learning at MSEC</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 2 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="csepostgraduate.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <a href="ecepostgraduate.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item graduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-motherboard-fill"></i>
+                    <div class="program-body">
+                      <h3>Computer Science & Engineering</h3>
+                      <p>Explore advanced computing, AI research, cloud architecture, and cybersecurity. Shape your future as next-generation tech leaders and researchers.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 2 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
+                      </ul>
                     </div>
-                    <span class="program-type">PostGraduate</span>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Embedded System and Technologies</h3>
-                    <p> Delve into the design of intelligent hardware and real-time systems.<br>
-      Equip yourself with skills to power smart devices and automation at MSEC.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 2 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="ecepostgraduate.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <a href="mechpostgraduate.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item graduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-lightning-charge-fill"></i>
+              <!-- Construction Engineering & Management -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="civilpostgraduate.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-building"></i>
+                      </div>
+                      <span class="program-type">PostGraduate</span>
                     </div>
-                    <span class="program-type">PostGraduate</span>
+                    <div class="program-body">
+                      <h3>Construction Engineering & Management</h3>
+                      <p>Master the art of planning, designing, and executing complex construction projects with precision. Build your leadership career with industry-driven insights and real-world BIM applications.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 2 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Energy Engineering</h3>
-                    <p>Harness the science of sustainable and renewable energy solutions.
-Learn to innovate in power systems, energy efficiency, and green technologies at MSEC</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 2 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
+                </a>
+              </div>
+              <!-- Energy Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="mechpostgraduate.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                      </div>
+                      <span class="program-type">PostGraduate</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Energy Engineering</h3>
+                      <p>Harness the science of sustainable and renewable energy solutions. Learn to innovate in power systems, energy auditing, green technologies, and sustainability at MSEC.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 2 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-footer">
-                    <a href="mechpostgraduate.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
             </div>
@@ -748,378 +916,456 @@ Learn to innovate in power systems, energy efficiency, and green technologies at
 
           <!-- Undergraduate Tab -->
           <div class="tab-pane fade" id="academics-undergraduate" role="tabpanel">
-            <div class="row g-4">
-              <!-- Program Item -->
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="computerscience.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-laptop"></i>
+            <div class="row g-4 align-items-stretch">
+              <!-- Artificial Intelligence & Data Science -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="aids.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-robot"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Artificial Intelligence & Data Science</h3>
+                      <p>To achieve academic excellence by imparting state of the art technical education to mould engineers who contribute to society through innovation and research in AI and Data Science.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.Tech. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Computer Science Engineering</h3>
-                    <p>To achieve academic excellence in Computer Science and Engineering by imparting 
-                      quality education, encouraging research activities and innovation, inculcating ethical values and preparing the students to face industrial demands, societal needs and technical challenges.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="computerscience.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-              <a href="informationtechnology.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-hdd"></i>
+              <!-- Civil Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="civil.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-building"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Civil Engineering</h3>
+                      <p>To impart quality technical education in Civil Engineering, fostering sustainable infrastructure design, research, innovation, and professional ethics for societal growth.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Information Technology</h3>
-                    <p>Information Technology department have Produce technically savvy students, encourage innovative skills and inculcate moral and professional values</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="informationtechnology.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="civil.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-building"></i>
+              <!-- Computer Science & Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="computerscience.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-laptop"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Computer Science & Engineering</h3>
+                      <p>To achieve academic excellence in Computer Science and Engineering by imparting quality education, encouraging research activities and innovation, inculcating ethical values and preparing the students to face industrial demands, societal needs and technical challenges.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Civil Engineering</h3>
-                    <p>To develop technical man power by facing challenges in emerging technologies 
-                      through excellence in education, research and scientific training with socio-economic involvement.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="civil.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="mech.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-gear"></i>
+              <!-- Electrical & Electronics Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="eee.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-plug"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Electrical & Electronics Engineering</h3>
+                      <p>Electrical and Electronics Engineering prepares students to design, develop, and maintain smart power systems, electronic devices, renewable energy, and control automation.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Mechanical Engineering</h3>
-                    <p>Mechanical Department has vision to To develop creative mechanical
-                       engineers by providing quality education, research and ethical values to make them future industrialist.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="mech.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="ece.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-cpu"></i>
+              <!-- Electronics & Communication Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="ece.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-broadcast"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Electronics & Communication Engineering</h3>
+                      <p>To impart high quality technical education and training in Electronics and Communication Engineering to produce skilled, innovative and ethically strong engineers capable of leading global tech demands.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Electronics and Communication Engineering</h3>
-                    <p>To emerge as a Centre of excellence in offering quality education to produce students technically competent, socially responsible and industry ready graduates in electronics and communication engineering.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="ece.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-              <a href="eee.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-plug"></i>
+              <!-- Information Technology -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="informationtechnology.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-hdd"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Information Technology</h3>
+                      <p>Information Technology department produces technically savvy students, encourages innovative skills and inculcates moral and professional values for software and computing careers.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.Tech. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Electrical and Electronics Engineering</h3>
-                    <p>Electrical and Electronics Engineering focuses on the study and application of electricity, electronics, and electromagnetism.
-It prepares students to design, develop, and maintain power systems, electronic devices, and control systems</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="eee.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-              <a href="aids.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-robot"></i>
+              <!-- Mechanical Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="mech.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-gear-fill"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Mechanical Engineering</h3>
+                      <p>Mechanical Engineering focuses on thermal engineering, CAD/CAM, robotics, and advanced manufacturing to mould competent engineers for modern industrial environments.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Artificial Intelligence and Data Science</h3>
-                    <p>To achieve academic excellence by imparting state of the art technical
-                       education to mould engineers who contribute to the society through innovation and research in the field of Artificial intelligence and Data science.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 4 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="aids.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-              <!-- <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <a href="humanitiesscience.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item undergraduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-beaker"></i>
+              <!-- Science & Humanities -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="humanitiesscience.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-journal-bookmark-fill"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
                     </div>
-                    <span class="program-type">Undergraduate</span>
+                    <div class="program-body">
+                      <h3>Science & Humanities</h3>
+                      <p>The department of Science and Humanities fosters innovative ideas and research among first-year students, forming the foundation of fundamental physics, chemistry, mathematics, and communication.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> Foundation</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> S&H Dept</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Humanities and Science</h3>
-                    <p>The department of Humanities and Science was established with vision to foster innovative ideas and 
-                      research among the students and faculty members. It serves as the basis of liberal arts education and provides a platform to explore
-                       new horizons in the world of science. The department consists of faculty from the disciplines of Mathematics, Physics, Chemistry and English</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> </li>
-                      <li><i class="bi bi-mortarboard-fill"></i> </li>
-                       <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    <!-- </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="humanitiesscience.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
-              </div>  -->
+              </div>
+              <!-- Computer Science & Engineering (Cyber Security) -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="computerscience.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-shield-lock-fill"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Computer Science & Engineering (Cyber Security)</h3>
+                      <p>To achieve academic excellence in Computer Science and Engineering with a specialisation in Cyber Security by imparting quality education, fostering research and innovation, developing expertise in cyber defence and emerging technologies, and preparing students to address evolving digital threats, industry demands and societal challenges.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- Artificial Intelligence & Machine Learning -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="aids.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item undergraduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-cpu-fill"></i>
+                      </div>
+                      <span class="program-type">Undergraduate</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Artificial Intelligence & Machine Learning</h3>
+                      <p>To achieve academic excellence in Artificial Intelligence and Machine Learning by imparting quality education, fostering research and innovation, developing expertise in intelligent systems and emerging technologies, and preparing students to create AI-driven solutions that address industry demands, societal needs and real-world challenges.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 4 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> B.Tech. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
 
           <!-- Graduate Tab -->
           <div class="tab-pane fade" id="academics-graduate" role="tabpanel">
-            <div class="row g-4">
-              <!-- Program Item -->
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <a href="civilpostgraduate.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item graduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-building"></i>
+            <div class="row g-4 align-items-stretch">
+              <!-- Computer Science & Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="csepostgraduate.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-cpu-fill"></i>
+                      </div>
+                      <span class="program-type">PostGraduate</span>
                     </div>
-                    <span class="program-type">PostGraduate</span>
+                    <div class="program-body">
+                      <h3>Computer Science & Engineering</h3>
+                      <p>Explore advanced computing, AI research, cloud architecture, and cybersecurity. Shape your future as next-generation tech leaders and researchers.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 2 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Construction Engineering and Management</h3>
-                    <p> Master the art of planning, designing, and executing construction projects with precision.
-Build your career with industry-driven insights and real-world applications at MSEC</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 2 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="civilpostgraduate.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-
-               <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <a href="csepostgraduate.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item graduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-cpu-fill"></i>
+              <!-- Construction Engineering & Management -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="civilpostgraduate.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-building"></i>
+                      </div>
+                      <span class="program-type">PostGraduate</span>
                     </div>
-                    <span class="program-type">PostGraduate</span>
-                  </div>
-                  <div class="program-body">
-                    <h3>Computer Science and Engineering</h3>
-                    <p>Explore the world of algorithms, AI, and advanced computing.
-Shape your future with industry-aligned learning at MSEC</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 2 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="csepostgraduate.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <a href="ecepostgraduate.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item graduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-motherboard-fill"></i>
+                    <div class="program-body">
+                      <h3>Construction Engineering & Management</h3>
+                      <p>Master the art of planning, designing, and executing complex construction projects with precision. Build your leadership career with industry-driven insights and real-world BIM applications.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 2 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
+                      </ul>
                     </div>
-                    <span class="program-type">PostGraduate</span>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Embedded System and Technologies</h3>
-                    <p> Delve into the design of intelligent hardware and real-time systems.<br>
-      Equip yourself with skills to power smart devices and automation at MSEC.</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 2 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="ecepostgraduate.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
-
-             <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <a href="mechpostgraduate.html" style="text-decoration: none; color: inherit;">
-                <div class="program-item graduate">
-                  <div class="program-header">
-                    <div class="program-icon">
-                      <i class="bi bi-lightning-charge-fill"></i>
+              <!-- Energy Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="mechpostgraduate.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                      </div>
+                      <span class="program-type">PostGraduate</span>
                     </div>
-                    <span class="program-type">PostGraduate</span>
+                    <div class="program-body">
+                      <h3>Energy Engineering</h3>
+                      <p>Harness the science of sustainable and renewable energy solutions. Learn to innovate in power systems, energy auditing, green technologies, and sustainability at MSEC.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-clock"></i> 2 years</li>
+                        <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="program-body">
-                    <h3>Energy Engineering</h3>
-                    <p>Harness the science of sustainable and renewable energy solutions.
-Learn to innovate in power systems, energy efficiency, and green technologies at MSEC</p>
-                    <ul class="program-details">
-                      <li><i class="bi bi-clock"></i> 2 years</li>
-                      <li><i class="bi bi-mortarboard-fill"></i> M.E. Degree</li>
-                      <!-- <li><i class="bi bi-calendar-check"></i> Fall &amp; Spring</li> -->
-                    </ul>
-                  </div>
-                  <div class="program-footer">
-                    <a href="mechpostgraduate.html" class="program-link">View Program <i class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
                 </a>
               </div>
             </div>
           </div>
 
-        <div class="stats-wrapper" data-aos="fade-up">
-          <div class="row align-items-center">
-            <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
-              <div class="stats-content">
-                <span class="subtitle">By The Numbers</span>
-                <h2>Our Academic Excellence</h2>
-                <p>Meenakshi Sundararajan Engineering College is committed to academic excellence through rigorous curriculum, innovative teaching, and a strong research culture.
-Our students consistently achieve top university ranks, reflecting the institution's dedication to quality education and holistic development</p>
-                <!-- <a href="#" class="btn-about">About Our Institution</a> -->
+          <!-- Ph.D / Doctoral Tab -->
+          <div class="tab-pane fade" id="academics-doctoral" role="tabpanel">
+            <div class="row g-4 align-items-stretch">
+              <!-- Civil Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <a href="civil.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-building"></i>
+                      </div>
+                      <span class="program-type">Ph.D. / Research</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Civil Engineering</h3>
+                      <p>Recognized Research Center by Anna University offering doctoral programs in structural, environmental, geotechnical, and construction engineering research.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-mortarboard-fill"></i> Ph.D. Degree</li>
+                        <li><i class="bi bi-award-fill"></i> Anna University Research Center</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
+                  </div>
+                </a>
               </div>
-            </div>
-            <div class="col-lg-7 mt-5" data-aos="fade-left" data-aos-delay="200">
-              <div class="stats-grid">
-                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-                  <div class="stat-icon">
-                    <i class="bi bi-people-fill"></i>
+              <!-- Computer Science & Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="150">
+                <a href="computerscience.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-cpu-fill"></i>
+                      </div>
+                      <span class="program-type">Ph.D. / Research</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Computer Science & Engineering</h3>
+                      <p>Recognized Research Center by Anna University conducting advanced doctoral research in AI, machine learning, cybersecurity, cloud computing, and data science.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-mortarboard-fill"></i> Ph.D. Degree</li>
+                        <li><i class="bi bi-award-fill"></i> Anna University Research Center</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="stat-number">
-                    <span data-purecounter-start="0" data-purecounter-end="92" data-purecounter-duration="1" class="purecounter"></span>%
+                </a>
+              </div>
+              <!-- Electrical & Electronics Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <a href="eee.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                      </div>
+                      <span class="program-type">Ph.D. / Research</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Electrical & Electronics Engineering</h3>
+                      <p>Recognized Research Center by Anna University pioneering doctoral research in power systems, smart grids, renewable energy, and electric vehicle technologies.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-mortarboard-fill"></i> Ph.D. Degree</li>
+                        <li><i class="bi bi-award-fill"></i> Anna University Research Center</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="stat-title">Student Satisfaction</div>
-                </div>
-
-                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-                  <div class="stat-icon">
-                    <i class="bi bi-journal-bookmark-fill"></i>
+                </a>
+              </div>
+              <!-- Electronics & Communication Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="250">
+                <a href="ece.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-broadcast"></i>
+                      </div>
+                      <span class="program-type">Ph.D. / Research</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Electronics & Communication Engineering</h3>
+                      <p>Recognized Research Center by Anna University focused on VLSI design, embedded systems, signal processing, wireless communications, and IoT innovation.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-mortarboard-fill"></i> Ph.D. Degree</li>
+                        <li><i class="bi bi-award-fill"></i> Anna University Research Center</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="stat-number">
-                    <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>+
+                </a>
+              </div>
+              <!-- Mechanical Engineering -->
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+                <a href="mech.html" class="w-100 text-decoration-none color-inherit">
+                  <div class="program-item graduate">
+                    <div class="program-header">
+                      <div class="program-icon">
+                        <i class="bi bi-gear-wide-connected"></i>
+                      </div>
+                      <span class="program-type">Ph.D. / Research</span>
+                    </div>
+                    <div class="program-body">
+                      <h3>Mechanical Engineering</h3>
+                      <p>Recognized Research Center by Anna University advancing research in thermal engineering, robotics, CAD/CAM, advanced materials, and manufacturing systems.</p>
+                      <ul class="program-details">
+                        <li><i class="bi bi-mortarboard-fill"></i> Ph.D. Degree</li>
+                        <li><i class="bi bi-award-fill"></i> Anna University Research Center</li>
+                      </ul>
+                    </div>
+                    <div class="program-footer">
+                      <span class="program-link">View Program <i class="bi bi-arrow-right"></i></span>
+                    </div>
                   </div>
-                  <div class="stat-title">Academic Programs</div>
-                </div>
-
-                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="stat-icon">
-                    <i class="bi bi-award-fill"></i>
-                  </div>
-                  <div class="stat-number">
-                    <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>+
-                  </div>
-                  <div class="stat-title">Research Centers</div>
-                </div>
-
-                <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
-                  <div class="stat-icon">
-                    <i class="bi bi-mortarboard-fill"></i>
-                  </div>
-                  <div class="stat-number">
-                    <span data-purecounter-start="0" data-purecounter-end="96" data-purecounter-duration="1" class="purecounter"></span>%
-                  </div>
-                  <div class="stat-title">Graduation Rate</div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
         </div>
 
       </div>
-
     </section><!-- /Academics Section -->
 
   </main>
@@ -1194,7 +1440,7 @@ Email: principal@msec.edu.in</span></p>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>Copyright | All rights reserved Â© 2026 Meenakshi Sundararajan Group of Institutions (Managed by IIET Society). </p>
+      <p>Copyright | All rights reserved © 2026 Meenakshi Sundararajan Group of Institutions (Managed by IIET Society). </p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -1265,17 +1511,17 @@ document.addEventListener("DOMContentLoaded", function () {
     subMenu.style.margin = "0";
 
     const departments = [
-      { name: "B.E. Computer Science", href: "computerscience.html" },
-      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
-      { name: "B.E. Electronics and Communication", href: "ece.html" },
-      { name: "B.E. Electrical and Electronics", href: "eee.html" },
-      { name: "B.E. Mechanical", href: "mech.html" },
-      { name: "B.E. Civil", href: "civil.html" },
       { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
+      { name: "B.E. Civil", href: "civil.html" },
+      { name: "B.E. Computer Science", href: "computerscience.html" },
+      { name: "B.E. Electrical and Electronics", href: "eee.html" },
+      { name: "B.E. Electronics and Communication", href: "ece.html" },
+      { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
+      { name: "B.E. Mechanical", href: "mech.html" },
       { name: "Science and Humanities", href: "humanitiesscience.html" },
       { name: "M.E. Computer Science", href: "csepostgraduate.html" },
-      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
       { name: "M.E. Construction Engineering and Management", href: "civilpostgraduate.html" },
+      { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
       { name: "M.E. Energy Engineering", href: "mechpostgraduate.html" }
     ];
 

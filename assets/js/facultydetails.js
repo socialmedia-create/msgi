@@ -834,7 +834,7 @@ function renderDepartmentPane(tabId, list, tabPane) {
       title: (principalList[0]?.title) || "Dr.",
       firstName: (principalList[0]?.firstName) || "S. V.",
       lastName: (principalList[0]?.lastName) || "SARAVANAN",
-      designation: (principalList[0]?.designation) || "Principal & Professor",
+      designation: (principalList[0]?.designation) || "Professor & Principal",
       department: (principalList[0]?.department) || "Mechanical Engineering",
       imageUrl: "assets/img/principal.png"
     };

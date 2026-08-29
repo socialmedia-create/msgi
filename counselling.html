@@ -344,278 +344,726 @@
   </div>
 </header>
     <style>
-    /* ===== COUNSELLING PAGE CUSTOM STYLES ===== */
+    /* =========================================================
+       COUNSELLING PAGE - MODERN CLEAN UI (MATCHING MOCKUP DESIGN)
+       ========================================================= */
 
-    /* Hero */
-    .counselling-hero {
-      background: linear-gradient(135deg, #1a3a6b 0%, #0d2a55 60%, #1e3f8a 100%);
-      color: #fff;
-      padding: 70px 0 50px;
+    :root {
+      --c-navy-dark: #0a2540;
+      --c-navy-primary: #0b3b82;
+      --c-navy-hover: #07295d;
+      --c-blue-accent: #1d4ed8;
+      --c-text-main: #1e293b;
+      --c-text-muted: #64748b;
+      --c-bg-light: #f8fafc;
+      --c-border-color: #e2e8f0;
+      --c-card-radius: 16px;
+    }
+
+    body.faculty-staff-page {
+      background-color: #ffffff;
+      color: var(--c-text-main);
+      font-family: 'Poppins', 'Roboto', sans-serif;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .counselling-hero-mockup {
+      background: linear-gradient(135deg, #eef4ff 0%, #f7faff 60%, #e8f0fe 100%);
+      padding: 60px 0 50px;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid #e2e8f0;
     }
-    .counselling-hero::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 340px; height: 340px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-    }
-    .counselling-hero::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; left: -80px;
-      width: 280px; height: 280px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 50%;
-    }
-    .counselling-hero .eyebrow {
+
+    .hero-tag-pill {
+      display: inline-block;
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 2.5px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #93c5fd;
+      color: #0b3b82;
+      margin-bottom: 14px;
+    }
+
+    .hero-title-main {
+      font-size: clamp(2rem, 4.2vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: #0c2340;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-sub-text {
+      font-size: 1.05rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .btn-hero-primary {
+      background-color: #0b3b82;
+      color: #ffffff !important;
+      border: 1.5px solid #0b3b82;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(11, 59, 130, 0.18);
+    }
+    .btn-hero-primary:hover {
+      background-color: #07295d;
+      border-color: #07295d;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(11, 59, 130, 0.25);
+    }
+
+    .btn-hero-outline {
+      background-color: #ffffff;
+      color: #0b3b82 !important;
+      border: 1.5px solid #0b3b82;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-hero-outline:hover {
+      background-color: #f0f6ff;
+      border-color: #07295d;
+      transform: translateY(-2px);
+    }
+
+    .trust-badges-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      padding-top: 10px;
+    }
+
+    .trust-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .trust-badge-item i {
+      color: #0b3b82;
+      font-size: 1.1rem;
+    }
+
+    .hero-image-container {
+      position: relative;
+    }
+
+    .hero-image-container img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(12, 35, 64, 0.12);
+      border: 4px solid #ffffff;
+    }
+
+    /* ===== COMMON SECTION STYLES ===== */
+    .c-page-section {
+      padding: 60px 0;
+    }
+    .c-section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #0c2340;
+      text-align: center;
+      margin-bottom: 36px;
+      letter-spacing: -0.3px;
+    }
+
+    /* ===== S1: HOW CAN WE HELP YOU (4 CARDS) ===== */
+    .help-service-card {
+      border-radius: 16px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .help-service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .help-service-card.card-blue {
+      background-color: #eef5ff;
+      border: 1px solid #d8e7fd;
+    }
+    .help-service-card.card-green {
+      background-color: #f0faf4;
+      border: 1px solid #d1f0de;
+    }
+    .help-service-card.card-amber {
+      background-color: #fff9f0;
+      border: 1px solid #fdecd2;
+    }
+    .help-service-card.card-pink {
+      background-color: #fff2f4;
+      border: 1px solid #fcd7dc;
+    }
+
+    .service-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .card-blue .service-icon-box { background-color: #dbeafe; color: #0b3b82; }
+    .card-green .service-icon-box { background-color: #dcfce7; color: #15803d; }
+    .card-amber .service-icon-box { background-color: #fef3c7; color: #b45309; }
+    .card-pink .service-icon-box { background-color: #ffe4e6; color: #be123c; }
+
+    .help-service-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0c2340;
       margin-bottom: 12px;
     }
-    .counselling-hero h1 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      color: #ffffff !important;
+
+    .help-service-card p {
+      font-size: 0.9rem;
+      color: #64748b;
+      line-height: 1.55;
+      margin-bottom: 20px;
+      flex-grow: 1;
     }
-    .counselling-hero .hero-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.82);
-      max-width: 480px;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-    .btn-cta-primary {
-      background: #e31837;
-      color: #fff;
-      border: 2px solid #e31837;
-      padding: 12px 24px;
-      border-radius: 8px;
+
+    .service-action-link {
+      font-size: 0.88rem;
       font-weight: 600;
-      font-size: 0.95rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
+      gap: 6px;
+      transition: gap 0.2s ease;
     }
-    .btn-cta-primary:hover { background: #c01430; border-color: #c01430; color: #fff; }
-    .btn-cta-outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.6);
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
+    .service-action-link:hover {
+      gap: 10px;
+      text-decoration: underline;
     }
-    .btn-cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; }
-    .trust-badges { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
-    .trust-badge { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: rgba(255,255,255,0.8); }
-    .trust-badge i { color: #93c5fd; }
-    .hero-img-wrap { position: relative; }
-    .hero-img-wrap img { border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-height: 380px; width: 100%; object-fit: cover; }
+    .card-blue .service-action-link { color: #0b3b82; }
+    .card-green .service-action-link { color: #15803d; }
+    .card-amber .service-action-link { color: #b45309; }
+    .card-pink .service-action-link { color: #be123c; }
 
-    /* Section styling */
-    .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e31837; margin-bottom: 6px; }
-    .section-title-h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #1a2e5a; margin-bottom: 8px; }
-    .c-section { padding: 56px 0; }
-    .c-section-light { background: #f8f9fb; }
-    .c-section-white { background: #fff; }
-
-    /* Help Cards */
-    .help-card {
-      background: #fff;
-      border: 1px solid #e8edf5;
+    /* ===== S2: WHAT CAN YOU COME FOR (8 TOPIC CHIPS) ===== */
+    .topic-card-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       border-radius: 14px;
-      padding: 28px 22px;
-      transition: all 0.3s;
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
       height: 100%;
+      transition: all 0.2s ease;
     }
-    .help-card:hover { box-shadow: 0 8px 30px rgba(26,58,107,0.12); transform: translateY(-4px); border-color: #1a3a6b; }
-    .help-card .hc-icon {
-      width: 56px; height: 56px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
+    .topic-card-box:hover {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+    .topic-card-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .topic-card-content h5 {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #0c2340;
+      margin-bottom: 4px;
+    }
+    .topic-card-content p {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+
+    /* ===== S3: HOW COUNSELLING WORKS (5 STEPS) ===== */
+    .steps-process-wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      position: relative;
+    }
+    .step-process-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding: 0 10px;
+    }
+    .step-circle-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.5rem;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    }
+    .step-num-text {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #0c2340;
+      margin-bottom: 2px;
+    }
+    .step-title-text {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0c2340;
+      margin-bottom: 6px;
+    }
+    .step-desc-text {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+    .step-arrow-connector {
+      position: absolute;
+      right: -15px;
+      top: 18px;
+      font-size: 1.3rem;
+      color: #94a3b8;
+      z-index: 2;
+    }
+    @media (max-width: 991px) {
+      .steps-process-wrapper {
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+      .step-process-item {
+        flex: 0 0 45%;
+      }
+      .step-arrow-connector {
+        display: none;
+      }
+    }
+    @media (max-width: 575px) {
+      .step-process-item {
+        flex: 0 0 100%;
+      }
+    }
+
+    /* ===== S4 & S5: 3-COLUMN CARD SECTIONS ===== */
+    .mockup-info-card {
+      background: #ffffff;
+      border: 1px solid #e8eef5;
+      border-radius: 18px;
+      padding: 30px 26px;
+      height: 100%;
+      box-shadow: 0 4px 20px rgba(12, 35, 64, 0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .mockup-info-card .card-main-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0c2340;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .mockup-info-card .card-sub-title {
+      font-size: 0.82rem;
+      color: #64748b;
+      text-align: center;
+      margin-top: -12px;
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    /* Key Benefits 3x3 Grid */
+    .benefits-3x3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px 10px;
+      text-align: center;
+    }
+    .benefit-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .benefit-cell-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: #0b3b82;
+      margin-bottom: 6px;
+    }
+    .benefit-cell-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #334155;
+      line-height: 1.25;
+    }
+
+    /* Meet Your Counsellor Profile */
+    .counsellor-profile-box {
+      text-align: center;
+      padding: 0 4px;
+    }
+    .counsellor-avatar-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0b3b82;
+      margin: 0 auto 12px;
+      box-shadow: 0 4px 12px rgba(11, 59, 130, 0.15);
+    }
+    .counsellor-profile-box h5 {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: #0c2340;
+      margin-bottom: 2px;
+    }
+    .counsellor-profile-box .c-role {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0b3b82;
+      margin-bottom: 8px;
+    }
+    .counsellor-profile-box .c-quote {
+      font-size: 0.78rem;
+      color: #64748b;
+      font-style: italic;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+    .counsellor-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+    .counsellor-checklist li {
+      font-size: 0.8rem;
+      color: #334155;
+      padding: 4px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.35;
+    }
+    .counsellor-checklist li i {
+      color: #0b3b82;
+      font-size: 0.95rem;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Counsellor tabs/pills if two profiles */
+    .counsellor-tab-pills {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .counsellor-tab-pills .btn-c-tab {
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 20px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .counsellor-tab-pills .btn-c-tab.active {
+      background: #0b3b82;
+      color: #ffffff;
+      border-color: #0b3b82;
+    }
+
+    /* Study Skills Checklist 2 columns */
+    .study-skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      margin-bottom: 20px;
+    }
+    .study-skill-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.79rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    .study-skill-item i {
+      color: #0b3b82;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .btn-study-assessment {
+      background-color: #0b3b82;
+      color: #ffffff !important;
+      border: none;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      margin-top: auto;
+      transition: background-color 0.2s ease;
+    }
+    .btn-study-assessment:hover {
+      background-color: #07295d;
+    }
+
+    /* Progress Journey Timeline */
+    .progress-journey-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
       margin-bottom: 16px;
     }
-    .hc-blue { background: #dbeafe; }
-    .hc-green { background: #d1fae5; }
-    .hc-amber { background: #fef3c7; }
-    .hc-rose { background: #fee2e2; }
-    .help-card h5 { font-weight: 700; color: #1a2e5a; font-size: 1rem; margin-bottom: 8px; }
-    .help-card p { font-size: 0.875rem; color: #6b7280; line-height: 1.55; margin-bottom: 14px; }
-    .help-card .hc-link { font-size: 0.85rem; font-weight: 600; color: #e31837; text-decoration: none; }
-    .help-card .hc-link:hover { text-decoration: underline; }
+    .journey-step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .journey-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .dot-red-solid { background-color: #ef4444; }
+    .dot-yellow-solid { background-color: #eab308; }
+    .dot-green-solid { background-color: #22c55e; }
 
-    /* Topic Chips */
-    .topic-chip {
-      background: #fff;
-      border: 1.5px solid #e2e8f0;
+    .journey-step-text h6 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0c2340;
+      margin-bottom: 2px;
+    }
+    .journey-step-text p {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .journey-footer-note {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    /* Our Counselling Approach List */
+    .approach-techniques-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .technique-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    .technique-item i {
+      font-size: 1.1rem;
+      color: #0b3b82;
+      width: 22px;
+      text-align: center;
+    }
+
+    /* Grievance Action Cards */
+    .grievance-btn-card {
       border-radius: 12px;
-      padding: 16px 18px;
+      padding: 12px 14px;
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 600;
-      color: #334155;
-      font-size: 0.875rem;
-      transition: all 0.2s;
-    }
-    .topic-chip:hover { border-color: #1a3a6b; background: #f0f4ff; color: #1a3a6b; }
-    .topic-chip .tc-icon { font-size: 1.4rem; flex-shrink: 0; }
-
-    /* Process Steps */
-    .process-steps { display: flex; align-items: flex-start; gap: 0; flex-wrap: nowrap; }
-    @media (max-width: 768px) { .process-steps { flex-wrap: wrap; gap: 24px; } }
-    .step-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
-    .step-item:not(:last-child)::after {
-      content: '→';
-      position: absolute;
-      right: -12px;
-      top: 22px;
-      font-size: 1.4rem;
-      color: #94a3b8;
-      z-index: 1;
-    }
-    @media (max-width: 768px) { .step-item:not(:last-child)::after { display: none; } }
-    .step-circle {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .step-num { font-size: 0.65rem; font-weight: 800; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
-    .step-title { font-size: 0.9rem; font-weight: 700; color: #1a2e5a; margin-bottom: 4px; }
-    .step-desc { font-size: 0.78rem; color: #6b7280; line-height: 1.4; }
-
-    /* Counsellor Cards */
-    .counsellor-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 20px;
-      text-align: center;
-      height: 100%;
-    }
-    .counsellor-card img {
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #e31837;
-      margin-bottom: 12px;
-    }
-    .counsellor-card h6 { font-weight: 700; color: #1a2e5a; font-size: 0.95rem; margin-bottom: 4px; }
-    .counsellor-card .role { font-size: 0.8rem; color: #e31837; font-weight: 600; margin-bottom: 10px; }
-    .counsellor-card ul { list-style: none; padding: 0; text-align: left; }
-    .counsellor-card ul li { font-size: 0.78rem; color: #475569; padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
-    .counsellor-card ul li i { color: #22c55e; margin-top: 2px; flex-shrink: 0; }
-
-    /* Key Benefits */
-    .benefit-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
-    .benefit-item:last-child { border-bottom: none; }
-    .benefit-item .bi-icon { width: 34px; height: 34px; background: #fee2e2; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #e31837; font-size: 1rem; flex-shrink: 0; }
-    .benefit-item span { font-size: 0.85rem; font-weight: 600; color: #334155; }
-
-    /* Study Skills */
-    .skill-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
-    .skill-row:last-child { border-bottom: none; }
-    .skill-row .sk-icon { font-size: 1.1rem; flex-shrink: 0; }
-    .skill-row span { font-size: 0.83rem; font-weight: 600; color: #334155; }
-
-    /* Info Cards */
-    .info-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; height: 100%; }
-    .info-card .ic-title { font-size: 1rem; font-weight: 700; color: #1a2e5a; margin-bottom: 16px; }
-
-    /* Progress Journey */
-    .progress-stage { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
-    .progress-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #22c55e; }
-    .progress-stage .ps-text h6 { font-size: 0.875rem; font-weight: 700; color: #1a2e5a; margin-bottom: 2px; }
-    .progress-stage .ps-text p { font-size: 0.8rem; color: #6b7280; margin: 0; }
-    .weekly-note { font-size: 0.78rem; color: #6b7280; font-style: italic; margin-top: 10px; }
-
-    /* Approach list */
-    .approach-item { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid #f1f5f9; }
-    .approach-item:last-child { border-bottom: none; }
-    .approach-item i { color: #1a3a6b; font-size: 1rem; flex-shrink: 0; }
-    .approach-item span { font-size: 0.85rem; color: #334155; font-weight: 500; }
-
-    /* Grievance */
-    .grievance-link {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px 14px;
-      border-radius: 10px;
-      text-decoration: none;
+      text-decoration: none !important;
       margin-bottom: 10px;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
-    .grievance-link.student { background: #dbeafe; color: #1d4ed8; }
-    .grievance-link.faculty { background: #fef3c7; color: #92400e; }
-    .grievance-link.facility { background: #fee2e2; color: #991b1b; }
-    .grievance-link:hover { opacity: 0.85; transform: translateX(3px); }
-    .grievance-link .gl-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .grievance-link .gl-text strong { display: block; font-size: 0.85rem; font-weight: 700; }
-    .grievance-link .gl-text small { font-size: 0.75rem; opacity: 0.8; }
-    .grievance-process { font-size: 0.78rem; color: #94a3b8; margin-top: 8px; }
+    .grievance-btn-card:hover {
+      transform: translateX(4px);
+    }
+    .grievance-btn-card.type-student {
+      background-color: #eef5ff;
+      border: 1px solid #d8e7fd;
+    }
+    .grievance-btn-card.type-faculty {
+      background-color: #f0faf4;
+      border: 1px solid #d1f0de;
+    }
+    .grievance-btn-card.type-facility {
+      background-color: #fff9f0;
+      border: 1px solid #fdecd2;
+    }
+    .grievance-btn-card .g-icon-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .type-student .g-icon-circle { background-color: #dbeafe; color: #0b3b82; }
+    .type-faculty .g-icon-circle { background-color: #dcfce7; color: #15803d; }
+    .type-facility .g-icon-circle { background-color: #fef3c7; color: #b45309; }
 
-    /* CTA Banner */
-    .help-cta-banner {
-      background: linear-gradient(135deg, #1a3a6b 0%, #0d2a55 100%);
-      color: #fff;
-      padding: 56px 0;
+    .g-text-box strong {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #0c2340;
+    }
+    .g-text-box span {
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+    .type-student .g-text-box span { color: #0b3b82; }
+    .type-faculty .g-text-box span { color: #15803d; }
+    .type-facility .g-text-box span { color: #b45309; }
+
+    .grievance-flow-footer {
+      font-size: 0.74rem;
+      color: #64748b;
+      margin-top: auto;
+      padding-top: 10px;
       text-align: center;
     }
-    .help-cta-banner h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 8px; }
-    .help-cta-banner p { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
 
-    /* Btn study skills */
-    .btn-study { background: #1a3a6b; color: #fff; border: none; padding: 11px 22px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; width: 100%; margin-top: 12px; cursor: pointer; transition: background 0.2s; }
-    .btn-study:hover { background: #0d2a55; }
+    /* ===== S6: BOTTOM CTA BANNER ===== */
+    .mockup-cta-banner {
+      background-color: #082e6d;
+      border-radius: 20px;
+      padding: 40px 48px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      box-shadow: 0 12px 35px rgba(8, 46, 109, 0.2);
+    }
+    .mockup-cta-banner h3 {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .mockup-cta-banner p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 0;
+    }
+    .btn-banner-white {
+      background-color: #ffffff;
+      color: #082e6d !important;
+      border: 1.5px solid #ffffff;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-banner-white:hover {
+      background-color: #f0f6ff;
+      transform: translateY(-2px);
+    }
+    .btn-banner-outline {
+      background-color: transparent;
+      color: #ffffff !important;
+      border: 1.5px solid #ffffff;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-banner-outline:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
     </style>
 
-    <!-- ========== S1: HERO ========== -->
-    <section class="counselling-hero">
+    <!-- ========== HERO SECTION ========== -->
+    <section class="counselling-hero-mockup">
       <div class="container">
-        <div class="row align-items-center g-5">
+        <div class="row align-items-center g-4 g-lg-5">
           <div class="col-lg-7" data-aos="fade-right">
-            <div class="eyebrow">COUNSELLING &amp; STUDENT SUPPORT</div>
-            <h1>You Don't Have to<br>Figure It Out Alone.</h1>
-            <p class="hero-sub">Confidential counselling, academic guidance and personal support for every MSEC student.</p>
+            <div class="hero-tag-pill">COUNSELLING &amp; STUDENT SUPPORT</div>
+            <h1 class="hero-title-main">You Don't Have to<br>Figure It Out Alone.</h1>
+            <p class="hero-sub-text">Confidential counselling, academic guidance and personal support for every MSEC student.</p>
             <div class="d-flex flex-wrap gap-3">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-cta-primary">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-hero-primary">
                 <i class="bi bi-chat-dots-fill"></i> Talk to a Counsellor
               </a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-cta-outline">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-hero-outline">
                 <i class="bi bi-flag-fill"></i> Raise a Concern
               </a>
             </div>
-            <div class="trust-badges">
-              <span class="trust-badge"><i class="bi bi-shield-lock-fill"></i> Confidential</span>
-              <span class="trust-badge"><i class="bi bi-heart-fill"></i> Supportive</span>
-              <span class="trust-badge"><i class="bi bi-person-check-fill"></i> Student-Centred</span>
+            <div class="trust-badges-row">
+              <span class="trust-badge-item"><i class="bi bi-shield-check"></i> Confidential</span>
+              <span class="trust-badge-item"><i class="bi bi-heart"></i> Supportive</span>
+              <span class="trust-badge-item"><i class="bi bi-person-check"></i> Student-Centred</span>
             </div>
           </div>
-          <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left">
-            <div class="hero-img-wrap">
-              <img src="assets/img/campus.jpeg" alt="Meenakshi Sundararajan Engineering College Campus" loading="eager">
+          <div class="col-lg-5" data-aos="fade-left">
+            <div class="hero-image-container">
+              <img src="assets/img/campus.jpeg" alt="MSEC Student Counselling Support">
             </div>
           </div>
         </div>
@@ -624,235 +1072,325 @@
 
     <main id="counselling-main">
 
-    <!-- ========== S2: HOW CAN WE HELP? ========== -->
-    <section class="c-section c-section-white">
+    <!-- ========== SECTION 1: HOW CAN WE HELP YOU? ========== -->
+    <section class="c-page-section">
       <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-          <div class="section-eyebrow">OUR SERVICES</div>
-          <h2 class="section-title-h2">How Can We Help You?</h2>
-        </div>
+        <h2 class="c-section-title" data-aos="fade-up">How Can We Help You?</h2>
         <div class="row g-4">
-          <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="100">
-            <div class="help-card">
-              <div class="hc-icon hc-blue"><i class="bi bi-book-fill"></i></div>
-              <h5>Academic Support</h5>
-              <p>Struggling with studies, concentration, time management or exams? We've got you covered.</p>
-              <a href="#" class="hc-link">Get Academic Guidance →</a>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="150">
-            <div class="help-card">
-              <div class="hc-icon hc-green"><i class="bi bi-emoji-smile-fill"></i></div>
-              <h5>Personal &amp; Emotional Support</h5>
-              <p>Feeling stressed, overwhelmed or finding it difficult to cope? Talk to a counsellor.</p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="hc-link">Talk to a Counsellor →</a>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="200">
-            <div class="help-card">
-              <div class="hc-icon hc-amber"><i class="bi bi-compass-fill"></i></div>
-              <h5>Career Guidance</h5>
-              <p>Need help making decisions about your career or future? Explore career guidance with us.</p>
-              <a href="#" class="hc-link">Explore Career Guidance →</a>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="250">
-            <div class="help-card">
-              <div class="hc-icon hc-rose"><i class="bi bi-megaphone-fill"></i></div>
-              <h5>Grievance &amp; Feedback</h5>
-              <p>Have a concern that needs to be formally addressed? Submit a grievance confidentially.</p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="hc-link">Submit a Grievance →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== S3: WHAT CAN YOU COME FOR? ========== -->
-    <section class="c-section c-section-light">
-      <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-          <div class="section-eyebrow">TOPICS WE COVER</div>
-          <h2 class="section-title-h2">What Can You Come to Counselling For?</h2>
-        </div>
-        <div class="row g-3">
+          
+          <!-- Card 1: Academic Support -->
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="topic-chip"><span class="tc-icon">📚</span> Academic Stress</div>
+            <div class="help-service-card card-blue">
+              <div class="service-icon-box">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+              <h4>Academic Support</h4>
+              <p>Struggling with studies, concentration, time management or exams?</p>
+              <a href="#study-skills-sec" class="service-action-link">Get Academic Guidance →</a>
+            </div>
           </div>
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="130">
-            <div class="topic-chip"><span class="tc-icon">🧭</span> Career Decisions</div>
+
+          <!-- Card 2: Personal & Emotional Support -->
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+            <div class="help-service-card card-green">
+              <div class="service-icon-box">
+                <i class="bi bi-heart-pulse-fill"></i>
+              </div>
+              <h4>Personal &amp; Emotional Support</h4>
+              <p>Feeling stressed, overwhelmed or finding it difficult to cope?</p>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="service-action-link">Talk to a Counsellor →</a>
+            </div>
           </div>
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
-            <div class="topic-chip"><span class="tc-icon">👤</span> Personal Challenges</div>
+
+          <!-- Card 3: Career Guidance -->
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="help-service-card card-amber">
+              <div class="service-icon-box">
+                <i class="bi bi-compass-fill"></i>
+              </div>
+              <h4>Career Guidance</h4>
+              <p>Need help making decisions about your career or future?</p>
+              <a href="#counsellors-sec" class="service-action-link">Explore Career Guidance →</a>
+            </div>
           </div>
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="190">
-            <div class="topic-chip"><span class="tc-icon">🧠</span> Stress &amp; Wellbeing</div>
-          </div>
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="220">
-            <div class="topic-chip"><span class="tc-icon">💬</span> Communication</div>
-          </div>
+
+          <!-- Card 4: Grievance & Feedback -->
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
-            <div class="topic-chip"><span class="tc-icon">🌱</span> Personal Growth</div>
+            <div class="help-service-card card-pink">
+              <div class="service-icon-box">
+                <i class="bi bi-megaphone-fill"></i>
+              </div>
+              <h4>Grievance &amp; Feedback</h4>
+              <p>Have a concern that needs to be formally addressed?</p>
+              <a href="#grievance-sec" class="service-action-link">Submit a Grievance →</a>
+            </div>
           </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2: WHAT CAN YOU COME TO COUNSELLING FOR? ========== -->
+    <section class="c-page-section pt-0">
+      <div class="container">
+        <h2 class="c-section-title" data-aos="fade-up">What Can You Come to Counselling For?</h2>
+        <div class="row g-3">
+          
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="topic-card-box">
+              <div class="topic-card-icon">📚</div>
+              <div class="topic-card-content">
+                <h5>Academic Stress</h5>
+                <p>Exams, backlogs, concentration, study habits</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="130">
+            <div class="topic-card-box">
+              <div class="topic-card-icon">🪧</div>
+              <div class="topic-card-content">
+                <h5>Career Decisions</h5>
+                <p>Higher studies, placements, career choices</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
+            <div class="topic-card-box">
+              <div class="topic-card-icon">👥</div>
+              <div class="topic-card-content">
+                <h5>Personal Challenges</h5>
+                <p>Relationships, confidence, adjustment</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="190">
+            <div class="topic-card-box">
+              <div class="topic-card-icon">🧠</div>
+              <div class="topic-card-content">
+                <h5>Stress &amp; Wellbeing</h5>
+                <p>Anxiety, pressure, motivation, burnout</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="220">
+            <div class="topic-card-box">
+              <div class="topic-card-icon">💬</div>
+              <div class="topic-card-content">
+                <h5>Communication</h5>
+                <p>Self-expression, relationships, social confidence</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+            <div class="topic-card-box">
+              <div class="topic-card-icon">🌱</div>
+              <div class="topic-card-content">
+                <h5>Personal Growth</h5>
+                <p>Self-awareness, goal setting, positive habits</p>
+              </div>
+            </div>
+          </div>
+
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="280">
-            <div class="topic-chip"><span class="tc-icon">🔧</span> Problem Solving</div>
+            <div class="topic-card-box">
+              <div class="topic-card-icon">🧩</div>
+              <div class="topic-card-content">
+                <h5>Problem Solving</h5>
+                <p>Overcoming obstacles and making better decisions</p>
+              </div>
+            </div>
           </div>
+
           <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="310">
-            <div class="topic-chip"><span class="tc-icon">❓</span> Difficult Situations</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== S4: HOW COUNSELLING WORKS ========== -->
-    <section class="c-section c-section-white">
-      <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-          <div class="section-eyebrow">THE PROCESS</div>
-          <h2 class="section-title-h2">How Counselling Works</h2>
-        </div>
-        <div class="process-steps" data-aos="fade-up" data-aos-delay="100">
-          <div class="step-item">
-            <div class="step-circle" style="background:#dbeafe;">📞</div>
-            <div class="step-num">01</div>
-            <div class="step-title">Reach Out</div>
-            <div class="step-desc">Choose the type of support you need.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-circle" style="background:#d1fae5;">💬</div>
-            <div class="step-num">02</div>
-            <div class="step-title">Talk</div>
-            <div class="step-desc">Meet your counsellor in a safe, supportive environment.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-circle" style="background:#fef3c7;">🔍</div>
-            <div class="step-num">03</div>
-            <div class="step-title">Understand</div>
-            <div class="step-desc">Identify challenges, strengths and positive solutions.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-circle" style="background:#fee2e2;">📋</div>
-            <div class="step-num">04</div>
-            <div class="step-title">Create a Plan</div>
-            <div class="step-desc">Work together on practical next steps.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-circle" style="background:#ede9fe;">✅</div>
-            <div class="step-num">05</div>
-            <div class="step-title">Follow Up</div>
-            <div class="step-desc">Track your progress and adjust your plan.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== S5: KEY BENEFITS | MEET COUNSELLORS | STUDY SKILLS ========== -->
-    <section class="c-section c-section-light">
-      <div class="container">
-        <div class="row g-4">
-
-          <!-- Key Benefits -->
-          <div class="col-lg-4" data-aos="fade-right">
-            <div class="info-card">
-              <div class="section-eyebrow">SUPPORT AREAS</div>
-              <div class="ic-title">Key Benefits</div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-heart-fill"></i></div>
-                <span>Emotional Support</span>
-              </div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-mortarboard-fill"></i></div>
-                <span>Academic Guidance</span>
-              </div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-compass-fill"></i></div>
-                <span>Career Planning</span>
-              </div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-person-arms-up"></i></div>
-                <span>Personal Growth</span>
-              </div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-lightbulb-fill"></i></div>
-                <span>Problem Solving</span>
-              </div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-chat-dots-fill"></i></div>
-                <span>Communication Skills</span>
-              </div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-emoji-laughing-fill"></i></div>
-                <span>Stress Management</span>
-              </div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-shield-check-fill"></i></div>
-                <span>Resilience Building</span>
-              </div>
-              <div class="benefit-item">
-                <div class="bi-icon"><i class="bi bi-alarm-fill"></i></div>
-                <span>Crisis Intervention</span>
+            <div class="topic-card-box">
+              <div class="topic-card-icon">🧗</div>
+              <div class="topic-card-content">
+                <h5>Difficult Situations</h5>
+                <p>When you don't know what to do next</p>
               </div>
             </div>
           </div>
 
-          <!-- Meet Your Counsellors -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 3: HOW COUNSELLING WORKS ========== -->
+    <section class="c-page-section pt-0">
+      <div class="container">
+        <h2 class="c-section-title" data-aos="fade-up">How Counselling Works</h2>
+        <div class="steps-process-wrapper" data-aos="fade-up" data-aos-delay="100">
+          
+          <div class="step-process-item">
+            <div class="step-circle-icon" style="background:#dbeafe; color:#0b3b82;">
+              <i class="bi bi-hand-index-thumb"></i>
+            </div>
+            <div class="step-num-text">01</div>
+            <div class="step-title-text">Reach Out</div>
+            <div class="step-desc-text">Choose the type of support you need.</div>
+            <div class="step-arrow-connector">→</div>
+          </div>
+
+          <div class="step-process-item">
+            <div class="step-circle-icon" style="background:#dcfce7; color:#15803d;">
+              <i class="bi bi-chat-quote"></i>
+            </div>
+            <div class="step-num-text">02</div>
+            <div class="step-title-text">Talk</div>
+            <div class="step-desc-text">Meet your counsellor in a safe, supportive environment.</div>
+            <div class="step-arrow-connector">→</div>
+          </div>
+
+          <div class="step-process-item">
+            <div class="step-circle-icon" style="background:#fef3c7; color:#b45309;">
+              <i class="bi bi-search"></i>
+            </div>
+            <div class="step-num-text">03</div>
+            <div class="step-title-text">Understand</div>
+            <div class="step-desc-text">Identify challenges, strengths and possible solutions.</div>
+            <div class="step-arrow-connector">→</div>
+          </div>
+
+          <div class="step-process-item">
+            <div class="step-circle-icon" style="background:#f3e8ff; color:#7e22ce;">
+              <i class="bi bi-clipboard2-check"></i>
+            </div>
+            <div class="step-num-text">04</div>
+            <div class="step-title-text">Create a Plan</div>
+            <div class="step-desc-text">Work together on practical next steps.</div>
+            <div class="step-arrow-connector">→</div>
+          </div>
+
+          <div class="step-process-item">
+            <div class="step-circle-icon" style="background:#ffe4e6; color:#be123c;">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <div class="step-num-text">05</div>
+            <div class="step-title-text">Follow Up</div>
+            <div class="step-desc-text">Track your progress and adjust your plan.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 4: 3-COLUMN ROW (KEY BENEFITS, MEET COUNSELLOR, STUDY SKILLS) ========== -->
+    <section class="c-page-section pt-0" id="counsellors-sec">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          
+          <!-- Card 1: Key Benefits -->
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-card">
-              <div class="section-eyebrow">YOUR SUPPORT TEAM</div>
-              <div class="ic-title">Meet Your Counsellors</div>
-
-              <div class="row g-3">
-                <!-- Dr. Suganthi -->
-                <div class="col-6">
-                  <div class="counsellor-card h-100">
-                    <img src="assets/img/suganthi.jpeg" alt="Dr. S. Suganthi">
-                    <h6>Dr. S. Suganthi, Ph.D</h6>
-                    <div class="role">Student Counsellor</div>
-                    <ul>
-                      <li><i class="bi bi-check-circle-fill"></i> Confidential Sessions</li>
-                      <li><i class="bi bi-check-circle-fill"></i> Academic Support</li>
-                      <li><i class="bi bi-check-circle-fill"></i> Personal Guidance</li>
-                      <li><i class="bi bi-check-circle-fill"></i> Career Guidance</li>
-                    </ul>
-                  </div>
+            <div class="mockup-info-card">
+              <h3 class="card-main-title">Key Benefits</h3>
+              <div class="benefits-3x3-grid">
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-heart"></i></div>
+                  <div class="benefit-cell-label">Emotional Support</div>
                 </div>
-
-                <!-- Agnes Shanthi -->
-                <div class="col-6">
-                  <div class="counsellor-card h-100">
-                    <img src="assets/img/Agnes-Shanthi.jpeg" alt="Agnes Shanthi">
-                    <h6>Agnes Shanthi</h6>
-                    <div class="role">Certified Counsellor &amp; Special Educator</div>
-                    <ul>
-                      <li><i class="bi bi-check-circle-fill"></i> M.Sc (Applied Psychology)</li>
-                      <li><i class="bi bi-check-circle-fill"></i> PG Dip Guidance &amp; Counselling</li>
-                      <li><i class="bi bi-check-circle-fill"></i> PG Dip – Education Leadership</li>
-                      <li><i class="bi bi-check-circle-fill"></i> Certified Special Educator (Dyslexia)</li>
-                      <li><i class="bi bi-check-circle-fill"></i> Family Therapy — Psyhub</li>
-                    </ul>
-                  </div>
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-mortarboard"></i></div>
+                  <div class="benefit-cell-label">Academic Guidance</div>
                 </div>
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-compass"></i></div>
+                  <div class="benefit-cell-label">Career Planning</div>
+                </div>
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-tree"></i></div>
+                  <div class="benefit-cell-label">Personal Growth</div>
+                </div>
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-puzzle"></i></div>
+                  <div class="benefit-cell-label">Problem Solving</div>
+                </div>
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-chat-dots"></i></div>
+                  <div class="benefit-cell-label">Communication Skills</div>
+                </div>
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-emoji-smile"></i></div>
+                  <div class="benefit-cell-label">Stress Management</div>
+                </div>
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-shield"></i></div>
+                  <div class="benefit-cell-label">Resilience</div>
+                </div>
+                <div class="benefit-cell">
+                  <div class="benefit-cell-icon"><i class="bi bi-trophy"></i></div>
+                  <div class="benefit-cell-label">Confidence Building</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Meet Your Counsellor -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="mockup-info-card">
+              <h3 class="card-main-title">Meet Your Counsellor</h3>
+
+              <!-- Profile Switcher Tabs -->
+              <div class="counsellor-tab-pills">
+                <button type="button" class="btn-c-tab active" onclick="switchCounsellorTab('suganthi', this)">Dr. S. Sugandhi</button>
+                <button type="button" class="btn-c-tab" onclick="switchCounsellorTab('agnes', this)">Agnes Shanthi</button>
+              </div>
+
+              <!-- Profile 1: Dr. S. Sugandhi -->
+              <div id="counsellor-suganthi" class="counsellor-profile-box">
+                <img src="assets/img/suganthi.jpeg" alt="Dr. S. Sugandhi" class="counsellor-avatar-circle">
+                <h5>Dr. S. Sugandhi, Ph.D</h5>
+                <div class="c-role">Student Counsellor</div>
+                <p class="c-quote">"A safe and supportive space to talk, reflect and find your way forward."</p>
+                <ul class="counsellor-checklist">
+                  <li><i class="bi bi-check-circle-fill"></i> Ph.D</li>
+                  <li><i class="bi bi-check-circle-fill"></i> M.A, M.Ed – Education</li>
+                  <li><i class="bi bi-check-circle-fill"></i> B.Ed – Spl.Edun</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Confidential Student Support</li>
+                </ul>
+              </div>
+
+              <!-- Profile 2: Agnes Shanthi -->
+              <div id="counsellor-agnes" class="counsellor-profile-box d-none">
+                <img src="assets/img/Agnes-Shanthi.jpeg" alt="Agnes Shanthi" class="counsellor-avatar-circle">
+                <h5>Agnes Shanthi</h5>
+                <div class="c-role">Certified Counsellor &amp; Special Educator</div>
+                <p class="c-quote">"Dedicated to empowering students through personalized psychological and educational guidance."</p>
+                <ul class="counsellor-checklist">
+                  <li><i class="bi bi-check-circle-fill"></i> M.Sc (Applied Psychology)</li>
+                  <li><i class="bi bi-check-circle-fill"></i> PG Dip Guidance &amp; Counselling</li>
+                  <li><i class="bi bi-check-circle-fill"></i> PG Dip – Education Leadership Programme</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Certified Special Educator (Dyslexia) – MDA</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Family Therapy Certification – Psyhub</li>
+                </ul>
               </div>
 
             </div>
           </div>
 
-          <!-- Study Skills Assessment -->
-          <div class="col-lg-4" data-aos="fade-left" data-aos-delay="150">
-            <div class="info-card">
-              <div class="section-eyebrow">ACADEMIC TOOL</div>
-              <div class="ic-title">Study Skills Assessment</div>
-              <p style="font-size:0.83rem; color:#6b7280; margin-bottom:14px;">Discover the strengths and areas where you can improve.</p>
-              <div class="skill-row"><span class="sk-icon">⏰</span><span>Time Management</span></div>
-              <div class="skill-row"><span class="sk-icon">💪</span><span>Motivation</span></div>
-              <div class="skill-row"><span class="sk-icon">🧠</span><span>Concentration &amp; Memory</span></div>
-              <div class="skill-row"><span class="sk-icon">📖</span><span>Reading Skills</span></div>
-              <div class="skill-row"><span class="sk-icon">📝</span><span>Note-taking</span></div>
-              <div class="skill-row"><span class="sk-icon">✏️</span><span>Writing Skills</span></div>
-              <div class="skill-row"><span class="sk-icon">📊</span><span>Test Strategies</span></div>
-              <div class="skill-row"><span class="sk-icon">📂</span><span>Information Processing</span></div>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank">
-                <button class="btn-study">Take the Study Skills Assessment →</button>
+          <!-- Card 3: Study Skills Assessment -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" id="study-skills-sec">
+            <div class="mockup-info-card">
+              <h3 class="card-main-title">Study Skills Assessment</h3>
+              <p class="card-sub-title">Discover your strengths and areas where you can improve.</p>
+              
+              <div class="study-skills-grid">
+                <div class="study-skill-item"><i class="bi bi-check-circle"></i> Time Management</div>
+                <div class="study-skill-item"><i class="bi bi-check-circle"></i> Motivation</div>
+                <div class="study-skill-item"><i class="bi bi-check-circle"></i> Concentration &amp; Memory</div>
+                <div class="study-skill-item"><i class="bi bi-check-circle"></i> Reading Skills</div>
+                <div class="study-skill-item"><i class="bi bi-check-circle"></i> Note-taking</div>
+                <div class="study-skill-item"><i class="bi bi-check-circle"></i> Writing Skills</div>
+                <div class="study-skill-item"><i class="bi bi-check-circle"></i> Test Strategies</div>
+                <div class="study-skill-item"><i class="bi bi-check-circle"></i> Information Processing</div>
+              </div>
+
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-study-assessment">
+                Take the Study Skills Assessment →
               </a>
             </div>
           </div>
@@ -861,95 +1399,98 @@
       </div>
     </section>
 
-    <!-- ========== S6: PROGRESS | APPROACH | GRIEVANCE REDRESSAL ========== -->
-    <section class="c-section c-section-white">
+    <!-- ========== SECTION 5: 3-COLUMN ROW (PROGRESS, APPROACH, GRIEVANCE) ========== -->
+    <section class="c-page-section pt-0" id="grievance-sec">
       <div class="container">
-        <div class="row g-4">
-
-          <!-- Progress Journey -->
-          <div class="col-lg-4" data-aos="fade-right">
-            <div class="info-card">
-              <div class="section-eyebrow">STUDENT TRACKING</div>
-              <div class="ic-title">Your Progress Journey</div>
-              <div class="progress-stage">
-                <div class="progress-dot dot-red"></div>
-                <div class="ps-text">
-                  <h6>Starting</h6>
-                  <p>We understand where you are.</p>
-                </div>
-              </div>
-              <div class="progress-stage">
-                <div class="progress-dot dot-yellow"></div>
-                <div class="ps-text">
-                  <h6>Improving</h6>
-                  <p>Small steps, big changes.</p>
-                </div>
-              </div>
-              <div class="progress-stage">
-                <div class="progress-dot dot-green"></div>
-                <div class="ps-text">
-                  <h6>Progressing</h6>
-                  <p>Building confidence and achieving goals.</p>
-                </div>
-              </div>
-              <p class="weekly-note">📅 Weekly follow-up helps students stay on track.</p>
-            </div>
-          </div>
-
-          <!-- Counselling Approach -->
+        <div class="row g-4 align-items-stretch">
+          
+          <!-- Card 1: Your Progress Journey -->
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-card">
-              <div class="section-eyebrow">EVIDENCE-BASED METHODS</div>
-              <div class="ic-title">Our Counselling Approach</div>
-              <p style="font-size:0.83rem; color:#6b7280; margin-bottom:12px;">We use proven techniques to support your wellbeing and personal growth.</p>
-              <div class="approach-item"><i class="bi bi-heart-pulse-fill"></i><span>Talk Therapy</span></div>
-              <div class="approach-item"><i class="bi bi-peace-fill"></i><span>Mindfulness &amp; Meditation</span></div>
-              <div class="approach-item"><i class="bi bi-wind"></i><span>Breathing Techniques</span></div>
-              <div class="approach-item"><i class="bi bi-bullseye"></i><span>Grounding Techniques</span></div>
-              <div class="approach-item"><i class="bi bi-body-text"></i><span>Relaxation &amp; JPMR</span></div>
-              <div class="approach-item"><i class="bi bi-person-walking"></i><span>Yoga &amp; Physical Activity</span></div>
-              <div class="approach-item"><i class="bi bi-people-fill"></i><span>Transactional Analysis</span></div>
-              <div class="approach-item"><i class="bi bi-person-lines-fill"></i><span>Psychodrama</span></div>
-              <div class="approach-item"><i class="bi bi-house-heart-fill"></i><span>Family Therapy</span></div>
+            <div class="mockup-info-card">
+              <h3 class="card-main-title text-start">Your Progress Journey</h3>
+              
+              <div class="progress-journey-list">
+                <div class="journey-step-row">
+                  <div class="journey-dot dot-red-solid"></div>
+                  <div class="journey-step-text">
+                    <h6>Starting</h6>
+                    <p>We understand where you are.</p>
+                  </div>
+                </div>
+
+                <div class="journey-step-row">
+                  <div class="journey-dot dot-yellow-solid"></div>
+                  <div class="journey-step-text">
+                    <h6>Improving</h6>
+                    <p>Small steps, big changes.</p>
+                  </div>
+                </div>
+
+                <div class="journey-step-row">
+                  <div class="journey-dot dot-green-solid"></div>
+                  <div class="journey-step-text">
+                    <h6>Progressing</h6>
+                    <p>Building consistency and confidence.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journey-footer-note">
+                Weekly follow-ups help students stay on track.
+              </div>
             </div>
           </div>
 
-          <!-- Grievance Redressal -->
-          <div class="col-lg-4" data-aos="fade-left" data-aos-delay="150">
-            <div class="info-card">
-              <div class="section-eyebrow">FORMAL SUPPORT</div>
-              <div class="ic-title">Grievance Redressal</div>
-              <p style="font-size:0.83rem; color:#6b7280; margin-bottom:14px;">Your voice matters. We ensure genuine concerns are heard and addressed fairly.</p>
+          <!-- Card 2: Our Counselling Approach -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="mockup-info-card">
+              <h3 class="card-main-title text-start">Our Counselling Approach</h3>
+              <p class="card-sub-title text-start">We use proven techniques to support your wellbeing and personal growth.</p>
+              
+              <div class="approach-techniques-list">
+                <div class="technique-item"><i class="bi bi-chat-heart"></i> <span>Talk Therapy</span></div>
+                <div class="technique-item"><i class="bi bi-peace"></i> <span>Mindfulness &amp; Meditation</span></div>
+                <div class="technique-item"><i class="bi bi-wind"></i> <span>Breathing Techniques</span></div>
+                <div class="technique-item"><i class="bi bi-bullseye"></i> <span>Grounding Techniques</span></div>
+                <div class="technique-item"><i class="bi bi-body-text"></i> <span>Relaxation &amp; JPMR</span></div>
+                <div class="technique-item"><i class="bi bi-person-walking"></i> <span>Yoga &amp; Physical Activity</span></div>
+              </div>
+            </div>
+          </div>
 
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="grievance-link student">
-                <i class="bi bi-person-fill gl-icon"></i>
-                <div class="gl-text">
+          <!-- Card 3: Grievance Redressal -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="mockup-info-card">
+              <h3 class="card-main-title text-start">Grievance Redressal</h3>
+              <p class="card-sub-title text-start">Your voice matters. We ensure genuine concerns are heard and addressed fairly.</p>
+              
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="grievance-btn-card type-student">
+                <div class="g-icon-circle"><i class="bi bi-person"></i></div>
+                <div class="g-text-box">
                   <strong>Student Grievance</strong>
-                  <small>Submit Student Grievance Online</small>
+                  <span>Submit Student Grievance →</span>
                 </div>
               </a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSccVTP4vyiFcS6_kTBVmOMUbfaCTUhXenwmMZ-_NS5RcDweQQ/viewform" target="_blank" class="grievance-link faculty">
-                <i class="bi bi-person-badge-fill gl-icon"></i>
-                <div class="gl-text">
+
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSccVTP4vyiFcS6_kTBVmOMUbfaCTUhXenwmMZ-_NS5RcDweQQ/viewform" target="_blank" class="grievance-btn-card type-faculty">
+                <div class="g-icon-circle"><i class="bi bi-people"></i></div>
+                <div class="g-text-box">
                   <strong>Faculty Grievance</strong>
-                  <small>Submit Faculty Grievance Online</small>
+                  <span>Submit Faculty Grievance →</span>
                 </div>
               </a>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSccVTP4vyiFcS6_kTBVmOMUbfaCTUhXenwmMZ-_NS5RcDweQQ/viewform" target="_blank" class="grievance-link facility">
-                <i class="bi bi-star-fill gl-icon"></i>
-                <div class="gl-text">
+
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSccVTP4vyiFcS6_kTBVmOMUbfaCTUhXenwmMZ-_NS5RcDweQQ/viewform" target="_blank" class="grievance-btn-card type-facility">
+                <div class="g-icon-circle"><i class="bi bi-star"></i></div>
+                <div class="g-text-box">
                   <strong>Facility Feedback</strong>
-                  <small>Share Feedback</small>
+                  <span>Share Feedback →</span>
                 </div>
               </a>
-              <a href="https://www.aicte-india.org/feedback/index.php" target="_blank" class="grievance-link" style="background:#f0fdf4; color:#166534;">
-                <i class="bi bi-box-arrow-up-right gl-icon"></i>
-                <div class="gl-text">
-                  <strong>AICTE Feedback</strong>
-                  <small>Submit to AICTE Portal</small>
-                </div>
-              </a>
-              <p class="grievance-process mt-2">Process: Submit → Review → Action → Resolution</p>
+
+              <div class="grievance-flow-footer">
+                Process: Submit → Review → Action → Resolution
+              </div>
             </div>
           </div>
 
@@ -957,23 +1498,49 @@
       </div>
     </section>
 
-    <!-- ========== S7: CTA BANNER ========== -->
-    <section class="help-cta-banner" data-aos="fade-up">
+    <!-- ========== SECTION 6: NEED HELP NOW CTA BANNER ========== -->
+    <section class="c-page-section pt-0">
       <div class="container">
-        <h2>Need Help Now?</h2>
-        <p>We are here for you. Reach out anytime.</p>
-        <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-cta-primary">
-            <i class="bi bi-chat-dots-fill"></i> Talk to a Counsellor
-          </a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-cta-outline">
-            <i class="bi bi-flag-fill"></i> Raise a Concern
-          </a>
+        <div class="mockup-cta-banner" data-aos="zoom-in">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <h3>Need Help Now?</h3>
+              <p>We are here for you. Reach out anytime.</p>
+            </div>
+            <div class="col-lg-5 text-lg-end">
+              <div class="d-flex flex-wrap gap-3 justify-content-lg-end">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-banner-white">
+                  <i class="bi bi-chat-dots-fill"></i> Talk to a Counsellor
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="btn-banner-outline">
+                  <i class="bi bi-flag-fill"></i> Raise a Concern
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     </main>
+
+    <script>
+    function switchCounsellorTab(name, btn) {
+      document.querySelectorAll('.btn-c-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const suganthiBox = document.getElementById('counsellor-suganthi');
+      const agnesBox = document.getElementById('counsellor-agnes');
+      
+      if (name === 'suganthi') {
+        suganthiBox.classList.remove('d-none');
+        agnesBox.classList.add('d-none');
+      } else {
+        suganthiBox.classList.add('d-none');
+        agnesBox.classList.remove('d-none');
+      }
+    }
+    </script>
 
   <footer id="footer" class="footer position-relative dark-background">
 

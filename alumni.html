@@ -358,956 +358,1250 @@
   </div>
 </header>
 
+  <style>
+  /* =========================================================
+     MSEC ALUMNI - REPLICATED MODERN UI DESIGN
+     ========================================================= */
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap');
+
+  :root {
+    --alumni-navy: #081a38;
+    --alumni-navy-light: #0d2752;
+    --alumni-gold: #f59e0b;
+    --alumni-gold-hover: #d97706;
+    --alumni-gold-light: #fef3c7;
+    --alumni-red: #df1529;
+    --alumni-text-dark: #0f2b5c;
+    --alumni-text-muted: #64748b;
+    --alumni-bg-light: #f8fafc;
+    --alumni-border: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+  }
+
+  /* ===== HERO SECTION ===== */
+  .alumni-hero-banner {
+    position: relative;
+    background: linear-gradient(90deg, rgba(8, 26, 56, 0.96) 0%, rgba(8, 26, 56, 0.88) 45%, rgba(8, 26, 56, 0.45) 100%), url('assets/img/campus.jpeg') center/cover no-repeat;
+    padding: 75px 0 65px;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  .alumni-tag-gold {
+    color: var(--alumni-gold);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  .alumni-hero-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+
+  .alumni-hero-desc {
+    font-size: 0.98rem;
+    color: rgba(255, 255, 255, 0.84);
+    line-height: 1.6;
+    max-width: 580px;
+    margin-bottom: 30px;
+  }
+
+  .alumni-stat-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .alumni-stat-icon {
+    font-size: 1.8rem;
+    color: var(--alumni-gold);
+  }
+  .alumni-stat-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+  }
+  .alumni-stat-lbl {
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+  }
+
+  .btn-alumni-gold {
+    background-color: var(--alumni-gold);
+    color: var(--alumni-navy) !important;
+    border: 2px solid var(--alumni-gold);
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.92rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+  .btn-alumni-gold:hover {
+    background-color: var(--alumni-gold-hover);
+    border-color: var(--alumni-gold-hover);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+  }
+
+  .btn-alumni-navy {
+    background-color: var(--alumni-navy);
+    color: #ffffff !important;
+    border: 2px solid var(--alumni-navy);
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+  }
+  .btn-alumni-navy:hover {
+    background-color: var(--alumni-navy-light);
+    border-color: var(--alumni-navy-light);
+    transform: translateY(-2px);
+  }
+
+  /* ===== S1: LEGACY & ALUMNI MEET ===== */
+  .legacy-heading {
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    font-weight: 800;
+    color: var(--alumni-navy);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+  .legacy-desc {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .alumni-meet-card {
+    background: #eef4fa;
+    border: 1px solid #dbe6f2;
+    border-radius: 18px;
+    padding: 26px;
+    height: 100%;
+  }
+  .alumni-meet-tag {
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: var(--alumni-navy);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .alumni-meet-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--alumni-navy);
+    margin-bottom: 8px;
+  }
+  .alumni-meet-desc {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+  .alumni-meet-meta {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--alumni-navy);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .alumni-meet-script {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 18px;
+  }
+
+  .alumni-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .alumni-gallery-img {
+    width: 100%;
+    height: 78px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  .alumni-gallery-img:hover {
+    transform: scale(1.04);
+  }
+
+  /* ===== S2: SPOTLIGHT SWIPER (3 CARDS IN A ROW - EXPANDED SIZE) ===== */
+  .spotlight-header-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .spotlight-title {
+    font-size: clamp(1.5rem, 2.6vw, 1.95rem);
+    font-weight: 800;
+    color: var(--alumni-navy);
+    margin-bottom: 4px;
+  }
+  .spotlight-sub {
+    font-size: 0.92rem;
+    color: var(--alumni-text-muted);
+    margin: 0;
+  }
+
+  .alumni-spotlight-card {
+    background: #ffffff;
+    border: 1px solid var(--alumni-border);
+    border-radius: 18px;
+    padding: 32px 24px;
+    text-align: center;
+    height: 100%;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+  }
+  .alumni-spotlight-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(8, 26, 56, 0.1);
+    border-color: var(--alumni-navy);
+  }
+  .spotlight-avatar-wrap {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 16px;
+    border: 3px solid #e2e8f0;
+    background: #f1f5f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  .spotlight-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .spotlight-name {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: var(--alumni-navy);
+    margin-bottom: 4px;
+  }
+  .spotlight-dept {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--alumni-red);
+    margin-bottom: 10px;
+    background: #fee2e2;
+    padding: 3px 14px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+  .spotlight-role {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .swiper-nav-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid var(--alumni-border);
+    color: var(--alumni-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+  }
+  .swiper-nav-btn:hover {
+    background: var(--alumni-navy);
+    color: #ffffff;
+  }
+
+  /* ===== S3: COORDINATORS & AWARD ===== */
+  .coord-card {
+    background: #ffffff;
+    border: 1px solid var(--alumni-border);
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .coord-tag {
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #f59e0b;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .coord-heading {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--alumni-navy);
+    margin-bottom: 4px;
+  }
+  .coord-desc {
+    font-size: 0.82rem;
+    color: var(--alumni-text-muted);
+    line-height: 1.4;
+    margin-bottom: 18px;
+  }
+  .coord-avatars-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 18px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .coord-person-item {
+    text-align: center;
+    flex: 1;
+    min-width: 60px;
+  }
+  .coord-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 6px;
+    border: 2px solid #e2e8f0;
+  }
+  .coord-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--alumni-navy);
+    display: block;
+    line-height: 1.2;
+  }
+  .coord-role {
+    font-size: 0.66rem;
+    color: var(--alumni-text-muted);
+  }
+
+  .award-card {
+    background: #ffffff;
+    border: 1px solid var(--alumni-border);
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .award-tag {
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #f59e0b;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .award-heading {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--alumni-navy);
+    margin-bottom: 8px;
+  }
+  .award-desc {
+    font-size: 0.82rem;
+    color: var(--alumni-text-muted);
+    line-height: 1.45;
+    margin-bottom: 20px;
+  }
+  .award-trophy-img {
+    width: 90px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .btn-award-outline {
+    border: 1.5px solid var(--alumni-border);
+    color: var(--alumni-navy) !important;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    transition: all 0.2s ease;
+  }
+  .btn-award-outline:hover {
+    border-color: var(--alumni-navy);
+    background: #f8fafc;
+  }
+
+  /* ===== S4: GIVE BACK MATRIX ===== */
+  .give-back-sec {
+    background: #f8fafc;
+    border-top: 1px solid var(--alumni-border);
+    border-bottom: 1px solid var(--alumni-border);
+    padding: 55px 0;
+  }
+  .give-back-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+  @media (max-width: 1199px) {
+    .give-back-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+  }
+  @media (max-width: 575px) {
+    .give-back-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .give-back-col {
+    background: #ffffff;
+    border: 1px solid var(--alumni-border);
+    border-radius: 12px;
+    padding: 16px 12px;
+    height: 100%;
+  }
+  .give-back-col-title {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--alumni-navy);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .give-back-col-title i {
+    color: var(--alumni-red);
+    font-size: 1rem;
+  }
+  .give-back-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .give-back-list li {
+    font-size: 0.74rem;
+    color: #475569;
+    padding: 4px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .give-back-list input[type="checkbox"] {
+    accent-color: var(--alumni-navy);
+    margin-top: 2px;
+  }
+
+  /* ===== S5: BOTTOM NAVY BANNER ===== */
+  .alumni-bottom-banner {
+    background: var(--alumni-navy);
+    color: #ffffff;
+    padding: 35px 0;
+  }
+  .alumni-bottom-banner h4 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    color: #ffffff;
+  }
+  .alumni-bottom-banner p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0;
+  }
+  .alumni-bottom-banner .once-msec {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--alumni-gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ===== COMPACT SCREEN-FIT POPUP (popup2.jpg) ===== */
+  #imagePopup.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    padding: 16px;
+    backdrop-filter: blur(4px);
+  }
+
+  #imagePopup.popup-overlay.show {
+    display: flex;
+  }
+
+  #imagePopup .popup-box {
+    position: relative;
+    max-width: 92vw;
+    max-height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: popupScale 0.35s ease-out;
+  }
+
+  #imagePopup .popup-image {
+    width: auto !important;
+    height: auto !important;
+    max-width: min(390px, 85vw) !important;
+    max-height: min(580px, 78vh) !important;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    display: block;
+  }
+
+  #imagePopup .popup-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #df1529;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    font-size: 20px;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    z-index: 100000;
+    transition: all 0.2s ease;
+  }
+
+  #imagePopup .popup-close:hover {
+    background: #000000;
+    transform: scale(1.1);
+  }
+  </style>
+
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title dark-background" style="background-image: url(assets/img/campus.jpeg);">
+    <!-- ========== HERO BANNER ========== -->
+    <section class="alumni-hero-banner">
       <div class="container position-relative">
-        <h1>Alumni Meet 2025</h1>
-        <!-- <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p> -->
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Alumni</li>
-          </ol>
-        </nav>
-      </div>
-    </div><!-- End Page Title -->
-
-
-    <!-- Alumni Section -->
-    <section id="alumni" class="alumni section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="alumni-hero">
-          <div class="row align-items-center">
-            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
-              <div class="hero-content">
-                <span class="alumni-badge">Alumni Community</span>
-                <h2>Global Network of Changemakers</h2>
-                <p>Our alumni are a testament to excellence, making impactful contributions across industries and communities.
-They stay connected through mentorship, networking, and support, inspiring the next generation of achievers</p>
-                <div class="alumni-metrics">
-                  <div class="metric">
-                    <div class="counter">5k+</div>
-                    <div class="label">Proud Alumni</div>
-                  </div>
-                  <div class="metric">
-                    <div class="counter">12+</div>
-                    <div class="label">Batch of Alumni</div>
-                  </div>
-                  <div class="metric">
-                    <div class="counter">500+</div>
-                    <div class="label">Notable Alumni</div>
-                  </div>
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8" data-aos="fade-right">
+            <span class="alumni-tag-gold">MSEC ALUMNI</span>
+            <h1 class="alumni-hero-title">Once an MSECIan,<br>Always an MSECIan.</h1>
+            <p class="alumni-hero-desc">
+              A growing community of MSECIans making their mark across industries, professions and communities.
+            </p>
+            
+            <div class="d-flex flex-wrap align-items-center gap-4 mb-4">
+              <div class="alumni-stat-box">
+                <div class="alumni-stat-icon"><i class="bi bi-people-fill"></i></div>
+                <div>
+                  <div class="alumni-stat-val">5K+</div>
+                  <div class="alumni-stat-lbl">Proud Alumni</div>
                 </div>
-                <!-- <a href="#" class="btn btn-discover">Discover Network Benefits</a> -->
               </div>
-            </div>
-            <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="300">
-              <div class="hero-image-wrapper">
-                <div class="hero-image">
-                  <img src="assets/img/campus.jpeg" alt="Alumni Network" class="img-fluid">
+
+              <div class="alumni-stat-box">
+                <div class="alumni-stat-icon"><i class="bi bi-star-fill"></i></div>
+                <div>
+                  <div class="alumni-stat-val">500+</div>
+                  <div class="alumni-stat-lbl">Notable Alumni</div>
+                </div>
+              </div>
+
+              <div class="alumni-stat-box">
+                <div class="alumni-stat-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                <div>
+                  <div class="alumni-stat-val">25+</div>
+                  <div class="alumni-stat-lbl">Years of MSEC Legacy</div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Carousel -->
-<div id="autoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-
-  <!-- Indicators -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="2"></button>
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="3"></button>
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="4"></button>
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="5"></button>
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="6"></button>
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="7"></button>
-    <button type="button" data-bs-target="#autoCarousel" data-bs-slide-to="8"></button>
-  </div>
-
-  <!-- Slides -->
-   <div class="container mx-auto">
-    <div class="row justify-content-center">
-      <div class="col-md-10 col-lg-8">
-        <h3 class="text-danger fw-bold text-center">Reconnecting, Remembering, Reliving <br/>Where Memories Came Alive &ndash; Alumni Meet</h3>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="./assets/img/alu3.webp" class="d-block w-100" alt="Slide 1">
-    </div>
-    <div class="carousel-item">
-      <img src="./assets/img/alu4.webp" class="d-block w-100" alt="Slide 2">
-    </div>
-    <div class="carousel-item">
-      <img src="./assets/img/alu5.webp" class="d-block w-100" alt="Slide 3">
-    </div>
-    <div class="carousel-item">
-      <img src="./assets/img/alu6.webp" class="d-block w-100" alt="Slide 4">
-    </div>
-    <div class="carousel-item">
-      <img src="./assets/img/alu7.webp" class="d-block w-100" alt="Slide 5">
-    </div>
-    <div class="carousel-item">
-      <img src="./assets/img/alu8.webp" class="d-block w-100" alt="Slide 6">
-    </div>
-    <div class="carousel-item">
-      <img src="./assets/img/alu9.webp" class="d-block w-100" alt="Slide 7">
-    </div>
-    <div class="carousel-item">
-      <img src="./assets/img/alu1.webp" class="d-block w-100" alt="Slide 8">
-    </div>
-    <div class="carousel-item">
-      <img src="./assets/img/alu2.webp" class="d-block w-100" alt="Slide 9">
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#autoCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-
-  <button class="carousel-control-next" type="button" data-bs-target="#autoCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-      </div>
-    </div>
-   </div>
-
-
-        <div class="notable-alumni">
-          <div class="section-header text-center" data-aos="fade-up" data-aos-delay="200">
-            <h3>Notable Alumni Spotlights</h3>
-            <p>Extraordinary graduates making an impact in their fields</p>
-          </div>
-
-          <div class="row">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300" data-bs-ride="carousel" data-bs-interval="2000">
-              <div id="carouselExamplealumni" class="carousel slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="alumni-profile">
-                      <div class="profile-header">
-                        <div class="profile-img">
-                          <img src="assets/img/alumni12.webp" alt="Alumni" class="img-fluid">
-                        </div>
-                        <div class="profile-year">2018</div>
-                      </div>
-                      <div class="profile-body">
-                        <h4>Ms. Saranya</h4>
-                        <span class="profile-title">Physical Design Engineer Intel Corporation</span>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus lacinia.</p> -->
-                        <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                      </div>
-                      <div class="achievement-badge">
-                        <i class="bi bi-award"></i>
-                        <span>EEE 2014-2018 Batch  </span>
-                      </div>
-                  </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni13.webp" alt="Alumni" loading="lazy" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4>Mr. Vasant Kumar kesavan</h4>
-                  <span class="profile-title">Associate Principal - Product Engineering 
-LTI Mindtree</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>IT 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumi20.webp" alt="Alumni" loading="lazy" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4>Mr. Praveen Radhakrishnan</h4>
-                  <span class="profile-title">Wing Commander 
-Indian Air Force 
-Lucknow </span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>EEE 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni121.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2017</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Mr. S. KISHAN KUMAR</h4>
-                  <span class="profile-title">IAS 
-Chennai</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>CIVIL 2013-2017 Batch</span>
-                </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni22.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4>Mr. Shyam Sundar KR</h4>
-                  <span class="profile-title">Cyber Security Architect GE Health Care </span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>IT 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                       <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni14.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Mr. Ramkartic VS</h4>
-                  <span class="profile-title">Vice President, Product- Arcesium</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-lightning"></i>
-                  <span>ECE 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                <div class="carousel-item">
-                       <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni123.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Mr. Karthik Raghavan Ravi</h4>
-                  <span class="profile-title">Functional Safety Manager, - CUDA
-NVIDIA - USA</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-lightning"></i>
-                  <span>CSE 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplealumni" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplealumni" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-
+            <div>
+              <a href="#giveBack" class="btn-alumni-gold">
+                JOIN THE ALUMNI NETWORK <i class="bi bi-arrow-right"></i>
+              </a>
             </div>
-
-             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300" data-bs-ride="carousel" data-bs-interval="2000">
-              <div id="carouselExamplealumni2" class="carousel slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="alumni-profile">
-                      <div class="profile-header">
-                        <div class="profile-img">
-                          <img src="assets/img/alumni15.webp" alt="Alumni" loading="lazy" class="img-fluid">
-                        </div>
-                        <div class="profile-year">2008</div>
-                      </div>
-                      <div class="profile-body">
-                        <h4> Mr. Shakthi Arun</h4>
-                        <span class="profile-title">SOC Verification Enginner Qualcomm India Pvt Ltd</span>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus lacinia.</p> -->
-                        <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                      </div>
-                      <div class="achievement-badge">
-                        <i class="bi bi-award"></i>
-                        <span>ECE 2004-2008 Batch</span>
-                      </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni16.webp" alt="Alumni" loading="lazy" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Mr. N. S. Bharath Kumar</h4>
-                  <span class="profile-title">Security  Engineer Service Now Chennai</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>ECE 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni124.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4>Dr.M.R.Vidhyalakshmi</h4>
-                  <span class="profile-title">Lead Engineer, RF Team Tejas Networks Chennai</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>ECE 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni25.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2013</div>
-                </div>
-                <div class="profile-body">
-                  <h4>Mr. Lakshmi Narasimman</h4>
-                  <span class="profile-title">Solution Engineer Exploring - AI / ML
-Wilfrid Laurier University
-New York - USA </span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>EEE 2009-2013 Batch</span>
-                </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni26.webp" alt="Alumni" loading="lazy" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4>Mr. Hariharan Ragothaman</h4>
-                  <span class="profile-title">Software Engineer AMD - USA</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>EEE 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni23.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Mr. R. Siva</h4>
-                  <span class="profile-title">Bharat Heavy Electricals Ltd Power Sector - Southern Region</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>ECE 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                       <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni17.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2005</div>
-                </div>
-                <div class="profile-body">
-                  <h4>Mr. Padmanban</h4>
-                  <span class="profile-title">Senior Project Manager IBM (International Business Machines) </span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-lightning"></i>
-                  <span>CSE 2001-2005 Batch</span>
-                </div>
-              </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplealumni2" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplealumni2" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-
-            </div>
-
-             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300" data-bs-ride="carousel" data-bs-interval="2000">
-              <div id="carouselExamplealumni3" class="carousel slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="alumni-profile">
-                      <div class="profile-header">
-                        <div class="profile-img">
-                          <img src="assets/img/alumni18.webp" alt="Alumni" loading="lazy" class="img-fluid">
-                        </div>
-                        <div class="profile-year">2019</div>
-                      </div>
-                      <div class="profile-body">
-                        <h4>Mr. E. Kathiravan</h4>
-                        <span class="profile-title">Indian Police Service Chennai</span>
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus lacinia.</p> -->
-                        <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                      </div>
-                      <div class="achievement-badge">
-                        <i class="bi bi-award"></i>
-                        <span>CIVIL 2015-2019 Batch</span>
-                      </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni19.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2008</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Dr. Ramesh Kannan</h4>
-                  <span class="profile-title">Assistant Professor IIT Madras</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>CIVIL 2004-2008 Batch</span>
-                </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni27.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2009</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Mr. Srivatsan</h4>
-                  <span class="profile-title">Indian Revenue Service, Government of India Chennai</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>CSE 2005-2009 Batch</span>
-                </div>
-              </div>
-                  </div>
-                <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni28.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2009</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Mr. Kannan Babu</h4>
-                  <span class="profile-title">SR Manager Software Engineering, Anunta Technology Management Services Ltd Chennai</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>CSE 2005-2009 Batch</span>
-                </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni24.webp" alt="Alumni" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2012</div>
-                </div>
-                <div class="profile-body">
-                  <h4>Mr. Sharan Jagathrakshakan</h4>
-                  <span class="profile-title">Co-founder Mindgrove Technologies</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-stars"></i>
-                  <span>CSE 2008-2012 Batch</span>
-                </div>
-              </div>
-                  </div>
-                  <div class="carousel-item">
-                       <div class="alumni-profile">
-                <div class="profile-header">
-                  <div class="profile-img">
-                    <img src="assets/img/alumni21.webp" alt="Alumni" loading="lazy" class="img-fluid">
-                  </div>
-                  <div class="profile-year">2013</div>
-                </div>
-                <div class="profile-body">
-                  <h4> Mr. Praveen Kumar</h4>
-                  <span class="profile-title">IES-Indian Railways Chennai</span>
-                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis velit a enim tincidunt, sed tincidunt nulla feugiat. Cras efficitur magna in metus.</p> -->
-                  <!-- <a href="#" class="btn-view-profile">View Profile <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-                <div class="achievement-badge">
-                  <i class="bi bi-lightning"></i>
-                  <span>CIVIL 2009 - 2013 Batch</span>
-                </div>
-              </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExamplealumni3" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExamplealumni3" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-        <hr class="my-4">
-
-
-        <section class="py-5 bg-light">
-  <div class="container">
-
-    <!-- Section Title -->
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Alumni Coordinators</h2>
-      <p class="text-muted">Dedicated faculty members coordinating alumni engagement</p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-
-      <!-- Card 1 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card text-center h-100 shadow-sm">
-          <img src="assets/img/raman.jpeg" class="card-img-top" alt="Prof. Raman">
-          <div class="card-body">
-            <h6 class="fw-semibold mb-1">Prof. Raman</h6>
-            <p class="text-muted mb-0">Chairman</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Card 2 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card text-center h-100 shadow-sm">
-          <img src="assets/img/balasubramanian.jpeg" class="card-img-top" alt="Mr. Balasubramanian">
-          <div class="card-body">
-            <h6 class="fw-semibold mb-1">Mr. Balasubramanian</h6>
-            <p class="text-muted mb-0">ECE</p>
+    <!-- ========== SECTION 1: A LEGACY THAT CONTINUES BEYOND MSEC & ALUMNI MEET ========== -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          
+          <!-- Left Column -->
+          <div class="col-lg-5" data-aos="fade-right">
+            <h2 class="legacy-heading">A LEGACY THAT CONTINUES<br>BEYOND MSEC</h2>
+            <p class="legacy-desc">
+              Our alumni are an integral part of the MSEC community. From engineering and technology to government, research, entrepreneurship and leadership, MSECIans continue to make meaningful contributions in their chosen fields.
+            </p>
+            <p class="legacy-desc">
+              The MSEC Alumni Association brings together graduates across batches, professions and geographies, creating opportunities to reconnect, share knowledge, mentor students and contribute to the growth of the institution.
+            </p>
           </div>
+
+          <!-- Right Column: Alumni Meet Card -->
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="alumni-meet-card">
+              <div class="row g-4 align-items-center">
+                
+                <div class="col-md-6">
+                  <div class="alumni-meet-tag">ALUMNI MEET</div>
+                  <h3 class="alumni-meet-title">Back to Where It Began</h3>
+                  <p class="alumni-meet-desc">
+                    A celebration of friendships, memories, achievements and the enduring MSEC connection.
+                  </p>
+                  
+                  <div class="alumni-meet-meta">
+                    <div><i class="bi bi-calendar3 me-1 text-danger"></i> 12 December 2026</div>
+                    <div><i class="bi bi-geo-alt-fill me-1 text-danger"></i> MSEC Campus</div>
+                  </div>
+
+                  <div class="alumni-meet-script">
+                    Reconnect. Relive. Reignite.
+                  </div>
+
+                  <a href="#giveBack" class="btn-alumni-navy">
+                    REGISTER NOW <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="alumni-gallery-grid">
+                    <img src="assets/img/alumni1.webp" alt="Alumni Meet 1" class="alumni-gallery-img">
+                    <img src="assets/img/alumni2.webp" alt="Alumni Meet 2" class="alumni-gallery-img">
+                    <img src="assets/img/alumni3.webp" alt="Alumni Meet 3" class="alumni-gallery-img">
+                    <img src="assets/img/alumni4.webp" alt="Alumni Meet 4" class="alumni-gallery-img">
+                    <img src="assets/img/alumni5.webp" alt="Alumni Meet 5" class="alumni-gallery-img">
+                    <img src="assets/img/alumni6.webp" alt="Alumni Meet 6" class="alumni-gallery-img">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <!-- Card 3 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card text-center h-100 shadow-sm">
-          <img src="assets/img/nirmalambal.jpg" class="card-img-top" alt="Mrs. Nirmalambal">
-          <div class="card-body">
-            <h6 class="fw-semibold mb-1">Mrs. Nirmalambal</h6>
-            <p class="text-muted mb-0">Civil</p>
+    <!-- ========== SECTION 2: MSECIANS WHO ARE MAKING AN IMPACT ========== -->
+    <section class="py-5" style="background: #f8fafc;">
+      <div class="container">
+        
+        <div class="spotlight-header-wrap" data-aos="fade-up">
+          <div>
+            <h2 class="spotlight-title">MSECIANS WHO ARE MAKING AN IMPACT</h2>
+            <p class="spotlight-sub">From MSEC classrooms to remarkable journeys.</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card text-center h-100 shadow-sm">
-          <img src="assets/img/sivasubramanian.jpg" class="card-img-top" alt="Mr. Siva Subramanian">
-          <div class="card-body">
-            <h6 class="fw-semibold mb-1">Mr. Siva Subramanian</h6>
-            <p class="text-muted mb-0">EEE</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card text-center h-100 shadow-sm">
-          <img src="assets/img/yamuna.jpg" class="card-img-top" alt="Mrs. Yamuna">
-          <div class="card-body">
-            <h6 class="fw-semibold mb-1">Mrs. Yamuna</h6>
-            <p class="text-muted mb-0">CSE</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card text-center h-100 shadow-sm">
-          <img src="assets/img/Balasundaram.jpeg" class="card-img-top" alt="Mr. Balasundaram">
-          <div class="card-body">
-            <h6 class="fw-semibold mb-1">Mr. Balasundaram</h6>
-            <p class="text-muted mb-0">Placement</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<h5 class="fw-semibold mb-3 text-center text-danger h3">
-  Distinguished Alumni Award
-</h5>
-
-<div class="container text-center mx-auto my-4">
-<p class="text-muted mb-3">
-  As a token of our appreciation, we invite you to download the
-  <strong>Distinguished Alumni Award Nomination Form</strong>.
-  Eligible alumni are encouraged to apply or be nominated for this honour.
-</p>
-
-<a href="./alumniform.pdf"
-   class="btn btn-outline-danger rounded-pill px-4"
-   target="_blank" download>
-  â¬‡ Download Award Nomination Form (PDF)
-</a>
-</div>
-
-
-<button id="scrollToFormBtn"
-  class="btn btn-danger shadow rounded-pill d-flex align-items-center gap-2">
-  ðŸ“ Alumni Form
-</button>
-
-<section class="py-5 bg-light" id="alumniForm">
-  <div class="container">
-
-    <!-- Title -->
-    <div class="text-center mb-5">
-      <h2 class="fw-bold text-danger">Alumni Engagement & Contribution Form</h2>
-      <p class="text-muted">Stay connected. Shape the future.</p>
-    </div>
-
-    <!-- IMPORTANT: method + action -->
-    <form method="POST" action="alumnisubmit.php">
-
-      <!-- 1. Basic Details -->
-      <h5 class="fw-semibold mb-3">1. Basic Details</h5>
-
-      <div class="row g-3">
-        <div class="col-md-3">
-          <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
-        </div>
-
-        <div class="col-md-3">
-          <select name="graduation_year" class="form-select" required>
-            <option value="">Year of Graduation</option>
-            <option>2005</option>
-            <option>2006</option>
-            <option>2007</option>
-            <option>2008</option>
-            <option>2009</option>
-            <option>2010</option>
-            <option>2011</option>
-            <option>2012</option>
-            <option>2013</option>
-            <option>2014</option>
-            <option>2015</option>
-            <option>2016</option>
-            <option>2017</option>
-            <option>2018</option>
-            <option>2019</option>
-            <option>2020</option>
-            <option>2021</option>
-            <option>2022</option>
-            <option>2023</option>
-            <option>2024</option>
-            <option>2025</option>
-          </select>
-        </div>
-
-
-        <div class="col-md-3">
-          <select name="department" class="form-select" required>
-            <option value="">Programme / Department</option>
-
-            <option>B.E. Computer Science and Engineering</option>
-            <option>B.Tech. Information Technology</option>
-            <option>B.E. Electronics and Communication Engineering</option>
-            <option>B.E. Electrical and Electronics Engineering</option>
-            <option>B.E. Mechanical Engineering</option>
-            <option>B.E. Civil Engineering</option>
-            <option>B.Tech. Artificial Intelligence & Data Science</option>
-            <option>Science and Humanities</option>
-
-            <option disabled>â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€</option>
-
-            <option>M.E. Computer Science</option>
-            <option>M.E. Embedded System and Technologies</option>
-            <option>M.E. Construction Engineering and Management</option>
-            <option>M.E. Energy Engineering</option>
-          </select>
-        </div>
-
-
-        <div class="col-md-3">
-          <input type="text" name="role_org" class="form-control" placeholder="Current Role & Organisation">
-        </div>
-
-        <div class="col-md-3">
-          <input type="text" name="location" class="form-control" placeholder="Location">
-        </div>
-
-        <div class="col-md-3">
-          <input type="email" name="email" class="form-control" placeholder="Email ID" required>
-        </div>
-
-        <div class="col-md-3">
-          <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
-        </div>
-
-        <div class="col-md-3">
-          <input type="url" name="linkedin" class="form-control" placeholder="LinkedIn Profile (optional)">
-        </div>
-      </div>
-
-      <!-- 2. Contribution -->
-      <h5 class="fw-semibold mt-5 mb-2">2. How would you like to contribute?</h5>
-      <p class="text-muted small">(You may select one or more options)</p>
-
-      <div class="row g-4">
-
-        <!-- Academic -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Academic & Knowledge Support</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Industry Talks / Guest Lectures" id="academic1">
-              <label class="form-check-label" for="academic1">Industry Talks / Guest Lectures</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Faculty Development Programmes (FDPs)" id="academic2">
-              <label class="form-check-label" for="academic2">Faculty Development Programmes (FDPs)</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Teaching (Full-time / Visiting / Adjunct)" id="academic3">
-              <label class="form-check-label" for="academic3">Teaching (Full-time / Visiting / Adjunct)</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Curriculum Advisory / Subject Expert" id="academic4">
-              <label class="form-check-label" for="academic4">Curriculum Advisory / Subject Expert</label>
-            </div>
+          <div class="d-flex align-items-center gap-2">
+            <div class="swiper-nav-btn swiper-btn-prev"><i class="bi bi-chevron-left"></i></div>
+            <div class="swiper-nav-btn swiper-btn-next"><i class="bi bi-chevron-right"></i></div>
           </div>
         </div>
 
-        <!-- Student Exposure -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Student Exposure & Career Support</h6>
+        <div class="swiper alumni-spotlight-swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
 
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Internships / Live Projects" id="student1">
-              <label class="form-check-label" for="student1">Internships / Live Projects</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Employment / Recruitment Support" id="student2">
-              <label class="form-check-label" for="student2">Employment / Recruitment Support</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Placement Talks / Career Guidance Sessions" id="student3">
-              <label class="form-check-label" for="student3">Placement Talks / Career Guidance Sessions</label>
-            </div>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Mentorship (One-on-one / Group)" id="student4">
-              <label class="form-check-label" for="student4">Mentorship (One-on-one / Group)</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Career Cell Support" id="student5">
-              <label class="form-check-label" for="student5">Career Cell Support</label>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni12.webp" alt="Ms. Saranya" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Ms. Saranya</h5>
+              <div>
+                <span class="spotlight-dept">EEE 2014-2018</span>
+              </div>
+              <p class="spotlight-role">Physical Design Engineer Intel Corporation</p>
             </div>
           </div>
-        </div>
-
-        <!-- Evaluation -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Evaluation & Competitions</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Judge for Competitions / Hackathons" id="evaluation1">
-              <label class="form-check-label" for="evaluation1">Judge for Competitions / Hackathons</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Interview Panels & GD Assessments" id="evaluation2">
-              <label class="form-check-label" for="evaluation2">Interview Panels & GD Assessments</label>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni13.webp" alt="Mr. Vasant Kumar kesavan" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Vasant Kumar kesavan</h5>
+              <div>
+                <span class="spotlight-dept">IT 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Associate Principal - Product Engineering LTI Mindtree</p>
             </div>
           </div>
-        </div>
-
-        <!-- Innovation -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Innovation & Entrepreneurship</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Incubation Cell Support" id="innovation1">
-              <label class="form-check-label" for="innovation1">Incubation Cell Support (Mentor / Advisor)</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Startup Guidance / Investor Connects" id="innovation2">
-              <label class="form-check-label" for="innovation2">Startup Guidance / Investor Connects</label>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumi20.webp" alt="Mr. Praveen Radhakrishnan" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Praveen Radhakrishnan</h5>
+              <div>
+                <span class="spotlight-dept">EEE 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Wing Commander Indian Air Force Lucknow</p>
             </div>
           </div>
-        </div>
-
-        <!-- Institutional Growth -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Institutional Growth</h6>
-
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Centres of Excellence &ndash; Financial / Knowledge Support" id="growth1">
-              <label class="form-check-label" for="growth1">Centres of Excellence &ndash; Financial / Knowledge Support</label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Marketing / Social Media / Campaign Support" id="growth2">
-              <label class="form-check-label" for="growth2">Marketing / Social Media / Campaign Support</label>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni121.webp" alt="Mr. S. KISHAN KUMAR" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. S. KISHAN KUMAR</h5>
+              <div>
+                <span class="spotlight-dept">CIVIL 2013-2017</span>
+              </div>
+              <p class="spotlight-role">IAS Chennai</p>
             </div>
           </div>
-        </div>
-
-        <!-- Student Welfare -->
-        <div class="col-lg-4">
-          <div class="border rounded p-3 h-100">
-            <h6 class="fw-semibold mb-3">Student Welfare</h6>
-
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="contribution[]" value="Scholarships / Financial Assistance" id="welfare1">
-              <label class="form-check-label" for="welfare1">Scholarships / Financial Assistance</label>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni22.webp" alt="Mr. Shyam Sundar KR" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Shyam Sundar KR</h5>
+              <div>
+                <span class="spotlight-dept">IT 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Cyber Security Architect GE Health Care</p>
             </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni14.webp" alt="Mr. Ramkartic VS" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Ramkartic VS</h5>
+              <div>
+                <span class="spotlight-dept">ECE 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Vice President, Product- Arcesium</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni123.webp" alt="Mr. Karthik Raghavan Ravi" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Karthik Raghavan Ravi</h5>
+              <div>
+                <span class="spotlight-dept">CSE 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Functional Safety Manager, - CUDA NVIDIA - USA</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni15.webp" alt="Mr. Shakthi Arun" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Shakthi Arun</h5>
+              <div>
+                <span class="spotlight-dept">ECE 2004-2008</span>
+              </div>
+              <p class="spotlight-role">SOC Verification Enginner Qualcomm India Pvt Ltd</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni16.webp" alt="Mr. N. S. Bharath Kumar" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. N. S. Bharath Kumar</h5>
+              <div>
+                <span class="spotlight-dept">ECE 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Security Engineer Service Now Chennai</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni124.webp" alt="Dr.M.R.Vidhyalakshmi" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Dr.M.R.Vidhyalakshmi</h5>
+              <div>
+                <span class="spotlight-dept">ECE 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Lead Engineer, RF Team Tejas Networks Chennai</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni25.webp" alt="Mr. Lakshmi Narasimman" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Lakshmi Narasimman</h5>
+              <div>
+                <span class="spotlight-dept">EEE 2009-2013</span>
+              </div>
+              <p class="spotlight-role">Solution Engineer Exploring - AI / ML Wilfrid Laurier University New York - USA</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni26.webp" alt="Mr. Hariharan Ragothaman" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Hariharan Ragothaman</h5>
+              <div>
+                <span class="spotlight-dept">EEE 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Software Engineer AMD - USA</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni23.webp" alt="Mr. R. Siva" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. R. Siva</h5>
+              <div>
+                <span class="spotlight-dept">ECE 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Bharat Heavy Electricals Ltd Power Sector - Southern Region</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni17.webp" alt="Mr. Padmanban" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Padmanban</h5>
+              <div>
+                <span class="spotlight-dept">CSE 2001-2005</span>
+              </div>
+              <p class="spotlight-role">Senior Project Manager IBM (International Business Machines)</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni18.webp" alt="Mr. E. Kathiravan" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. E. Kathiravan</h5>
+              <div>
+                <span class="spotlight-dept">CIVIL 2015-2019</span>
+              </div>
+              <p class="spotlight-role">Indian Police Service Chennai</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni19.webp" alt="Dr. Ramesh Kannan" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Dr. Ramesh Kannan</h5>
+              <div>
+                <span class="spotlight-dept">CIVIL 2004-2008</span>
+              </div>
+              <p class="spotlight-role">Assistant Professor IIT Madras</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni27.webp" alt="Mr. Srivatsan" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Srivatsan</h5>
+              <div>
+                <span class="spotlight-dept">CSE 2005-2009</span>
+              </div>
+              <p class="spotlight-role">Indian Revenue Service, Government of India Chennai</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni28.webp" alt="Mr. Kannan Babu" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Kannan Babu</h5>
+              <div>
+                <span class="spotlight-dept">CSE 2005-2009</span>
+              </div>
+              <p class="spotlight-role">SR Manager Software Engineering, Anunta Technology Management Services Ltd Chennai</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni24.webp" alt="Mr. Sharan Jagathrakshakan" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Sharan Jagathrakshakan</h5>
+              <div>
+                <span class="spotlight-dept">CSE 2008-2012</span>
+              </div>
+              <p class="spotlight-role">Co-founder Mindgrove Technologies</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="alumni-spotlight-card">
+              <div class="spotlight-avatar-wrap">
+                <img src="assets/img/alumni21.webp" alt="Mr. Praveen Kumar" class="spotlight-avatar-img">
+              </div>
+              <h5 class="spotlight-name">Mr. Praveen Kumar</h5>
+              <div>
+                <span class="spotlight-dept">CIVIL 2009 - 2013</span>
+              </div>
+              <p class="spotlight-role">IES-Indian Railways Chennai</p>
+            </div>
+          </div>
           </div>
         </div>
 
       </div>
+    </section>
 
-      <!-- 3. More Details -->
-      <h5 class="fw-semibold mt-5 mb-3">3. Please share more details (optional)</h5>
+    <!-- ========== SECTION 3: COORDINATION TEAM & DISTINGUISHED ALUMNI AWARD ========== -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          
+          <!-- Left: Alumni Coordination Team -->
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="coord-card">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="coord-tag">STAY CONNECTED WITH MSEC</span>
+                  <h3 class="coord-heading">Alumni Coordination Team</h3>
+                </div>
+                <div class="badge-icon-wrap" style="width: 40px; height: 40px; border-radius: 50%; background: #fef3c7; color: #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+              </div>
+              <p class="coord-desc">
+                Our faculty coordinators help strengthen the connection between MSEC and its alumni community.
+              </p>
 
-      <textarea name="support_details" class="form-control mb-3" rows="3" placeholder="Nature of support you can offer"></textarea>
+              <div class="coord-avatars-row">
+                <div class="coord-person-item">
+                  <img src="assets/img/raman.jpeg" alt="Prof. Raman" class="coord-img">
+                  <strong class="coord-name">Prof. Raman</strong>
+                  <span class="coord-role">Chairman</span>
+                </div>
 
+                <div class="coord-person-item">
+                  <img src="assets/img/balasubramanian.jpeg" alt="Mr. Balasubramanian" class="coord-img">
+                  <strong class="coord-name">Mr. Balasubramanian</strong>
+                  <span class="coord-role">ECE</span>
+                </div>
 
+                <div class="coord-person-item">
+                  <img src="assets/img/nirmalambal.jpg" alt="Mrs. Nirmalambal" class="coord-img">
+                  <strong class="coord-name">Mrs. Nirmalambal</strong>
+                  <span class="coord-role">Civil</span>
+                </div>
 
-      <!-- 4. Message -->
-      <h5 class="fw-semibold mt-5 mb-3">4. Any message for your alma mater?</h5>
+                <div class="coord-person-item">
+                  <img src="assets/img/sivasubramanian.jpg" alt="Mr. Siva Subramanian" class="coord-img">
+                  <strong class="coord-name">Mr. Siva Subramanian</strong>
+                  <span class="coord-role">EEE</span>
+                </div>
 
-      <textarea name="message" class="form-control mb-4" rows="3" placeholder="Your message"></textarea>
+                <div class="coord-person-item">
+                  <img src="assets/img/yamuna.jpg" alt="Mrs. Yamuna" class="coord-img">
+                  <strong class="coord-name">Mrs. Yamuna</strong>
+                  <span class="coord-role">CSE</span>
+                </div>
 
-      <!-- Submit -->
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary px-5 py-2 rounded-pill">
-          Submit Contribution
-        </button>
+                <div class="coord-person-item">
+                  <img src="assets/img/Balasundaram.jpeg" alt="Mr. Balasundaram" class="coord-img">
+                  <strong class="coord-name">Mr. Balasundaram</strong>
+                  <span class="coord-role">Placement</span>
+                </div>
+              </div>
+
+              <div class="mt-auto">
+                <a href="about.html" class="text-decoration-none fw-bold" style="color: var(--alumni-navy); font-size: 0.82rem;">
+                  VIEW ALL COORDINATORS <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Distinguished Alumni Award -->
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="award-card">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <span class="award-tag">DISTINGUISHED ALUMNI AWARD</span>
+                  <h3 class="award-heading">Celebrating MSECIans Who Lead, Inspire and Contribute</h3>
+                  <p class="award-desc">
+                    The Distinguished Alumni Award recognises MSECIans who have achieved distinction in their professional fields and made meaningful contributions to society and their alma mater.
+                  </p>
+                  
+                  <div class="d-flex flex-wrap gap-2">
+                    <a href="assets/img/Distinguished_Alumni_Award.pdf" target="_blank" class="btn-award-outline">
+                      <i class="bi bi-download"></i> DOWNLOAD NOMINATION FORM
+                    </a>
+                    <a href="#giveBack" class="btn-award-outline">
+                      <i class="bi bi-person-plus"></i> NOMINATE AN ALUMNI
+                    </a>
+                  </div>
+                </div>
+
+                <div class="col-4 text-center">
+                  <div style="font-size: 5rem; color: #f59e0b; line-height: 1;">
+                    <i class="bi bi-trophy-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-    </form>
+    <!-- ========== SECTION 4: GIVE BACK TO MSEC ========== -->
+    <section id="giveBack" class="give-back-sec">
+      <div class="container">
+        
+        <div class="mb-4" data-aos="fade-up">
+          <span class="alumni-tag-gold" style="font-size: 0.82rem; margin-bottom: 2px;">GIVE BACK TO MSEC</span>
+          <h2 class="legacy-heading" style="font-size: 1.55rem; margin-bottom: 6px;">Your Experience Can Shape the Next Generation</h2>
+          <p class="text-muted" style="font-size: 0.86rem; max-width: 820px; margin: 0;">
+            Your journey after MSEC can become an opportunity for another MSECIan. Share your expertise, experience, network or support and help strengthen the next generation of engineers and innovators.
+          </p>
+        </div>
 
-  </div>
-</section>
+        <form action="" method="post" id="alumniEngagementForm">
+          <div class="give-back-grid" data-aos="fade-up" data-aos-delay="100">
+            
+            <!-- Category 1 -->
+            <div class="give-back-col">
+              <div class="give-back-col-title"><i class="bi bi-mortarboard-fill"></i> ACADEMIC &amp; KNOWLEDGE SUPPORT</div>
+              <ul class="give-back-list">
+                <li><label><input type="checkbox" name="support[]" value="Industry Talks"> Industry Talks / Guest Lectures</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Faculty Development"> Faculty Development Programmes</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Teaching / Visiting"> Teaching / Visiting / Adjunct</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Curriculum Advisory"> Curriculum Advisory / Subject Expert</label></li>
+              </ul>
+            </div>
 
+            <!-- Category 2 -->
+            <div class="give-back-col">
+              <div class="give-back-col-title"><i class="bi bi-briefcase-fill"></i> STUDENT EXPOSURE &amp; INDUSTRY CONNECT</div>
+              <ul class="give-back-list">
+                <li><label><input type="checkbox" name="support[]" value="Internships"> Internships / Live Projects</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Recruitment Support"> Employment / Recruitment Support</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Placement Talks"> Placement Talks / Career Guidance</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Mentorship"> Mentorship</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Career Cell Support"> Career Cell Support</label></li>
+              </ul>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="give-back-col">
+              <div class="give-back-col-title"><i class="bi bi-gear-fill"></i> COMPETITIONS &amp; EVALUATION</div>
+              <ul class="give-back-list">
+                <li><label><input type="checkbox" name="support[]" value="Judge Competitions"> Judge for Competitions / Hackathons</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Interview Panels"> Interview Panels &amp; GD Assessments</label></li>
+              </ul>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="give-back-col">
+              <div class="give-back-col-title"><i class="bi bi-rocket-takeoff-fill"></i> INNOVATION &amp; ENTREPRENEURSHIP</div>
+              <ul class="give-back-list">
+                <li><label><input type="checkbox" name="support[]" value="Incubation Support"> Incubation Cell Support</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Startup Guidance"> Startup Guidance</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Investor Connects"> Investor Connects</label></li>
+              </ul>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="give-back-col">
+              <div class="give-back-col-title"><i class="bi bi-bank2"></i> INSTITUTIONAL GROWTH</div>
+              <ul class="give-back-list">
+                <li><label><input type="checkbox" name="support[]" value="Centres of Excellence"> Centres of Excellence</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Financial Support"> Knowledge / Financial Support</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Marketing Support"> Marketing / Social Media / Campaign Support</label></li>
+              </ul>
+            </div>
+
+            <!-- Category 6 -->
+            <div class="give-back-col">
+              <div class="give-back-col-title"><i class="bi bi-heart-fill"></i> STUDENT WELFARE</div>
+              <ul class="give-back-list">
+                <li><label><input type="checkbox" name="support[]" value="Scholarships"> Scholarships</label></li>
+                <li><label><input type="checkbox" name="support[]" value="Financial Assistance"> Financial Assistance</label></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="text-center" data-aos="fade-up">
+            <button type="button" class="btn-alumni-navy px-4 py-2" data-bs-toggle="modal" data-bs-target="#alumniFormModal">
+              SUBMIT YOUR INTEREST <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </form>
 
       </div>
+    </section>
 
-    </section><!-- /Alumni Section -->
+    <!-- Modal for Alumni Form Submission -->
+    <div class="modal fade" id="alumniFormModal" tabindex="-1" aria-labelledby="alumniFormModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title" id="alumniFormModalLabel">MSEC Alumni Engagement Details</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4">
+            <form id="alumniDetailsForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Full Name *</label>
+                  <input type="text" class="form-control" required placeholder="Your Name">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Email Address *</label>
+                  <input type="email" class="form-control" required placeholder="name@domain.com">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Phone / WhatsApp Number *</label>
+                  <input type="tel" class="form-control" required placeholder="+91 9876543210">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Department &amp; Batch *</label>
+                  <input type="text" class="form-control" required placeholder="e.g. ECE (2015-2019)">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Current Designation &amp; Organization</label>
+                  <input type="text" class="form-control" placeholder="e.g. Software Engineer, Google">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Current Location / City</label>
+                  <input type="text" class="form-control" placeholder="e.g. Chennai / USA">
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-bold">Any message for your alma mater?</label>
+                  <textarea class="form-control" rows="3" placeholder="Share your message or how you'd like to collaborate..."></textarea>
+                </div>
+              </div>
+              <div class="mt-4 text-end">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger">Submit Details</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SECTION 5: BOTTOM NAVY BANNER ========== -->
+    <section class="alumni-bottom-banner">
+      <div class="container">
+        <div class="row align-items-center justify-content-between g-4">
+          <div class="col-lg-7 d-flex align-items-center gap-3">
+            <div style="font-size: 2.4rem; color: var(--alumni-gold); flex-shrink: 0;">
+              <i class="bi bi-people"></i>
+            </div>
+            <div>
+              <h4>YOUR JOURNEY STARTED HERE.</h4>
+              <p>Reconnect with your batch. Share your experience. Inspire our students. Support your alma mater.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-5 text-lg-end">
+            <span class="once-msec">ONCE AN MSECIAN, ALWAYS AN MSECIAN.</span>
+            <a href="#giveBack" class="btn-alumni-gold">
+              JOIN THE ALUMNI NETWORK <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <footer id="footer" class="footer position-relative dark-background">
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.alumni-spotlight-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.swiper-btn-next',
+          prevEl: '.swiper-btn-prev',
+        },
+        breakpoints: {
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          }
+        }
+      });
+    }
+  });
+  </script>
+
+
+<footer id="footer" class="footer position-relative dark-background">
 
     <div class="container footer-top">
       <div class="row gy-4">

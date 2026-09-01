@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b3a">
+<title>MSEC | Industry Centres</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#071b3a; --navy2:#0b2852; --navy3:#102f5f;
+  --red:#c51f3a; --red2:#e2354e; --white:#fff; --ink:#101827;
+  --muted:#64748b; --line:#dbe3ef; --soft:#f5f8fc;
+  --shadow:0 18px 55px rgba(7,27,58,.13);
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.topbar{background:#04142d;color:#cbd5e1;font-size:12px;padding:8px 0}
+.topbar .container{display:flex;justify-content:space-between;gap:20px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(7,27,58,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;color:#fff}
+.crest{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#fff;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.16)}
+.crest img{width:100%;height:100%;object-fit:contain} 
+  .logo-badge{position:absolute;z-index:2;left:18px;top:18px;width:92px;height:82px;border-radius:18px;background:#fff;display:grid;place-items:center;box-shadow:0 12px 25px rgba(0,0,0,.18);padding:12px}
+  .logo-badge img{display:block;width:72px;height:62px;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
+.detail-logo img{max-width:82%;max-height:82%;object-fit:contain}
+
+.brand strong{display:block;font-family:"Space Grotesk";font-size:17px;letter-spacing:.2px}
+.brand span{display:block;color:#a9b9d0;font-size:10px;text-transform:uppercase;letter-spacing:1.6px}
+.nav-links{display:flex;align-items:center;gap:24px;color:#d9e3f0;font-size:13px;font-weight:600}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:10px 16px;border:1px solid rgba(255,255,255,.25);border-radius:999px}
+.hero{position:relative;overflow:hidden;background:
+ radial-gradient(circle at 82% 20%,rgba(197,31,58,.35),transparent 28%),
+ radial-gradient(circle at 18% 80%,rgba(35,100,180,.25),transparent 30%),
+ linear-gradient(135deg,#061630,#0a2851 62%,#071b3a);color:#fff}
+.hero:after{content:"";position:absolute;inset:auto -10% -70% 35%;height:500px;background:rgba(197,31,58,.12);filter:blur(80px);border-radius:50%}
+.hero-grid{position:relative;z-index:1;min-height:610px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.06);font-size:12px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#e8edf5}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--red2);box-shadow:0 0 0 5px rgba(226,53,78,.13)}
+h1,h2,h3,h4{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.1}
+.hero h1{font-size:clamp(42px,6vw,76px);margin:20px 0 16px;letter-spacing:-2.5px}
+.hero h1 em{font-style:normal;color:#ff5269}
+.hero-copy{max-width:690px;color:#b9c7da;font-size:17px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 18px;border-radius:12px;border:1px solid transparent;font-weight:700;cursor:pointer;transition:.25s}
+.btn-primary{background:var(--red);color:#fff;box-shadow:0 12px 28px rgba(197,31,58,.25)}
+.btn-primary:hover{transform:translateY(-2px);background:#d82944}
+.btn-ghost{border-color:rgba(255,255,255,.2);color:#fff;background:rgba(255,255,255,.05)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)} 
+  .hero-panel{position:relative;min-height:500px;max-width:620px;margin-left:auto}
+  .orbit{position:absolute;inset:38px 25px 38px 25px;border:1px solid rgba(255,255,255,.16);border-radius:50%;transform:rotate(-12deg)}
+  .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.10);border-radius:50%}
+  .orbit:before{inset:12% 8%}
+  .orbit:after{inset:25% 18%}
+  .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:190px;height:190px;border-radius:50%;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#123d76,#071b3a);border:1px solid rgba(255,255,255,.22);box-shadow:0 0 85px rgba(63,133,220,.28),inset 0 0 35px rgba(255,255,255,.05)}
+  .core b{font-size:34px;display:block}.core small{color:#b8c8dc;display:block;margin-top:6px;font-size:13px}
+  .node{position:absolute;width:106px;height:92px;padding:8px;border-radius:18px;text-align:center;background:#fff;border:1px solid rgba(255,255,255,.85);display:grid;place-items:center;box-shadow:0 14px 32px rgba(0,0,0,.20);overflow:hidden}
+  .node img{display:block;width:70px;height:62px;object-fit:contain;object-position:center}
+  .node span{display:none}
+  .n1{top:3%;left:12%}.n2{top:9%;right:5%}.n3{bottom:7%;right:9%}.n4{bottom:1%;left:12%}.n5{top:42%;left:0}.n6{top:42%;right:0}
+.section{padding:90px 0}
+.section.alt{background:var(--soft)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.7px;font-weight:800;color:var(--red)}
+.section h2{font-size:clamp(30px,4vw,46px);margin:9px 0 0;color:var(--navy);letter-spacing:-1.2px}
+.section-head p{max-width:580px;color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 8px 25px rgba(7,27,58,.05);transition:.3s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:#c9d6e8}
+.card-media{height:190px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a2851,#173e72)}
+.card-media:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(226,53,78,.75),transparent 35%),linear-gradient(130deg,rgba(4,20,45,.8),transparent 60%)}
+.card-media:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent)}
+.media-label{position:absolute;z-index:2;right:16px;bottom:16px;color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.card-body{padding:22px 22px 20px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:21px;color:var(--navy);margin:0 0 9px}
+.card p{color:var(--muted);font-size:14px;margin:0 0 18px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+.tag{font-size:11px;padding:6px 9px;border-radius:999px;background:#f0f4f9;color:#42536b;font-weight:700}
+.card-link{display:flex;align-items:center;justify-content:space-between;margin-top:18px;color:var(--red);font-weight:800;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.stat{padding:22px;border-radius:18px;background:linear-gradient(135deg,#fff,#f5f8fc);border:1px solid var(--line)}
+.stat strong{font-family:"Space Grotesk";font-size:30px;color:var(--navy);display:block}
+.stat span{font-size:12px;color:var(--muted)}
+.ecosystem-tagline{
+  margin-top:34px;
+  padding:22px 28px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(135deg,#fff,#f5f8fc);
+  color:var(--navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  text-align:center;
+  font-family:"Space Grotesk",Inter,sans-serif;
+  font-size:18px;
+  font-weight:700;
+}
+.ecosystem-tagline b{color:var(--red);font-size:20px}
+.ecosystem-tagline strong{color:var(--red)}
+.logo-badge img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.detail-logo{
+  padding:22px;
+}
+.detail-logo img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+@media(max-width:600px){
+  .ecosystem-tagline{
+    padding:18px 14px;
+    gap:8px;
+    font-size:14px;
+  }
+  .ecosystem-tagline b{font-size:16px}
+}
+
+.ecosystem-tagline{
+  margin-top:30px;
+  padding:18px 24px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(135deg,#fff,#f5f8fc);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 16px;
+  color:var(--navy);
+  font-family:"Space Grotesk",Inter,sans-serif;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.2px;
+  text-align:center;
+}
+.ecosystem-tagline i{font-style:normal;color:var(--red);font-size:18px}
+.card-media .logo-badge{padding:8px}
+.card-media .logo-badge img{width:100%;height:100%;object-fit:contain}
+.detail-logo{background:#fff;overflow:hidden;padding:22px}
+.detail-logo img{width:100%;height:100%;max-width:92%;max-height:92%;object-fit:contain}
+.detail{display:none}
+.detail.active{display:block}
+.detail-hero{background:linear-gradient(135deg,#061630,#0b2a55);color:#fff;padding:85px 0 70px}
+.detail-hero-grid{display:grid;grid-template-columns:1fr .55fr;gap:50px;align-items:center}
+.detail-hero h1{font-size:clamp(38px,5vw,64px);margin:15px 0}
+.detail-hero p{color:#b8c7db;max-width:760px} 
+  .detail-logo{height:260px;border-radius:32px;border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;background:#fff;box-shadow:inset 0 0 30px rgba(7,27,58,.05);padding:28px}
+  .detail-logo img{width:auto;height:auto;max-width:78%;max-height:78%;object-fit:contain}
+  .detail-logo span{font-family:"Space Grotesk";font-size:54px;font-weight:800}
+.detail-content{padding:75px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.info-card{border:1px solid var(--line);border-radius:22px;padding:28px;background:#fff;box-shadow:0 7px 25px rgba(7,27,58,.04)}
+.info-card h3{margin:0 0 12px;color:var(--navy);font-size:21px}
+.info-card p,.info-card li{font-size:14px;color:#53647a}
+.info-card ul{padding-left:20px;margin-bottom:0}
+.objectives{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.objective{padding:20px;border-radius:18px;background:var(--soft);border:1px solid var(--line)}
+.objective b{display:block;color:var(--navy);margin-bottom:7px}
+.objective span{font-size:13px;color:var(--muted)}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.person{border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;gap:14px;align-items:center;background:#fff}
+.avatar{width:58px;height:58px;flex:0 0 58px;border-radius:16px;background:linear-gradient(145deg,#0b2b58,#c51f3a);color:#fff;display:grid;place-items:center;font-family:"Space Grotesk";font-weight:800}
+.person b{display:block;color:var(--navy);font-size:14px}.person small{color:var(--muted);font-size:11px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.work{height:210px;border-radius:20px;overflow:hidden;position:relative;background:linear-gradient(145deg,#09254a,#24538b)}
+.work:nth-child(2){background:linear-gradient(145deg,#251b3e,#9c2440)}
+.work:nth-child(3){background:linear-gradient(145deg,#073f4d,#15736b)}
+.work:nth-child(4){background:linear-gradient(145deg,#15264a,#6e4a25)}
+.work:nth-child(5){background:linear-gradient(145deg,#2a1635,#b12b45)}
+.work:nth-child(6){background:linear-gradient(145deg,#0a2940,#315b8b)}
+.work:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);background-size:25px 25px}
+.work .work-icon{position:absolute;z-index:1;left:20px;top:20px;width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.15);display:grid;place-items:center;color:#fff;font-size:22px}
+.work .work-text{position:absolute;z-index:1;left:20px;right:20px;bottom:18px;color:#fff}
+.work b{font-size:15px}.work span{display:block;font-size:11px;color:#d4deea;margin-top:3px}
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.video{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#071b3a;color:#fff}
+.video-screen{aspect-ratio:16/9;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#214d80,transparent 42%),#061630}
+.play{width:66px;height:66px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-size:24px;padding-left:4px;box-shadow:0 15px 35px rgba(197,31,58,.35)}
+.video-info{padding:18px}.video-info b{font-size:15px}.video-info span{display:block;color:#a9b8ca;font-size:12px;margin-top:5px}
+.back{display:inline-flex;gap:8px;align-items:center;color:#d8e2ef;font-size:13px;font-weight:700}
+.footer{background:#04142d;color:#9fb0c7;padding:50px 0 30px}
+.footer-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:40px}
+.footer h3{color:#fff;margin:0 0 14px}.footer a{display:block;margin:7px 0;font-size:13px}.footer p{font-size:13px}
+.footer-bottom{margin-top:35px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;display:flex;justify-content:space-between;gap:20px}
+.notice{padding:14px 16px;border-left:4px solid var(--red);background:#fff5f6;border-radius:10px;color:#6d3540;font-size:12px;margin-top:20px}
+.hidden{display:none!important}
+@media(max-width:900px){
+ .hero-grid,.detail-hero-grid{grid-template-columns:1fr}.hero-panel{min-height:330px}
+ .cards{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}
+ .people,.objectives{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}
+ .nav-links{display:none}.two-col{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+ body{overflow-x:hidden}
+ .container{width:min(100% - 28px,1180px)}
+ .topbar{display:none}
+ .nav-inner{height:64px;min-width:0}
+ .brand{min-width:0;gap:9px}
+ .crest{width:42px;height:42px;flex:0 0 42px}
+ .brand strong{font-size:14px;line-height:1.05;white-space:nowrap}
+ .brand span{font-size:8px;letter-spacing:1px;white-space:nowrap}
+ .nav-links{display:none}
+ .hero-grid{min-height:0;padding:76px 0 82px}
+ .hero h1{font-size:clamp(36px,12vw,52px);letter-spacing:-1.7px;line-height:1.03;margin:18px 0 16px}
+ .hero-copy{font-size:15px;line-height:1.65}
+ .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:24px}
+ .btn{width:100%;min-height:48px;padding:12px 16px}
+ .hero-panel{display:none}
+ .kicker{font-size:10px;letter-spacing:1px;max-width:100%;white-space:normal}
+ .section{padding:58px 0}
+ .section-head{display:block;margin-bottom:25px}
+ .section h2{font-size:31px;line-height:1.12;letter-spacing:-.8px}
+ .section-head p{margin-top:13px;font-size:14px;line-height:1.65}
+ .cards,.people,.objectives,.gallery,.video-grid{grid-template-columns:1fr;gap:14px}
+ .card{border-radius:20px}
+ .card-media{height:165px}
+ .logo-badge{left:14px;top:14px;width:82px;height:72px;border-radius:15px;padding:7px}
+ .media-label{right:13px;bottom:13px;font-size:9px;letter-spacing:.8px}
+ .card-body{padding:19px 18px 18px}
+ .card h3{font-size:19px;line-height:1.18}
+ .card p{font-size:13px;line-height:1.6}
+ .tag{font-size:10px;padding:5px 8px}
+ .stats{grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+ .stat{padding:17px 14px;border-radius:15px;min-width:0}
+ .stat strong{font-size:24px}
+ .stat span{font-size:10px;line-height:1.4}
+ .detail-hero{padding:48px 0 42px}
+ .detail-hero-grid{grid-template-columns:1fr;gap:28px}
+ .detail-hero h1{font-size:clamp(31px,9vw,46px);line-height:1.08;margin:14px 0}
+ .detail-hero p{font-size:14px;line-height:1.65}
+ .detail-logo{height:190px;border-radius:24px;width:100%;padding:20px}
+ .detail-logo img{max-width:88%;max-height:88%;width:auto;height:auto}
+ .detail-content{padding:52px 0}
+ .two-col{grid-template-columns:1fr;gap:14px}
+ .info-card{padding:21px 18px;border-radius:18px}
+ .info-card h3{font-size:19px}
+ .info-card p,.info-card li{font-size:13px;line-height:1.65}
+ .objectives{margin-top:16px}
+ .objective{padding:17px;border-radius:15px}
+ .people{gap:10px}
+ .person{padding:14px;gap:11px;border-radius:16px;align-items:flex-start}
+ .avatar{width:48px;height:48px;flex-basis:48px;border-radius:13px}
+ .person b{font-size:13px;line-height:1.35}
+ .person small{font-size:10px;line-height:1.4;display:block;margin-top:2px}
+ .gallery{gap:12px}
+ .work{height:175px;border-radius:17px}
+ .work .work-icon{left:15px;top:15px;width:45px;height:45px;border-radius:12px}
+ .work .work-text{left:15px;right:15px;bottom:14px}
+ .work b{font-size:13px;line-height:1.3}
+ .work span{font-size:9px;line-height:1.35}
+ .video-grid{gap:14px}
+ .video-info{padding:15px}
+ .video-info b{font-size:13px}
+ .notice{font-size:11px;line-height:1.55;padding:12px 13px}
+ .footer{padding:40px 0 24px}
+ .footer-grid{grid-template-columns:1fr;gap:26px}
+ .footer-bottom{display:block;margin-top:25px;line-height:1.6}
+ .footer-bottom span{display:block;margin-top:7px}
+}
+
+@media(min-width:601px) and (max-width:900px){
+ .container{width:min(100% - 40px,1180px)}
+ .brand{min-width:0}
+ .nav-links{gap:12px}
+ .hero-grid{gap:35px}
+ .hero h1{font-size:52px}
+ .detail-logo{height:230px}
+}
+
+/* FINAL LOGO FIT FIX */
+.hero-panel{
+  width:100%;
+  max-width:560px;
+  min-height:500px;
+  margin-left:auto;
+  overflow:visible;
+}
+.hero-panel .node{
+  width:92px;
+  height:82px;
+  padding:7px;
+  box-sizing:border-box;
+  border-radius:17px;
+  background:#fff;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-panel .node img{
+  display:block;
+  width:auto !important;
+  height:auto !important;
+  max-width:62px !important;
+  max-height:55px !important;
+  object-fit:contain;
+  object-position:center;
+  flex:0 0 auto;
+}
+.hero-panel .n1{top:3%;left:7%}
+.hero-panel .n2{top:8%;right:7%}
+.hero-panel .n3{bottom:7%;right:7%}
+.hero-panel .n4{bottom:1%;left:7%}
+.hero-panel .n5{top:42%;left:0}
+.hero-panel .n6{top:42%;right:0}
+
+/* Cards: logo must remain completely inside its white badge */
+.card-media .logo-badge{
+  width:92px;
+  height:82px;
+  padding:10px !important;
+  box-sizing:border-box;
+  background:#fff;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+}
+.card-media .logo-badge img{
+  width:auto !important;
+  height:auto !important;
+  max-width:68px !important;
+  max-height:58px !important;
+  object-fit:contain;
+  object-position:center;
+}
+
+/* Detail pages: never stretch the source image to the frame.
+   This prevents tall logos such as CDC from being cropped. */
+.detail-logo{
+  background:#fff;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  padding:24px !important;
+  box-sizing:border-box;
+}
+.detail-logo img{
+  display:block;
+  width:auto !important;
+  height:auto !important;
+  max-width:68% !important;
+  max-height:68% !important;
+  object-fit:contain;
+  object-position:center;
+  flex:0 0 auto;
+}
+
+/* For logos with more whitespace in their source files, keep the visual mark
+   comfortably inside the frame on every centre page. */
+@media (max-width:900px){
+  .hero-panel{
+    max-width:520px;
+    margin:0 auto;
+  }
+  .detail-logo img{
+    max-width:70% !important;
+    max-height:70% !important;
+  }
+}
+@media (max-width:600px){
+  .hero-panel{
+    display:block;
+    min-height:380px;
+    max-width:460px;
+  }
+  .hero-panel .node{
+    width:76px;
+    height:68px;
+    border-radius:14px;
+    padding:6px;
+  }
+  .hero-panel .node img{
+    max-width:51px !important;
+    max-height:46px !important;
+  }
+  .hero-panel .n1{top:0;left:7%}
+  .hero-panel .n2{top:6%;right:7%}
+  .hero-panel .n3{bottom:4%;right:7%}
+  .hero-panel .n4{bottom:0;left:7%}
+  .hero-panel .n5{top:41%;left:0}
+  .hero-panel .n6{top:41%;right:0}
+  .detail-logo{
+    height:210px;
+    padding:18px !important;
+  }
+  .detail-logo img{
+    max-width:72% !important;
+    max-height:72% !important;
+  }
+}
+
+
+/* Industry Centres + MSIIC reference-page styling */
+.msiic-hero{background:linear-gradient(135deg,#061630,#0a2851 62%,#071b3a)}
+.msiic-hero h1 em{color:#ff5269;font-style:normal}
+.msiic-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 0 45px;position:relative;z-index:2}
+.msiic-stats .stat{background:rgba(255,255,255,.98);box-shadow:0 15px 40px rgba(0,0,0,.18)}
+.process-flow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:start}
+.process-step{text-align:center;position:relative}.process-step:after{content:'→';position:absolute;right:-9px;top:16px;color:var(--muted);font-size:18px}.process-step:last-child:after{display:none}
+.process-icon{width:42px;height:42px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(145deg,var(--red),#f06a78);color:#fff;display:grid;place-items:center;font-weight:800}.process-step b{display:block;font-size:11px;color:var(--navy)}.process-step span{font-size:11px;color:var(--muted);display:block;margin-top:4px}
+.msiic-section{padding:70px 0}.msiic-section h2{color:var(--navy);font-size:clamp(30px,4vw,44px);margin:8px 0 25px}.alt-block{background:var(--soft);margin-left:calc((1180px - 100vw)/2);margin-right:calc((1180px - 100vw)/2);padding-left:max(calc((100vw - 1180px)/2),4%);padding-right:max(calc((100vw - 1180px)/2),4%)}
+.enable-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.enable-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 7px 25px rgba(7,27,58,.04)}.enable-card small{color:var(--red);font-weight:800}.enable-card h3{color:var(--navy);margin:7px 0}.enable-card b{font-size:12px;color:#3e4e65}.enable-card p{font-size:13px;color:var(--muted)}
+.programme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.programme-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 7px 25px rgba(7,27,58,.05)}.programme-image{height:150px;background:linear-gradient(135deg,#071b3a,#c51f3a)}.programme-image.image-2{background:linear-gradient(135deg,#123d76,#e06b3c)}.programme-image.image-3{background:linear-gradient(135deg,#2d2455,#c51f3a)}.programme-card>div:last-child{padding:18px}.programme-card h3{color:var(--navy);margin:0 0 7px;font-size:18px}.programme-card p,.challenge-card p{font-size:13px;color:var(--muted)}.programme-card a,.challenge-card a{font-size:12px;color:var(--red);font-weight:800}
+.challenge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.challenge-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;padding-bottom:17px}.challenge-image{height:120px;background:linear-gradient(135deg,#0b2a55,#6a1f35)}.challenge-card h3,.challenge-card p,.challenge-card a{margin-left:16px;margin-right:16px}.challenge-card h3{font-size:16px;color:var(--navy);margin-top:16px;margin-bottom:6px}
+.leadership-panel{display:grid;grid-template-columns:1fr .9fr;gap:25px;align-items:stretch;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(7,27,58,.05)}.leadership-panel>div:first-child{padding:34px}.leadership-photo{min-height:300px;background:linear-gradient(135deg,#dce7f3,#6688aa 55%,#0b2852)}.leadership-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.leadership-tags span,.club-grid span,.partner-grid span{padding:8px 10px;border-radius:999px;background:#f0f4f9;color:#42536b;font-size:11px;font-weight:700}
+.club-grid,.partner-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.partner-grid span{border:1px solid var(--line);background:#fff}.infrastructure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.infra-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}.infra-card div{height:130px;background:linear-gradient(135deg,#0b2852,#426a91)}.infra-card b{display:block;padding:14px;color:var(--navy);font-size:13px}
+.news-list{display:grid;gap:10px}.news-list>div{display:flex;gap:14px;align-items:center;padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:#fff}.news-list strong{font-family:"Space Grotesk";font-size:20px;color:var(--navy)}.news-list span{font-size:13px;color:#42536b}.success-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.success-grid>div{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff}.success-grid strong{display:block;font-family:"Space Grotesk";font-size:26px;color:var(--navy)}.success-grid span{font-size:11px;color:var(--muted)}.build-future{margin-top:16px;border-radius:18px;padding:24px;background:linear-gradient(135deg,#071b3a,#123d76);color:#fff}.build-future h3{margin:0 0 8px}.build-future p{color:#c7d4e5;font-size:13px}
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.contact-card{padding:28px;border:1px solid var(--line);border-left:4px solid #0b4b86;border-radius:15px;background:#fff;box-shadow:0 7px 25px rgba(7,27,58,.04)}.contact-card b{display:block;color:#101827}.contact-card span{display:block;margin-top:4px;color:#0b3b70;font-size:13px;overflow-wrap:anywhere}
+@media(max-width:900px){.process-flow{grid-template-columns:repeat(4,1fr)}.process-step:nth-child(4):after{display:none}.enable-grid,.programme-grid{grid-template-columns:repeat(2,1fr)}.challenge-grid{grid-template-columns:repeat(2,1fr)}.leadership-panel{grid-template-columns:1fr}.infrastructure-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:repeat(2,1fr)}.alt-block{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}}
+@media(max-width:600px){.msiic-stats{grid-template-columns:repeat(2,1fr);padding-bottom:30px}.process-flow{grid-template-columns:repeat(2,1fr)}.process-step:after{display:none}.enable-grid,.programme-grid,.challenge-grid,.infrastructure-grid,.contact-grid{grid-template-columns:1fr}.msiic-section{padding:48px 0}.leadership-panel>div:first-child{padding:24px}.leadership-photo{min-height:210px}.success-grid{grid-template-columns:1fr}.alt-block{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px}}
+
+/* MSGI Catalyst homepage + centre video-first layout */
+.catalyst-intro{display:grid;grid-template-columns:.95fr 1.05fr;gap:36px;align-items:center}
+.catalyst-intro .intro-copy{font-size:15px;color:var(--muted)}
+.catalyst-intro .intro-copy p{margin:0 0 14px}
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.journey-card{position:relative;padding:24px 20px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 8px 25px rgba(7,27,58,.05)}
+.journey-card:not(:last-child):after{content:'→';position:absolute;right:-13px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:800;color:var(--red);z-index:2}
+.journey-card strong{display:block;color:var(--navy);font-family:"Space Grotesk";font-size:17px}
+.journey-card b{display:block;color:var(--red);font-size:12px;margin-bottom:8px}
+.journey-card span{display:block;color:var(--muted);font-size:12px;line-height:1.55}
+.opportunity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.opportunity{padding:24px;border:1px solid var(--line);border-radius:20px;background:#fff}
+.opportunity h3{color:var(--navy);font-size:18px;margin:0 0 8px}
+.opportunity p{color:var(--muted);font-size:13px;margin:0}
+.initiative-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.initiative{border-radius:20px;padding:24px;background:linear-gradient(135deg,#071b3a,#123d76);color:#fff}
+.initiative:nth-child(2){background:linear-gradient(135deg,#123d76,#0b5b66)}
+.initiative:nth-child(3){background:linear-gradient(135deg,#4b1630,#c51f3a)}
+.initiative h3{margin:0 0 8px;font-size:18px}
+.initiative p{margin:0;color:#d7e1ee;font-size:12px}
+.video-first{padding:58px 0;background:var(--soft)}
+.head-video{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch}
+.head-video-player{min-height:310px;border-radius:24px;overflow:hidden;background:radial-gradient(circle at 50% 38%,#214d80,transparent 35%),linear-gradient(135deg,#061630,#0b2a55);display:grid;place-items:center;position:relative}
+.head-video-player .play{width:78px;height:78px}
+.head-video-player .video-label{position:absolute;left:22px;bottom:18px;color:#d9e5f4;font-size:12px;font-weight:700;letter-spacing:.6px}
+.head-video-copy{border:1px solid var(--line);border-radius:24px;background:#fff;padding:28px}
+.head-video-copy h2{color:var(--navy);font-size:30px;margin:8px 0 12px}
+.head-video-copy p{color:var(--muted);font-size:13px}
+.head-video-copy .notice{margin-top:16px}
+.detail-video-link{display:inline-flex;margin-top:10px}
+@media(max-width:900px){
+  .catalyst-intro{grid-template-columns:1fr}
+  .journey{grid-template-columns:repeat(2,1fr)}
+  .journey-card:nth-child(2):after{display:none}
+  .opportunity-grid,.initiative-strip{grid-template-columns:1fr 1fr}
+  .head-video{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .journey,.opportunity-grid,.initiative-strip{grid-template-columns:1fr}
+  .journey-card:after{display:none!important}
+  .head-video-player{min-height:220px}
+  .head-video-copy{padding:21px 18px}
+}
+</style>
+
+<style>
+/* Responsive + animation enhancement */
+@media (prefers-reduced-motion: no-preference){
+  .hero .kicker,.hero h1,.hero-copy,.hero-actions{animation:fadeUp .75s ease both}
+  .hero h1{animation-delay:.08s}.hero-copy{animation-delay:.16s}.hero-actions{animation-delay:.24s}
+  .hero-panel{animation:floatIn 1s ease both}
+  .card,.journey-card,.opportunity,.initiative,.info-card,.person,.objective,.programme-card,.challenge-card,.infra-card,.contact-card{animation:fadeUp .7s ease both}
+  .orbit{animation:spinOrbit 22s linear infinite}
+  .core{animation:pulseCore 3s ease-in-out infinite}
+  .node{animation:nodeFloat 4s ease-in-out infinite}
+  .n2{animation-delay:.6s}.n3{animation-delay:1.1s}.n4{animation-delay:1.7s}.n5{animation-delay:2.2s}.n6{animation-delay:2.8s}
+  .btn,.card,.contact-card,.initiative,.opportunity,.info-card,.journey-card{will-change:transform}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes floatIn{from{opacity:0;transform:translateX(25px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes spinOrbit{to{transform:rotate(348deg)}}
+@keyframes pulseCore{0%,100%{box-shadow:0 0 55px rgba(63,133,220,.22),inset 0 0 35px rgba(255,255,255,.05)}50%{box-shadow:0 0 100px rgba(63,133,220,.42),inset 0 0 45px rgba(255,255,255,.08)}}
+@keyframes nodeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* Mobile navigation */
+.mobile-menu-btn{display:none;background:transparent;border:1px solid rgba(255,255,255,.22);color:#fff;width:42px;height:42px;border-radius:12px;cursor:pointer;font-size:21px;align-items:center;justify-content:center}
+.mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:rgba(4,20,45,.98);backdrop-filter:blur(18px);border-top:1px solid rgba(255,255,255,.08);padding:12px 14px 16px;box-shadow:0 15px 30px rgba(0,0,0,.2)}
+.mobile-menu.open{display:grid;gap:6px}
+.mobile-menu a{color:#e5edf7;padding:12px 10px;border-radius:10px;font-weight:700;font-size:14px}
+.mobile-menu a:hover{background:rgba(255,255,255,.07)}
+@media(max-width:900px){
+  .nav{position:sticky}.nav-inner{position:relative}
+  .mobile-menu-btn{display:flex}
+  .hero-grid{padding-top:55px}
+  .hero-panel{min-height:360px}
+  .cards,.opportunity-grid,.initiative-strip,.programme-grid,.challenge-grid,.infrastructure-grid{gap:14px}
+  .card:hover,.contact-card:hover,.opportunity:hover,.info-card:hover{transform:none}
+}
+@media(max-width:600px){
+  .container{width:calc(100% - 28px)}
+  .nav-inner{height:64px}
+  .brand{flex:1;min-width:0}
+  .brand strong{font-size:13px}.brand span{font-size:7px}
+  .hero-grid{padding:58px 0 48px}
+  .hero h1{font-size:clamp(34px,11vw,50px)}
+  .hero-copy{font-size:14px}
+  .hero-actions{gap:9px}
+  .hero-panel{min-height:330px;margin-top:12px}
+  .hero-panel .core{width:145px;height:145px}
+  .hero-panel .core b{font-size:27px}
+  .hero-panel .core small{font-size:10px}
+  .hero-panel .node{width:70px;height:62px}
+  .hero-panel .node img{max-width:47px !important;max-height:42px !important}
+  .hero-panel .n5{left:1%}.hero-panel .n6{right:1%}
+  .section{padding:50px 0}
+  .section h2,.msiic-section h2{font-size:28px}
+  .section-head{margin-bottom:22px}
+  .ecosystem-tagline{font-size:13px;padding:15px 12px}
+  .detail-logo{height:180px}
+  .detail-logo img{max-width:76% !important;max-height:76% !important}
+  .footer-grid{gap:22px}
+}
+</style>
+<script>
+(function(){
+  const nav=document.querySelector('.nav');
+  if(!nav || document.querySelector('.mobile-menu-btn')) return;
+  const inner=nav.querySelector('.nav-inner');
+  const btn=document.createElement('button'); btn.className='mobile-menu-btn'; btn.setAttribute('aria-label','Open menu'); btn.innerHTML='☰';
+  const menu=document.createElement('div'); menu.className='mobile-menu';
+  menu.innerHTML='<a href="#home">Overview</a><a href="#centres">Centres</a><a href="#ecosystem">Ecosystem</a><a href="#initiatives">Initiatives</a><a href="https://msec.edu.in/" target="_blank">MSEC Website ↗</a>';
+  inner.appendChild(btn); nav.appendChild(menu);
+  btn.addEventListener('click',()=>{menu.classList.toggle('open');btn.innerHTML=menu.classList.contains('open')?'✕':'☰';});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');btn.innerHTML='☰';}));
+})();
+</script>
+</head>
+<body>
+
+<div id="homeView">
+  <div class="topbar"><div class="container"><span>MEENAKSHI SUNDARARAJAN ENGINEERING COLLEGE • AUTONOMOUS INSTITUTION</span><span>363, Arcot Road, Kodambakkam, Chennai – 600024</span></div></div>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <div class="crest"><img src="assets/MSGI.png" alt="MSEC logo"></div>
+        <div><strong>MSGI</strong><span>Centres • Catalyst</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="#home">Overview</a><a href="#centres">Centres</a><a href="#ecosystem">Ecosystem</a><a href="#initiatives">Initiatives</a>
+        <a href="https://msec.edu.in/" target="_blank" class="nav-cta">MSEC Website ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker"><i></i> MSGI CATALYST</div>
+        <h1>One Ecosystem. Multiple Pathways. <em>Unlimited Possibilities.</em></h1>
+        <p class="hero-copy">The Meenakshi Sundararajan Group of Institutions (MSGI) brings together a powerful ecosystem of innovation, industry engagement, research and career development through its specialised Centres.</p>
+        <p class="hero-copy">Designed to complement academic learning with real-world exposure, the Centres connect students and faculty with industry experts, mentors, research opportunities, emerging technologies, entrepreneurship and career pathways.</p>
+        <div class="hero-actions">
+          <a href="#centres" class="btn btn-primary">Explore the MSGI Centres ↓</a>
+          <a href="#ecosystem" class="btn btn-ghost">View the Ecosystem</a><a href="#contact" class="btn btn-ghost">Connect With Us</a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-hidden="true">
+        <div class="orbit"></div>
+        <div class="core"><div><b>MSGI</b><small>CATALYST</small><small style="margin-top:4px">5 Centres • One Ecosystem</small></div></div>
+        <div class="node n1"><img src="assets/MS-CDC.jpeg" alt="MSCDC logo"></div>
+        <div class="node n2"><img src="assets/CCB.jpeg" alt="MSCCB logo"></div>
+        <div class="node n3"><img src="assets/MS-CIIC.jpeg" alt="MSCIIC logo"></div>
+        <div class="node n4"><img src="assets/MSIIC.jpeg" alt="MSIIC logo"></div>
+        <div class="node n5"><img src="assets/ICE.jpeg" alt="ICE logo"></div>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="section" id="centres">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">The MSGI Catalyst</div><h2>Beyond the Classroom. Into the Real World.</h2></div>
+          <p>Education becomes more meaningful when knowledge meets experience. Across MSGI, our Centres create opportunities for students to innovate, collaborate, build, research and prepare for the world beyond the classroom.</p>
+        </div>
+        <div class="catalyst-intro">
+          <div class="intro-copy">
+            <p>From developing an idea into a startup to working on industry projects, from discovering emerging technologies to preparing for a successful career — the Centres extend learning into real-world possibilities.</p>
+            <p><strong>One MSGI ecosystem. Multiple pathways for every learner.</strong></p>
+            <p>The Centres are not independent units operating in isolation. They form an integrated part of MSGI's institutional identity, student experience, industry engagement, innovation ecosystem and future growth.</p>
+          </div>
+          <div class="info-card">
+            <h3>Five Centres. One Connected Ecosystem.</h3>
+            <p>Innovation, industry, experiential learning, competency building and career development work together to create a stronger student journey.</p>
+            <div class="ecosystem-tagline" style="margin-top:18px">
+              <span>Innovation</span><i>•</i><span>Industry</span><i>•</i><span>Experience</span><i>•</i><span>Competency</span><i>•</i><span>Careers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Explore the ecosystem</div><h2>Five Centres. Five Pathways. One MSGI Advantage.</h2></div>
+          <p>Each Centre has a distinct role, while the ecosystem connects ideas to innovation, learning to experience and education to opportunity.</p>
+        </div>
+        <div class="cards" id="centreCards"></div>
+      </div>
+    </section>
+
+    <section class="section" id="ecosystem">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">The student journey</div><h2>Four stages. One direction.</h2></div>
+          <p>Together, the MSGI Centres help learners move from curiosity to capability and from capability to meaningful outcomes.</p>
+        </div>
+        <div class="journey">
+          <div class="journey-card"><b>01</b><strong>IDEATE</strong><span>Turn curiosity into ideas.</span></div>
+          <div class="journey-card"><b>02</b><strong>INNOVATE</strong><span>Build, experiment and create.</span></div>
+          <div class="journey-card"><b>03</b><strong>EXPERIENCE</strong><span>Work with industry and solve real problems.</span></div>
+          <div class="journey-card"><b>04</b><strong>LAUNCH</strong><span>Build careers, ventures and futures.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">More Than Centres</div><h2>An Ecosystem of Opportunity.</h2></div>
+          <p>Students across MSGI can access opportunities that extend beyond their individual programme or institution.</p>
+        </div>
+        <div class="opportunity-grid">
+          <article class="opportunity"><h3>Innovation & Startup Support</h3><p>Transform ideas into prototypes, ventures and solutions through ideation, mentoring and incubation.</p></article>
+          <article class="opportunity"><h3>Industry Exposure</h3><p>Learn directly from industry professionals through projects, expert sessions and real-world challenges.</p></article>
+          <article class="opportunity"><h3>Research & Collaboration</h3><p>Explore interdisciplinary research, emerging technologies and collaborative opportunities.</p></article>
+          <article class="opportunity"><h3>Projects & Internships</h3><p>Gain practical experience through industry-linked projects, internships and experiential learning.</p></article>
+          <article class="opportunity"><h3>Career Readiness</h3><p>Develop the skills, confidence and professional readiness needed for tomorrow's workplace.</p></article>
+          <article class="opportunity"><h3>Mentorship & Guidance</h3><p>Learn from experienced professionals, entrepreneurs, researchers and industry leaders.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="initiatives">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Flagship Initiatives</div><h2>Ideas That Move. Initiatives That Matter.</h2></div>
+          <p>MSGI's active ecosystem in action — selected initiatives, projects and experiences from across the Centres.</p>
+        </div>
+        <div class="initiative-strip">
+          <article class="initiative"><h3>Startup Summit</h3><p>Where aspiring entrepreneurs pitch ideas before investors, industry experts and mentors.</p></article>
+          <article class="initiative"><h3>Industry Projects</h3><p>Students work on real-world challenges with industry partners and gain professional exposure.</p></article>
+          <article class="initiative"><h3>Innovation Challenges</h3><p>Ideas are developed through problem-solving, design thinking, experimentation and collaboration.</p></article>
+        </div>
+        <div class="two-col" style="margin-top:16px">
+          <div class="info-card"><h3>Expert Sessions & Internships</h3><p>Students interact directly with professionals and translate academic knowledge into professional experience.</p></div>
+          <div class="info-card"><h3>Research & Emerging Technologies</h3><p>Students explore new technologies, interdisciplinary research and future-facing domains.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Built for Every MSGI Learner</div><h2>Your MSGI Journey Doesn't End in the Classroom.</h2></div>
+          <p>Whether a student belongs to Engineering, Management, School Education or future institutions within MSGI, the wider ecosystem provides access to relevant programmes, mentoring, resources and opportunities.</p>
+        </div>
+        <div class="two-col">
+          <div class="info-card"><h3>Have an idea?</h3><p>→ Explore MS-IIC for innovation, entrepreneurship, prototyping and incubation.</p></div>
+          <div class="info-card"><h3>Want industry exposure?</h3><p>→ Explore MS-CIIC and ICE for industry projects, expert sessions, internships and experiential learning.</p></div>
+          <div class="info-card"><h3>Want to build professional skills?</h3><p>→ Explore CDC for career guidance, placement readiness and professional development.</p></div>
+          <div class="info-card"><h3>Want to build capability?</h3><p>→ Explore MS-CCB for technical, professional, behavioural, communication, leadership and future skills.</p></div>
+        </div>
+        <div class="ecosystem-tagline"><span>One Group</span><i>•</i><span>One Ecosystem</span><i>•</i><strong>Many Possibilities.</strong></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">Connect With Us</div><h2>Discover What You Can Do Beyond the Classroom.</h2></div><p>Explore the Centres that connect ideas to innovation, learning to experience and education to opportunity.</p></div>
+        <div class="contact-grid">
+          <a class="contact-card" href="#centres"><b>Explore Our Centres</b><span>Discover the five MSGI Centres</span></a>
+          <a class="contact-card" href="https://msec.edu.in/" target="_blank"><b>Discover MSGI</b><span>Visit the official MSEC website</span></a>
+          <a class="contact-card" href="mailto:strategic.collab@msec.edu.in"><b>Connect With Us</b><span>strategic.collab@msec.edu.in</span></a>
+          <a class="contact-card" href="mailto:internships.ciic@msec.edu.in"><b>Industry & Internships</b><span>internships.ciic@msec.edu.in</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</div>
+
+<div id="detailView" class="detail">
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home"><div class="crest"><img src="assets/MSGI.png" alt="MSEC logo"></div><div><strong>MSGI</strong><span>Centres • Catalyst</span></div></a>
+      <div class="nav-links"><a href="#home">All Centres</a><a href="https://msec.edu.in/" target="_blank" class="nav-cta">MSEC Website ↗</a></div>
+    </div>
+  </nav>
+  <div id="detailContent"></div>
+</div>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div><h3>MSGI • Catalyst</h3><p>One ecosystem connecting innovation, industry, experience, competency building and career development across the MSGI Centres.</p></div>
+    <div><h3>Explore</h3><a href="#home">Overview</a><a href="#centres">Centres</a><a href="#ecosystem">Ecosystem</a><a href="#initiatives">Initiatives</a></div>
+    <div><h3>Official</h3><a href="https://msec.edu.in/" target="_blank">MSEC Website ↗</a><a href="https://msec.edu.in/mscdc.html" target="_blank">MSCDC ↗</a><a href="https://msec.edu.in/msiic.html" target="_blank">MSIIC ↗</a><a href="https://msec.edu.in/msciic.html" target="_blank">MSCIIC ↗</a><a href="#centre/ice">ICE ↗</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© MSGI — Centres Catalyst</span><span>Official centre logos supplied in this package are used throughout the cards and detail pages.</span></div>
+</footer>
+
+<script>
+const centres = {
+  msciic:{
+    short:"MSCIIC", logo:"assets/MS-CIIC.jpeg", name:"Meenakshi Sundararajan Centre for Industry–Institute Collaboration",
+    desc:"The bridge between academia and industry — creating opportunities for industry exposure, internships, projects, technical training, mentoring and placements.",
+    tags:["Industry","Internships","Live Projects","Training"], accent:"Industry",
+    vision:"To bridge the gap between academia and industry by fostering innovation, research and skill development, while creating a dynamic ecosystem for real-world projects and emerging technologies.",
+    mission:"Build strategic industry partnerships, strengthen employability and entrepreneurial capabilities, facilitate collaborative research and consultancy, and integrate contemporary industry expectations into learning.",
+    objectives:["Industry partnerships","Skill development & certifications","Research & consultancy","Placement & career alignment","Entrepreneurship & innovation","Academic–industry integration"],
+    head:"Dr. Prof. Joseph George Fernandaz", headRole:"Head – MSCIIC",
+    members:["Industry Collaboration & Partnerships","Skill Development & Training","Research & Consultancy","Placement & Career Development","Entrepreneurship & Innovation","Academic–Industry Integration"],
+    works:["Industry-ready mock interviews","Corporate upskilling","Japanese overseas career drive","AI + AR/VR workshop","Hydrogen plane collaboration","Industry training"],
+    source:"Official MSCIIC page"
+  },
+  msiic:{
+    short:"MSIIC", logo:"assets/MSIIC.jpeg", name:"Meenakshi Sundararajan Innovation & Incubation Centre",
+    desc:"An innovation and entrepreneurship hub helping learners move from ideas to prototypes, ventures, competitions, mentoring and real-world solutions.",
+    tags:["Innovation","Incubation","Startups","Prototyping"], accent:"Innovation",
+    vision:"Foster an environment where young minds transform innovative ideas into reality, driving entrepreneurship and technological advancement.",
+    mission:"Provide mentorship, infrastructure, funding and networking support while connecting academia, industry and entrepreneurial ecosystems.",
+    objectives:["Fostering innovation","Fuel entrepreneurship","Bridge with industry","Build entrepreneurial & technical skills","Idea validation & prototyping","Incubation & venture creation"],
+    head:"Dr. B. Monica Jenefer", headRole:"Head – MSEC MSIIC",
+    members:["Adyant Coding Club","Dev-Dynasty","Eco-Design Club","AI-Club Epoch","Nodenova IoT Club","Product Development Club","Renewables Club","EDI Club"],
+    works:["30-hour hackathons","Student innovation projects","Hydroponics / sustainability projects","SAE BAJA & EV projects","Entrepreneurship education","Startup incubation"],
+    stats:[["200+","Student innovators"],["50+","Ideas incubated"],["20+","Startups supported"],["15+","Industry mentors"]],
+    process:[
+      ["PROBLEM","Identify real needs"],["IDEA","Think differently"],["PROTOTYPE","Build and create"],["VALIDATE","Test and improve"],["PITCH","Present your idea"],["MENTOR","Learn from experts"],["SCALE","Grow and create impact"]
+    ],
+    enable:[
+      ["01","IDEATE","Think Differently.","Identify real problems, question existing solutions and generate ideas with potential."],
+      ["02","BUILD","Make the Idea Real.","Move from concepts to working prototypes through projects, technology and hands-on learning."],
+      ["03","VALIDATE","Test Before You Scale.","Understand users, test assumptions, develop MVPs and refine solutions based on real feedback."],
+      ["04","INCUBATE","Give Good Ideas Room to Grow.","Get mentorship, infrastructure, guidance, funding access, industry connections and pitch preparation."],
+      ["05","LAUNCH","From Prototype to Possibility.","Pitch, participate in demo days, competitions and prepare for market entry and startup creation."],
+      ["06","LEAD","Build the Innovators Behind the Ideas.","Develop leadership, communication, decision-making and team-building skills."]
+    ],
+    programmes:[
+      ["Entrepreneurship Development Initiative (EDI)","From idea to impact. Building entrepreneurial mindset and real-world skills."],
+      ["Wadhwani Foundation NEN Programme","Nurturing early-stage entrepreneurs with structured learning and mentorship."],
+      ["IGNITE Entrepreneurial Programme","Inspiring innovation, supporting startups and building the next generation of founders."]
+    ],
+    challenges:[
+      ["Einstein Challenge","A knowledge and rapid-thinking competition combining high-concept explanation and expert questioning."],
+      ["Hackathons / Product Challenges","Students work collaboratively on ideas, products and prototypes."],
+      ["Innovator's Day","A platform for students to showcase projects and compete around innovation."],
+      ["Startup Summit","Ideas move from discussion to pitching, from pitch decks to possibilities."]
+    ],
+    leadership:["150+ student leaders representing 22 student clubs","Ethical Leadership","Responsibility & Accountability","Innovation","Decision-Making","Teamwork","Annual Planning"],
+    clubs:["Product Development Club","Eco Design Club","Nodenova IoT Club","ETA Club","Adyant Coding Club","DevDynasty Club"],
+    partners:["Startup India","Atal Innovation Mission","MSME","Industry Partners","Academic Institutions"],
+    infrastructure:["AI & Machine Learning","Robotics & IoT","Cloud & Full Stack","AR/VR & Game Development","EV & Sustainable Technology","Manufacturing & Product Development"],
+    news:["Ideation Workshop for First Year Students","AI for Innovators Bootcamp","Hackathon 2.0 — Build • Code • Solve"],
+    success:[["25+","Startup Pitches"],["10+","Startup Mentors"],["₹30L+","Funding Opportunities Explored"],["National & International","Awards & Recognition"]],
+    source:"MSEC MSIIC reference page supplied by the institution"
+  },
+  mscdc:{
+    short:"MSCDC", logo:"assets/MS-CDC.jpeg", name:"Meenakshi Sundararajan Career Development Centre",
+    desc:"The career launchpad connecting students with career counselling, university guidance, competitive-exam pathways, portfolio building and professional development.",
+    tags:["Career","Higher Studies","UPSC / GATE","Guidance"], accent:"Career",
+    vision:"To architect career success through strategic guidance, systematic educational integration and global academic collaboration pathways.",
+    mission:"Unify academic excellence, career preparedness and teaching innovation through personalized support, structured training and a collaborative ecosystem.",
+    objectives:["Career path discovery","Placement integration","Higher-education guidance","Competitive-exam support","Portfolio building","Faculty development"],
+    head:"Dr. Latha Vijaybaskar", headRole:"Head – MSCDC",
+    members:["Ms. Saranya — Placement Training Lead","Ms. D. Gayathri — UPSC Lead","Career mentors & faculty collaborators"],
+    works:["Career guidance sessions","University fairs","Placement preparation","Competitive-exam guidance","Portfolio building","Faculty development"],
+    focus:["Career counselling","University guidance","Competitive exam support","Higher education opportunities","Career exploration","Mentoring & guidance","Skill & aptitude support","Internships & placements","Alumni connect"],
+     examinations:["GATE","UPSC","IES","CAT / MBA Entrance","GRE","IELTS / TOEFL","Other National Examinations"],
+     impact:["1500+ Students Counselled","500+ University Offers","250+ Competitive Exam Selections","200+ Scholarships Secured","100+ International Admissions"],
+     source:"Official MSCDC page"
+  },
+  msccb:{
+    short:"MSCCB", logo:"assets/CCB.jpeg", name:"Meenakshi Sundararajan Centre of Competency Building",
+    desc:"The MSGI-wide competency hub developing technical, professional, behavioural, communication, leadership and domain-specific capabilities.",
+    tags:["Competency","Leadership","Communication","Future Skills"], accent:"Competency",
+    vision:"A continuous-learning ecosystem where students and faculty build measurable capabilities to perform, adapt and grow in a rapidly changing world.",
+    mission:"Identify competency needs and deliver structured programmes aligned with academic requirements, career aspirations, industry expectations and future skills.",
+    objectives:["Technical competencies","Professional competencies","Behavioural skills","Communication & leadership","Competency assessment","Practice, feedback & improvement"],
+    head:"Leadership details to be added", headRole:"Head / Centre Leadership",
+    members:["Approved member list to be added","Faculty competency coordinators","Programme facilitators"],
+    works:["Skill-building workshops","Certification programmes","Communication labs","Leadership programmes","Competency assessments","Industry simulations"],
+    source:"Supplied centre brief"
+  },
+  ice:{
+    short:"ICE", logo:"assets/ICE.jpeg", name:"Industry Centre of Excellence (ICE)",
+    desc:"A hands-on environment where learners experience emerging technologies, industry practices and real-world applications through learning by doing.",
+    tags:["IoT","Robotics","Drones","AR/VR","VLSI","Manufacturing"], accent:"Emerging Tech",
+    vision:"Learning by Doing — enabling learners to experience technology, build confidence and create solutions.",
+    mission:"Enable experiential learning through emerging technologies, practical workshops, projects and industry-led experiences.",
+    objectives:["IoT & Robotics","Drones & AR/VR","VLSI & PCB Design","Advanced Manufacturing","Technical workshops","Real-world applications"],
+     domains:["IoT","Robotics","Drones","AR / VR","VLSI","PCB Design","Advanced Manufacturing"],
+     pathway:["Explore","Experiment","Design","Build","Test","Solve"],
+     focus:["Hands-on Learning","Emerging Technologies","Industry Practices","Problem Solving","Skill Development","Innovation & Creation"],
+    head:"Leadership details to be added", headRole:"Centre Leadership",
+    members:["Approved member list to be added","Industry lab mentors","Faculty technology coordinators"],
+    works:["Robotics & automation","Industrial IoT","Drone technology","AR/VR experiences","Advanced manufacturing","Technology projects"],
+    source:"Supplied centre brief"
+  },
+};
+
+function iconFor(key){
+  return ({msciic:"↗",msiic:"✦",mscdc:"◎",msccb:"◇",ice:"⌁"})[key] || "•";
+}
+function renderCards(){
+  const root=document.getElementById("centreCards");
+  const centreOrder=["msiic","msciic","ice","mscdc","msccb"];
+  root.innerHTML=centreOrder.map(key=>[key,centres[key]]).map(([key,c])=>`
+    <a class="card" href="#centre/${key}">
+      <div class="card-media">
+        <div class="logo-badge">${c.logo ? `<img src="${c.logo}" alt="${c.short} logo">` : `<span>${c.short}</span>`}</div>
+        <div class="media-label">${c.accent}</div>
+      </div>
+      <div class="card-body">
+        <h3>${c.name}</h3><p>${c.desc}</p>
+        <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+        <div class="card-link"><span>Explore centre</span><span>→</span></div>
+      </div>
+    </a>`).join("");
+}
+function detailTemplate(key){
+  const c=centres[key];
+  const msiic = key === "msiic";
+  const stats = c.stats || [];
+  return `
+  <section class="detail-hero ${msiic ? 'msiic-hero' : ''}">
+    <div class="container detail-hero-grid">
+      <div>
+        <a class="back" href="#home">← Back to all industry centres</a>
+        <div class="kicker" style="margin-top:22px"><i></i>${c.short} • ${c.accent}</div>
+        <h1>${msiic ? 'Ideas Need More Than Inspiration.<br><em>They Need a Place to Grow.</em>' : c.name}</h1>
+        <p>${msiic ? 'MS-IIC — Meenakshi Sundararajan Innovation & Incubation Centre. An ecosystem for student innovation, entrepreneurship, prototyping, mentorship and startup creation.' : c.desc}</p>
+        ${msiic ? `<div class="hero-actions"><a href="#msiic-journey" class="btn btn-primary">Explore MSIIC</a><a href="#msiic-programmes" class="btn btn-ghost">View Student Innovation</a></div>` : ''}
+      </div>
+      <div class="detail-logo"><img src="${c.logo}" alt="${c.short} logo"></div>
+    </div>
+    ${msiic ? `<div class="container msiic-stats">${stats.map(x=>`<div class="stat"><strong>${x[0]}</strong><span>${x[1]}</span></div>`).join('')}</div>` : ''}
+  </section>
+  <section class="video-first">
+    <div class="container">
+      <div class="head-video">
+        <div class="head-video-player" aria-label="Centre head speech video placeholder">
+          <div class="play">▶</div>
+          <div class="video-label">HEAD'S MESSAGE • OFFICIAL CENTRE VIDEO</div>
+        </div>
+        <div class="head-video-copy">
+          <div class="eyebrow">Head's Message</div>
+          <h2>Hear From the Centre Leadership.</h2>
+          <p>The centre head's speech is intentionally placed as the <strong>first content section after the hero</strong>, before the detailed vision, mission, programmes and activities.</p>
+          <p>Use the approved official video URL here when available. The layout is ready for a 16:9 embedded player without changing the page structure.</p>
+          <div class="notice"><b>Video URL:</b> Add the approved official YouTube/video link for ${c.short}. No URL was supplied in the current source material, so none has been invented.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main class="detail-content">
+    <div class="container">
+      ${msiic ? `
+      <section id="msiic-journey" class="msiic-section">
+        <div class="section-head"><div><div class="eyebrow">The Big Idea</div><h2>From Classroom Ideas to Real-World Possibilities.</h2></div><p>MS-IIC brings together innovation, entrepreneurship, technology, mentorship and industry engagement to help student ideas move into action.</p></div>
+        <div class="process-flow">${c.process.map((x,i)=>`<div class="process-step"><div class="process-icon">${i+1}</div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div>
+      </section>
+      <section class="msiic-section alt-block">
+        <div class="eyebrow">What We Enable</div><h2>From Idea to Impact.</h2>
+        <div class="enable-grid">${c.enable.map(x=>`<article class="enable-card"><small>${x[0]}</small><h3>${x[1]}</h3><b>${x[2]}</b><p>${x[3]}</p></article>`).join('')}</div>
+      </section>
+      <section id="msiic-programmes" class="msiic-section">
+        <div class="eyebrow">Entrepreneurship Programmes</div><h2>Learn. Build. Launch.</h2>
+        <div class="programme-grid">${c.programmes.map((x,i)=>`<article class="programme-card"><div class="programme-image image-${i+1}"></div><div><h3>${x[0]}</h3><p>${x[1]}</p><a href="#msiic-programmes">Learn More →</a></div></article>`).join('')}</div>
+      </section>
+      <section class="msiic-section alt-block">
+        <div class="eyebrow">Innovation Challenges</div><h2>Challenge. Compete. Create.</h2>
+        <div class="challenge-grid">${c.challenges.map(x=>`<article class="challenge-card"><div class="challenge-image"></div><h3>${x[0]}</h3><p>${x[1]}</p><a href="#msiic-programmes">Explore →</a></article>`).join('')}</div>
+      </section>
+      <section class="msiic-section">
+        <div class="leadership-panel"><div><div class="eyebrow">Student Leadership</div><h2>Innovation Needs Leaders.</h2><p>${c.leadership[0]}</p><div class="leadership-tags">${c.leadership.slice(1).map(x=>`<span>${x}</span>`).join('')}</div></div><div class="leadership-photo"></div></div>
+      </section>
+      <section class="msiic-section alt-block">
+        <div class="two-col"><div><div class="eyebrow">Club Ecosystem</div><h2>Innovation Has Many Languages.</h2><p>Explore student-led clubs that bring ideas to life through technology, design, entrepreneurship and experimentation.</p><div class="club-grid">${c.clubs.map(x=>`<span>${x}</span>`).join('')}</div></div><div><div class="eyebrow">Industry & Ecosystem Partners</div><h2>Innovation Doesn't Happen in Isolation.</h2><div class="partner-grid">${c.partners.map(x=>`<span>${x}</span>`).join('')}</div></div></div>
+      </section>
+      <section class="msiic-section"><div class="eyebrow">Infrastructure</div><h2>Spaces Built for Experimentation.</h2><div class="infrastructure-grid">${c.infrastructure.map(x=>`<div class="infra-card"><div></div><b>${x}</b></div>`).join('')}</div></section>
+      <section class="msiic-section alt-block"><div class="two-col"><div><div class="eyebrow">News & Events</div><h2>What's Happening at MS-IIC</h2><div class="news-list">${c.news.map((x,i)=>`<div><strong>${String(i+1).padStart(2,'0')}</strong><span>${x}</span></div>`).join('')}</div></div><div><div class="eyebrow">Student Success</div><h2>Ideas. Effort. Impact.</h2><div class="success-grid">${c.success.map(x=>`<div><strong>${x[0]}</strong><span>${x[1]}</span></div>`).join('')}</div><div class="build-future"><h3>Build the Future With Us.</h3><p>Whether you are a student, mentor, investor or industry partner, there is a place for you in our innovation journey.</p><a class="btn btn-primary" href="#contact">Build With Us →</a></div></div></div></section>
+      ` : `
+      <div class="two-col"><article class="info-card"><h3>Vision</h3><p>${c.vision}</p></article><article class="info-card"><h3>Mission</h3><p>${c.mission}</p></article></div>
+      ${key==="mscdc" ? `<section style="margin-top:48px"><div class="eyebrow">What CDC Enables</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Career Pathways & Student Support</h2><div class="objectives">${c.focus.map((x,i)=>`<div class="objective"><b>0${i+1}</b><span>${x}</span></div>`).join('')}</div><div class="ecosystem-tagline"><span>${c.examinations.join('')}</span></div></section>` : ''}
+      ${key==="msccb" ? `<section style="margin-top:48px"><div class="eyebrow">Focus Areas</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Competency Development Framework</h2><div class="objectives">${c.focus.map((x,i)=>`<div class="objective"><b>0${i+1}</b><span>${x}</span></div>`).join('')}</div><div class="journey" style="margin-top:24px">${c.framework.map((x,i)=>`<div class="journey-card"><b>0${i+1}</b><strong>${x}</strong><span>Build measurable capability through structured development.</span></div>`).join('')}</div></section>` : ''}
+      ${key==="ice" ? `<section style="margin-top:48px"><div class="eyebrow">Technology Domains at ICE</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Learn by Doing.</h2><div class="objectives">${c.domains.map((x,i)=>`<div class="objective"><b>0${i+1}</b><span>${x}</span></div>`).join('')}</div><div class="journey" style="margin-top:24px">${c.pathway.map((x,i)=>`<div class="journey-card"><b>0${i+1}</b><strong>${x}</strong><span>Move from exploration to real-world problem solving.</span></div>`).join('')}</div></section>` : ''}
+      <section style="margin-top:48px"><div class="eyebrow">What the centre delivers</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Objectives & focus</h2><div class="objectives">${c.objectives.map((x,i)=>`<div class="objective"><b>0${i+1}</b><span>${x}</span></div>`).join('')}</div></section>
+      ${c.impact ? `<section style="margin-top:55px"><div class="eyebrow">Impact at a Glance</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Opportunity Meets Talent.</h2><div class="stats">${c.impact.map(x=>{const parts=x.split(' '); const first=parts.shift(); return `<div class="stat"><strong>${first}</strong><span>${parts.join(' ')}</span></div>`}).join('')}</div></section>` : ''}
+      <section style="margin-top:55px"><div class="eyebrow">Leadership</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Head & members</h2><div class="people"><div class="person"><div class="avatar">${c.head.split(' ').slice(-1)[0].slice(0,2).toUpperCase()}</div><div><b>${c.head}</b><small>${c.headRole}</small></div></div>${c.members.map((m,i)=>`<div class="person"><div class="avatar">${String(i+1).padStart(2,'0')}</div><div><b>${m.split(' — ')[0]}</b><small>${m.includes(' — ')?m.split(' — ').slice(1).join(' — '):'Centre member / role'}</small></div></div>`).join('')}</div></section>
+      <section style="margin-top:55px"><div class="eyebrow">Activities & works</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Centre in action</h2><div class="gallery">${c.works.map(w=>`<div class="work"><div class="work-icon">${iconFor(key)}</div><div class="work-text"><b>${w}</b><span>Replace with approved centre photograph / banner</span></div></div>`).join('')}</div></section>
+      <section style="margin-top:55px"><div class="eyebrow">Media & Documentation</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Centre Resources</h2><div class="info-card"><p>Use this area for approved centre photographs, brochures, reports, event recordings and other official resources. The Head's Message has already been promoted to the first content section on every centre page.</p></div></section>
+      <div class="notice" style="margin-top:45px"><b>Content note:</b> This page uses source-supported centre descriptions. Where an official head/member list, approved vision/mission wording, photographs or YouTube URL was not available in the supplied material, an editable placeholder is shown rather than invented information.</div>
+      `}
+    </div>
+  </main>`;
+}
+function route(){
+  const match=location.hash.match(/^#centre\/(.+)$/);
+  const home=document.getElementById("homeView"), detail=document.getElementById("detailView"), footer=document.querySelector(".footer");
+  if(match && centres[match[1]]){
+    home.style.display="none"; detail.classList.add("active"); footer.style.display="none";
+    document.getElementById("detailContent").innerHTML=detailTemplate(match[1]);
+    window.scrollTo(0,0);
+  }else{
+    home.style.display="block"; detail.classList.remove("active"); footer.style.display="block";
+  }
+}
+renderCards(); window.addEventListener("hashchange",route); route();
+</script>
+</body>
+</html>

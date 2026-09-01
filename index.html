@@ -1663,6 +1663,158 @@
       box-shadow: 0 14px 35px rgba(227, 24, 55, 0.35);
     }
 
+    /* --- List-based Courses Offered --- */
+    .courses-category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .course-category-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(36, 63, 90, 0.06);
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .course-category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 42px rgba(36, 63, 90, 0.12);
+      border-color: #cbd5e1;
+    }
+
+    .course-category-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 20px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .course-category-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      background: #e31837;
+      font-size: 1.2rem;
+      flex: 0 0 auto;
+    }
+
+    .pg-category .course-category-icon { background: #243f5a; }
+    .phd-category .course-category-icon { background: #0d9488; }
+
+    .course-category-kicker {
+      display: block;
+      color: #e31837;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      margin-bottom: 3px;
+    }
+
+    .pg-category .course-category-kicker { color: #243f5a; }
+    .phd-category .course-category-kicker { color: #0d9488; }
+
+    .course-category-heading h3 {
+      margin: 0;
+      color: #243f5a;
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .course-list { display: flex; flex-direction: column; }
+
+    .course-list-item {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 10px;
+      min-height: 62px;
+      padding: 11px 4px;
+      color: #243f5a;
+      text-decoration: none;
+      border-bottom: 1px solid #edf2f7;
+      transition: color .22s ease, transform .22s ease, padding-left .22s ease;
+    }
+
+    .course-list-item:last-child { border-bottom: 0; }
+
+    .course-list-item:hover {
+      color: #e31837;
+      padding-left: 8px;
+    }
+
+    .course-list-number {
+      color: #94a3b8;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .4px;
+    }
+
+    .course-list-name {
+      font-size: .94rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .course-list-item > i {
+      color: #94a3b8;
+      font-size: .95rem;
+      transition: transform .22s ease, color .22s ease;
+    }
+
+    .course-list-item:hover > i {
+      color: #e31837;
+      transform: translate(2px, -2px);
+    }
+
+    .course-new-badge {
+      color: #ffffff;
+      background: #e31837;
+      border-radius: 50px;
+      padding: 3px 8px;
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .7px;
+      white-space: nowrap;
+    }
+
+    .course-category-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 15px;
+      padding-top: 14px;
+      border-top: 1px solid #eef2f7;
+      color: #64748b;
+      font-size: .76rem;
+      line-height: 1.5;
+    }
+
+    .course-category-note i { color: #e31837; margin-top: 2px; }
+    .pg-category .course-category-note i { color: #243f5a; }
+    .phd-category .course-category-note i { color: #0d9488; }
+
+    @media (max-width: 1100px) {
+      .courses-category-grid { grid-template-columns: 1fr 1fr; }
+      .phd-category { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 767px) {
+      .courses-category-grid { grid-template-columns: 1fr; gap: 18px; }
+      .phd-category { grid-column: auto; }
+      .course-category-card { padding: 22px; border-radius: 20px; }
+      .course-list-name { font-size: .9rem; }
+    }
+
     /* Story Card Header Layout */
     .story-card-header {
       display: flex;
@@ -2700,7 +2852,7 @@
                       new.</p>
                     <div>
                       <a href="news.html" class="upcoming-event-btn">
-                        <span>Explore Orientation</span> <i class="bi bi-arrow-right"></i>
+                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -2727,7 +2879,7 @@
                       and celebrate the vibrant student culture of MSEC.</p>
                     <div>
                       <a href="news.html" class="upcoming-event-btn">
-                        <span>Explore Fest</span> <i class="bi bi-arrow-right"></i>
+                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -2753,7 +2905,7 @@
                       engineers as they step forward into successful global careers.</p>
                     <div>
                       <a href="news.html" class="upcoming-event-btn">
-                        <span>Graduation Details</span> <i class="bi bi-arrow-right"></i>
+                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -2779,7 +2931,7 @@
                       and strengthen our global alumni network.</p>
                     <div>
                       <a href="alumni.html" class="upcoming-event-btn">
-                        <span>Alumni Details</span> <i class="bi bi-arrow-right"></i>
+                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -2945,311 +3097,115 @@
 
     </section><!-- /Testimonials Section -->
 
-    <!-- Featured Programs Section -->
+    <!-- Courses Offered Section -->
     <section id="featured-programs" class="featured-programs-section section">
-
       <div class="container section-title" data-aos="fade-up">
         <span class="courses-eyebrow">ACADEMIC EXCELLENCE</span>
         <h2>Courses Offered</h2>
-        <p>Explore all undergraduate and postgraduate engineering departments at MSEC.</p>
+        <p>Explore our undergraduate, postgraduate and Ph.D. programmes. Select a course to view its dedicated department page.</p>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row g-4">
+        <div class="courses-category-grid">
 
-          <!-- 1. Artificial Intelligence & Data Science (UG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/aidsdepart.webp" alt="Artificial Intelligence and Data Science" loading="lazy">
-                <span class="course-degree-badge ug">B.TECH</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
+          <!-- UG Courses -->
+          <div class="course-category-card ug-category">
+            <div class="course-category-heading">
+              <span class="course-category-icon"><i class="bi bi-mortarboard-fill"></i></span>
+              <div>
+                <span class="course-category-kicker">UNDERGRADUATE</span>
+                <h3>UG Courses</h3>
               </div>
-              <div class="course-compact-body">
-                <h4>Artificial Intelligence &amp; Data Science</h4>
-                <p>Machine learning, data analytics, deep learning &amp; intelligent computing systems.</p>
-                <a href="aids.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
+            </div>
+            <div class="course-list">
+              <a href="aids.html" class="course-list-item">
+                <span class="course-list-number">01</span><span class="course-list-name">Artificial Intelligence &amp; Data Science</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="aiml.html" class="course-list-item new-course">
+                <span class="course-list-number">02</span><span class="course-list-name">Artificial Intelligence and Machine Learning</span><span class="course-new-badge">NEW</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="civil.html" class="course-list-item">
+                <span class="course-list-number">03</span><span class="course-list-name">Civil Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="computerscience.html" class="course-list-item">
+                <span class="course-list-number">04</span><span class="course-list-name">Computer Science &amp; Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="cybersec.html" class="course-list-item new-course">
+                <span class="course-list-number">05</span><span class="course-list-name">Computer Science &amp; Engineering (Cybersecurity)</span><span class="course-new-badge">NEW</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="eee.html" class="course-list-item">
+                <span class="course-list-number">06</span><span class="course-list-name">Electrical &amp; Electronics Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="ece.html" class="course-list-item">
+                <span class="course-list-number">07</span><span class="course-list-name">Electronics &amp; Communication Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="informationtechnology.html" class="course-list-item">
+                <span class="course-list-number">08</span><span class="course-list-name">Information Technology</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="mech.html" class="course-list-item">
+                <span class="course-list-number">09</span><span class="course-list-name">Mechanical Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="humanitiesscience.html" class="course-list-item">
+                <span class="course-list-number">10</span><span class="course-list-name">Science &amp; Humanities</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
           </div>
 
-          <!-- 2. Civil Engineering (UG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/civildept.jpg" alt="Civil Engineering" loading="lazy">
-                <span class="course-degree-badge ug">B.E.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
+          <!-- PG Courses -->
+          <div class="course-category-card pg-category">
+            <div class="course-category-heading">
+              <span class="course-category-icon"><i class="bi bi-book-half"></i></span>
+              <div>
+                <span class="course-category-kicker">POSTGRADUATE</span>
+                <h3>PG Courses</h3>
               </div>
-              <div class="course-compact-body">
-                <h4>Civil Engineering</h4>
-                <p>Structural engineering, smart city planning, surveying &amp; sustainable infrastructure.</p>
-                <a href="civil.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
+            </div>
+            <div class="course-list">
+              <a href="csepostgraduate.html" class="course-list-item">
+                <span class="course-list-number">01</span><span class="course-list-name">M.E. Computer Science &amp; Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="civilpostgraduate.html" class="course-list-item">
+                <span class="course-list-number">02</span><span class="course-list-name">M.E. Construction Engineering &amp; Management</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="mechpostgraduate.html" class="course-list-item">
+                <span class="course-list-number">03</span><span class="course-list-name">M.E. Energy Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+            <div class="course-category-note"><i class="bi bi-info-circle"></i> Click any programme to open its dedicated page.</div>
           </div>
 
-          <!-- 3. Computer Science & Engineering (UG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/csedepart.webp" alt="Computer Science and Engineering" loading="lazy">
-                <span class="course-degree-badge ug">B.E.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
+          <!-- PhD Courses -->
+          <div class="course-category-card phd-category">
+            <div class="course-category-heading">
+              <span class="course-category-icon"><i class="bi bi-lightbulb-fill"></i></span>
+              <div>
+                <span class="course-category-kicker">RESEARCH</span>
+                <h3>Ph.D. Courses</h3>
               </div>
-              <div class="course-compact-body">
-                <h4>Computer Science &amp; Engineering</h4>
-                <p>Algorithms, software design, cloud computing &amp; hands-on coding innovation.</p>
-                <a href="computerscience.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 4. Electrical & Electronics Engineering (UG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/eeedepart.webp" alt="Electrical and Electronics Engineering" loading="lazy">
-                <span class="course-degree-badge ug">B.E.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Electrical &amp; Electronics Engineering</h4>
-                <p>Power systems, renewable energy, smart grids &amp; industrial control automation.</p>
-                <a href="eee.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 5. Electronics & Communication Engineering (UG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/ece.webp" alt="Electronics and Communication Engineering" loading="lazy">
-                <span class="course-degree-badge ug">B.E.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Electronics &amp; Communication</h4>
-                <p>VLSI design, embedded systems, signal processing &amp; wireless communications.</p>
-                <a href="ece.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 6. Information Technology (UG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/itdepart.webp" alt="Information Technology" loading="lazy">
-                <span class="course-degree-badge ug">B.TECH</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Information Technology</h4>
-                <p>Web technologies, cybersecurity, database management &amp; enterprise software.</p>
-                <a href="informationtechnology.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 7. Mechanical Engineering (UG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/mechdept.webp" alt="Mechanical Engineering" loading="lazy">
-                <span class="course-degree-badge ug">B.E.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 4 YRS</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Mechanical Engineering</h4>
-                <p>Thermal engineering, CAD/CAM, robotics &amp; advanced manufacturing processes.</p>
-                <a href="mech.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 8. Science & Humanities (UG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/humanscience.webp" alt="Science and Humanities" loading="lazy">
-                <span class="course-degree-badge ug">S&amp;H</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> DEPT</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Science &amp; Humanities</h4>
-                <p>Fundamental physics, chemistry, mathematics &amp; professional communication.</p>
-                <a href="humanitiesscience.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 9. M.E. Computer Science & Engineering (PG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/cselab1.webp" alt="M.E. Computer Science and Engineering" loading="lazy">
-                <span class="course-degree-badge pg">M.E.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 2 YRS</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>M.E. Computer Science &amp; Engg.</h4>
-                <p>Advanced algorithms, distributed systems, AI research &amp; cybersecurity.</p>
-                <a href="csepostgraduate.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 10. M.E. Construction Engineering & Management (PG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/civildept.webp" alt="M.E. Construction Engineering and Management" loading="lazy">
-                <span class="course-degree-badge pg">M.E.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 2 YRS</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>M.E. Construction Management</h4>
-                <p>Infrastructure project leadership, BIM &amp; modern construction practices.</p>
-                <a href="civilpostgraduate.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 11. M.E. Energy Engineering (PG) -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/besteeedesk.webp" alt="M.E. Energy Engineering" loading="lazy">
-                <span class="course-degree-badge pg">M.E.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> 2 YRS</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>M.E. Energy Engineering</h4>
-                <p>Renewable energy systems, energy auditing, solar technology &amp; sustainability.</p>
-                <a href="mechpostgraduate.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 12. Ph.D. Civil Engineering -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/bestcivildesk.webp" alt="Ph.D. Civil Engineering" loading="lazy">
-                <span class="course-degree-badge phd">Ph.D.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> RESEARCH</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Ph.D. Civil Engineering</h4>
-                <p>Anna University Recognized Research Center in structural &amp; environmental engineering.</p>
-                <a href="civil.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 13. Ph.D. Computer Science & Engineering -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/bestcsedesk.webp" alt="Ph.D. Computer Science and Engineering" loading="lazy">
-                <span class="course-degree-badge phd">Ph.D.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> RESEARCH</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Ph.D. Computer Science &amp; Engg.</h4>
-                <p>Anna University Recognized Research Center in AI, machine learning &amp; computing.</p>
-                <a href="computerscience.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 14. Ph.D. Electrical & Electronics Engineering -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/eee vr 1.webp" alt="Ph.D. Electrical and Electronics Engineering" loading="lazy">
-                <span class="course-degree-badge phd">Ph.D.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> RESEARCH</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Ph.D. Electrical &amp; Electronics</h4>
-                <p>Anna University Recognized Research Center in smart grids, power &amp; EV systems.</p>
-                <a href="eee.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 15. Ph.D. Electronics & Communication Engineering -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/bestecedesk.webp" alt="Ph.D. Electronics and Communication Engineering" loading="lazy">
-                <span class="course-degree-badge phd">Ph.D.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> RESEARCH</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Ph.D. Electronics &amp; Comm.</h4>
-                <p>Anna University Recognized Research Center in VLSI design, embedded systems &amp; IoT.</p>
-                <a href="ece.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <!-- 16. Ph.D. Mechanical Engineering -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <article class="course-card-compact">
-              <div class="course-compact-img">
-                <img src="assets/img/topmechdesk.webp" alt="Ph.D. Mechanical Engineering" loading="lazy">
-                <span class="course-degree-badge phd">Ph.D.</span>
-                <span class="course-duration-badge"><i class="bi bi-clock"></i> RESEARCH</span>
-              </div>
-              <div class="course-compact-body">
-                <h4>Ph.D. Mechanical Engineering</h4>
-                <p>Anna University Recognized Research Center in robotics, CAD/CAM &amp; manufacturing.</p>
-                <a href="mech.html" target="_blank" class="course-compact-btn">
-                  <span>Explore Department</span> <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
+            </div>
+            <div class="course-list">
+              <a href="civil.html" class="course-list-item">
+                <span class="course-list-number">01</span><span class="course-list-name">Ph.D. Civil Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="computerscience.html" class="course-list-item">
+                <span class="course-list-number">02</span><span class="course-list-name">Ph.D. Computer Science &amp; Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="eee.html" class="course-list-item">
+                <span class="course-list-number">03</span><span class="course-list-name">Ph.D. Electrical &amp; Electronics Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="ece.html" class="course-list-item">
+                <span class="course-list-number">04</span><span class="course-list-name">Ph.D. Electronics &amp; Communication Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+              <a href="mech.html" class="course-list-item">
+                <span class="course-list-number">05</span><span class="course-list-name">Ph.D. Mechanical Engineering</span><i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+            <div class="course-category-note"><i class="bi bi-info-circle"></i> Research pathways are available through the respective departments.</div>
           </div>
 
         </div>
-
       </div>
-
-    </section><!-- /Featured Programs Section -->
+    </section><!-- /Courses Offered Section -->
 
 
     <!-- Featured Posts Section -->

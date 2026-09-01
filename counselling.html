@@ -345,251 +345,725 @@ Put your HTML text here
   </div>
 </header>
     <style>
-    /* ===== COUNSELLING PAGE CUSTOM STYLES ===== */
+    /* =========================================================
+       MSEC COUNSELLING — PROFESSIONAL INSTITUTIONAL THEME
+       Matches the existing MSEC navy / red / white visual system.
+       ========================================================= */
+
+    :root {
+      --msec-navy: #0b2d4f;
+      --msec-navy-2: #123b63;
+      --msec-red: #e31837;
+      --msec-red-dark: #c8102e;
+      --msec-ink: #183b5d;
+      --msec-text: #506274;
+      --msec-muted: #6f7f8e;
+      --msec-line: #dfe6ec;
+      --msec-bg: #f5f7f9;
+      --msec-white: #ffffff;
+    }
+
+    /* Page base */
+    #counselling-main {
+      background: var(--msec-white);
+      color: var(--msec-text);
+    }
+
+    #counselling-main *,
+    .counselling-hero * {
+      box-sizing: border-box;
+    }
 
     /* Hero */
     .counselling-hero {
-      background: linear-gradient(135deg, #1a3a6b 0%, #0d2a55 60%, #1e3f8a 100%);
+      background:
+        linear-gradient(90deg, rgba(7, 31, 55, .98) 0%, rgba(11, 45, 79, .96) 58%, rgba(18, 59, 99, .92) 100%);
       color: #fff;
-      padding: 70px 0 50px;
+      padding: 72px 0 68px;
       position: relative;
       overflow: hidden;
+      border-bottom: 4px solid var(--msec-red);
     }
+
     .counselling-hero::before {
-      content: '';
+      content: "";
       position: absolute;
-      top: -60px; right: -60px;
-      width: 340px; height: 340px;
-      background: rgba(255,255,255,0.05);
+      width: 520px;
+      height: 520px;
+      right: -250px;
+      top: -250px;
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 50%;
     }
+
     .counselling-hero::after {
-      content: '';
+      content: "";
       position: absolute;
-      bottom: -80px; left: -80px;
-      width: 280px; height: 280px;
-      background: rgba(255,255,255,0.04);
+      width: 360px;
+      height: 360px;
+      left: -230px;
+      bottom: -250px;
+      border: 1px solid rgba(255,255,255,.08);
       border-radius: 50%;
     }
+
+    .counselling-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
     .counselling-hero .eyebrow {
-      font-size: 0.75rem;
+      display: inline-block;
+      font-size: .72rem;
       font-weight: 700;
-      letter-spacing: 2.5px;
+      letter-spacing: 2.6px;
       text-transform: uppercase;
-      color: #93c5fd;
-      margin-bottom: 12px;
-    }
-    .counselling-hero h1 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      color: #ffffff !important;
-    }
-    .counselling-hero .hero-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.82);
-      max-width: 480px;
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-    .btn-cta-primary {
-      background: #e31837;
       color: #fff;
-      border: 2px solid #e31837;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding-left: 14px;
+      border-left: 3px solid var(--msec-red);
+      margin-bottom: 18px;
+    }
+
+    .counselling-hero h1 {
+      font-size: clamp(2.15rem, 4.5vw, 3.65rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -.7px;
+      margin-bottom: 20px;
+      color: #fff !important;
+    }
+
+    .counselling-hero .hero-sub {
+      font-size: 1.04rem;
+      color: rgba(255,255,255,.78);
+      max-width: 600px;
+      margin-bottom: 30px;
+      line-height: 1.75;
+    }
+
+    .btn-cta-primary,
+    .btn-cta-outline {
+      min-height: 46px;
+      padding: 11px 22px;
+      border-radius: 4px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: .9rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
+      justify-content: center;
+      gap: 9px;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
     }
-    .btn-cta-primary:hover { background: #c01430; border-color: #c01430; color: #fff; }
+
+    .btn-cta-primary {
+      background: var(--msec-red);
+      color: #fff;
+      border: 1px solid var(--msec-red);
+    }
+
+    .btn-cta-primary:hover {
+      background: var(--msec-red-dark);
+      border-color: var(--msec-red-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
     .btn-cta-outline {
       background: transparent;
       color: #fff;
-      border: 2px solid rgba(255,255,255,0.6);
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.55);
+    }
+
+    .btn-cta-outline:hover {
+      background: rgba(255,255,255,.08);
+      border-color: #fff;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .trust-badges {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .trust-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
+      gap: 7px;
+      font-size: .78rem;
+      color: rgba(255,255,255,.76);
     }
-    .btn-cta-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; }
-    .trust-badges { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 20px; }
-    .trust-badge { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: rgba(255,255,255,0.8); }
-    .trust-badge i { color: #93c5fd; }
-    .hero-img-wrap { position: relative; }
-    .hero-img-wrap img { border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-height: 380px; width: 100%; object-fit: cover; }
 
-    /* Section styling */
-    .section-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #e31837; margin-bottom: 6px; }
-    .section-title-h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: #1a2e5a; margin-bottom: 8px; }
-    .c-section { padding: 56px 0; }
-    .c-section-light { background: #f8f9fb; }
-    .c-section-white { background: #fff; }
+    .trust-badge i {
+      color: #fff;
+      font-size: .85rem;
+    }
 
-    /* Help Cards */
+    .hero-img-wrap {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .hero-img-wrap::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22px;
+      bottom: -22px;
+      width: 3px;
+      background: var(--msec-red);
+    }
+
+    .hero-img-wrap img {
+      border-radius: 3px;
+      box-shadow: 0 24px 55px rgba(0,0,0,.30);
+      max-height: 390px;
+      width: 100%;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    /* Sections */
+    .c-section {
+      padding: 76px 0;
+    }
+
+    .c-section-light {
+      background: var(--msec-bg);
+    }
+
+    .c-section-white {
+      background: #fff;
+    }
+
+    .section-eyebrow {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--msec-red);
+      margin-bottom: 8px;
+    }
+
+    .section-title-h2 {
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 800;
+      color: var(--msec-ink);
+      margin-bottom: 10px;
+      letter-spacing: -.25px;
+    }
+
+    /* Services */
     .help-card {
       background: #fff;
-      border: 1px solid #e8edf5;
-      border-radius: 14px;
-      padding: 28px 22px;
-      transition: all 0.3s;
+      border: 1px solid var(--msec-line);
+      border-radius: 4px;
+      padding: 30px 25px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
       height: 100%;
+      position: relative;
+      overflow: hidden;
     }
-    .help-card:hover { box-shadow: 0 8px 30px rgba(26,58,107,0.12); transform: translateY(-4px); border-color: #1a3a6b; }
-    .help-card .hc-icon {
-      width: 56px; height: 56px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-    .hc-blue { background: #dbeafe; }
-    .hc-green { background: #d1fae5; }
-    .hc-amber { background: #fef3c7; }
-    .hc-rose { background: #fee2e2; }
-    .help-card h5 { font-weight: 700; color: #1a2e5a; font-size: 1rem; margin-bottom: 8px; }
-    .help-card p { font-size: 0.875rem; color: #6b7280; line-height: 1.55; margin-bottom: 14px; }
-    .help-card .hc-link { font-size: 0.85rem; font-weight: 600; color: #e31837; text-decoration: none; }
-    .help-card .hc-link:hover { text-decoration: underline; }
 
-    /* Topic Chips */
+    .help-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--msec-red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    .help-card:hover {
+      box-shadow: 0 12px 32px rgba(11,45,79,.10);
+      transform: translateY(-5px);
+      border-color: #cbd7e1;
+    }
+
+    .help-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .help-card .hc-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+      background: #eef3f7 !important;
+      color: var(--msec-navy);
+      border-left: 3px solid var(--msec-red);
+    }
+
+    .help-card h5 {
+      font-weight: 700;
+      color: var(--msec-ink);
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .help-card p {
+      font-size: .86rem;
+      color: var(--msec-text);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .help-card .hc-link {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--msec-red);
+      text-decoration: none;
+    }
+
+    .help-card .hc-link:hover {
+      color: var(--msec-red-dark);
+    }
+
+    /* Topics */
     .topic-chip {
       background: #fff;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 16px 18px;
+      border: 1px solid var(--msec-line);
+      border-radius: 3px;
+      padding: 17px 18px;
       display: flex;
       align-items: center;
       gap: 12px;
       font-weight: 600;
-      color: #334155;
-      font-size: 0.875rem;
-      transition: all 0.2s;
+      color: var(--msec-ink);
+      font-size: .86rem;
+      transition: all .2s ease;
+      min-height: 56px;
     }
-    .topic-chip:hover { border-color: #1a3a6b; background: #f0f4ff; color: #1a3a6b; }
-    .topic-chip .tc-icon { font-size: 1.4rem; flex-shrink: 0; }
 
-    /* Process Steps */
-    .process-steps { display: flex; align-items: flex-start; gap: 0; flex-wrap: nowrap; }
-    @media (max-width: 768px) { .process-steps { flex-wrap: wrap; gap: 24px; } }
-    .step-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
-    .step-item:not(:last-child)::after {
-      content: '→';
-      position: absolute;
-      right: -12px;
-      top: 22px;
-      font-size: 1.4rem;
-      color: #94a3b8;
-      z-index: 1;
+    .topic-chip:hover {
+      border-color: var(--msec-red);
+      color: var(--msec-navy);
+      box-shadow: 0 5px 18px rgba(11,45,79,.07);
+      transform: translateY(-2px);
     }
-    @media (max-width: 768px) { .step-item:not(:last-child)::after { display: none; } }
-    .step-circle {
-      width: 52px; height: 52px;
+
+    .topic-chip .tc-icon {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: var(--msec-red);
+      flex-shrink: 0;
     }
-    .step-num { font-size: 0.65rem; font-weight: 800; letter-spacing: 1px; color: #94a3b8; margin-bottom: 4px; }
-    .step-title { font-size: 0.9rem; font-weight: 700; color: #1a2e5a; margin-bottom: 4px; }
-    .step-desc { font-size: 0.78rem; color: #6b7280; line-height: 1.4; }
 
-    /* Counsellor Cards */
+    /* Process */
+    .process-steps {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      flex-wrap: nowrap;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 25px;
+      height: 1px;
+      background: var(--msec-line);
+      z-index: 0;
+    }
+
+    .step-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 0 12px;
+    }
+
+    .step-item:not(:last-child)::after {
+      display: none;
+    }
+
+    .step-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .88rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      background: #fff !important;
+      color: var(--msec-red);
+      border: 1px solid var(--msec-line);
+      box-shadow: 0 0 0 7px #fff;
+    }
+
+    .step-num {
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      color: var(--msec-red);
+      margin-bottom: 5px;
+    }
+
+    .step-title {
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--msec-ink);
+      margin-bottom: 5px;
+    }
+
+    .step-desc {
+      font-size: .78rem;
+      color: var(--msec-muted);
+      line-height: 1.5;
+      max-width: 170px;
+    }
+
+    /* Information cards */
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--msec-line);
+      border-radius: 4px;
+      padding: 26px;
+      height: 100%;
+      box-shadow: 0 2px 10px rgba(11,45,79,.025);
+    }
+
+    .info-card .ic-title {
+      font-size: 1.08rem;
+      font-weight: 750;
+      color: var(--msec-ink);
+      margin-bottom: 17px;
+    }
+
+    /* Benefits */
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 11px 0;
+      border-bottom: 1px solid #edf1f4;
+    }
+
+    .benefit-item:last-child { border-bottom: none; }
+
+    .benefit-item .bi-icon {
+      width: 32px;
+      height: 32px;
+      background: #eef3f7;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--msec-red);
+      font-size: .88rem;
+      flex-shrink: 0;
+    }
+
+    .benefit-item span {
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--msec-ink);
+    }
+
+    /* Counsellor cards */
     .counsellor-card {
       background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 20px;
+      border: 1px solid #e3e9ee;
+      border-radius: 3px;
+      padding: 18px 14px;
       text-align: center;
       height: 100%;
     }
+
     .counsellor-card img {
-      width: 80px; height: 80px;
+      width: 82px;
+      height: 82px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #e31837;
+      border: 2px solid var(--msec-red);
+      padding: 2px;
       margin-bottom: 12px;
     }
-    .counsellor-card h6 { font-weight: 700; color: #1a2e5a; font-size: 0.95rem; margin-bottom: 4px; }
-    .counsellor-card .role { font-size: 0.8rem; color: #e31837; font-weight: 600; margin-bottom: 10px; }
-    .counsellor-card ul { list-style: none; padding: 0; text-align: left; }
-    .counsellor-card ul li { font-size: 0.78rem; color: #475569; padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
-    .counsellor-card ul li i { color: #22c55e; margin-top: 2px; flex-shrink: 0; }
 
-    /* Key Benefits */
-    .benefit-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
-    .benefit-item:last-child { border-bottom: none; }
-    .benefit-item .bi-icon { width: 34px; height: 34px; background: #fee2e2; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #e31837; font-size: 1rem; flex-shrink: 0; }
-    .benefit-item span { font-size: 0.85rem; font-weight: 600; color: #334155; }
+    .counsellor-card h6 {
+      font-weight: 700;
+      color: var(--msec-ink);
+      font-size: .88rem;
+      margin-bottom: 5px;
+    }
 
-    /* Study Skills */
-    .skill-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
-    .skill-row:last-child { border-bottom: none; }
-    .skill-row .sk-icon { font-size: 1.1rem; flex-shrink: 0; }
-    .skill-row span { font-size: 0.83rem; font-weight: 600; color: #334155; }
+    .counsellor-card .role {
+      font-size: .75rem;
+      color: var(--msec-red);
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
 
-    /* Info Cards */
-    .info-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; height: 100%; }
-    .info-card .ic-title { font-size: 1rem; font-weight: 700; color: #1a2e5a; margin-bottom: 16px; }
+    .counsellor-card ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin-bottom: 0;
+    }
 
-    /* Progress Journey */
-    .progress-stage { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
-    .progress-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #22c55e; }
-    .progress-stage .ps-text h6 { font-size: 0.875rem; font-weight: 700; color: #1a2e5a; margin-bottom: 2px; }
-    .progress-stage .ps-text p { font-size: 0.8rem; color: #6b7280; margin: 0; }
-    .weekly-note { font-size: 0.78rem; color: #6b7280; font-style: italic; margin-top: 10px; }
+    .counsellor-card ul li {
+      font-size: .74rem;
+      color: var(--msec-text);
+      padding: 4px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
 
-    /* Approach list */
-    .approach-item { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid #f1f5f9; }
-    .approach-item:last-child { border-bottom: none; }
-    .approach-item i { color: #1a3a6b; font-size: 1rem; flex-shrink: 0; }
-    .approach-item span { font-size: 0.85rem; color: #334155; font-weight: 500; }
+    .counsellor-card ul li i {
+      color: var(--msec-red);
+      margin-top: 2px;
+      flex-shrink: 0;
+      font-size: .7rem;
+    }
+
+    /* Study skills / approach */
+    .skill-row,
+    .approach-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid #edf1f4;
+    }
+
+    .skill-row:last-child,
+    .approach-item:last-child {
+      border-bottom: none;
+    }
+
+    .skill-row .sk-icon {
+      width: 22px;
+      text-align: center;
+      font-size: .9rem;
+      color: var(--msec-red);
+      flex-shrink: 0;
+    }
+
+    .skill-row span:last-child,
+    .approach-item span {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--msec-ink);
+    }
+
+    .approach-item i {
+      color: var(--msec-red);
+      font-size: .95rem;
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Progress journey */
+    .progress-stage {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 17px;
+      position: relative;
+    }
+
+    .progress-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 4px;
+      background: var(--msec-red) !important;
+    }
+
+    .dot-red, .dot-yellow, .dot-green { background: var(--msec-red) !important; }
+
+    .progress-stage .ps-text h6 {
+      font-size: .86rem;
+      font-weight: 700;
+      color: var(--msec-ink);
+      margin-bottom: 2px;
+    }
+
+    .progress-stage .ps-text p {
+      font-size: .78rem;
+      color: var(--msec-muted);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .weekly-note {
+      font-size: .76rem;
+      color: var(--msec-muted);
+      font-style: normal;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #edf1f4;
+    }
 
     /* Grievance */
     .grievance-link {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px 14px;
-      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 14px;
+      border-radius: 3px;
       text-decoration: none;
       margin-bottom: 10px;
-      transition: all 0.2s;
+      transition: all .2s ease;
+      border: 1px solid transparent;
     }
-    .grievance-link.student { background: #dbeafe; color: #1d4ed8; }
-    .grievance-link.faculty { background: #fef3c7; color: #92400e; }
-    .grievance-link.facility { background: #fee2e2; color: #991b1b; }
-    .grievance-link:hover { opacity: 0.85; transform: translateX(3px); }
-    .grievance-link .gl-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .grievance-link .gl-text strong { display: block; font-size: 0.85rem; font-weight: 700; }
-    .grievance-link .gl-text small { font-size: 0.75rem; opacity: 0.8; }
-    .grievance-process { font-size: 0.78rem; color: #94a3b8; margin-top: 8px; }
 
-    /* CTA Banner */
+    .grievance-link.student,
+    .grievance-link.faculty,
+    .grievance-link.facility,
+    .grievance-link[style] {
+      background: #f5f7f9 !important;
+      color: var(--msec-ink) !important;
+      border-color: var(--msec-line);
+    }
+
+    .grievance-link:hover {
+      background: #eef3f7 !important;
+      border-color: #cbd7e1;
+      transform: translateX(3px);
+    }
+
+    .grievance-link .gl-icon {
+      font-size: 1.05rem;
+      color: var(--msec-red) !important;
+      flex-shrink: 0;
+    }
+
+    .grievance-link .gl-text strong {
+      display: block;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--msec-ink) !important;
+    }
+
+    .grievance-link .gl-text small {
+      font-size: .72rem;
+      color: var(--msec-muted) !important;
+    }
+
+    .grievance-process {
+      font-size: .75rem;
+      color: var(--msec-muted);
+      margin-top: 8px;
+    }
+
+    /* CTA */
     .help-cta-banner {
-      background: linear-gradient(135deg, #1a3a6b 0%, #0d2a55 100%);
+      background: var(--msec-navy);
       color: #fff;
-      padding: 56px 0;
+      padding: 62px 0;
       text-align: center;
+      border-top: 4px solid var(--msec-red);
     }
-    .help-cta-banner h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: 8px; }
-    .help-cta-banner p { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
 
-    /* Btn study skills */
-    .btn-study { background: #1a3a6b; color: #fff; border: none; padding: 11px 22px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; width: 100%; margin-top: 12px; cursor: pointer; transition: background 0.2s; }
-    .btn-study:hover { background: #0d2a55; }
+    .help-cta-banner h2 {
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .help-cta-banner p {
+      font-size: .95rem;
+      color: rgba(255,255,255,.74);
+      margin-bottom: 26px;
+    }
+
+    .btn-study {
+      background: var(--msec-navy);
+      color: #fff;
+      border: 1px solid var(--msec-navy);
+      padding: 11px 20px;
+      border-radius: 3px;
+      font-size: .82rem;
+      font-weight: 700;
+      width: 100%;
+      margin-top: 13px;
+      cursor: pointer;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .btn-study:hover {
+      background: var(--msec-red);
+      border-color: var(--msec-red);
+      transform: translateY(-1px);
+    }
+
+    /* Make inherited page elements feel consistent */
+    #counselling-main .bi {
+      line-height: 1;
+    }
+
+    @media (max-width: 991px) {
+      .counselling-hero {
+        padding: 58px 0 52px;
+      }
+      .hero-img-wrap {
+        padding-left: 0;
+      }
+      .hero-img-wrap::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .c-section {
+        padding: 58px 0;
+      }
+      .process-steps {
+        flex-wrap: wrap;
+        gap: 30px 0;
+      }
+      .process-steps::before {
+        display: none;
+      }
+      .step-item {
+        flex: 0 0 50%;
+      }
+      .step-circle {
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .counselling-hero h1 {
+        font-size: 2rem;
+      }
+      .step-item {
+        flex: 0 0 100%;
+      }
+      .trust-badges {
+        gap: 13px;
+      }
+      .info-card {
+        padding: 21px;
+      }
+    }
     </style>
 
     <!-- ========== S1: HERO ========== -->
@@ -638,7 +1112,7 @@ Put your HTML text here
               <div class="hc-icon hc-blue"><i class="bi bi-book-fill"></i></div>
               <h5>Academic Support</h5>
               <p>Struggling with studies, concentration, time management or exams? We've got you covered.</p>
-              <a href="#" class="hc-link">Get Academic Guidance →</a>
+              <a href="#" class="hc-link">Get Academic Guidance <span aria-hidden="true">→</span></a>
             </div>
           </div>
           <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="150">
@@ -646,7 +1120,7 @@ Put your HTML text here
               <div class="hc-icon hc-green"><i class="bi bi-emoji-smile-fill"></i></div>
               <h5>Personal &amp; Emotional Support</h5>
               <p>Feeling stressed, overwhelmed or finding it difficult to cope? Talk to a counsellor.</p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="hc-link">Talk to a Counsellor →</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="hc-link">Talk to a Counsellor <span aria-hidden="true">→</span></a>
             </div>
           </div>
           <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="200">
@@ -654,7 +1128,7 @@ Put your HTML text here
               <div class="hc-icon hc-amber"><i class="bi bi-compass-fill"></i></div>
               <h5>Career Guidance</h5>
               <p>Need help making decisions about your career or future? Explore career guidance with us.</p>
-              <a href="#" class="hc-link">Explore Career Guidance →</a>
+              <a href="#" class="hc-link">Explore Career Guidance <span aria-hidden="true">→</span></a>
             </div>
           </div>
           <div class="col-md-6 col-xl-3 d-flex" data-aos="zoom-in" data-aos-delay="250">
@@ -662,7 +1136,7 @@ Put your HTML text here
               <div class="hc-icon hc-rose"><i class="bi bi-megaphone-fill"></i></div>
               <h5>Grievance &amp; Feedback</h5>
               <p>Have a concern that needs to be formally addressed? Submit a grievance confidentially.</p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="hc-link">Submit a Grievance →</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank" class="hc-link">Submit a Grievance <span aria-hidden="true">→</span></a>
             </div>
           </div>
         </div>
@@ -714,31 +1188,31 @@ Put your HTML text here
         </div>
         <div class="process-steps" data-aos="fade-up" data-aos-delay="100">
           <div class="step-item">
-            <div class="step-circle" style="background:#dbeafe;">📞</div>
+            <div class="step-circle"><i class="bi bi-telephone"></i></div>
             <div class="step-num">01</div>
             <div class="step-title">Reach Out</div>
             <div class="step-desc">Choose the type of support you need.</div>
           </div>
           <div class="step-item">
-            <div class="step-circle" style="background:#d1fae5;">💬</div>
+            <div class="step-circle"><i class="bi bi-chat-square-text"></i></div>
             <div class="step-num">02</div>
             <div class="step-title">Talk</div>
             <div class="step-desc">Meet your counsellor in a safe, supportive environment.</div>
           </div>
           <div class="step-item">
-            <div class="step-circle" style="background:#fef3c7;">🔍</div>
+            <div class="step-circle"><i class="bi bi-search"></i></div>
             <div class="step-num">03</div>
             <div class="step-title">Understand</div>
             <div class="step-desc">Identify challenges, strengths and positive solutions.</div>
           </div>
           <div class="step-item">
-            <div class="step-circle" style="background:#fee2e2;">📋</div>
+            <div class="step-circle"><i class="bi bi-clipboard-check"></i></div>
             <div class="step-num">04</div>
             <div class="step-title">Create a Plan</div>
             <div class="step-desc">Work together on practical next steps.</div>
           </div>
           <div class="step-item">
-            <div class="step-circle" style="background:#ede9fe;">✅</div>
+            <div class="step-circle"><i class="bi bi-check2-circle"></i></div>
             <div class="step-num">05</div>
             <div class="step-title">Follow Up</div>
             <div class="step-desc">Track your progress and adjust your plan.</div>
@@ -844,16 +1318,16 @@ Put your HTML text here
               <div class="section-eyebrow">ACADEMIC TOOL</div>
               <div class="ic-title">Study Skills Assessment</div>
               <p style="font-size:0.83rem; color:#6b7280; margin-bottom:14px;">Discover the strengths and areas where you can improve.</p>
-              <div class="skill-row"><span class="sk-icon">⏰</span><span>Time Management</span></div>
-              <div class="skill-row"><span class="sk-icon">💪</span><span>Motivation</span></div>
-              <div class="skill-row"><span class="sk-icon">🧠</span><span>Concentration &amp; Memory</span></div>
-              <div class="skill-row"><span class="sk-icon">📖</span><span>Reading Skills</span></div>
-              <div class="skill-row"><span class="sk-icon">📝</span><span>Note-taking</span></div>
-              <div class="skill-row"><span class="sk-icon">✏️</span><span>Writing Skills</span></div>
-              <div class="skill-row"><span class="sk-icon">📊</span><span>Test Strategies</span></div>
-              <div class="skill-row"><span class="sk-icon">📂</span><span>Information Processing</span></div>
+              <div class="skill-row"><span class="sk-icon"><i class="bi bi-clock"></i></span><span>Time Management</span></div>
+              <div class="skill-row"><span class="sk-icon"><i class="bi bi-lightning-charge"></i></span><span>Motivation</span></div>
+              <div class="skill-row"><span class="sk-icon"><i class="bi bi-brain"></i></span><span>Concentration &amp; Memory</span></div>
+              <div class="skill-row"><span class="sk-icon"><i class="bi bi-book"></i></span><span>Reading Skills</span></div>
+              <div class="skill-row"><span class="sk-icon"><i class="bi bi-journal-text"></i></span><span>Note-taking</span></div>
+              <div class="skill-row"><span class="sk-icon"><i class="bi bi-pencil"></i></span><span>Writing Skills</span></div>
+              <div class="skill-row"><span class="sk-icon"><i class="bi bi-bar-chart"></i></span><span>Test Strategies</span></div>
+              <div class="skill-row"><span class="sk-icon"><i class="bi bi-folder2-open"></i></span><span>Information Processing</span></div>
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSd865ay8IXtaMj3kOGDXHfVMiAEBVVdxtDIK68jGIBXyX_3Wg/viewform" target="_blank">
-                <button class="btn-study">Take the Study Skills Assessment →</button>
+                <button class="btn-study">Take the Study Skills Assessment <span aria-hidden="true">→</span></button>
               </a>
             </div>
           </div>
@@ -893,7 +1367,7 @@ Put your HTML text here
                   <p>Building confidence and achieving goals.</p>
                 </div>
               </div>
-              <p class="weekly-note">📅 Weekly follow-up helps students stay on track.</p>
+              <p class="weekly-note"><i class="bi bi-calendar3 me-1"></i> Weekly follow-up helps students stay on track.</p>
             </div>
           </div>
 
@@ -950,7 +1424,7 @@ Put your HTML text here
                   <small>Submit to AICTE Portal</small>
                 </div>
               </a>
-              <p class="grievance-process mt-2">Process: Submit → Review → Action → Resolution</p>
+              <p class="grievance-process mt-2">Process: Submit <span aria-hidden="true">→</span> Review <span aria-hidden="true">→</span> Action <span aria-hidden="true">→</span> Resolution</p>
             </div>
           </div>
 

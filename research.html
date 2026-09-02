@@ -148,7 +148,7 @@
   .research-events-section {
     width: 100%;
     max-width: 1120px;
-    margin: 38px auto 10px;
+    margin: 42px auto 16px;
     padding: 42px;
     background: #fff;
     border: 1px solid rgba(36,63,90,.10);
@@ -158,8 +158,8 @@
   }
 
   .research-events-heading {
-    max-width: 720px;
-    margin: 0 auto 30px;
+    max-width: 760px;
+    margin: 0 auto 34px;
     text-align: center;
   }
 
@@ -188,16 +188,18 @@
     line-height: 1.7;
   }
 
+  /* One full-width event per row keeps the poster and description readable. */
   .research-events-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 26px;
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .research-event-card {
     display: grid;
-    grid-template-columns: minmax(190px, 44%) 1fr;
+    grid-template-columns: 300px minmax(0, 1fr);
     align-items: stretch;
+    min-width: 0;
     overflow: hidden;
     background: #fff;
     border: 1px solid rgba(36,63,90,.12);
@@ -207,13 +209,13 @@
   }
 
   .research-event-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: 0 18px 40px rgba(13,43,73,.15);
   }
 
   .research-event-poster-wrap {
-    min-height: 430px;
-    padding: 18px;
+    min-height: 0;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -221,9 +223,11 @@
   }
 
   .research-event-poster {
+    display: block;
     width: 100%;
-    height: 100%;
-    max-height: 500px;
+    height: auto;
+    max-width: 260px;
+    max-height: none;
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 8px 22px rgba(0,0,0,.13);
@@ -231,7 +235,8 @@
   }
 
   .research-event-content {
-    padding: 30px 26px;
+    min-width: 0;
+    padding: 36px 42px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -240,7 +245,7 @@
   .research-event-badge {
     align-self: flex-start;
     display: inline-block;
-    padding: 6px 12px;
+    padding: 7px 13px;
     border-radius: 50px;
     background: var(--msec-red);
     color: #fff;
@@ -252,28 +257,29 @@
   .research-event-content h3 {
     margin: 15px 0 11px;
     color: var(--msec-navy);
-    font-size: 1.65rem;
+    font-size: clamp(1.55rem, 2.5vw, 2rem);
     font-weight: 800;
     line-height: 1.2;
   }
 
   .research-event-date {
     color: var(--msec-red);
-    font-size: .92rem;
+    font-size: .98rem;
     font-weight: 750;
-    line-height: 1.5;
-    margin-bottom: 12px;
+    line-height: 1.6;
+    margin-bottom: 14px;
   }
 
   .research-event-date i {
-    margin-right: 4px;
+    margin-right: 5px;
   }
 
   .research-event-content p {
     margin: 0;
+    max-width: 700px;
     color: #596579;
-    font-size: .94rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.8;
   }
 
   .research-event-content strong {
@@ -285,8 +291,8 @@
     display: inline-flex;
     align-items: center;
     gap: 9px;
-    margin-top: 22px;
-    padding: 11px 19px;
+    margin-top: 24px;
+    padding: 12px 21px;
     border-radius: 50px;
     background: var(--msec-red);
     color: #fff !important;
@@ -317,41 +323,72 @@
 
   @media (max-width: 992px) {
     .research-events-section {
-      padding: 30px 22px;
+      padding: 32px 24px;
     }
-    .research-events-grid {
-      grid-template-columns: 1fr;
-    }
+
     .research-event-card {
-      grid-template-columns: minmax(220px, 38%) 1fr;
+      grid-template-columns: 240px minmax(0, 1fr);
+    }
+
+    .research-event-poster {
+      max-width: 200px;
+    }
+
+    .research-event-content {
+      padding: 30px;
     }
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 700px) {
     .research-events-section {
-      margin-top: 25px;
-      padding: 25px 15px;
+      margin-top: 28px;
+      padding: 26px 14px;
       border-radius: 18px;
     }
+
+    .research-events-heading {
+      margin-bottom: 24px;
+    }
+
+    .research-events-heading p {
+      font-size: .94rem;
+    }
+
     .research-event-card {
       grid-template-columns: 1fr;
       border-radius: 17px;
     }
+
     .research-event-poster-wrap {
-      min-height: 0;
-      padding: 14px;
+      padding: 18px;
     }
+
     .research-event-poster {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 620px;
+      width: min(100%, 340px);
+      max-width: 340px;
+      margin: 0 auto;
     }
+
     .research-event-content {
-      padding: 24px 20px 26px;
+      padding: 24px 20px 28px;
     }
+
     .research-event-content h3 {
-      font-size: 1.4rem;
+      font-size: 1.45rem;
+    }
+
+    .research-event-date {
+      font-size: .92rem;
+    }
+
+    .research-event-content p {
+      font-size: .94rem;
+      line-height: 1.7;
+    }
+
+    .research-event-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

@@ -474,6 +474,45 @@ h1,h2,h3,h4{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.1}
   .head-video-player{min-height:220px}
   .head-video-copy{padding:21px 18px}
 }
+/* Centre of Competency Building page */
+.ccb-overview{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch}
+.ccb-lead{border:1px solid var(--line);border-radius:24px;padding:30px;background:#fff;box-shadow:0 10px 30px rgba(7,27,58,.05)}
+.ccb-lead p{color:var(--muted);font-size:14px;margin:0 0 13px}
+.ccb-highlight{border-radius:24px;padding:30px;background:linear-gradient(135deg,#071b3a,#123d76);color:#fff;position:relative;overflow:hidden}
+.ccb-highlight:after{content:"";position:absolute;width:210px;height:210px;border-radius:50%;right:-80px;top:-80px;background:rgba(197,31,58,.28);filter:blur(4px)}
+.ccb-highlight>*{position:relative;z-index:1}
+.ccb-highlight h3{font-size:24px;margin:0 0 10px}
+.ccb-highlight p{color:#c8d5e5;font-size:13px;margin:0}
+.ccb-domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ccb-domain{padding:22px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 7px 25px rgba(7,27,58,.04);transition:.3s}
+.ccb-domain:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.ccb-domain .num{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#f0f4f9;color:var(--red);font-family:"Space Grotesk";font-weight:800;margin-bottom:13px}
+.ccb-domain h3{color:var(--navy);font-size:17px;margin:0}
+.ccb-domain p{color:var(--muted);font-size:12px;margin:6px 0 0}
+.ccb-framework{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ccb-step{padding:22px;border-radius:18px;border:1px solid var(--line);background:#fff;position:relative}
+.ccb-step b{display:block;color:var(--red);font-size:11px;letter-spacing:1px;margin-bottom:7px}
+.ccb-step h3{margin:0 0 6px;color:var(--navy);font-size:17px}
+.ccb-step span{color:var(--muted);font-size:12px}
+.ccb-assessment{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center}
+.ccb-assessment-copy{padding:30px;border-radius:24px;background:linear-gradient(135deg,#071b3a,#0b2a55);color:#fff}
+.ccb-assessment-copy h3{font-size:28px;margin:0 0 10px}
+.ccb-assessment-copy p{color:#c8d5e5;font-size:13px;margin:0}
+.ccb-assessment-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.ccb-assessment-card{padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.ccb-assessment-card b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.ccb-assessment-card span{color:var(--muted);font-size:11px}
+.ccb-pathway{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ccb-path{padding:20px;border-radius:18px;background:var(--soft);border:1px solid var(--line)}
+.ccb-path b{display:block;color:var(--navy);font-size:13px;margin-bottom:6px}
+.ccb-path span{font-size:11px;color:var(--muted)}
+.ccb-ecosystem{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.ccb-ecosystem span{padding:9px 13px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#42536b;font-size:11px;font-weight:800}
+.ccb-future{margin-top:20px;border-radius:24px;padding:30px;background:linear-gradient(135deg,#071b3a,#123d76);color:#fff}
+.ccb-future h3{font-size:25px;margin:0 0 8px}
+.ccb-future p{color:#c8d5e5;font-size:13px;margin:0;max-width:850px}
+@media(max-width:900px){.ccb-overview,.ccb-assessment{grid-template-columns:1fr}.ccb-domain-grid,.ccb-framework{grid-template-columns:repeat(2,1fr)}.ccb-pathway{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.ccb-lead,.ccb-highlight,.ccb-assessment-copy,.ccb-future{padding:22px}.ccb-domain-grid,.ccb-framework,.ccb-pathway{grid-template-columns:1fr}.ccb-assessment-grid{grid-template-columns:1fr}.ccb-domain:hover{transform:none}}
 </style>
 
 <style>
@@ -801,6 +840,12 @@ const centres = {
     vision:"A continuous-learning ecosystem where students and faculty build measurable capabilities to perform, adapt and grow in a rapidly changing world.",
     mission:"Identify competency needs and deliver structured programmes aligned with academic requirements, career aspirations, industry expectations and future skills.",
     objectives:["Technical competencies","Professional competencies","Behavioural skills","Communication & leadership","Competency assessment","Practice, feedback & improvement"],
+    focus:["Technical","Professional","Behavioural","Communication","Leadership","Domain-specific"],
+    framework:["Identify competency needs","Align with academic requirements","Connect to career aspirations","Respond to industry expectations","Build future skills","Measure and improve capability"],
+    assessment:["Competency assessment","Diagnostic mechanisms","Strength identification","Development-need identification","Progress tracking","Measurable capability"],
+    learning:["Practical application","Feedback-driven learning","Demonstrable capability","Structured development","Continuous learning","Lifelong professional growth"],
+    ecosystem:["CDC","CIIC","IIC","ICE"],
+    pathways:["Career aspirations","Industry requirements","Innovation opportunities","Relevant competency-building pathways"],
     head:"Leadership details to be added", headRole:"Head / Centre Leadership",
     members:["Approved member list to be added","Faculty competency coordinators","Programme facilitators"],
     works:["Skill-building workshops","Certification programmes","Communication labs","Leadership programmes","Competency assessments","Industry simulations"],
@@ -905,11 +950,64 @@ function detailTemplate(key){
       <section class="msiic-section"><div class="eyebrow">Infrastructure</div><h2>Spaces Built for Experimentation.</h2><div class="infrastructure-grid">${c.infrastructure.map(x=>`<div class="infra-card"><div></div><b>${x}</b></div>`).join('')}</div></section>
       <section class="msiic-section alt-block"><div class="two-col"><div><div class="eyebrow">News & Events</div><h2>What's Happening at MS-IIC</h2><div class="news-list">${c.news.map((x,i)=>`<div><strong>${String(i+1).padStart(2,'0')}</strong><span>${x}</span></div>`).join('')}</div></div><div><div class="eyebrow">Student Success</div><h2>Ideas. Effort. Impact.</h2><div class="success-grid">${c.success.map(x=>`<div><strong>${x[0]}</strong><span>${x[1]}</span></div>`).join('')}</div><div class="build-future"><h3>Build the Future With Us.</h3><p>Whether you are a student, mentor, investor or industry partner, there is a place for you in our innovation journey.</p><a class="btn btn-primary" href="#contact">Build With Us →</a></div></div></div></section>
       ` : `
+      ${key==="msccb" ? `
+      <section class="msiic-section" style="padding-top:0">
+        <div class="ccb-overview">
+          <article class="ccb-lead">
+            <div class="eyebrow">Centre Overview</div>
+            <h2 style="font-size:34px;margin:8px 0 18px">Building Capability for a Changing World.</h2>
+            <p>The <strong>Centre of Competency Building (CCB)</strong> is the MSGI-wide hub for developing the competencies required for students and faculty to perform, adapt and grow in a rapidly changing world.</p>
+            <p>The Centre identifies and addresses <strong>technical, professional, behavioural, communication, leadership and domain-specific competency requirements</strong> across MSGI institutions.</p>
+            <p>CCB designs and facilitates structured competency-building programmes aligned with <strong>academic requirements, career aspirations, industry expectations and future skills.</strong></p>
+          </article>
+          <article class="ccb-highlight">
+            <div class="eyebrow" style="color:#ff8090">The CCB Approach</div>
+            <h3>Continuous Learning. Measurable Capability.</h3>
+            <p>Learning interventions move beyond one-time training towards practical application, feedback and demonstrable capability — helping learners build skills they can use, demonstrate and improve.</p>
+            <div class="ccb-ecosystem">${c.ecosystem.map(x=>`<span>${x}</span>`).join('')}</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="msiic-section alt-block">
+        <div class="eyebrow">Competency Domains</div>
+        <h2>What CCB Builds.</h2>
+        <p style="color:var(--muted);max-width:780px;font-size:14px">The Centre addresses the range of capabilities needed for academic performance, professional effectiveness, leadership and future-facing growth.</p>
+        <div class="ccb-domain-grid">${c.focus.map((x,i)=>`<article class="ccb-domain"><div class="num">0${i+1}</div><h3>${x} Competencies</h3><p>Develop capability aligned to the learner's academic and professional journey.</p></article>`).join('')}</div>
+      </section>
+
+      <section class="msiic-section">
+        <div class="section-head"><div><div class="eyebrow">Development Framework</div><h2>From Need to Capability.</h2></div><p>CCB connects competency needs with structured development, relevant expectations and measurable improvement.</p></div>
+        <div class="ccb-framework">${c.framework.map((x,i)=>`<article class="ccb-step"><b>STEP 0${i+1}</b><h3>${x}</h3><span>${i<2?'Understand and align competency requirements.':i<4?'Translate requirements into relevant development pathways.':'Measure capability, apply learning and continue improving.'}</span></article>`).join('')}</div>
+      </section>
+
+      <section class="msiic-section alt-block">
+        <div class="ccb-assessment">
+          <div class="ccb-assessment-copy"><div class="eyebrow" style="color:#ff8090">Assessment & Diagnostics</div><h3>Know Where You Are. Know What to Build Next.</h3><p>The Centre establishes appropriate <strong>competency assessment and diagnostic mechanisms</strong> to identify strengths, development needs and progress.</p></div>
+          <div class="ccb-assessment-grid">${c.assessment.map(x=>`<article class="ccb-assessment-card"><b>${x}</b><span>${x==='Competency assessment'?'Structured evaluation of capability.':x==='Diagnostic mechanisms'?'Identify gaps and development needs.':x==='Strength identification'?'Recognise existing strengths and capability.':x==='Development-need identification'?'Target the areas that require focused growth.':x==='Progress tracking'?'Monitor development over time.':'Support measurable capability outcomes.'}</span></article>`).join('')}</div>
+        </div>
+      </section>
+
+      <section class="msiic-section">
+        <div class="section-head"><div><div class="eyebrow">Learning Interventions</div><h2>Beyond One-Time Training.</h2></div><p>Learning interventions are designed to move beyond one-time training towards practical application, feedback and demonstrable capability.</p></div>
+        <div class="ccb-framework">${c.learning.map((x,i)=>`<article class="ccb-step"><b>0${i+1}</b><h3>${x}</h3><span>Build capability through structured learning, application, feedback and improvement.</span></article>`).join('')}</div>
+      </section>
+
+      <section class="msiic-section alt-block">
+        <div class="section-head"><div><div class="eyebrow">MSGI Integration</div><h2>Connected to the Wider Ecosystem.</h2></div><p>CCB works with CDC, CIIC, IIC and ICE to translate career aspirations, industry requirements and innovation opportunities into relevant competency-building pathways.</p></div>
+        <div class="ccb-pathway">${c.pathways.map((x,i)=>`<div class="ccb-path"><b>${String(i+1).padStart(2,'0')} • ${x}</b><span>Translate this need into a relevant competency-building pathway.</span></div>`).join('')}</div>
+        <div class="ccb-ecosystem">${c.ecosystem.map(x=>`<span>${x}</span>`).join('')}</div>
+      </section>
+
+      <section class="msiic-section">
+        <div class="ccb-future"><div class="eyebrow" style="color:#ff8090">The CCB Goal</div><h3>A Culture of Continuous Growth.</h3><p>Its goal is to create a culture of <strong>continuous learning, measurable capability development and lifelong professional growth</strong> across MSGI.</p></div>
+      </section>
+      ` : `
       <div class="two-col"><article class="info-card"><h3>Vision</h3><p>${c.vision}</p></article><article class="info-card"><h3>Mission</h3><p>${c.mission}</p></article></div>
       ${key==="mscdc" ? `<section style="margin-top:48px"><div class="eyebrow">What CDC Enables</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Career Pathways & Student Support</h2><div class="objectives">${c.focus.map((x,i)=>`<div class="objective"><b>0${i+1}</b><span>${x}</span></div>`).join('')}</div><div class="ecosystem-tagline"><span>${c.examinations.join('')}</span></div></section>` : ''}
-      ${key==="msccb" ? `<section style="margin-top:48px"><div class="eyebrow">Focus Areas</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Competency Development Framework</h2><div class="objectives">${c.focus.map((x,i)=>`<div class="objective"><b>0${i+1}</b><span>${x}</span></div>`).join('')}</div><div class="journey" style="margin-top:24px">${c.framework.map((x,i)=>`<div class="journey-card"><b>0${i+1}</b><strong>${x}</strong><span>Build measurable capability through structured development.</span></div>`).join('')}</div></section>` : ''}
       ${key==="ice" ? `<section style="margin-top:48px"><div class="eyebrow">Technology Domains at ICE</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Learn by Doing.</h2><div class="objectives">${c.domains.map((x,i)=>`<div class="objective"><b>0${i+1}</b><span>${x}</span></div>`).join('')}</div><div class="journey" style="margin-top:24px">${c.pathway.map((x,i)=>`<div class="journey-card"><b>0${i+1}</b><strong>${x}</strong><span>Move from exploration to real-world problem solving.</span></div>`).join('')}</div></section>` : ''}
       <section style="margin-top:48px"><div class="eyebrow">What the centre delivers</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Objectives & focus</h2><div class="objectives">${c.objectives.map((x,i)=>`<div class="objective"><b>0${i+1}</b><span>${x}</span></div>`).join('')}</div></section>
+      `}
       ${c.impact ? `<section style="margin-top:55px"><div class="eyebrow">Impact at a Glance</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Opportunity Meets Talent.</h2><div class="stats">${c.impact.map(x=>{const parts=x.split(' '); const first=parts.shift(); return `<div class="stat"><strong>${first}</strong><span>${parts.join(' ')}</span></div>`}).join('')}</div></section>` : ''}
       <section style="margin-top:55px"><div class="eyebrow">Leadership</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Head & members</h2><div class="people"><div class="person"><div class="avatar">${c.head.split(' ').slice(-1)[0].slice(0,2).toUpperCase()}</div><div><b>${c.head}</b><small>${c.headRole}</small></div></div>${c.members.map((m,i)=>`<div class="person"><div class="avatar">${String(i+1).padStart(2,'0')}</div><div><b>${m.split(' — ')[0]}</b><small>${m.includes(' — ')?m.split(' — ').slice(1).join(' — '):'Centre member / role'}</small></div></div>`).join('')}</div></section>
       <section style="margin-top:55px"><div class="eyebrow">Activities & works</div><h2 style="color:var(--navy);font-size:36px;margin:8px 0 22px">Centre in action</h2><div class="gallery">${c.works.map(w=>`<div class="work"><div class="work-icon">${iconFor(key)}</div><div class="work-text"><b>${w}</b><span>Replace with approved centre photograph / banner</span></div></div>`).join('')}</div></section>

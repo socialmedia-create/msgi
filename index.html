@@ -2089,6 +2089,34 @@
     .nh-ticker__scroller {
       animation-duration: 40s !important;
     }
+
+    /* MATLAB Suite menu button */
+    .matlab-suite-menu-item {
+      margin: 8px 0 12px;
+    }
+
+    .matlab-suite-menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 10px;
+      background: #243f5a;
+      color: #ffffff !important;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 16px rgba(36, 63, 90, 0.18);
+    }
+
+    .matlab-suite-menu-btn:hover {
+      background: #e31837;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(227, 24, 55, 0.22);
+    }
+
   </style>
 </head>
 
@@ -2204,6 +2232,13 @@
             <ul class="nav flex-column">
 
               <li><a href="index.html" class="nav-link">Home</a></li>
+
+              <li class="nav-item matlab-suite-menu-item">
+                <a href="https://in.mathworks.com/academia/tah-portal/meenakshi-sundararajan-engineering-college-31703936.html"
+                  class="matlab-suite-menu-btn" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-grid-3x3-gap-fill me-2"></i>Matlab Suite
+                </a>
+              </li>
 
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
@@ -2773,20 +2808,18 @@
               <i class="bi bi-chevron-right"></i>
             </button>
 
-            <!-- Indicators for 6 slides -->
+            <!-- Indicators for 5 slides -->
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Event 1: International Conference"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="1"
-                aria-label="Event 2: Aarambam"></button>
+                aria-label="Event 2: Euphoria"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="2"
-                aria-label="Event 3: Euphoria"></button>
+                aria-label="Event 3: Graduation Day"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="3"
-                aria-label="Event 4: Graduation"></button>
+                aria-label="Event 4: Alumni Meet"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="4"
-                aria-label="Event 5: Alumni Meet"></button>
-              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="5"
-                aria-label="Event 6: 5TH Research Summit"></button>
+                aria-label="Event 5: 5TH Research Summit"></button>
             </div>
 
             <div class="carousel-inner">
@@ -2816,39 +2849,7 @@
                 </div>
               </div>
 
-              <!-- Slide 2: Aarambam -->
-              <div class="carousel-item">
-                <div class="upcoming-event-slide row align-items-center g-4">
-                  <div class="col-lg-5">
-                    <div class="upcoming-poster-box">
-                      <img src="assets/img/aarambam.jpeg" class="upcoming-event-poster"
-                        alt="Aarambam – A New Beginning">
-                    </div>
-                  </div>
-                  <div class="col-lg-7 d-flex flex-column justify-content-center">
-                    <div>
-                      <span class="upcoming-event-badge"><i class="bi bi-stars"></i> 7th Sept</span>
-                    </div>
-                    <h3>Aarambam – A New Beginning</h3>
-                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> Orientation Day</div>
-                    <p><strong>Aarambam</strong>, the Orientation Day, marks the beginning of an exciting new chapter
-                      for our students. It is a warm welcome into a vibrant learning community where new faces become
-                      friends, curiosity becomes possibility, and every new experience opens the door to something
-                      greater.</p>
-                    <p class="mb-2">Designed to help students connect, explore and feel at home, Aarambam sets the
-                      stage for a journey filled with learning, discovery, collaboration and growth.</p>
-                    <p class="fw-bold mb-3" style="color: #243f5a;">Come, begin your journey. Come, be part of something
-                      new.</p>
-                    <div>
-                      <a href="news.html" class="upcoming-event-btn">
-                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 3: Euphoria -->
+              <!-- Slide 2: Euphoria -->
               <div class="carousel-item">
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
@@ -2875,23 +2876,24 @@
                 </div>
               </div>
 
-              <!-- Slide 4: Graduation Day -->
+              <!-- Slide 3: Graduation Day Ceremony -->
               <div class="carousel-item">
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
                     <div class="upcoming-poster-box">
-                      <img src="./assets/img/upcoming-graduation.webp" class="upcoming-event-poster"
-                        alt="MSEC Graduation Day - Batch of 2021-25">
+                      <img src="./assets/img/graduation-day.jpeg" class="upcoming-event-poster"
+                        alt="21st Graduation Day Ceremony - 2021-2025 Batch">
                     </div>
                   </div>
                   <div class="col-lg-7 d-flex flex-column justify-content-center">
                     <div>
                       <span class="upcoming-event-badge"><i class="bi bi-mortarboard-fill"></i> ACADEMIC CEREMONY</span>
                     </div>
-                    <h3>Graduation Day</h3>
-                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> MSEC Batch of 2021–25</div>
-                    <p>Honoring academic dedication, perseverance, and achievements. Celebrating our graduating
-                      engineers as they step forward into successful global careers.</p>
+                    <h3>21st Graduation Day Ceremony</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-calendar-event"></i> 12th September 2026 &nbsp; | &nbsp; 3:05 PM</div>
+                    <p><strong>2021–2025 Batch</strong> — Celebrating the achievements and academic journey of our graduating engineers as they take the next step forward.</p>
+                    <p><strong>Chief Guest:</strong> Hon'ble Mr. Justice D K Singh, Judge, Hon'ble High Court of Karnataka.</p>
+                    <p><strong>Venue:</strong> MS Auditorium, MSGI Campus, Kodambakkam, Chennai-24.</p>
                     <div>
                       <a href="news.html" class="upcoming-event-btn">
                         <span>Event Details</span> <i class="bi bi-arrow-right"></i>
@@ -2901,7 +2903,7 @@
                 </div>
               </div>
 
-              <!-- Slide 5: Alumni Meet -->
+              <!-- Slide 4: Alumni Meet -->
               <div class="carousel-item">
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
@@ -2927,7 +2929,7 @@
                 </div>
               </div>
 
-              <!-- Slide 6: 5TH Research Summit -->
+              <!-- Slide 5: 5TH Research Summit -->
               <div class="carousel-item">
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
@@ -3366,12 +3368,10 @@
       <div class="popup-content" style="max-width: 440px; width: 90%; margin: auto;">
         <button class="popup-close" onclick="closePopup()">×</button>
 
-        <a href="https://msec.edu.in/admission2026/" class="popup-link">
+        <a href="#upcoming-events" class="popup-link">
           <picture>
-            <!-- Mobile Image -->
-            <source srcset="assets/img/aarambam.jpeg" media="(max-width: 768px)">
-            <!-- Desktop Image -->
-            <img src="assets/img/aarambam.jpeg" alt="Admissions Open 2026-2027" class="popup-img"
+            <!-- Mobile and desktop image -->
+            <img src="assets/img/graduation-day.jpeg" alt="21st Graduation Day Ceremony - 2021-2025 Batch" class="popup-img"
               style="max-height: 80vh; width: 100%; object-fit: contain; border-radius: 10px;" />
           </picture>
         </a>

@@ -110,12 +110,6 @@
     "email": "navaneethan@mmu.edu.my",
     "role_aff": "Senior Lecturer, Faculty of Computing and Information, Multimedia University (MMU), Malaysia"
   },
-  "Dr. Wasim Haidar": {
-    "role": "College of Computing and Information Sciences",
-    "affiliation": "University of Technology and Applied Sciences \u2013 Salalah, Oman",
-    "email": "wasims5@gmail.com",
-    "role_aff": "College of Computing and Information Sciences, University of Technology and Applied Sciences \u2013 Salalah, Oman"
-  },
   "Prof. Arun Sharma": {
     "role": "Professor, Department of Information Technology",
     "affiliation": "Indira Gandhi Delhi Technical University for Women, India",
@@ -293,5 +287,11 @@
   },
   "Prof. (Dr.) Shelly Sachdeva": {
     "role_aff": "Professor, Computer Science &amp; Engineering, National Institute of Technology Delhi, India"
+  },
+  "Dr. Sk Wasim Haidar": {
+    "role": "Head of Informatics Section, College of Computing and Information Sciences",
+    "affiliation": "University of Technology and Applied Sciences \u2013 Salalah",
+    "email": "wasim.haidar@utas.edu.om",
+    "role_aff": "Head of Informatics Section, College of Computing and Information Sciences, University of Technology and Applied Sciences \u2013 Salalah"
   }
 }

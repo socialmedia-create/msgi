@@ -227,12 +227,24 @@
     }
     .achievement-badge.red{background:var(--msec-red);}
     .achievement-badge.gold{background:#a97909;}
+    /* Show the complete Sivaguru photo without cropping the people at either side. */
     .feature-photo{
       width:100%;
-      height:100%;
-      min-height:360px;
-      object-fit:cover;
+      height:auto;
+      max-height:520px;
+      min-height:0;
+      object-fit:contain;
+      object-position:center;
       display:block;
+      background:#f4f7fa;
+    }
+
+    .feature-photo-col{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#f4f7fa;
+      overflow:hidden;
     }
     .gallery-grid{
       display:grid;
@@ -299,7 +311,15 @@
       .carousel-control-prev,.carousel-control-next{width:38px;height:38px;margin:0 7px;}
       .gallery-grid{grid-template-columns:1fr 1fr;}
       .gallery-item:first-child{grid-column:1/-1;min-height:230px;}
-      .feature-photo{min-height:280px;}
+      .feature-photo{
+        width:100%;
+        height:auto;
+        max-height:none;
+        object-fit:contain;
+      }
+      .feature-photo-col{
+        min-height:0;
+      }
       .highlight-body{padding:22px;}
     }
   </style>
@@ -371,7 +391,7 @@
         </div>
 
         <div class="rank-carousel-wrap">
-          <div id="rankHoldersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5200">
+          <div id="rankHoldersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500" data-bs-pause="hover">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="rank-slide"><img src="assets/img/student-achievements/rank-aids-2026.jpeg" alt="Artificial Intelligence and Data Science Rank Holders 2026"></div>
@@ -439,11 +459,11 @@
             <article class="highlight-card">
               <div class="highlight-top"></div>
               <div class="row g-0 align-items-stretch">
-                <div class="col-lg-5">
+                <div class="col-lg-6 feature-photo-col">
                   <img class="feature-photo" src="assets/img/student-achievements/sivaguru-tecc.jpeg"
                        alt="MSEC student Sivaguru receiving a Certificate of Appreciation at TECC">
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-6">
                   <div class="highlight-body">
                     <span class="highlight-kicker">International Exposure</span>
                     <h3>Sivaguru — EEE | Internship at Taipei Economic and Cultural Center</h3>
@@ -538,5 +558,20 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Explicitly start the Rank Holders carousel and advance through every poster.
+    document.addEventListener('DOMContentLoaded', function () {
+      const rankCarousel = document.getElementById('rankHoldersCarousel');
+      if (rankCarousel && window.bootstrap) {
+        bootstrap.Carousel.getOrCreateInstance(rankCarousel, {
+          interval: 4500,
+          pause: 'hover',
+          ride: 'carousel',
+          wrap: true,
+          touch: true
+        }).cycle();
+      }
+    });
+  </script>
 </body>
 </html>

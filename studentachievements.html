@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Achievements 2026 | MSEC</title>
+  <meta name="description" content="Student achievements at Meenakshi Sundararajan Engineering College — Rank Holders 2026 and student highlights.">
+
+  <!-- Uses the same MSEC site framework/theme as index.html -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/stylehome.min.css">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+
+  <style>
+    :root{
+      --msec-navy:#0b2442;
+      --msec-navy-2:#102f55;
+      --msec-red:#e31837;
+      --msec-red-dark:#b90f2b;
+      --msec-gold:#d9a62e;
+      --msec-bg:#f6f8fb;
+      --msec-text:#243f5a;
+    }
+
+    body{
+      background:var(--msec-bg);
+      color:var(--msec-text);
+    }
+
+    /* Header fallback styling: keeps this page visually consistent even if
+       the existing minified CSS is not loaded during local preview. */
+    .achievements-header{
+      background:#fff;
+      border-bottom:4px solid var(--msec-red);
+      box-shadow:0 6px 24px rgba(11,36,66,.10);
+      position:relative;
+      z-index:20;
+    }
+    .achievements-header .header-inner{
+      min-height:112px;
+      padding:12px 0;
+    }
+    .achievements-header .mseclogo{
+      width:74px;
+      height:74px;
+      object-fit:contain;
+    }
+    .achievements-header .college-name{
+      color:var(--msec-navy);
+      font-size:clamp(1.15rem,2.4vw,2rem);
+      font-weight:800;
+      line-height:1.08;
+      margin:0;
+    }
+    .achievements-header .header-meta{
+      color:#526579;
+      font-size:.78rem;
+      line-height:1.55;
+    }
+    .site-menu-btn{
+      border:0;
+      background:var(--msec-navy);
+      color:#fff;
+      border-radius:8px;
+      padding:9px 16px;
+      font-weight:700;
+      transition:.2s ease;
+    }
+    .site-menu-btn:hover{background:var(--msec-red);color:#fff;}
+
+    .achievement-hero{
+      position:relative;
+      overflow:hidden;
+      padding:76px 0 68px;
+      background:
+        radial-gradient(circle at 82% 10%, rgba(227,24,55,.18), transparent 30%),
+        linear-gradient(135deg,var(--msec-navy) 0%,#123d6d 58%,var(--msec-navy-2) 100%);
+      color:#fff;
+    }
+    .achievement-hero:after{
+      content:"";
+      position:absolute;
+      width:420px;height:420px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:50%;
+      right:-170px;bottom:-260px;
+    }
+    .hero-eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#fff;
+      background:rgba(227,24,55,.9);
+      padding:7px 14px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+    .achievement-hero h1{
+      font-weight:900;
+      font-size:clamp(2.2rem,5vw,4.25rem);
+      line-height:1.03;
+      margin:18px 0 12px;
+    }
+    .achievement-hero h1 span{color:#f4c84a;}
+    .achievement-hero p{
+      max-width:760px;
+      color:rgba(255,255,255,.84);
+      font-size:1.08rem;
+      line-height:1.75;
+      margin:0;
+    }
+
+    .section-block{padding:82px 0;}
+    .section-heading{text-align:center;max-width:850px;margin:0 auto 42px;}
+    .section-heading .eyebrow{
+      color:var(--msec-red);
+      font-weight:900;
+      letter-spacing:1.5px;
+      font-size:.76rem;
+      text-transform:uppercase;
+    }
+    .section-heading h2{
+      color:var(--msec-navy);
+      font-size:clamp(2rem,4vw,3rem);
+      font-weight:900;
+      margin:8px 0 12px;
+    }
+    .section-heading p{color:#68798c;margin:0;line-height:1.7;}
+
+    .rank-carousel-wrap{
+      background:#fff;
+      border-radius:26px;
+      padding:20px;
+      box-shadow:0 18px 50px rgba(11,36,66,.12);
+      border:1px solid rgba(11,36,66,.07);
+    }
+    .rank-slide{
+      background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);
+      border-radius:18px;
+      min-height:300px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .rank-slide img{
+      display:block;
+      width:100%;
+      max-height:760px;
+      object-fit:contain;
+    }
+    .rank-caption{
+      text-align:center;
+      padding:14px 10px 5px;
+      font-weight:800;
+      color:var(--msec-navy);
+      font-size:.95rem;
+    }
+    .carousel-control-prev,.carousel-control-next{
+      width:48px;height:48px;
+      top:50%;transform:translateY(-50%);
+      background:var(--msec-navy);
+      border-radius:50%;
+      opacity:1;
+      margin:0 12px;
+    }
+    .carousel-control-prev:hover,.carousel-control-next:hover{background:var(--msec-red);}
+    .carousel-indicators{position:static;margin:18px 0 4px;}
+    .carousel-indicators [data-bs-target]{
+      width:26px;height:5px;border:0;border-radius:5px;
+      background:#c5ced9;opacity:1;
+    }
+    .carousel-indicators .active{background:var(--msec-red);}
+
+    .highlights-section{
+      background:linear-gradient(180deg,#eef3f8 0%,#fff 100%);
+    }
+    .highlight-card{
+      background:#fff;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(11,36,66,.08);
+      box-shadow:0 18px 48px rgba(11,36,66,.10);
+      height:100%;
+    }
+    .highlight-top{
+      height:6px;
+      background:linear-gradient(90deg,var(--msec-red),var(--msec-gold),var(--msec-navy));
+    }
+    .highlight-body{padding:30px;}
+    .highlight-kicker{
+      color:var(--msec-red);
+      font-weight:900;
+      letter-spacing:1.2px;
+      font-size:.74rem;
+      text-transform:uppercase;
+    }
+    .highlight-body h3{
+      color:var(--msec-navy);
+      font-weight:900;
+      font-size:1.65rem;
+      margin:8px 0 14px;
+    }
+    .highlight-body p{
+      color:#5f7184;
+      line-height:1.75;
+      margin-bottom:16px;
+    }
+    .achievement-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:var(--msec-navy);
+      color:#fff;
+      border-radius:999px;
+      padding:7px 13px;
+      font-size:.78rem;
+      font-weight:800;
+      margin:2px 4px 2px 0;
+    }
+    .achievement-badge.red{background:var(--msec-red);}
+    .achievement-badge.gold{background:#a97909;}
+    .feature-photo{
+      width:100%;
+      height:100%;
+      min-height:360px;
+      object-fit:cover;
+      display:block;
+    }
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:1.25fr .875fr .875fr;
+      gap:12px;
+      margin-top:22px;
+    }
+    .gallery-item{
+      border-radius:16px;
+      overflow:hidden;
+      background:#eef2f6;
+      min-height:190px;
+      position:relative;
+    }
+    .gallery-item:first-child{min-height:280px;}
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      min-height:190px;
+      object-fit:cover;
+      display:block;
+    }
+    .gallery-label{
+      position:absolute;
+      left:12px;bottom:12px;
+      background:rgba(11,36,66,.88);
+      color:#fff;
+      padding:6px 10px;
+      border-radius:7px;
+      font-size:.72rem;
+      font-weight:700;
+    }
+    .source-note{
+      margin-top:16px;
+      font-size:.78rem;
+      color:#7a8998;
+    }
+    .source-note strong{color:var(--msec-navy);}
+
+    .cm-poster{
+      width:100%;
+      max-height:620px;
+      object-fit:contain;
+      background:#fff;
+      border-radius:14px;
+    }
+
+    .site-footer{
+      background:var(--msec-navy);
+      color:rgba(255,255,255,.78);
+      padding:30px 0;
+      border-top:4px solid var(--msec-red);
+    }
+    .site-footer strong{color:#fff;}
+    .site-footer a{color:#fff;text-decoration:none;}
+    .site-footer a:hover{color:#f4c84a;}
+
+    @media(max-width:767px){
+      .achievements-header .header-inner{min-height:90px;}
+      .achievements-header .mseclogo{width:56px;height:56px;}
+      .achievement-hero{padding:54px 0 48px;}
+      .section-block{padding:58px 0;}
+      .rank-carousel-wrap{padding:10px;}
+      .carousel-control-prev,.carousel-control-next{width:38px;height:38px;margin:0 7px;}
+      .gallery-grid{grid-template-columns:1fr 1fr;}
+      .gallery-item:first-child{grid-column:1/-1;min-height:230px;}
+      .feature-photo{min-height:280px;}
+      .highlight-body{padding:22px;}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="achievements-header">
+    <div class="container-xl header-inner d-flex align-items-center justify-content-between gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html" aria-label="MSEC Home">
+          <img src="assets/img/mseclogo.png" class="mseclogo" alt="MSEC Logo">
+        </a>
+        <div>
+          <a href="index.html" class="text-decoration-none">
+            <h1 class="college-name">Meenakshi Sundararajan Engineering College</h1>
+          </a>
+          <div class="header-meta">
+            An Autonomous Institution | Managed by IIET Society<br>
+            Approved by AICTE, New Delhi | Affiliated to Anna University, Chennai
+          </div>
+        </div>
+      </div>
+
+      <button class="site-menu-btn d-flex align-items-center gap-2" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#msecMenu" aria-controls="msecMenu">
+        <i class="bi bi-list fs-4"></i><span>Menu</span>
+      </button>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="msecMenu" aria-labelledby="msecMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold" id="msecMenuLabel">MSEC Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav flex-column gap-1">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link active fw-bold" href="studentachievements.html">Student Achievements</a></li>
+          <li><a class="nav-link" href="academics.html">Departments</a></li>
+          <li><a class="nav-link" href="placements.html">Placements</a></li>
+          <li><a class="nav-link" href="news.html">News & Events</a></li>
+          <li><a class="nav-link" href="students-life.html">Students Life</a></li>
+          <li><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="achievement-hero">
+      <div class="container position-relative" style="z-index:1;">
+        <span class="hero-eyebrow"><i class="bi bi-stars"></i> MSEC Student Excellence</span>
+        <h1>Student <span>Achievements</span> 2026</h1>
+        <p>
+          Celebrating academic excellence, international exposure, sporting achievement and the
+          accomplishments of our students who continue to make MSEC proud.
+        </p>
+      </div>
+    </section>
+
+    <!-- Rank Holders 2026 -->
+    <section class="section-block" id="rank-holders">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Academic Excellence</span>
+          <h2>Rank Holders 2026</h2>
+          <p>Department-wise university rank holders and academic achievers of the graduating batch.</p>
+        </div>
+
+        <div class="rank-carousel-wrap">
+          <div id="rankHoldersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5200">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="rank-slide"><img src="assets/img/student-achievements/rank-aids-2026.jpeg" alt="Artificial Intelligence and Data Science Rank Holders 2026"></div>
+                <div class="rank-caption">Artificial Intelligence and Data Science</div>
+              </div>
+              <div class="carousel-item">
+                <div class="rank-slide"><img src="assets/img/student-achievements/rank-civil-2026.jpeg" alt="Civil Engineering Rank Holders 2026"></div>
+                <div class="rank-caption">Civil Engineering</div>
+              </div>
+              <div class="carousel-item">
+                <div class="rank-slide"><img src="assets/img/student-achievements/rank-cse-2026.jpeg" alt="Computer Science and Engineering Rank Holders 2026"></div>
+                <div class="rank-caption">Computer Science &amp; Engineering</div>
+              </div>
+              <div class="carousel-item">
+                <div class="rank-slide"><img src="assets/img/student-achievements/rank-ece-2026.jpeg" alt="Electronics and Communication Engineering Rank Holders 2026"></div>
+                <div class="rank-caption">Electronics &amp; Communication Engineering</div>
+              </div>
+              <div class="carousel-item">
+                <div class="rank-slide"><img src="assets/img/student-achievements/rank-eee-2026.jpeg" alt="Electrical and Electronics Engineering Rank Holders 2026"></div>
+                <div class="rank-caption">Electrical &amp; Electronics Engineering</div>
+              </div>
+              <div class="carousel-item">
+                <div class="rank-slide"><img src="assets/img/student-achievements/rank-it-2026.jpeg" alt="Information Technology Rank Holders 2026"></div>
+                <div class="rank-caption">Information Technology</div>
+              </div>
+              <div class="carousel-item">
+                <div class="rank-slide"><img src="assets/img/student-achievements/rank-mechanical-2026.jpeg" alt="Mechanical Engineering Rank Holders 2026"></div>
+                <div class="rank-caption">Mechanical Engineering</div>
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide="prev" aria-label="Previous department">
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide="next" aria-label="Next department">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="AI and DS"></button>
+              <button type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide-to="1" aria-label="Civil"></button>
+              <button type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide-to="2" aria-label="CSE"></button>
+              <button type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide-to="3" aria-label="ECE"></button>
+              <button type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide-to="4" aria-label="EEE"></button>
+              <button type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide-to="5" aria-label="IT"></button>
+              <button type="button" data-bs-target="#rankHoldersCarousel" data-bs-slide-to="6" aria-label="Mechanical"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="section-block highlights-section" id="highlights">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Beyond the Classroom</span>
+          <h2>Student Highlights</h2>
+          <p>Stories of international exposure, recognition and achievement from the MSEC student community.</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Highlight 1 -->
+          <div class="col-12">
+            <article class="highlight-card">
+              <div class="highlight-top"></div>
+              <div class="row g-0 align-items-stretch">
+                <div class="col-lg-5">
+                  <img class="feature-photo" src="assets/img/student-achievements/sivaguru-tecc.jpeg"
+                       alt="MSEC student Sivaguru receiving a Certificate of Appreciation at TECC">
+                </div>
+                <div class="col-lg-7">
+                  <div class="highlight-body">
+                    <span class="highlight-kicker">International Exposure</span>
+                    <h3>Sivaguru — EEE | Internship at Taipei Economic and Cultural Center</h3>
+                    <p>
+                      Our student <strong>Sivaguru Thilai Mahenthiran</strong> from the
+                      <strong>Electrical and Electronics Engineering (EEE)</strong> department was
+                      recommended by Meenakshi Sundararajan Engineering College for an international
+                      internship exposure at the <strong>Taipei Economic and Cultural Center (TECC), Chennai</strong>.
+                    </p>
+                    <p>
+                      The experience brought together students from partner universities for meaningful
+                      international interaction and learning. Sivaguru was also recognized with a
+                      <strong>Certificate of Appreciation</strong> during the TECC gathering held on
+                      <strong>7 August 2026</strong>.
+                    </p>
+                    <div>
+                      <span class="achievement-badge"><i class="bi bi-globe2"></i> International Internship</span>
+                      <span class="achievement-badge red"><i class="bi bi-mortarboard-fill"></i> EEE</span>
+                      <span class="achievement-badge gold"><i class="bi bi-award-fill"></i> Certificate of Appreciation</span>
+                    </div>
+                    <p class="source-note">
+                      <strong>Featured source:</strong> Taiwan in Chennai's Facebook post covering the
+                      international internship programme and the TECC gathering in Chennai.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="px-4 pb-4">
+                <div class="gallery-grid">
+                  <div class="gallery-item">
+                    <img src="assets/img/student-achievements/taiwan-facebook-collage.jpeg"
+                         alt="Taiwan in Chennai Facebook post collage featuring the internship gathering" loading="lazy">
+                    <span class="gallery-label">Taiwan in Chennai — Facebook post</span>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="assets/img/student-achievements/taiwan-facebook-chinese.jpeg"
+                         alt="Taiwan in Chennai Facebook post in Chinese" loading="lazy">
+                    <span class="gallery-label">Official post</span>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="assets/img/student-achievements/taiwan-facebook-english.jpeg"
+                         alt="Taiwan in Chennai Facebook post in English" loading="lazy">
+                    <span class="gallery-label">English translation / post</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Highlight 2 -->
+          <div class="col-12">
+            <article class="highlight-card">
+              <div class="highlight-top"></div>
+              <div class="row g-0 align-items-center">
+                <div class="col-lg-7 order-2 order-lg-1">
+                  <div class="highlight-body">
+                    <span class="highlight-kicker">Sports Achievement</span>
+                    <h3>Naveen K — 2nd Place at CM Trophy 2026</h3>
+                    <p>
+                      Congratulations to <strong>Mr. Naveen K</strong>, a
+                      <strong>1st-year Mechanical Engineering</strong> student of MSEC, for securing
+                      <strong>2nd place in Wushu</strong> at the <strong>CM Trophy 2026</strong>.
+                    </p>
+                    <p>
+                      His performance reflects the discipline, perseverance and competitive spirit
+                      nurtured through student participation in sports at MSEC.
+                    </p>
+                    <span class="achievement-badge red"><i class="bi bi-trophy-fill"></i> 2nd Place</span>
+                    <span class="achievement-badge"><i class="bi bi-person-arms-up"></i> Wushu</span>
+                    <span class="achievement-badge gold"><i class="bi bi-calendar-event"></i> CM Trophy 2026</span>
+                  </div>
+                </div>
+                <div class="col-lg-5 order-1 order-lg-2 p-3 p-lg-4">
+                  <img class="cm-poster" src="assets/img/student-achievements/naveen-cm-trophy-2026.jpeg"
+                       alt="CM Trophy 2026 poster congratulating MSEC student Naveen K for second place in Wushu"
+                       loading="lazy">
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <div><strong>Meenakshi Sundararajan Engineering College</strong><br>363, Arcot Road, Kodambakkam, Chennai – 600 024</div>
+      <div class="text-md-end">Student Achievements 2026 · <a href="index.html">Back to MSEC Home</a></div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

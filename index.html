@@ -2000,6 +2000,93 @@
     }
 
 
+    /* ===== Hero Marquee ===== */
+    #hero { position: relative; overflow: hidden; }
+    #hero .hero-container { position: relative; min-height: 560px; }
+    .hero-marquee {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      background: #071a32;
+    }
+    .hero-marquee-track { position: relative; width: 100%; height: 100%; min-height: 560px; }
+    .hero-marquee-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .65s ease, visibility .65s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #071a32;
+    }
+    .hero-marquee-slide.active { opacity: 1; visibility: visible; z-index: 1; }
+    .hero-media { width: 100%; height: 100%; min-height: 560px; display: block; border: 0; }
+    .hero-marquee-slide video.hero-media { object-fit: cover; }
+    .hero-poster { position: relative; z-index: 1; object-fit: contain; }
+    .hero-poster-backdrop {
+      position: absolute;
+      inset: -30px;
+      background-position: center;
+      background-size: cover;
+      filter: blur(22px);
+      transform: scale(1.08);
+      opacity: .55;
+    }
+    .hero-poster-vertical { max-width: min(100%, 560px); margin: 0 auto; }
+    .hero-overlay-content { position: relative; z-index: 5; }
+    .hero-marquee-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(227, 24, 55, .92);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 22px rgba(0,0,0,.25);
+      cursor: pointer;
+      transition: transform .25s ease, background .25s ease;
+    }
+    .hero-marquee-control:hover { transform: translateY(-50%) scale(1.08); background: #c8102e; }
+    .hero-marquee-prev { left: 22px; }
+    .hero-marquee-next { right: 22px; }
+    .hero-marquee-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%);
+      z-index: 9;
+      display: flex;
+      gap: 8px;
+    }
+    .hero-marquee-dots button {
+      width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%;
+      background: rgba(255,255,255,.65); cursor: pointer; transition: all .25s ease;
+    }
+    .hero-marquee-dots button.active { width: 28px; border-radius: 10px; background: #fff; }
+
+    /* Make the event carousel deterministic even if another script touches Bootstrap. */
+    #upcomingEventsCarousel { position: relative; }
+    #upcomingEventsCarousel .carousel-inner { position: relative; overflow: hidden; }
+    #upcomingEventsCarousel .carousel-item {
+      display: block; position: absolute; inset: 0; width: 100%; margin-right: 0;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity .55s ease, visibility .55s ease;
+    }
+    #upcomingEventsCarousel .carousel-item.active {
+      position: relative; opacity: 1; visibility: visible; pointer-events: auto;
+    }
+    #upcomingEventsCarousel .upcoming-event-poster-iaicries { object-fit: contain; }
+
     /* Upcoming Events Carousel - Ultra Smooth Left-to-Right Infinite Loop */
     #upcomingEventsCarousel {
       position: relative;
@@ -2334,14 +2421,40 @@
     <section id="hero" class="hero section dark-background">
 
       <div class="hero-container">
-        <div class="video-wrapper d-none d-lg-block">
-          <video autoplay muted loop playsinline class="homepage-video">
-            <source src="./assets/videos/Walkthrough (1).mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <!-- Hero marquee: campus video + ICTAGI 2026 + IAICRIES 2026 -->
+        <div id="heroMarquee" class="hero-marquee" aria-label="MSEC featured highlights">
+          <div class="hero-marquee-track">
+            <div class="hero-marquee-slide active" data-hero-slide="0">
+              <video autoplay muted loop playsinline class="homepage-video hero-media" preload="metadata">
+                <source src="./assets/videos/Walkthrough (1).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="hero-marquee-slide" data-hero-slide="1">
+              <div class="hero-poster-backdrop" style="background-image:url('./assets/img/ictagi-2026-horizontal.jpeg');"></div>
+              <img src="./assets/img/ictagi-2026-horizontal.jpeg" class="hero-media hero-poster" alt="ICTAGI 2026 International Conference poster">
+            </div>
+            <div class="hero-marquee-slide" data-hero-slide="2">
+              <div class="hero-poster-backdrop" style="background-image:url('./assets/img/iaicries-2026.png');"></div>
+              <img src="./assets/img/iaicries-2026.png" class="hero-media hero-poster hero-poster-vertical" alt="IAICRIES 2026 National Seminar poster">
+            </div>
+          </div>
 
+          <button type="button" class="hero-marquee-control hero-marquee-prev" aria-label="Previous hero highlight">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button type="button" class="hero-marquee-control hero-marquee-next" aria-label="Next hero highlight">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+
+          <div class="hero-marquee-dots" role="tablist" aria-label="Hero highlights">
+            <button type="button" class="active" data-hero-to="0" aria-label="Show campus video" aria-selected="true"></button>
+            <button type="button" data-hero-to="1" aria-label="Show ICTAGI 2026" aria-selected="false"></button>
+            <button type="button" data-hero-to="2" aria-label="Show IAICRIES 2026" aria-selected="false"></button>
+          </div>
         </div>
-        <div class="container tochange">
+
+        <div class="container tochange hero-overlay-content">
           <div class="row h-100 align-items-m-center justify-content-start">
             <div
               class="container d-lg-none d-lg-flex flex-column justify-content-start align-items-start my-4 styleheaderlogo">
@@ -2359,49 +2472,26 @@
                 </div>
                 <div class="stats-grid">
                   <div class="stat-item">
-                    <div class="stat-icon">
-                      <i class="bi bi-trophy-fill"></i>
-                    </div>
-                    <div class="stat-content">
-                      <h3>90.58%</h3>
-                      <p>Placement Records</p>
-                    </div>
+                    <div class="stat-icon"><i class="bi bi-trophy-fill"></i></div>
+                    <div class="stat-content"><h3>90.58%</h3><p>Placement Records</p></div>
                   </div>
                   <div class="stat-item">
-                    <div class="stat-icon">
-                      <i class="bi bi-globe"></i>
-                    </div>
-                    <div class="stat-content">
-                      <h3>22</h3>
-                      <p>Highest LPA</p>
-                    </div>
+                    <div class="stat-icon"><i class="bi bi-globe"></i></div>
+                    <div class="stat-content"><h3>22</h3><p>Highest LPA</p></div>
                   </div>
                   <div class="stat-item">
-                    <div class="stat-icon">
-                      <i class="bi bi-mortarboard"></i>
-                    </div>
-                    <div class="stat-content">
-                      <h3>368+</h3>
-                      <p>Total Offers</p>
-                    </div>
+                    <div class="stat-icon"><i class="bi bi-mortarboard"></i></div>
+                    <div class="stat-content"><h3>368+</h3><p>Total Offers</p></div>
                   </div>
                   <div class="stat-item">
-                    <div class="stat-icon">
-                      <i class="bi bi-building"></i>
-                    </div>
-                    <div class="stat-content">
-                      <h3>53+</h3>
-                      <p>Dream Offers</p>
-                    </div>
+                    <div class="stat-icon"><i class="bi bi-building"></i></div>
+                    <div class="stat-content"><h3>53+</h3><p>Dream Offers</p></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-
 
       </div>
 
@@ -2752,54 +2842,38 @@
       <div class="container">
         <div class="upcoming-events-carousel-container" data-aos="fade-up" data-aos-delay="100">
 
-          <div id="upcomingEventsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000"
-            data-bs-wrap="true">
-
-            <!-- Controls Inside Card -->
-            <button class="carousel-control-prev upcoming-carousel-control" type="button"
-              data-bs-target="#upcomingEventsCarousel" data-bs-slide="prev"
-              onclick="const c = bootstrap.Carousel.getOrCreateInstance(document.getElementById('upcomingEventsCarousel')); c.prev();"
-              aria-label="Previous Event">
+          <div id="upcomingEventsCarousel" class="upcoming-events-carousel" aria-label="Upcoming events">
+            <button type="button" class="carousel-control-prev upcoming-carousel-control" id="upcomingPrev" aria-label="Previous Event">
               <i class="bi bi-chevron-left"></i>
             </button>
 
-            <button class="carousel-control-next upcoming-carousel-control" type="button"
-              data-bs-target="#upcomingEventsCarousel" data-bs-slide="next"
-              onclick="const c = bootstrap.Carousel.getOrCreateInstance(document.getElementById('upcomingEventsCarousel')); c.next();"
-              aria-label="Next Event">
+            <button type="button" class="carousel-control-next upcoming-carousel-control" id="upcomingNext" aria-label="Next Event">
               <i class="bi bi-chevron-right"></i>
             </button>
 
-            <!-- Indicators for 4 slides -->
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Event 1: International Conference"></button>
-              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="1"
-                aria-label="Event 2: Aarambam"></button>
-              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="2"
-                aria-label="Event 3: Euphoria"></button>
-              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="4"
-                aria-label="Event 4: Alumni Meet"></button>
+            <div class="carousel-indicators" aria-label="Upcoming event slides">
+              <button type="button" class="active" data-upcoming-to="0" aria-label="Event 1: International Conference" aria-selected="true"></button>
+              <button type="button" data-upcoming-to="1" aria-label="Event 2: Aarambam" aria-selected="false"></button>
+              <button type="button" data-upcoming-to="2" aria-label="Event 3: Euphoria" aria-selected="false"></button>
+              <button type="button" data-upcoming-to="3" aria-label="Event 4: IAICRIES" aria-selected="false"></button>
+              <button type="button" data-upcoming-to="4" aria-label="Event 5: Alumni Meet" aria-selected="false"></button>
             </div>
 
             <div class="carousel-inner">
-
               <!-- Slide 1: International Conference -->
               <div class="carousel-item active">
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
                     <div class="upcoming-poster-box">
-                      <img src="./assets/img/international-conference.jpeg" class="upcoming-event-poster"
-                        alt="International Conference 2026">
+                      <img src="./assets/img/ictagi-2026-vertical.jpeg" class="upcoming-event-poster"
+                        alt="ICTAGI 2026 International Conference vertical poster">
                     </div>
                   </div>
                   <div class="col-lg-7 d-flex flex-column justify-content-center">
-                    <div>
-                      <span class="upcoming-event-badge"><i class="bi bi-globe2"></i> INTERNATIONAL CONFERENCE</span>
-                    </div>
-                    <h3>International Conference 2026</h3>
-                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> 15 &amp; 16 December 2026</div>
-                    <p>A global gathering for sharing ideas, gaining insights, and building valuable connections.</p>
+                    <div><span class="upcoming-event-badge"><i class="bi bi-globe2"></i> INTERNATIONAL CONFERENCE</span></div>
+                    <h3>ICTAGI 2026</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> 14 – 16 December 2026</div>
+                    <p>International Conference on Transformative AI for Global Impact — connecting researchers, innovators and industry leaders to share research for a smarter, greener tomorrow.</p>
                     <div>
                       <a href="./internationalconference/" target="_blank" class="upcoming-event-btn">
                         <span>Conference Details</span> <i class="bi bi-arrow-right"></i>
@@ -2814,29 +2888,17 @@
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
                     <div class="upcoming-poster-box">
-                      <img src="assets/img/upcoming-aarambam.jpeg" class="upcoming-event-poster"
-                        alt="Aarambham – A New Beginning">
+                      <img src="assets/img/upcoming-aarambam.jpeg" class="upcoming-event-poster" alt="Aarambham – A New Beginning">
                     </div>
                   </div>
                   <div class="col-lg-7 d-flex flex-column justify-content-center">
-                    <div>
-                      <span class="upcoming-event-badge"><i class="bi bi-stars"></i> ORIENTATION DAY</span>
-                    </div>
+                    <div><span class="upcoming-event-badge"><i class="bi bi-stars"></i> ORIENTATION DAY</span></div>
                     <h3>Aarambham – A New Beginning</h3>
                     <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> Orientation Day</div>
-                    <p><strong>Aarambham</strong>, the Orientation Day, marks the beginning of an exciting new chapter
-                      for our students. It is a warm welcome into a vibrant learning community where new faces become
-                      friends, curiosity becomes possibility, and every new experience opens the door to something
-                      greater.</p>
-                    <p class="mb-2">Designed to help students connect, explore and feel at home, Aarambham sets the
-                      stage for a journey filled with learning, discovery, collaboration and growth.</p>
-                    <p class="fw-bold mb-3" style="color: #243f5a;">Come, begin your journey. Come, be part of something
-                      new.</p>
-                    <div>
-                      <a href="news.html" class="upcoming-event-btn">
-                        <span>Explore Orientation</span> <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
+                    <p><strong>Aarambham</strong>, the Orientation Day, marks the beginning of an exciting new chapter for our students. It is a warm welcome into a vibrant learning community where new faces become friends, curiosity becomes possibility, and every new experience opens the door to something greater.</p>
+                    <p class="mb-2">Designed to help students connect, explore and feel at home, Aarambham sets the stage for a journey filled with learning, discovery, collaboration and growth.</p>
+                    <p class="fw-bold mb-3" style="color: #243f5a;">Come, begin your journey. Come, be part of something new.</p>
+                    <div><a href="news.html" class="upcoming-event-btn"><span>Explore Orientation</span> <i class="bi bi-arrow-right"></i></a></div>
                   </div>
                 </div>
               </div>
@@ -2846,56 +2908,56 @@
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
                     <div class="upcoming-poster-box">
-                      <img src="./assets/img/upcoming-euphoria.webp" class="upcoming-event-poster"
-                        alt="Euphoria - 17 and 18 September 2026">
+                      <img src="./assets/img/upcoming-euphoria.webp" class="upcoming-event-poster" alt="Euphoria - 17 and 18 September 2026">
                     </div>
                   </div>
                   <div class="col-lg-7 d-flex flex-column justify-content-center">
-                    <div>
-                      <span class="upcoming-event-badge"><i class="bi bi-music-note-beamed"></i> CULTURAL FEST</span>
-                    </div>
+                    <div><span class="upcoming-event-badge"><i class="bi bi-music-note-beamed"></i> CULTURAL FEST</span></div>
                     <h3>EUPHORIA 2026</h3>
-                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> 17 &amp; 18 September 2026
-                    </div>
-                    <p>Two days of technical innovations, music, dance, and creative celebrations. Unleash your talent
-                      and celebrate the vibrant student culture of MSEC.</p>
-                    <div>
-                      <a href="news.html" class="upcoming-event-btn">
-                        <span>Explore Fest</span> <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
+                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> 17 &amp; 18 September 2026</div>
+                    <p>Two days of technical innovations, music, dance, and creative celebrations. Unleash your talent and celebrate the vibrant student culture of MSEC.</p>
+                    <div><a href="news.html" class="upcoming-event-btn"><span>Explore Fest</span> <i class="bi bi-arrow-right"></i></a></div>
                   </div>
                 </div>
               </div>
 
-              <!-- Slide 4: Alumni Meet -->
+              <!-- Slide 4: IAICRIES -->
               <div class="carousel-item">
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
                     <div class="upcoming-poster-box">
-                      <img src="./assets/img/upcoming-alumni-meet.webp" class="upcoming-event-poster"
-                        alt="Annual Alumni Reunion 2026">
+                      <img src="./assets/img/iaicries-2026.png" class="upcoming-event-poster upcoming-event-poster-iaicries" alt="IAICRIES 2026 National Seminar poster">
                     </div>
                   </div>
                   <div class="col-lg-7 d-flex flex-column justify-content-center">
-                    <div>
-                      <span class="upcoming-event-badge"><i class="bi bi-people-fill"></i> ALUMNI REUNION</span>
+                    <div><span class="upcoming-event-badge"><i class="bi bi-cpu-fill"></i> NATIONAL SEMINAR</span></div>
+                    <h3>IAICRIES 2026</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-calendar-event"></i> 29 &amp; 30 September 2026</div>
+                    <p>National Seminar on Integrating Artificial Intelligence (AI) for Climate-Resilient Infrastructure &amp; Environmental Sustainability, featuring keynote sessions, poster and quiz competitions, and cash prizes.</p>
+                    <div><a href="news.html" class="upcoming-event-btn"><span>Event Details</span> <i class="bi bi-arrow-right"></i></a></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 5: Alumni Meet -->
+              <div class="carousel-item">
+                <div class="upcoming-event-slide row align-items-center g-4">
+                  <div class="col-lg-5">
+                    <div class="upcoming-poster-box">
+                      <img src="./assets/img/upcoming-alumni-meet.webp" class="upcoming-event-poster" alt="Annual Alumni Reunion 2026">
                     </div>
+                  </div>
+                  <div class="col-lg-7 d-flex flex-column justify-content-center">
+                    <div><span class="upcoming-event-badge"><i class="bi bi-people-fill"></i> ALUMNI REUNION</span></div>
                     <h3>Annual Alumni Reunion 2026</h3>
                     <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> December 2026</div>
-                    <p>Reconnecting generations of MSEC graduates. Share industry experiences, mentor current students,
-                      and strengthen our global alumni network.</p>
-                    <div>
-                      <a href="alumni.html" class="upcoming-event-btn">
-                        <span>Alumni Details</span> <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
+                    <p>Reconnecting generations of MSEC graduates. Share industry experiences, mentor current students, and strengthen our global alumni network.</p>
+                    <div><a href="alumni.html" class="upcoming-event-btn"><span>Alumni Details</span> <i class="bi bi-arrow-right"></i></a></div>
                   </div>
                 </div>
               </div>
 
             </div>
-
           </div>
 
         </div>
@@ -3838,6 +3900,84 @@
         });
       });
     </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // HERO MARQUEE -------------------------------------------------------
+        const heroSlides = Array.from(document.querySelectorAll('#heroMarquee .hero-marquee-slide'));
+        const heroDots = Array.from(document.querySelectorAll('#heroMarquee [data-hero-to]'));
+        const heroPrev = document.querySelector('#heroMarquee .hero-marquee-prev');
+        const heroNext = document.querySelector('#heroMarquee .hero-marquee-next');
+        let heroIndex = 0;
+        let heroTimer;
+
+        function showHero(index, restart = true) {
+          if (!heroSlides.length) return;
+          heroIndex = (index + heroSlides.length) % heroSlides.length;
+          heroSlides.forEach((slide, i) => slide.classList.toggle('active', i === heroIndex));
+          heroDots.forEach((dot, i) => {
+            const active = i === heroIndex;
+            dot.classList.toggle('active', active);
+            dot.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          if (restart) {
+            clearInterval(heroTimer);
+            heroTimer = setInterval(() => showHero(heroIndex + 1, false), 6000);
+          }
+        }
+        heroPrev?.addEventListener('click', () => showHero(heroIndex - 1));
+        heroNext?.addEventListener('click', () => showHero(heroIndex + 1));
+        heroDots.forEach(dot => dot.addEventListener('click', () => showHero(Number(dot.dataset.heroTo))));
+        showHero(0);
+
+        // UPCOMING EVENTS ----------------------------------------------------
+        const carousel = document.getElementById('upcomingEventsCarousel');
+        if (!carousel) return;
+        const slides = Array.from(carousel.querySelectorAll('.carousel-inner > .carousel-item'));
+        const dots = Array.from(carousel.querySelectorAll('[data-upcoming-to]'));
+        const prev = document.getElementById('upcomingPrev');
+        const next = document.getElementById('upcomingNext');
+        let index = 0;
+        let timer;
+        let isAnimating = false;
+
+        function showUpcoming(target, restart = true) {
+          if (!slides.length || isAnimating) return;
+          const nextIndex = (target + slides.length) % slides.length;
+          if (nextIndex === index) return;
+          isAnimating = true;
+          slides[index].classList.remove('active');
+          slides[nextIndex].classList.add('active');
+          dots.forEach((dot, i) => {
+            const active = i === nextIndex;
+            dot.classList.toggle('active', active);
+            dot.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          index = nextIndex;
+          window.setTimeout(() => { isAnimating = false; }, 560);
+          if (restart) {
+            clearInterval(timer);
+            timer = setInterval(() => showUpcoming(index + 1, false), 3000);
+          }
+        }
+
+        // Start from slide 1 and keep the controls independent of Bootstrap's data API.
+        dots.forEach(dot => dot.addEventListener('click', () => showUpcoming(Number(dot.dataset.upcomingTo))));
+        prev?.addEventListener('click', () => showUpcoming(index - 1));
+        next?.addEventListener('click', () => showUpcoming(index + 1));
+        dots[0]?.classList.add('active');
+        slides[0]?.classList.add('active');
+        timer = setInterval(() => showUpcoming(index + 1, false), 3000);
+
+        // Pause only while the user is interacting with the event card.
+        carousel.addEventListener('mouseenter', () => clearInterval(timer));
+        carousel.addEventListener('mouseleave', () => {
+          clearInterval(timer);
+          timer = setInterval(() => showUpcoming(index + 1, false), 3000);
+        });
+      });
+    </script>
+
 </body>
 
 </html>

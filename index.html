@@ -2117,6 +2117,72 @@
       box-shadow: 0 8px 20px rgba(227, 24, 55, 0.22);
     }
 
+
+    /* Homepage video + hero banners marquee */
+    #hero .homepage-marquee {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      background: #000;
+    }
+
+    #hero .homepage-marquee-track {
+      display: flex;
+      width: max-content;
+      height: 100%;
+      animation: homepageMarquee 48s linear infinite;
+      will-change: transform;
+    }
+
+    #hero .homepage-marquee:hover .homepage-marquee-track {
+      animation-play-state: paused;
+    }
+
+    #hero .homepage-marquee-slide {
+      position: relative;
+      flex: 0 0 100vw;
+      width: 100vw;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #hero .homepage-marquee-slide video,
+    #hero .homepage-marquee-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    #hero .homepage-marquee-slide img {
+      background: #fff;
+    }
+
+    #hero .hero-container > .container.tochange {
+      position: relative;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @keyframes homepageMarquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-300vw);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #hero .homepage-marquee-track {
+        animation: none;
+      }
+    }
   </style>
 </head>
 
@@ -2374,12 +2440,33 @@
     <section id="hero" class="hero section dark-background">
 
       <div class="hero-container">
-        <div class="video-wrapper d-none d-lg-block">
-          <video autoplay muted loop playsinline class="homepage-video">
-            <source src="./assets/videos/Walkthrough (1).mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+        <div class="homepage-marquee d-none d-lg-block" aria-label="Homepage highlights">
+          <div class="homepage-marquee-track">
+            <div class="homepage-marquee-slide">
+              <video autoplay muted loop playsinline class="homepage-video">
+                <source src="./assets/videos/Walkthrough (1).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="homepage-marquee-slide">
+              <img src="./assets/img/hero-banners/ICTAGI-2026.jpeg" alt="ICTAGI 2026 International Conference" loading="eager">
+            </div>
+            <div class="homepage-marquee-slide">
+              <img src="./assets/img/hero-banners/IAICRIES-2026.png" alt="IAICRIES 2026 National Seminar" loading="eager">
+            </div>
 
+            <div class="homepage-marquee-slide" aria-hidden="true">
+              <video autoplay muted loop playsinline class="homepage-video">
+                <source src="./assets/videos/Walkthrough (1).mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="homepage-marquee-slide" aria-hidden="true">
+              <img src="./assets/img/hero-banners/ICTAGI-2026.jpeg" alt="" loading="eager">
+            </div>
+            <div class="homepage-marquee-slide" aria-hidden="true">
+              <img src="./assets/img/hero-banners/IAICRIES-2026.png" alt="" loading="eager">
+            </div>
+          </div>
         </div>
         <div class="container tochange">
           <div class="row h-100 align-items-m-center justify-content-start">
@@ -2391,58 +2478,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-5 d-none d-md-block my-4 my-md-0" data-aos="zoom-out" data-aos-delay="200">
-              <div class="stats-card">
-                <div class="stats-header">
-                  <h2>Why Choose Us</h2>
-                  <div class="decoration-line"></div>
-                </div>
-                <div class="stats-grid">
-                  <div class="stat-item">
-                    <div class="stat-icon">
-                      <i class="bi bi-trophy-fill"></i>
-                    </div>
-                    <div class="stat-content">
-                      <h3>90.58%</h3>
-                      <p>Placement Records</p>
-                    </div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-icon">
-                      <i class="bi bi-globe"></i>
-                    </div>
-                    <div class="stat-content">
-                      <h3>22</h3>
-                      <p>Highest LPA</p>
-                    </div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-icon">
-                      <i class="bi bi-mortarboard"></i>
-                    </div>
-                    <div class="stat-content">
-                      <h3>368+</h3>
-                      <p>Total Offers</p>
-                    </div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-icon">
-                      <i class="bi bi-building"></i>
-                    </div>
-                    <div class="stat-content">
-                      <h3>53+</h3>
-                      <p>Dream Offers</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-
-
-
-
       </div>
 
       <div class="event-ticker bg-white">

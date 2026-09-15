@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Best Engineering College | Top Engineering College - Meenakshi Sundararajan Engineering College</title>
   <meta name="description"
-    content="Meenakshi Sundararajan Engineering in Chennai offers top-quality engineering education with excellent placements and a vibrant campus life. Enroll now.">
+    content="Meenakshi Sundararajan Engineering College in Chennai offers top-quality engineering education with excellent placements and a vibrant campus life. Enroll now.">
   <meta name="keywords"
     content="Top Engineering College in Chennai, Best Engineering College in Tamil Nadu, B.E Admission 2025, Computer Science, ECE, Mechanical, Civil Engineering, MSEC">
   <meta name="robots" content="index, follow">
@@ -1479,11 +1479,15 @@
       font-size: 0.84rem;
     }
 
-    /* --- Courses Offered --- */
+    /* --- Courses Offered : IEEE-inspired MSEC directory --- */
     .featured-programs-section {
-      padding-top: 85px;
-      padding-bottom: 95px;
+      padding: 96px 0 104px;
       background: #ffffff;
+    }
+
+    .featured-programs-section .section-title {
+      text-align: center;
+      margin-bottom: 58px;
     }
 
     .courses-eyebrow {
@@ -1497,322 +1501,301 @@
     }
 
     .featured-programs-section .section-title h2 {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
       color: #243f5a;
+      font-size: clamp(2rem, 3.2vw, 3rem);
       font-weight: 800;
-      margin-bottom: 10px;
+      margin: 0;
+      letter-spacing: .2px;
+    }
+
+    .featured-programs-section .section-title h2::before,
+    .featured-programs-section .section-title h2::after {
+      content: "";
+      width: 48px;
+      height: 2px;
+      background: #e31837;
     }
 
     .featured-programs-section .section-title p {
       color: #64748b;
       text-align: center;
-      max-width: 680px;
-      margin: 0 auto;
+      max-width: 760px;
+      margin: 13px auto 0;
+      line-height: 1.7;
     }
 
-    .course-card-modern {
-      height: 100%;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 35px rgba(36, 63, 90, 0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
+    .msec-course-directory {
+      display: grid;
+      grid-template-columns: minmax(225px, 270px) minmax(0, 1fr);
+      gap: clamp(36px, 5vw, 64px);
+      align-items: start;
     }
 
-    .course-card-modern:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 22px 50px rgba(36, 63, 90, 0.13);
-      border-color: #cbd5e1;
+    .msec-course-sidebar {
+      position: sticky;
+      top: 110px;
     }
 
-    .course-image-top {
+    .msec-course-sidebar-title {
       position: relative;
-      height: 230px;
-      width: 100%;
-      overflow: hidden;
-      background: #0f172a;
+      margin-bottom: 18px;
+      padding-bottom: 13px;
+      color: #243f5a;
+      font-size: 1.25rem;
+      font-style: italic;
+      font-weight: 500;
     }
 
-    .course-image-top img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .course-card-modern:hover .course-image-top img {
-      transform: scale(1.06);
-    }
-
-    .course-degree-badge {
+    .msec-course-sidebar-title::after {
+      content: "";
       position: absolute;
-      top: 16px;
-      left: 16px;
-      z-index: 2;
-      padding: 6px 14px;
-      border-radius: 50px;
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: #ffffff;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-    }
-
-    .course-degree-badge.ug {
+      left: 0;
+      bottom: 0;
+      width: 46px;
+      height: 2px;
       background: #e31837;
     }
 
-    .course-degree-badge.pg {
-      background: #243f5a;
-    }
-
-    .course-degree-badge.phd {
-      background: #0d9488;
-    }
-
-    .course-card-body {
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .course-card-body h3 {
-      color: #243f5a;
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin: 0 0 12px;
-      line-height: 1.3;
-    }
-
-    .course-highlights-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .course-highlights-pills span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #f1f5f9;
-      color: #475569;
-      padding: 5px 12px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .course-highlights-pills span i {
-      color: #e31837;
-    }
-
-    .course-card-body p {
-      color: #64748b;
-      font-size: 0.95rem;
-      line-height: 1.65;
-      margin-bottom: 22px;
-      flex-grow: 1;
-    }
-
-    .course-btn-action {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 12px;
-      border: 2px solid #e2e8f0;
-      background: #ffffff;
-      color: #243f5a;
-      font-weight: 750;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.25s ease;
-
-    }
-
-    .course-btn-action:hover {
-      border-color: #e31837;
-      background: #e31837;
-      color: #ffffff;
-    }
-
-    .explore-all-courses-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #243f5a;
-      color: #ffffff !important;
-      padding: 15px 36px;
-      border-radius: 50px;
-      font-weight: 800;
-      font-size: 1rem;
-      text-decoration: none;
-      box-shadow: 0 10px 28px rgba(36, 63, 90, 0.25);
-      transition: all 0.3s ease;
-    }
-
-    .explore-all-courses-btn:hover {
-      background: #e31837;
-      transform: translateY(-3px);
-      box-shadow: 0 14px 35px rgba(227, 24, 55, 0.35);
-    }
-
-    /* --- List-based Courses Offered --- */
-    .courses-category-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .course-category-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 12px 35px rgba(36, 63, 90, 0.06);
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-    }
-
-    .course-category-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 42px rgba(36, 63, 90, 0.12);
-      border-color: #cbd5e1;
-    }
-
-    .course-category-heading {
+    .msec-course-filter {
+      width: 100%;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 14px;
-      padding-bottom: 20px;
-      margin-bottom: 8px;
-      border-bottom: 1px solid #eef2f7;
-    }
-
-    .course-category-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      background: #e31837;
-      font-size: 1.2rem;
-      flex: 0 0 auto;
-    }
-
-    .pg-category .course-category-icon { background: #243f5a; }
-    .phd-category .course-category-icon { background: #0d9488; }
-
-    .course-category-kicker {
-      display: block;
-      color: #e31837;
-      font-size: .7rem;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      margin-bottom: 3px;
-    }
-
-    .pg-category .course-category-kicker { color: #243f5a; }
-    .phd-category .course-category-kicker { color: #0d9488; }
-
-    .course-category-heading h3 {
-      margin: 0;
+      padding: 15px 0;
+      border: 0;
+      border-bottom: 1px solid #dce4eb;
+      background: transparent;
       color: #243f5a;
-      font-size: 1.35rem;
-      font-weight: 800;
+      text-align: left;
+      font-size: .98rem;
+      font-weight: 650;
+      cursor: pointer;
+      transition: color .25s ease, padding .25s ease;
     }
 
-    .course-list { display: flex; flex-direction: column; }
+    .msec-course-filter i {
+      color: #e31837;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
 
-    .course-list-item {
-      display: grid;
-      grid-template-columns: 30px minmax(0, 1fr) auto;
-      align-items: center;
+    .msec-course-filter:hover,
+    .msec-course-filter.active {
+      padding-left: 10px;
+      color: #e31837;
+    }
+
+    .msec-course-filter.active i,
+    .msec-course-filter:hover i {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .msec-course-sidebar-note {
+      display: flex;
       gap: 10px;
-      min-height: 62px;
-      padding: 11px 4px;
-      color: #243f5a;
-      text-decoration: none;
-      border-bottom: 1px solid #edf2f7;
-      transition: color .22s ease, transform .22s ease, padding-left .22s ease;
+      margin-top: 28px;
+      padding: 17px 15px;
+      border-left: 3px solid #e31837;
+      background: #f7f9fb;
+      color: #6b7b8d;
+      font-size: .83rem;
+      line-height: 1.55;
     }
 
-    .course-list-item:last-child { border-bottom: 0; }
-
-    .course-list-item:hover {
+    .msec-course-sidebar-note i {
+      flex: 0 0 auto;
       color: #e31837;
-      padding-left: 8px;
+      font-size: 1.1rem;
     }
 
-    .course-list-number {
-      color: #94a3b8;
+    .msec-course-group { animation: msecCourseFade .28s ease; }
+
+    @keyframes msecCourseFade {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msec-course-group-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 0 16px;
+      border-bottom: 2px solid #243f5a;
+    }
+
+    .msec-course-kicker {
+      color: #e31837;
       font-size: .72rem;
       font-weight: 800;
-      letter-spacing: .4px;
+      letter-spacing: 1.45px;
     }
 
-    .course-list-name {
-      font-size: .94rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .course-list-item > i {
-      color: #94a3b8;
-      font-size: .95rem;
-      transition: transform .22s ease, color .22s ease;
-    }
-
-    .course-list-item:hover > i {
-      color: #e31837;
-      transform: translate(2px, -2px);
-    }
-
-    .course-new-badge {
-      color: #ffffff;
-      background: #e31837;
-      border-radius: 50px;
-      padding: 3px 8px;
-      font-size: .58rem;
+    .msec-course-group-header h3 {
+      margin: 5px 0 0;
+      color: #243f5a;
+      font-size: clamp(1.35rem, 2vw, 1.65rem);
       font-weight: 800;
-      letter-spacing: .7px;
+      line-height: 1.25;
+    }
+
+    .msec-course-count {
+      color: #8291a1;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
       white-space: nowrap;
     }
 
-    .course-category-note {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      margin-top: 15px;
-      padding-top: 14px;
-      border-top: 1px solid #eef2f7;
-      color: #64748b;
-      font-size: .76rem;
-      line-height: 1.5;
+    .msec-course-items { margin-top: 1px; }
+
+    .msec-course-item {
+      min-height: 70px;
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr) 32px;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 12px;
+      border-bottom: 1px solid #e5ebf0;
+      color: #243f5a;
+      text-decoration: none;
+      transition: background .25s ease, padding .25s ease, box-shadow .25s ease;
     }
 
-    .course-category-note i { color: #e31837; margin-top: 2px; }
-    .pg-category .course-category-note i { color: #243f5a; }
-    .phd-category .course-category-note i { color: #0d9488; }
-
-    @media (max-width: 1100px) {
-      .courses-category-grid { grid-template-columns: 1fr 1fr; }
-      .phd-category { grid-column: 1 / -1; }
+    a.msec-course-item:hover {
+      padding-left: 19px;
+      background: #f7f9fb;
+      box-shadow: inset 4px 0 0 #e31837;
     }
 
-    @media (max-width: 767px) {
-      .courses-category-grid { grid-template-columns: 1fr; gap: 18px; }
-      .phd-category { grid-column: auto; }
-      .course-category-card { padding: 22px; border-radius: 20px; }
-      .course-list-name { font-size: .9rem; }
+    .msec-course-code {
+      justify-self: start;
+      min-width: 58px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #243f5a;
+      color: #fff;
+      text-align: center;
+      font-size: .67rem;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
+
+    .msec-course-name {
+      font-size: 1rem;
+      font-weight: 650;
+      line-height: 1.45;
+    }
+
+    .msec-course-item > i {
+      justify-self: end;
+      color: #e31837;
+      font-size: 1rem;
+      transition: transform .25s ease;
+    }
+
+    a.msec-course-item:hover > i { transform: translate(3px, -3px); }
+
+    .msec-course-static { cursor: default; background: #fbfcfd; }
+    .msec-course-static:hover { background: #fbfcfd; }
+    .msec-course-new-item { background: linear-gradient(90deg, rgba(227,24,55,.035), rgba(227,24,55,0)); }
+
+    .msec-course-new {
+      justify-self: end;
+      padding: 4px 9px;
+      border: 1px solid rgba(227,24,55,.25);
+      border-radius: 999px;
+      color: #e31837;
+      background: rgba(227,24,55,.06);
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .8px;
+    }
+
+    .msec-course-footer { margin-top: 32px; }
+
+    .msec-course-explore {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 19px;
+      border: 1px solid #243f5a;
+      color: #243f5a;
+      font-size: .9rem;
+      font-weight: 750;
+      text-decoration: none;
+      transition: background .25s ease, color .25s ease, transform .25s ease;
+    }
+
+    .msec-course-explore:hover {
+      color: #fff;
+      background: #243f5a;
+      transform: translateY(-2px);
+    }
+
+    /* Departments submenu in Academics */
+    .msec-departments-link { position: relative; }
+    .msec-department-parent { position: relative !important; }
+
+    .msec-department-submenu {
+      display: none;
+      list-style: none;
+      padding: 7px 0;
+      margin: 0;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-top: 2px solid #e31837;
+      box-shadow: 0 16px 35px rgba(36,63,90,.14);
+      z-index: 2500;
+    }
+
+    .custom-dropdown-content .msec-department-submenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: min(410px, 42vw);
+      min-width: 360px;
+    }
+
+    .dropdown-menu .msec-department-submenu {
+      position: static;
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      border-top: 1px solid #e5ebf0;
+      box-shadow: none;
+      background: #f8fafc;
+    }
+
+    @media (max-width: 991px) {
+      .msec-course-directory { grid-template-columns: 1fr; gap: 36px; }
+      .msec-course-sidebar { position: static; }
+      .msec-course-sidebar-title { margin-bottom: 8px; }
+      .msec-course-filter { display: inline-flex; width: auto; min-width: 170px; margin-right: 18px; }
+      .msec-course-sidebar-note { display: none; }
+      .custom-dropdown-content .msec-department-submenu { width: min(390px, 90vw); min-width: 0; }
+    }
+
+    @media (max-width: 575px) {
+      .featured-programs-section { padding: 68px 0 76px; }
+      .featured-programs-section .section-title { margin-bottom: 38px; }
+      .featured-programs-section .section-title h2 { font-size: 1.8rem; gap: 12px; }
+      .featured-programs-section .section-title h2::before,
+      .featured-programs-section .section-title h2::after { width: 26px; }
+      .msec-course-filter { min-width: 0; margin-right: 8px; padding: 11px 0; font-size: .82rem; }
+      .msec-course-group-header { align-items: flex-start; flex-direction: column; gap: 6px; }
+      .msec-course-item { grid-template-columns: 62px minmax(0, 1fr); gap: 12px; padding: 12px 4px; }
+      .msec-course-item > i { display: none; }
+      .msec-course-name { font-size: .9rem; }
+      .msec-course-new { grid-column: 2; justify-self: start; margin-top: -6px; }
+      .custom-dropdown-content .msec-department-submenu { width: 100%; }
     }
 
     /* Story Card Header Layout */
@@ -2089,34 +2072,6 @@
     .nh-ticker__scroller {
       animation-duration: 40s !important;
     }
-
-    /* MATLAB Suite menu button */
-    .matlab-suite-menu-item {
-      margin: 8px 0 12px;
-    }
-
-    .matlab-suite-menu-btn {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: 100%;
-      padding: 11px 16px;
-      border-radius: 10px;
-      background: #243f5a;
-      color: #ffffff !important;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 16px rgba(36, 63, 90, 0.18);
-    }
-
-    .matlab-suite-menu-btn:hover {
-      background: #e31837;
-      color: #ffffff !important;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(227, 24, 55, 0.22);
-    }
-
   </style>
 </head>
 
@@ -2128,9 +2083,9 @@
 
       <!-- Academics Dropdown -->
       <li class="custom-dropdown">
-        <a href="javascript:void(0);" class="dropdown-toggle" data-target="academicsDropdown">Academics</a>
-        <ul id="academicsDropdown" class="custom-dropdown-content content2">
-          <li class="noline"><a href="academics.html">Departments &#9662;</a></li>
+        <a href="javascript:void(0);" class="dropdown-toggle" data-target="academicsDropdownDesktop">Academics</a>
+        <ul id="academicsDropdownDesktop" class="custom-dropdown-content content2">
+          <li class="noline"><a href="academics.html" class="msec-departments-link">Departments &#9662;</a></li>
           <li class="noline"><a href="autonomous.html">Autonomous</a></li>
           <!-- <li class="noline"><a href="syllabus.html">Syllabus</a></li> -->
           <li class="noline"><a href="coeacademics.html">Academics - Curriculum, Regulations</a></li>
@@ -2152,9 +2107,17 @@
         </ul>
       </li>
 
-      <!-- Industry Centres -->
-      <li><a href="industrycentres.html">Industry Centres</a></li>
-      <li><a href="research.html">Research</a></li>
+      <!-- Centres of Excellence Dropdown -->
+      <li class="custom-dropdown">
+        <a href="javascript:void(0);" class="dropdown-toggle" data-target="centresDropdown">Centres of Excellence</a>
+        <ul id="centresDropdown" class="custom-dropdown-content">
+          <li class="noline"><a href="msiic.html">MSIIC</a></li>
+          <li class="noline"><a href="msciic.html">MSCIIC</a></li>
+          <li class="noline"><a href="mscdc.html">MSCDC</a></li>
+          <li class="noline"><a href="research.html">Research</a></li>
+          <li class="noline mb-2"><a href="IIC.html">IIC</a></li>
+        </ul>
+      </li>
 
       <li class="custom-dropdown">
         <a class="dropdown-toggle" href="javascript:void(0);" data-target="erp">
@@ -2173,6 +2136,7 @@
         <ul id="msec360Dropdown" class="custom-dropdown-content">
           <li class="noline"><a href="https://msiic-clubs.web.app/">Clubs</a></li>
           <li class="noline"><a href="students-life.html">Student Life</a></li>
+          <li class="noline"><a href="studentachievements.html">MSECian achievements</a></li>
           <li class="noline"><a href="competitions.html">Competitions</a></li>
           <li class="noline"><a href="sportsevents.html">Sports</a></li>
           <li class="noline mb-2"><a href="news.html">News and Events</a></li>
@@ -2249,9 +2213,9 @@
                 <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
                   Academics
                 </a>
-                <ul class="dropdown-menu" id="academicsDropdown">
+                <ul class="dropdown-menu" id="academicsDropdownMobile">
                   <li class="dropdown-submenu">
-                    <a href="academics.html" class="dropdown-item" aria-expanded="false">Departments</a>
+                    <a href="academics.html" class="dropdown-item msec-departments-link" aria-expanded="false">Departments</a>
                   </li>
                   <li><a class="dropdown-item" href="autonomous.html">Autonomous</a></li>
                   <!-- <li><a class="dropdown-item" href="https://msiic-clubs.web.app/" target="_blank">Syllabus</a></li> -->
@@ -2260,11 +2224,16 @@
                   <li><a class="dropdown-item" href="./coe.html" target="_blank">Controller Of Examinations</a></li>
                 </ul>
               </li>
-              <li>
-                <a class="nav-link" href="industrycentres.html">Industry Centres</a>
-              </li>
-              <li>
-                <a class="nav-link" href="research.html">Research</a>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
+                  Centres of Excellence </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="msiic.html">MSIIC</a></li>
+                  <li><a class="dropdown-item" href="msciic.html">MSCIIC</a></li>
+                  <li><a class="dropdown-item" href="mscdc.html">MSCDC</a></li>
+                  <li><a class="dropdown-item" href="IIC.html">IIC</a></li>
+                  <li><a class="dropdown-item" href="research.html">Research</a></li>
+                </ul>
               </li>
 
               <li class="nav-item dropdown">
@@ -2334,13 +2303,6 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item matlab-suite-menu-item">
-                <a href="https://in.mathworks.com/academia/tah-portal/meenakshi-sundararajan-engineering-college-31703936.html"
-                  class="matlab-suite-menu-btn" target="_blank" rel="noopener noreferrer">
-                  <i class="bi bi-grid-3x3-gap-fill me-2"></i>Matlab Suite
-                </a>
-              </li>
-
               <li><a class="nav-link" href="./StudentVerificationForm.pdf" target="_blank">Students Verification
                   form</a></li>
               <li><a class="nav-link" href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=2462563"
@@ -2808,18 +2770,16 @@
               <i class="bi bi-chevron-right"></i>
             </button>
 
-            <!-- Indicators for 5 slides -->
+            <!-- Indicators for 4 slides -->
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Event 1: International Conference"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="1"
-                aria-label="Event 2: Euphoria"></button>
+                aria-label="Event 2: Aarambam"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="2"
-                aria-label="Event 3: Graduation Day"></button>
-              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="3"
-                aria-label="Event 4: Alumni Meet"></button>
+                aria-label="Event 3: Euphoria"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="4"
-                aria-label="Event 5: 5TH Research Summit"></button>
+                aria-label="Event 4: Alumni Meet"></button>
             </div>
 
             <div class="carousel-inner">
@@ -2849,7 +2809,39 @@
                 </div>
               </div>
 
-              <!-- Slide 2: Euphoria -->
+              <!-- Slide 2: Aarambam -->
+              <div class="carousel-item">
+                <div class="upcoming-event-slide row align-items-center g-4">
+                  <div class="col-lg-5">
+                    <div class="upcoming-poster-box">
+                      <img src="assets/img/upcoming-aarambam.jpeg" class="upcoming-event-poster"
+                        alt="Aarambham – A New Beginning">
+                    </div>
+                  </div>
+                  <div class="col-lg-7 d-flex flex-column justify-content-center">
+                    <div>
+                      <span class="upcoming-event-badge"><i class="bi bi-stars"></i> ORIENTATION DAY</span>
+                    </div>
+                    <h3>Aarambham – A New Beginning</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> Orientation Day</div>
+                    <p><strong>Aarambham</strong>, the Orientation Day, marks the beginning of an exciting new chapter
+                      for our students. It is a warm welcome into a vibrant learning community where new faces become
+                      friends, curiosity becomes possibility, and every new experience opens the door to something
+                      greater.</p>
+                    <p class="mb-2">Designed to help students connect, explore and feel at home, Aarambham sets the
+                      stage for a journey filled with learning, discovery, collaboration and growth.</p>
+                    <p class="fw-bold mb-3" style="color: #243f5a;">Come, begin your journey. Come, be part of something
+                      new.</p>
+                    <div>
+                      <a href="news.html" class="upcoming-event-btn">
+                        <span>Explore Orientation</span> <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Euphoria -->
               <div class="carousel-item">
                 <div class="upcoming-event-slide row align-items-center g-4">
                   <div class="col-lg-5">
@@ -2869,34 +2861,7 @@
                       and celebrate the vibrant student culture of MSEC.</p>
                     <div>
                       <a href="news.html" class="upcoming-event-btn">
-                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 3: Graduation Day Ceremony -->
-              <div class="carousel-item">
-                <div class="upcoming-event-slide row align-items-center g-4">
-                  <div class="col-lg-5">
-                    <div class="upcoming-poster-box">
-                      <img src="./assets/img/graduation-day.jpeg" class="upcoming-event-poster"
-                        alt="21st Graduation Day Ceremony - 2021-2025 Batch">
-                    </div>
-                  </div>
-                  <div class="col-lg-7 d-flex flex-column justify-content-center">
-                    <div>
-                      <span class="upcoming-event-badge"><i class="bi bi-mortarboard-fill"></i> ACADEMIC CEREMONY</span>
-                    </div>
-                    <h3>21st Graduation Day Ceremony</h3>
-                    <div class="upcoming-event-date"><i class="bi bi-calendar-event"></i> 12th September 2026 &nbsp; | &nbsp; 3:05 PM</div>
-                    <p><strong>2021–2025 Batch</strong> — Celebrating the achievements and academic journey of our graduating engineers as they take the next step forward.</p>
-                    <p><strong>Chief Guest:</strong> Hon'ble Mr. Justice D K Singh, Judge, Hon'ble High Court of Karnataka.</p>
-                    <p><strong>Venue:</strong> MS Auditorium, MSGI Campus, Kodambakkam, Chennai-24.</p>
-                    <div>
-                      <a href="news.html" class="upcoming-event-btn">
-                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
+                        <span>Explore Fest</span> <i class="bi bi-arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -2922,32 +2887,7 @@
                       and strengthen our global alumni network.</p>
                     <div>
                       <a href="alumni.html" class="upcoming-event-btn">
-                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 5: 5TH Research Summit -->
-              <div class="carousel-item">
-                <div class="upcoming-event-slide row align-items-center g-4">
-                  <div class="col-lg-5">
-                    <div class="upcoming-poster-box">
-                      <img src="./assets/img/researchsummit5.jpeg" class="upcoming-event-poster"
-                        alt="5TH Research Summit - 10th October 2026">
-                    </div>
-                  </div>
-                  <div class="col-lg-7 d-flex flex-column justify-content-center">
-                    <div>
-                      <span class="upcoming-event-badge"><i class="bi bi-lightbulb-fill"></i> RESEARCH SUMMIT</span>
-                    </div>
-                    <h3>5TH Research Summit</h3>
-                    <div class="upcoming-event-date"><i class="bi bi-calendar-event"></i> 10th October 2026 &nbsp; | &nbsp; 8:30 A.M.</div>
-                    <p>Exploring ideas, driving innovation, and shaping a better tomorrow. Join the Fifth Research Summit at KRS Hall and be part of an inspiring research and innovation gathering.</p>
-                    <div>
-                      <a href="news.html" class="upcoming-event-btn">
-                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
+                        <span>Alumni Details</span> <i class="bi bi-arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -3113,116 +3053,77 @@
 
     </section><!-- /Testimonials Section -->
 
-    <!-- Courses Offered Section -->
+    <!-- Featured Programs Section -->
     <section id="featured-programs" class="featured-programs-section section">
+
       <div class="container section-title" data-aos="fade-up">
         <span class="courses-eyebrow">ACADEMIC EXCELLENCE</span>
         <h2>Courses Offered</h2>
-        <p>Explore our undergraduate, postgraduate and Ph.D. programmes. Select a course to view its dedicated department page.</p>
+        <p>Explore undergraduate, postgraduate and research programmes offered at Meenakshi Sundararajan Engineering College.</p>
       </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="courses-category-grid">
+        <div class="msec-course-directory">
 
-          <!-- UG Courses -->
-          <div class="course-category-card ug-category">
-            <div class="course-category-heading">
-              <span class="course-category-icon"><i class="bi bi-mortarboard-fill"></i></span>
-              <div>
-                <span class="course-category-kicker">UNDERGRADUATE</span>
-                <h3>UG Courses</h3>
+          <aside class="msec-course-sidebar" aria-label="Course categories">
+            <div class="msec-course-sidebar-title">Find your path at MSEC</div>
+            <button type="button" class="msec-course-filter active" data-course-filter="undergraduate"><span>Undergraduate</span><i class="bi bi-arrow-right"></i></button>
+            <button type="button" class="msec-course-filter" data-course-filter="postgraduate"><span>Postgraduate</span><i class="bi bi-arrow-right"></i></button>
+            <button type="button" class="msec-course-filter" data-course-filter="research"><span>Research Programmes</span><i class="bi bi-arrow-right"></i></button>
+            <div class="msec-course-sidebar-note"><i class="bi bi-mortarboard-fill"></i><span>Select a programme to visit its respective department page.</span></div>
+          </aside>
+
+          <div class="msec-course-list" id="msecCourseList">
+            <div class="msec-course-group" data-course-group="undergraduate">
+              <div class="msec-course-group-header">
+                <div><span class="msec-course-kicker">BACHELOR'S PROGRAMMES</span><h3>Undergraduate Engineering</h3></div>
+                <span class="msec-course-count">10 PROGRAMMES</span>
+              </div>
+              <div class="msec-course-items">
+                <a class="msec-course-item" href="computerscience.html"><span class="msec-course-code">B.E.</span><span class="msec-course-name">Computer Science and Engineering</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="aids.html"><span class="msec-course-code">B.Tech</span><span class="msec-course-name">Artificial Intelligence and Data Science</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="civil.html"><span class="msec-course-code">B.E.</span><span class="msec-course-name">Civil Engineering</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="eee.html"><span class="msec-course-code">B.E.</span><span class="msec-course-name">Electrical and Electronics Engineering</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="ece.html"><span class="msec-course-code">B.E.</span><span class="msec-course-name">Electronics and Communication Engineering</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="informationtechnology.html"><span class="msec-course-code">B.Tech</span><span class="msec-course-name">Information Technology</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="mech.html"><span class="msec-course-code">B.E.</span><span class="msec-course-name">Mechanical Engineering</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="humanitiesscience.html"><span class="msec-course-code">S&amp;H</span><span class="msec-course-name">Science and Humanities</span><i class="bi bi-arrow-up-right"></i></a>
+                <div class="msec-course-item msec-course-static msec-course-new-item" aria-label="New course"><span class="msec-course-code">B.Tech</span><span class="msec-course-name">Artificial Intelligence and Machine Learning</span><span class="msec-course-new">NEW</span></div>
+                <div class="msec-course-item msec-course-static msec-course-new-item" aria-label="New course"><span class="msec-course-code">B.E.</span><span class="msec-course-name">Computer Science and Engineering (Cybersecurity)</span><span class="msec-course-new">NEW</span></div>
               </div>
             </div>
-            <div class="course-list">
-              <a href="aids.html" class="course-list-item">
-                <span class="course-list-number">01</span><span class="course-list-name">Artificial Intelligence &amp; Data Science</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="aiml.html" class="course-list-item new-course">
-                <span class="course-list-number">02</span><span class="course-list-name">Artificial Intelligence and Machine Learning</span><span class="course-new-badge">NEW</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="civil.html" class="course-list-item">
-                <span class="course-list-number">03</span><span class="course-list-name">Civil Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="computerscience.html" class="course-list-item">
-                <span class="course-list-number">04</span><span class="course-list-name">Computer Science &amp; Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="cybersec.html" class="course-list-item new-course">
-                <span class="course-list-number">05</span><span class="course-list-name">Computer Science &amp; Engineering (Cybersecurity)</span><span class="course-new-badge">NEW</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="eee.html" class="course-list-item">
-                <span class="course-list-number">06</span><span class="course-list-name">Electrical &amp; Electronics Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="ece.html" class="course-list-item">
-                <span class="course-list-number">07</span><span class="course-list-name">Electronics &amp; Communication Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="informationtechnology.html" class="course-list-item">
-                <span class="course-list-number">08</span><span class="course-list-name">Information Technology</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="mech.html" class="course-list-item">
-                <span class="course-list-number">09</span><span class="course-list-name">Mechanical Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="humanitiesscience.html" class="course-list-item">
-                <span class="course-list-number">10</span><span class="course-list-name">Science &amp; Humanities</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-          </div>
 
-          <!-- PG Courses -->
-          <div class="course-category-card pg-category">
-            <div class="course-category-heading">
-              <span class="course-category-icon"><i class="bi bi-book-half"></i></span>
-              <div>
-                <span class="course-category-kicker">POSTGRADUATE</span>
-                <h3>PG Courses</h3>
+            <div class="msec-course-group" data-course-group="postgraduate" hidden>
+              <div class="msec-course-group-header">
+                <div><span class="msec-course-kicker">MASTER'S PROGRAMMES</span><h3>Postgraduate Engineering</h3></div>
+                <span class="msec-course-count">03 PROGRAMMES</span>
+              </div>
+              <div class="msec-course-items">
+                <a class="msec-course-item" href="csepostgraduate.html"><span class="msec-course-code">M.E.</span><span class="msec-course-name">Computer Science and Engineering</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="civilpostgraduate.html"><span class="msec-course-code">M.E.</span><span class="msec-course-name">Construction Engineering and Management</span><i class="bi bi-arrow-up-right"></i></a>
+                <a class="msec-course-item" href="mechpostgraduate.html"><span class="msec-course-code">M.E.</span><span class="msec-course-name">Energy Engineering</span><i class="bi bi-arrow-up-right"></i></a>
               </div>
             </div>
-            <div class="course-list">
-              <a href="csepostgraduate.html" class="course-list-item">
-                <span class="course-list-number">01</span><span class="course-list-name">M.E. Computer Science &amp; Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="civilpostgraduate.html" class="course-list-item">
-                <span class="course-list-number">02</span><span class="course-list-name">M.E. Construction Engineering &amp; Management</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="mechpostgraduate.html" class="course-list-item">
-                <span class="course-list-number">03</span><span class="course-list-name">M.E. Energy Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-            <div class="course-category-note"><i class="bi bi-info-circle"></i> Click any programme to open its dedicated page.</div>
-          </div>
 
-          <!-- PhD Courses -->
-          <div class="course-category-card phd-category">
-            <div class="course-category-heading">
-              <span class="course-category-icon"><i class="bi bi-lightbulb-fill"></i></span>
-              <div>
-                <span class="course-category-kicker">RESEARCH</span>
-                <h3>Ph.D. Courses</h3>
+            <div class="msec-course-group" data-course-group="research" hidden>
+              <div class="msec-course-group-header">
+                <div><span class="msec-course-kicker">DOCTORAL PROGRAMMES</span><h3>Research &amp; Ph.D. Programmes</h3></div>
+                <span class="msec-course-count">05 PROGRAMMES</span>
+              </div>
+              <div class="msec-course-items">
+                <div class="msec-course-item msec-course-static"><span class="msec-course-code">Ph.D.</span><span class="msec-course-name">Civil Engineering</span><span class="msec-course-new">RESEARCH</span></div>
+                <div class="msec-course-item msec-course-static"><span class="msec-course-code">Ph.D.</span><span class="msec-course-name">Computer Science and Engineering</span><span class="msec-course-new">RESEARCH</span></div>
+                <div class="msec-course-item msec-course-static"><span class="msec-course-code">Ph.D.</span><span class="msec-course-name">Electrical and Electronics Engineering</span><span class="msec-course-new">RESEARCH</span></div>
+                <div class="msec-course-item msec-course-static"><span class="msec-course-code">Ph.D.</span><span class="msec-course-name">Electronics and Communication Engineering</span><span class="msec-course-new">RESEARCH</span></div>
+                <div class="msec-course-item msec-course-static"><span class="msec-course-code">Ph.D.</span><span class="msec-course-name">Mechanical Engineering</span><span class="msec-course-new">RESEARCH</span></div>
               </div>
             </div>
-            <div class="course-list">
-              <a href="civil.html" class="course-list-item">
-                <span class="course-list-number">01</span><span class="course-list-name">Ph.D. Civil Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="computerscience.html" class="course-list-item">
-                <span class="course-list-number">02</span><span class="course-list-name">Ph.D. Computer Science &amp; Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="eee.html" class="course-list-item">
-                <span class="course-list-number">03</span><span class="course-list-name">Ph.D. Electrical &amp; Electronics Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="ece.html" class="course-list-item">
-                <span class="course-list-number">04</span><span class="course-list-name">Ph.D. Electronics &amp; Communication Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-              <a href="mech.html" class="course-list-item">
-                <span class="course-list-number">05</span><span class="course-list-name">Ph.D. Mechanical Engineering</span><i class="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-            <div class="course-category-note"><i class="bi bi-info-circle"></i> Research pathways are available through the respective departments.</div>
-          </div>
 
+            <div class="msec-course-footer"><a href="academics.html" class="msec-course-explore">Explore all departments <i class="bi bi-arrow-right"></i></a></div>
+          </div>
         </div>
       </div>
-    </section><!-- /Courses Offered Section -->
-
+    </section><!-- /Featured Programs Section -->
 
     <!-- Featured Posts Section -->
     <section id="featured-posts" class="featured-posts section">
@@ -3362,21 +3263,6 @@
       </div>
     </div>
     <!-- <button class="campus-tour-btn" onclick="window.open('./app-files', '_blank')">Campus Tour</button> -->
-
-    <!-- Admission Popup -->
-    <div id="admissionPopup" class="popup-overlay">
-      <div class="popup-content" style="max-width: 440px; width: 90%; margin: auto;">
-        <button class="popup-close" onclick="closePopup()">×</button>
-
-        <a href="#upcoming-events" class="popup-link">
-          <picture>
-            <!-- Mobile and desktop image -->
-            <img src="assets/img/graduation-day.jpeg" alt="21st Graduation Day Ceremony - 2021-2025 Batch" class="popup-img"
-              style="max-height: 80vh; width: 100%; object-fit: contain; border-radius: 10px;" />
-          </picture>
-        </a>
-      </div>
-    </div>
 
     <footer id="footer" class="footer position-relative dark-background">
 
@@ -3553,9 +3439,11 @@
         const toggles = document.querySelectorAll(".dropdown-toggle");
 
         toggles.forEach(toggle => {
-          toggle.addEventListener("click", function () {
+          toggle.addEventListener("click", function (event) {
             const targetId = toggle.getAttribute("data-target");
             const dropdown = document.getElementById(targetId);
+            if (!dropdown) return;
+            event.preventDefault();
 
             document.querySelectorAll(".custom-dropdown-content").forEach(menu => {
               if (menu !== dropdown) menu.style.display = "none";
@@ -3565,72 +3453,105 @@
           });
         });
 
-        // Add submenu for Departments with custom hrefs
-        const departmentsItem = document.querySelector('#academicsDropdown li a[href="academics.html"]');
-        if (departmentsItem) {
-          const subMenu = document.createElement("ul");
-          subMenu.classList.add("submenu");
-          subMenu.style.display = "none";
-          subMenu.style.listStyle = "none";
-          subMenu.style.paddingLeft = "0";
-          subMenu.style.margin = "0";
+        const departments = [
+          { name: "B.E. Computer Science and Engineering", href: "computerscience.html" },
+          { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
+          { name: "B.E. Electronics and Communication Engineering", href: "ece.html" },
+          { name: "B.E. Electrical and Electronics Engineering", href: "eee.html" },
+          { name: "B.E. Mechanical Engineering", href: "mech.html" },
+          { name: "B.E. Civil Engineering", href: "civil.html" },
+          { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
+          { name: "B.Tech. Artificial Intelligence & Machine Learning", href: null, isNew: true },
+          { name: "B.E. Computer Science & Engineering (Cybersecurity)", href: null, isNew: true },
+          { name: "Science and Humanities", href: "humanitiesscience.html" },
+          { name: "M.E. Computer Science", href: "csepostgraduate.html" },
+          { name: "M.E. Construction Engineering and Management", href: "civilpostgraduate.html" },
+          { name: "M.E. Energy Engineering", href: "mechpostgraduate.html" }
+        ];
 
-          const departments = [
-            { name: "B.Tech. Artificial Intelligence & Data Science", href: "aids.html" },
-            { name: "B.Tech. Artificial Intelligence & Machine Learning", href: "aiml.html" },
-            { name: "B.E. Civil Engineering", href: "civil.html" },
-            { name: "B.E. Computer Science and Engineering", href: "computerscience.html" },
-            { name: "B.E. Computer Science & Engineering (Cybersecurity)", href: "cybersec.html" },
-            { name: "B.E. Electrical and Electronics Engineering", href: "eee.html" },
-            { name: "B.E. Electronics and Communication Engineering", href: "ece.html" },
-            { name: "B.Tech. Information Technology", href: "informationtechnology.html" },
-            { name: "B.E. Mechanical Engineering", href: "mech.html" },
-            { name: "Science and Humanities", href: "humanitiesscience.html" },
-            { name: "M.E. Computer Science", href: "csepostgraduate.html" },
-            { name: "M.E. Construction Engineering and Management", href: "civilpostgraduate.html" },
-            { name: "M.E. Embedded System and Technologies", href: "ecepostgraduate.html" },
-            { name: "M.E. Energy Engineering", href: "mechpostgraduate.html" }
-          ];
+        document.querySelectorAll(".msec-departments-link").forEach(departmentsItem => {
+          const parent = departmentsItem.parentElement;
+          if (!parent) return;
+          parent.classList.add("msec-department-parent");
+          if (parent.querySelector(":scope > .msec-department-submenu")) return;
+
+          const subMenu = document.createElement("ul");
+          subMenu.className = "msec-department-submenu";
+          subMenu.setAttribute("aria-label", "Departments");
 
           departments.forEach(dep => {
             const li = document.createElement("li");
-            li.style.margin = "0";
-            li.style.padding = "0";
-
             const link = document.createElement("a");
-            link.href = dep.href;
             link.textContent = dep.name;
-            link.style.display = "block";
-            link.style.padding = "6px 12px";
+            link.style.display = "flex";
+            link.style.alignItems = "center";
+            link.style.justifyContent = "space-between";
+            link.style.gap = "12px";
+            link.style.padding = "8px 14px";
             link.style.margin = "0";
             link.style.textDecoration = "none";
-            link.style.color = "black";
+            link.style.color = "#243f5a";
+            link.style.fontWeight = dep.isNew ? "700" : "500";
+            link.style.fontSize = "0.84rem";
+            link.style.lineHeight = "1.35";
+            link.style.transition = "background .2s ease, color .2s ease, padding-left .2s ease";
 
-            // On click, make this link white and reset others
-            link.addEventListener("click", function () {
-              subMenu.querySelectorAll("a").forEach(l => {
-                l.style.color = "black";
-              });
-              this.style.color = "black";
+            if (dep.href) {
+              link.href = dep.href;
+            } else {
+              link.href = "javascript:void(0);";
+              link.setAttribute("aria-disabled", "true");
+              link.title = "Department page coming soon";
+            }
+
+            if (dep.isNew) {
+              const badge = document.createElement("span");
+              badge.textContent = "NEW";
+              badge.style.flex = "0 0 auto";
+              badge.style.padding = "3px 7px";
+              badge.style.borderRadius = "999px";
+              badge.style.background = "rgba(227,24,55,.08)";
+              badge.style.border = "1px solid rgba(227,24,55,.22)";
+              badge.style.color = "#e31837";
+              badge.style.fontSize = "0.58rem";
+              badge.style.fontWeight = "800";
+              badge.style.letterSpacing = "0.6px";
+              link.appendChild(badge);
+              link.addEventListener("click", event => event.preventDefault());
+            }
+
+            link.addEventListener("mouseenter", () => {
+              link.style.background = "#f7f9fb";
+              link.style.color = "#e31837";
+              link.style.paddingLeft = "18px";
             });
 
+            link.addEventListener("mouseleave", () => {
+              link.style.background = "transparent";
+              link.style.color = "#243f5a";
+              link.style.paddingLeft = "14px";
+            });
 
             li.appendChild(link);
             subMenu.appendChild(li);
           });
 
-          departmentsItem.addEventListener("click", function (e) {
-            e.preventDefault();
-            subMenu.style.display = subMenu.style.display === "block" ? "none" : "block";
+          parent.appendChild(subMenu);
+
+          departmentsItem.addEventListener("click", function (event) {
+            event.preventDefault();
+            const isMobileMenu = parent.closest(".dropdown-menu") !== null;
+            const willOpen = subMenu.style.display !== "block";
+            subMenu.style.display = willOpen ? "block" : "none";
+            departmentsItem.setAttribute("aria-expanded", String(willOpen));
+
+            if (isMobileMenu) {
+              subMenu.style.position = "static";
+              subMenu.style.width = "100%";
+            }
           });
-
-          departmentsItem.parentElement.appendChild(subMenu);
-        }
-        else {
-          console.warn('departmentsItem not found!');
-        }
+        });
       });
-
     </script>
     <script>
       function toggleShare() {
@@ -3892,17 +3813,7 @@
     </script>
 
 
-    <script>
-      window.addEventListener("load", function () {
-        setTimeout(() => {
-          document.getElementById("admissionPopup").style.display = "flex";
-        }, 500); // delay for smooth load
-      });
 
-      function closePopup() {
-        document.getElementById("admissionPopup").style.display = "none";
-      }
-    </script>
 
 
 
@@ -3910,6 +3821,23 @@
 
 
     <script async src="https://www.instagram.com/embed.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filters = document.querySelectorAll(".msec-course-filter");
+        const groups = document.querySelectorAll(".msec-course-group");
+
+        filters.forEach(filter => {
+          filter.addEventListener("click", function () {
+            const target = this.dataset.courseFilter;
+            filters.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+            groups.forEach(group => {
+              group.hidden = group.dataset.courseGroup !== target;
+            });
+          });
+        });
+      });
+    </script>
 </body>
 
 </html>

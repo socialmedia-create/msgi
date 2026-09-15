@@ -875,7 +875,7 @@ function renderCards(){
   const root=document.getElementById("centreCards");
   const centreOrder=["msiic","msciic","ice","mscdc","msccb"];
   root.innerHTML=centreOrder.map(key=>[key,centres[key]]).map(([key,c])=>`
-    <a class="card" href="#centre/${key}">
+    <a class="card" href="${({msiic:"iic.html",msciic:"ciic.html",ice:"ice.html",mscdc:"cdc.html",msccb:"ccb.html"})[key] || '#centre/' + key}">
       <div class="card-media">
         <div class="logo-badge">${c.logo ? `<img src="${c.logo}" alt="${c.short} logo">` : `<span>${c.short}</span>`}</div>
         <div class="media-label">${c.accent}</div>

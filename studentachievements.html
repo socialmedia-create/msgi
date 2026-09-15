@@ -108,6 +108,7 @@
       line-height:1.03;
       margin:18px 0 12px;
     }
+    .achievement-hero h1{color:#f4c84a;}
     .achievement-hero h1 span{color:#f4c84a;}
     .achievement-hero p{
       max-width:760px;
@@ -391,7 +392,7 @@
         </div>
 
         <div class="rank-carousel-wrap">
-          <div id="rankHoldersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500" data-bs-pause="hover">
+          <div id="rankHoldersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="1000" data-bs-pause="hover">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="rank-slide"><img src="assets/img/student-achievements/rank-aids-2026.jpeg" alt="Artificial Intelligence and Data Science Rank Holders 2026"></div>
@@ -564,7 +565,7 @@
       const rankCarousel = document.getElementById('rankHoldersCarousel');
       if (rankCarousel && window.bootstrap) {
         bootstrap.Carousel.getOrCreateInstance(rankCarousel, {
-          interval: 4500,
+          interval: 1000,
           pause: 'hover',
           ride: 'carousel',
           wrap: true,

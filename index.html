@@ -2804,7 +2804,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
     <section id="hero" class="hero section dark-background">
 
       <div class="hero-container">
-        <div class="homepage-marquee" aria-label="Homepage highlights">
+        <div class="homepage-marquee d-none d-lg-block" aria-label="Homepage highlights">
           <div class="homepage-marquee-track">
             <div class="homepage-marquee-slide">
               <video autoplay muted loop playsinline class="homepage-video">
@@ -2841,7 +2841,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
         <div class="container tochange">
           <div class="row h-100 align-items-m-center justify-content-start">
             <div
-              class="container d-flex d-lg-none flex-column justify-content-start align-items-start my-4 styleheaderlogo">
+              class="container d-lg-none d-lg-flex flex-column justify-content-start align-items-start my-4 styleheaderlogo">
               <div id="herocontent" class="hero-content text-center mx-auto" data-aos="zoom-out" data-aos-delay="100">
                 <div class="cta-buttons overview">
                   <button class="stylecodebtn px-5 shadow-lg fw-bold">TNEA <br /> 1309</button>
@@ -4329,26 +4329,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 
 
     <script async src="https://www.instagram.com/embed.js"></script>
-
-<style id="mobile-hero-visibility-fixes">
-html,body{max-width:100%;overflow-x:hidden}
-#hero{position:relative;overflow:hidden}
-#hero .homepage-marquee{display:block!important;position:absolute;inset:0;width:100%;height:100%;overflow:hidden;z-index:0;background:#000}
-#hero .homepage-marquee-track{display:flex;width:max-content;height:100%;will-change:transform;animation:homepageMarquee 64s linear infinite}
-#hero .homepage-marquee-slide{position:relative;flex:0 0 100vw;width:100vw;height:100%;overflow:hidden;background:#000}
-#hero .homepage-marquee-slide video,#hero .homepage-marquee-slide img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center}
-#hero .hero-container>.container.tochange,#hero .styleheaderlogo{position:relative;z-index:5}
-#hero .hero-container>.container.tochange a,#hero .hero-container>.container.tochange button,#hero .styleheaderlogo a,#hero .styleheaderlogo button{pointer-events:auto}
-#hero .event-ticker{position:relative;z-index:10;overflow:hidden;width:100%;background:#fff}
-#hero .event-ticker .ticker-img{max-width:100%;height:auto;object-fit:contain}
-.nh-ticker{position:relative;z-index:20;width:100%;max-width:100%;overflow:hidden}
-.nh-ticker__track{width:100%;max-width:100%;overflow:hidden}
-.nh-ticker__scroller{max-width:none;white-space:nowrap}
-@media(max-width:991.98px){#hero .homepage-marquee{display:block!important}#hero .homepage-marquee-track,#hero .homepage-marquee-slide{min-height:100%}#hero .homepage-marquee-slide video,#hero .homepage-marquee-slide img{min-height:100%}#hero .styleheaderlogo{display:flex!important;visibility:visible!important;opacity:1!important}#hero .hero-container{position:relative;z-index:2;width:100%;max-width:100%;overflow:visible}#hero .event-ticker,.nh-ticker{display:block!important;visibility:visible!important;opacity:1!important}}
-@media(max-width:767.98px){#hero .event-ticker{padding:8px 0}#hero .event-ticker .container{width:100%;max-width:none;padding-left:0;padding-right:0;overflow:hidden}#hero .event-ticker .row{flex-wrap:nowrap;width:max-content;margin-left:0;margin-right:0}#hero .event-ticker .ticker-item{flex:0 0 auto;width:105px;max-width:105px;padding-left:8px;padding-right:8px}#hero .event-ticker .ticker-img{display:block;width:80px;height:55px;max-width:80px;margin-left:auto;margin-right:auto;object-fit:contain}}
-@media(max-width:480px){#hero .event-ticker .ticker-item{width:95px;max-width:95px}#hero .event-ticker .ticker-img{width:72px;max-width:72px;height:50px}.nh-ticker{font-size:13px}}
-@media(prefers-reduced-motion:reduce){#hero .homepage-marquee-track{animation:none!important;transform:none!important}}
-</style>
 </body>
 
 </html>

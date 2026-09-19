@@ -2133,7 +2133,7 @@
       display: flex;
       width: max-content;
       height: 100%;
-      animation: homepageMarquee 48s linear infinite;
+      animation: homepageMarquee 64s linear infinite;
       will-change: transform;
     }
 
@@ -2174,8 +2174,56 @@
         transform: translateX(0);
       }
       to {
-        transform: translateX(-300vw);
+        transform: translateX(-400vw);
       }
+    }
+
+    /* Static Register Now CTA over the homepage marquee */
+    #hero .hero-static-register-btn {
+      position: absolute;
+      right: 42px;
+      bottom: 78px;
+      z-index: 5;
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 50px;
+      background: #e31837;
+      color: #ffffff !important;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(227, 24, 55, 0.35);
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    #hero .hero-static-register-btn:hover {
+      background: #c0102a;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(227, 24, 55, 0.45);
+    }
+
+    .euphoria-ticker-item {
+      white-space: nowrap;
+    }
+
+    .euphoria-ticker-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+      padding: 3px 12px;
+      border-radius: 50px;
+      background: #e31837;
+      color: #ffffff !important;
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -2454,6 +2502,9 @@
             <div class="homepage-marquee-slide">
               <img src="./assets/img/hero-banners/IAICRIES-2026.png" alt="IAICRIES 2026 National Seminar" loading="eager">
             </div>
+            <div class="homepage-marquee-slide">
+              <img src="./euphoria26-hero-banner.png" alt="Euphoria 2026" loading="eager">
+            </div>
 
             <div class="homepage-marquee-slide" aria-hidden="true">
               <video autoplay muted loop playsinline class="homepage-video">
@@ -2466,9 +2517,15 @@
             <div class="homepage-marquee-slide" aria-hidden="true">
               <img src="./assets/img/hero-banners/IAICRIES-2026.png" alt="" loading="eager">
             </div>
+            <div class="homepage-marquee-slide" aria-hidden="true">
+              <img src="./euphoria26-hero-banner.png" alt="" loading="eager">
+            </div>
           </div>
         </div>
         <div class="container tochange">
+          <button type="button" class="hero-static-register-btn d-none d-lg-inline-flex" aria-label="Register Now">
+            Register Now <i class="bi bi-arrow-right-short"></i>
+          </button>
           <div class="row h-100 align-items-m-center justify-content-start">
             <div
               class="container d-lg-none d-lg-flex flex-column justify-content-start align-items-start my-4 styleheaderlogo">
@@ -2529,6 +2586,10 @@
             🌿 <strong>IAICRIES 2026</strong> &mdash; National Seminar on AI for Climate-Resilient Infrastructure &amp; Environmental Sustainability
             <a class="nh-ticker-link" href="news.html">Learn More <i class="bi bi-arrow-right-short"></i></a>
           </span>
+          <span class="nh-ticker__item euphoria-ticker-item">
+            🎉 <strong>Euphoria 2026</strong> &mdash; Registrations Open
+            <button type="button" class="euphoria-ticker-btn">Register Now</button>
+          </span>
           <span class="nh-ticker__item">
             ✨ <strong>Campus Highlights &amp; Events</strong> &mdash; Discover Fests, Workshops &amp; Student Clubs
             <a class="nh-ticker-link" href="news.html">Explore Events <i class="bi bi-arrow-right-short"></i></a>
@@ -2554,6 +2615,10 @@
           <span class="nh-ticker__item">
             🌿 <strong>IAICRIES 2026</strong> &mdash; National Seminar on AI for Climate-Resilient Infrastructure &amp; Environmental Sustainability
             <a class="nh-ticker-link" href="news.html">Learn More <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item euphoria-ticker-item">
+            🎉 <strong>Euphoria 2026</strong> &mdash; Registrations Open
+            <button type="button" class="euphoria-ticker-btn">Register Now</button>
           </span>
           <span class="nh-ticker__item">
             ✨ <strong>Campus Highlights &amp; Events</strong> &mdash; Discover Fests, Workshops &amp; Student Clubs

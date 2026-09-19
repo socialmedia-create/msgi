@@ -1,0 +1,393 @@
+// Official Euphoria 2026 Events Data with Verified Details & Direct Google Form Links
+
+export const DEFAULT_GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd5Ux3YJoRsP0e3BBimLbmKsdAwaB-t9BbhbYwFxX6QeE3fIA/viewform?usp=publish-editor';
+
+export const EVENTS = [
+  {
+    id: 'stackmarket',
+    title: 'STACKMARKET',
+    subtitle: 'DESIGN. BID. BUILD. SURVIVE.',
+    category: 'technical',
+    categoryLabel: 'AI & Tech Auction',
+    department: 'AI Epoch Club & Microsoft AI Club',
+    googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSd5Ux3YJoRsP0e3BBimLbmKsdAwaB-t9BbhbYwFxX6QeE3fIA/viewform?usp=publish-editor',
+    description: 'StackMarket, the Flagship Event of Euphoria 2026, is a high-pressure technology auction and build challenge where teams compete to acquire their technology stack and then build a solution using only the technologies they own.',
+    full_description: 'With limited Tech Credits, an unexpected problem statement, and a surprise Secret Client Card, teams must combine strategy, technical skills, creativity, adaptability, and problem-solving to survive the challenge.',
+    image: '/images/EUPHORIA EVENTS/stackmarket.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/stackmarket.jpeg',
+    date: 'Sep 25, 2026',
+    time: '09:30 AM - 03:30 PM',
+    venue: 'Main Block AI Lab 1&2',
+    participation_type: 'team',
+    team_size: '3 Members',
+    min_members: 3,
+    max_members: 3,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    open_to: 'External College Participants',
+    flow: [
+      { step: '01', title: 'DESIGN', desc: 'Form your team and plan your strategy before entering the market.' },
+      { step: '02', title: 'BID', desc: 'Teams receive limited Tech Credits and use them to bid for the technologies they want to own.' },
+      { step: '03', title: 'BUILD', desc: 'Once the technology auction is complete, teams receive an unexpected problem statement and must build a solution using only the technology stack they have acquired.' },
+      { step: '04', title: 'SECRET CLIENT', desc: 'A surprise Secret Client Card introduces an additional requirement or challenge that teams must adapt their solution to.' },
+      { step: '05', title: 'SURVIVE', desc: 'Use your available technologies creatively and effectively to build a solution that meets the challenge requirements and survives the market.' }
+    ],
+    coordinators: [
+      { role: 'Faculty Coordinator', name: 'Reenie Tanya', phone: '9940244685', displayPhone: '99402 44685' },
+      { role: 'Student Coordinator', name: 'Kaushieek Subramaniyam', phone: '9841739924', displayPhone: '98417 39924' }
+    ],
+    rules: [
+      'Teams must consist of 3 registered members.',
+      'Phase 1: Bid for tech licenses and API credits using allocated virtual tokens.',
+      'Phase 2: Build a functional software prototype strictly using the acquired technologies.',
+      'Phase 3: Adapt solution on-the-fly to meet surprise Secret Client requirement changes.',
+      'Evaluated on architectural stability, prototype functionality, code quality, and adaptability.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'gameathon',
+    title: 'GAME-A-THON',
+    subtitle: 'Where Hacking Meets Gaming',
+    category: 'gaming',
+    categoryLabel: 'Game Development',
+    department: 'Digital Design Club, DevDynasty – Web App Development & E-Sports Club',
+    googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdtr6YlgVLgLs7yPcolt_6ZccilLQ3wYNDr65v2PC2ouRMfog/viewform',
+    description: 'Game-a-Thon is an intensive game development competition where participants conceptualize, design, develop, test, and present a functional game within a limited time frame.',
+    full_description: 'Transform your wildest game concepts into playable realities in an 8-hour marathon. Explore Unity, Unreal Engine, OpenCV, Godot, Web technologies, and custom game engines. Focus is placed on creativity, gameplay mechanics, technical depth, and player immersion.',
+    image: '/images/EUPHORIA EVENTS/gameathon.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/gameathon.jpeg',
+    date: 'Sep 25, 2026',
+    time: '08:30 AM – 04:30 PM (8 Hours)',
+    venue: 'CC1 Lab, Main Block',
+    participation_type: 'team',
+    team_size: '3–4 Members',
+    min_members: 3,
+    max_members: 4,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    limit_notice: 'Limited Seats: First 15 teams only on a first-come, first-served basis.',
+    recognitions: [
+      'Winner',
+      'Runner-Up',
+      'Second Runner-Up',
+      'Most Innovative Game',
+      'Best Game Design',
+      'Best Technical Implementation'
+    ],
+    coordinators: [
+      { role: 'Student Coordinator', name: 'Aafiya Sheerin', phone: '9025300402', displayPhone: '90253 00402' },
+      { role: 'Student Coordinator', name: 'Aswin', phone: '9840567068', displayPhone: '98405 67068' }
+    ],
+    rules: [
+      'Teams must consist of 3 to 4 student participants.',
+      'Theme and problem statement will be announced at the start of the event.',
+      'Engines allowed: Unity, Unreal Engine, OpenCV, Godot, WebGL/Three.js, Pygame, Phaser, etc.',
+      'Only the first 15 registered teams will be admitted.',
+      'Live gameplay demonstration and presentation before the jury is mandatory.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'mechanism-auction',
+    title: 'MECHANISM AUCTION',
+    subtitle: 'Bid • Build • Innovate',
+    category: 'mechanical',
+    categoryLabel: 'Mechanical Engineering Challenge',
+    department: 'Product Development Club, Department of Mechanical Engineering',
+    googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdA2zTzMh77ll4liki32VtRZNNxmzMBGu4a1QP4AaLEAMK2jA/viewform',
+    description: 'Mechanism Auction is an exciting mechanical engineering challenge where teams compete through strategy, creativity, and hands-on product development. Bid for components and build a working mechanical masterpiece.',
+    full_description: 'Each team receives a fixed virtual budget and bids for mechanical parts and linkages. Using acquired components, teams design, assemble, and demonstrate an innovative mechanical machine to judges.',
+    image: '/images/EUPHORIA EVENTS/mechanism auction.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/mechanism auction.jpeg',
+    date: 'Sep 25, 2026 (Friday)',
+    time: '09:00 AM – 03:30 PM',
+    venue: 'Mechanical Block',
+    participation_type: 'team',
+    team_size: '2–4 Members',
+    min_members: 2,
+    max_members: 4,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    flow: [
+      { step: '01', title: 'Virtual Money', desc: 'Each team receives a fixed virtual budget.' },
+      { step: '02', title: 'Auction', desc: 'Teams bid using their virtual money to acquire mechanical components.' },
+      { step: '03', title: 'Build', desc: 'Use the components acquired through the auction to create an innovative mechanical product.' },
+      { step: '04', title: 'Present', desc: 'Showcase the design and explain how the mechanism works.' },
+      { step: '05', title: 'Win', desc: 'Teams are evaluated based on creativity, mechanism, strategy, and presentation.' }
+    ],
+    coordinators: [
+      { role: 'Faculty Coordinator', name: 'Dr. T. Prabakaran', phone: '9965142444', displayPhone: '99651 42444' },
+      { role: 'Student Coordinator', name: 'S. Mohamed Riswan', phone: '7395820106', displayPhone: '73958 20106' },
+      { role: 'Student Coordinator', name: 'Prajian GN', phone: '6381985685', displayPhone: '63819 85685' }
+    ],
+    rules: [
+      'Teams must bid for components within their allotted virtual budget.',
+      'Assemble a working mechanical prototype using only the auctioned items.',
+      'Present engineering principles, kinematics, and feasibility to the faculty panel.',
+      'Evaluation is based on mechanical efficiency, bidding strategy, creativity, and presentation.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'iron-arena',
+    title: 'IRON ARENA',
+    subtitle: 'Clash of Machines • Sumo Bot Race',
+    category: 'robotics',
+    categoryLabel: 'Sumo Bot Race & Robotics',
+    department: 'Department of Electrical & Electronics Engineering',
+    googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfE3sn5xIM_ul_EJgF8Uy9gqZh4Nwz7kdyFY_Wh-Gg9-EMHtA/viewform',
+    description: 'Iron Arena – Clash of Machines is an exciting Sumo Bot Race where teams design and build combat-ready robots to push opponents out of the arena and claim mechanical supremacy.',
+    full_description: 'Combine mechanical strength, electronic speed control, and precision driving. Robots clash head-to-head inside the battle arena in high-torque elimination rounds.',
+    image: '/images/EUPHORIA EVENTS/iron arena.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/iron arena.jpeg',
+    date: 'Sep 25, 2026 (Friday)',
+    time: '09:00 AM – 01:00 PM',
+    venue: 'SM Lab, Ground Floor, Civil Engineering Block',
+    participation_type: 'team',
+    team_size: '3–4 Members',
+    min_members: 3,
+    max_members: 4,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    limit_notice: 'Maximum 15 Teams. Open to College Students.',
+    bot_specifications: [
+      { label: 'Maximum Dimensions', value: '30 × 30 × 30 cm' },
+      { label: 'Maximum Weight', value: '5 kg' },
+      { label: 'Maximum Voltage', value: '12V DC' }
+    ],
+    rules: [
+      'Maximum bot dimensions: 30 × 30 × 30 cm | Maximum Weight: 5 kg | Maximum Voltage: 12V DC.',
+      'Teams must consist of 3 to 4 college student members.',
+      'Robots must push the opposing bot completely outside the boundary lines.',
+      'Bots will undergo dimensional and electrical inspection prior to match entry.',
+      'Decision of the arena marshals and judges is final and binding.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'escape-exe',
+    title: 'ESCAPE.EXE',
+    subtitle: 'Decode. Debug. Escape.',
+    category: 'technical',
+    categoryLabel: 'Technical Escape Room',
+    department: 'Department of Computer Science and Engineering',
+    googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSceO_9EgXn7ZxrxCjApAqYO6tlvCvJs3brcLVPv_TRhtXQgzw/viewform',
+    description: 'A thrilling technical team-based escape room challenge where participants work together to solve puzzles, crack codes, uncover clues, and debug systems.',
+    full_description: 'Department of Computer Science and Engineering presents ESCAPE.EXE. Put your logical deduction, algorithm analysis, cryptography, and debugging skills to the test across 2 progressive rounds.',
+    image: '/images/EUPHORIA EVENTS/escape.exe.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/escape.exe.jpeg',
+    date: 'Sep 25, 2026 (Friday)',
+    time: '09:00 AM – 01:30 PM (4.5 Hours)',
+    venue: 'Main Block, 3 & 4 Lab, CSE',
+    participation_type: 'team',
+    team_size: '2–4 Members',
+    min_members: 2,
+    max_members: 4,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    rounds: [
+      { round: 'Round 1', title: 'Tech Treasure Hunt', duration: '75 Minutes', desc: 'Follow clues, solve technical challenges, uncover hidden data, and demonstrate problem-solving skills to qualify for the next round.' },
+      { round: 'Round 2', title: 'System Breach', duration: '120 Minutes', desc: 'Solve high-level challenges, unlock secured systems, uncover the final escape code, and break out.' }
+    ],
+    highlights: [
+      'Clue-based challenges',
+      'Technical puzzles',
+      'Code-breaking',
+      'Debugging challenges',
+      'Logical problem-solving',
+      'Teamwork and collaboration',
+      'Time-based challenges'
+    ],
+    rules: [
+      'Round 1: Tech Treasure Hunt (75 Mins) — Top performing teams qualify for Round 2.',
+      'Round 2: System Breach (120 Mins) — Solve, breach security roadblocks, and extract the escape key.',
+      'Teams must comprise 2 to 4 registered members.',
+      'Use of external unauthorized aids or foul play results in instant disqualification.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'shipwreck',
+    title: 'SHIPWRECK',
+    subtitle: 'Survive. Argue. Convince.',
+    category: 'literary',
+    categoryLabel: 'Character Survival Challenge',
+    department: 'Department of Electronics & Communication Engineering',
+    googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeXsc_MkOK8Aklk37rJGQdD7TlLgbaYBGnH_QT6IY2pGVv2lQ/viewform',
+    description: 'Think you can convince everyone that your character deserves the last life jacket? Step into the role of a character and put your creativity, quick thinking, persuasion, wit & performance to the test.',
+    full_description: 'Survive. Argue. Convince. Are you ready to claim the last life jacket? Step into iconic fictional and cinematic personas, defend your existence against cross-examination, and win over the jury.',
+    image: '/images/EUPHORIA EVENTS/shipwreck.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/shipwreck.jpeg',
+    date: 'Sep 25, 2026',
+    time: '08:30 AM – 04:30 PM',
+    venue: 'ECE Seminar Hall',
+    participation_type: 'team',
+    team_size: '4 Members',
+    min_members: 1,
+    max_members: 4,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    rounds: [
+      { round: 'Round 1', title: 'Character Pitch', desc: 'Introduce your character persona and deliver an impassioned survival pitch.' },
+      { round: 'Round 2', title: 'Cross-Examination', desc: 'Face rapid-fire interrogations from fellow passengers and judges.' },
+      { round: 'Round 3', title: 'Final Rebuttal', desc: 'Deliver your concluding closing argument to claim the sole life jacket.' }
+    ],
+    rules: [
+      'Teams of up to 4 members or solo character presentations.',
+      '3 distinct rounds: Character Pitch, Cross-Examination, and Final Rebuttal.',
+      'Maintain character mannerisms, logic, and demeanor throughout the entire session.',
+      'Scored on theatrical presence, comedic wit, argument coherence, and quick responses.',
+      'Vulgarity or offensive references are strictly barred.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'smart-cities',
+    title: 'SMART CITIES CHALLENGE',
+    subtitle: 'DIGITAL • CONNECT • SUSTAINABLE • FUTURE',
+    category: 'innovation',
+    categoryLabel: 'IoT-Based Smart City Challenge',
+    department: 'Department of Civil Engineering & Eco Design Club',
+    googleFormUrl: 'https://forms.gle/g7MYFz7ccZP6e1rF7',
+    description: 'Smart Cities Challenge is an IoT-based innovation event focusing on using digital technologies, IoT, and sustainable engineering ideas to envision smarter, safer, and greener cities.',
+    full_description: 'Showcase IoT architectures, smart sensor integrations, and sustainable civil blueprints solving real municipal, environmental, and infrastructure challenges.',
+    image: '/images/EUPHORIA EVENTS/smart cities.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/smart cities.jpeg',
+    date: 'Sep 25, 2026 (Friday)',
+    time: '10:00 AM – 12:00 PM',
+    venue: 'MSEC Civil Block',
+    participation_type: 'team',
+    team_size: '2–4 Members',
+    min_members: 2,
+    max_members: 4,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    focus_areas: [
+      { title: 'Smart Infrastructure', desc: 'Connected and intelligent infrastructure solutions.' },
+      { title: 'Clean Environment', desc: 'Ideas contributing to a cleaner and healthier environment.' },
+      { title: 'Renewable Energy', desc: 'Sustainable and renewable energy concepts for future cities.' },
+      { title: 'Safe Communities', desc: 'Technology-driven solutions for safer, connected communities.' },
+      { title: 'Resource Management', desc: 'Smarter monitoring and conservation of essential resources.' },
+      { title: 'Smart Waste Solutions', desc: 'Technology-driven approaches to automated waste management.' }
+    ],
+    coordinators: [
+      { role: 'HOD, Civil Engineering', name: 'Mrs. U. Nirmalambal' },
+      { role: 'Faculty Coordinator', name: 'Mr. S. Saravanan', phone: '7397686669', displayPhone: '73976 6669' },
+      { role: 'Faculty Coordinator', name: 'Mr. S. Vishnuvardhan', phone: '6383236263', displayPhone: '63832 36263' },
+      { role: 'Student Coordinator', name: 'Bharathi V', phone: '7200781321', displayPhone: '72007 81321' },
+      { role: 'Student Coordinator', name: 'Sri Mathi G', phone: '6374420461', displayPhone: '63744 20461' }
+    ],
+    rules: [
+      'Propose an IoT-integrated solution or sustainable civil engineering framework.',
+      'Presentation duration: 8 to 10 minutes PPT / prototype demo followed by jury Q&A.',
+      'Working hardware prototypes, sensor demonstrations, or simulation models receive bonus weightage.',
+      'Judged on technological innovation, environmental impact, scalability, and feasibility.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'rythmix',
+    title: 'RYTHMIX',
+    subtitle: 'Feel the Beat. Own the Stage.',
+    category: 'dance',
+    categoryLabel: 'External Dance Competition',
+    department: 'Meenakshi Sundararajan Engineering College – VPA Club',
+    googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe82auIUFJ5Uve4H79Y9DYSviSCmsx7lBgbXauFEgyk6nrFUw/viewform',
+    description: 'RYTHMIX is an external dance competition presented by Meenakshi Sundararajan Engineering College – VPA Club, giving dancers an opportunity to showcase their talent, energy, creativity, and performance style on stage.',
+    full_description: 'Participants can compete across different dance categories (Western Boys, Western Girls, Classical, Folk) and express themselves through their chosen style. Each participating team will be given a maximum of 5 minutes for their performance. Bring your energy, creativity, and unique dance style to the stage!',
+    image: '/images/EUPHORIA EVENTS/rythmix.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/rythmix.jpeg',
+    date: 'Sep 25, 2026',
+    time: '09:00 AM – 04:30 PM',
+    venue: 'MS Auditorium',
+    participation_type: 'team',
+    team_size: 'Max 5 Mins / Team',
+    min_members: 1,
+    max_members: 12,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    limit_notice: 'Performance Time Limit: Maximum 5 minutes per team.',
+    focus_areas: [
+      { title: 'Western Boys', desc: 'High-energy hip-hop, street, freestyle, and western choreography for men.' },
+      { title: 'Western Girls', desc: 'Dynamic western, urban, commercial, and contemporary routines for women.' },
+      { title: 'Classical', desc: 'Traditional Bharatanatyam, Kathak, Kuchipudi, and classical dance forms.' },
+      { title: 'Folk', desc: 'Vibrant regional folk dances representing rich cultural heritage and rhythm.' }
+    ],
+    rules: [
+      'Open external dance competition for college participants.',
+      'Categories: Western Boys, Western Girls, Classical, Folk.',
+      'Maximum performance time limit: 5 minutes per team.',
+      'Judged on energy, creativity, synchronization, stage presence, and unique performance style.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'voice-arena',
+    title: 'VOICE ARENA',
+    subtitle: 'Vocal Competition • Showcase Your Voice',
+    category: 'music',
+    categoryLabel: 'Vocal Competition',
+    department: 'Visual Performance and Arts Club (VPA)',
+    googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeM9GCi0FUVkL-M3NKma5vvBRdEhtUeWEw77_tpNtU219KrQg/viewform',
+    description: 'Voice Arena is a vocal competition presented by the Visual Performance and Arts Club (VPA) of Meenakshi Sundararajan Engineering College. The event gives aspiring singers a platform to showcase their vocal ability, musical expression, creativity, and individual performance style.',
+    full_description: 'Participants can compete as solo vocalists and choose between different performance formats including pure Solo Vocal and Acoustic / Unplugged instrumentation.',
+    image: '/images/EUPHORIA EVENTS/voice arena.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/voice arena.jpeg',
+    date: 'Sep 25, 2026',
+    time: '09:00 AM – 04:30 PM',
+    venue: 'MS Auditorium',
+    participation_type: 'solo',
+    team_size: 'Solo Vocalists',
+    min_members: 1,
+    max_members: 1,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    focus_areas: [
+      { title: 'Solo Vocal', desc: 'Individual vocal performance showcasing vocal ability, range, and stage presence.' },
+      { title: 'Acoustic / Unplugged', desc: 'Vocal performance accompanied by acoustic or unplugged instrumentation.' }
+    ],
+    rules: [
+      'Open to aspiring solo vocalists from all registered colleges.',
+      'Formats allowed: Pure Solo Vocal or Acoustic / Unplugged accompaniment.',
+      'Open to all musical genres, languages, and vocal styles.',
+      'Evaluated on vocal control, pitch accuracy, emotional expression, and stage presence.'
+    ],
+    registration_status: 'open'
+  },
+  {
+    id: 'sound-battle',
+    title: 'SOUND BATTLE',
+    subtitle: 'Instruments • Express Your Musical Identity',
+    category: 'music',
+    categoryLabel: 'Instrumental Music Competition',
+    department: 'Visual Performance and Arts Club (VPA)',
+    googleFormUrl: 'https://q.me-qr.com/99mfua3k',
+    description: 'Sound Battle is an instrumental music competition presented by the Visual Performance and Arts Club (VPA) of Meenakshi Sundararajan Engineering College. The event gives participants a platform to showcase their musical talent, creativity, and individual style through instrumental performance.',
+    full_description: 'Participants can perform using any instrument and explore any genre or cultural style, making it an open platform for musicians to express themselves.',
+    image: '/images/EUPHORIA EVENTS/sound battle.jpeg',
+    thumbnail: '/images/EUPHORIA EVENTS/sound battle.jpeg',
+    date: 'Sep 25, 2026',
+    time: '09:00 AM – 04:30 PM',
+    venue: 'MS Auditorium',
+    participation_type: 'solo',
+    team_size: 'Solo Performance',
+    min_members: 1,
+    max_members: 1,
+    fee: 'Free',
+    last_date: 'Sep 23, 2026',
+    focus_areas: [
+      { title: 'Any Instrument', desc: 'Perform using your instrument of choice (Guitar, Keyboard, Drums, Violin, Flute, etc.).' },
+      { title: 'Solo Format', desc: 'Designed exclusively for individual instrumental solo performances.' },
+      { title: 'Any Genre', desc: 'Showcase music across Classical, Rock, Jazz, Fusion, Cinematic, or Contemporary.' },
+      { title: 'Any Culture & Style', desc: 'Represent diverse musical traditions, bringing your own musical identity to stage.' }
+    ],
+    rules: [
+      'Solo instrumental performances only.',
+      'Participants can perform using any instrument of their choice.',
+      'Open to all musical genres, cultural traditions, and performance styles.',
+      'Evaluated on musical proficiency, technique, expression, creativity, and overall audience impact.'
+    ],
+    registration_status: 'open'
+  }
+];

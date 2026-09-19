@@ -2178,18 +2178,17 @@
       }
     }
 
-    /* Static Register Now CTA over the homepage marquee */
-    #hero .hero-static-register-btn {
-      position: absolute;
-      right: 42px;
-      bottom: 78px;
-      z-index: 5;
+    /* Euphoria 2026 Register Now button below Social Media */
+    .euphoria-floating-register-btn {
+      position: fixed;
+      z-index: 1055;
       pointer-events: auto;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       padding: 13px 26px;
+      border: 0;
       border-radius: 50px;
       background: #e31837;
       color: #ffffff !important;
@@ -2198,9 +2197,10 @@
       text-decoration: none;
       box-shadow: 0 8px 22px rgba(227, 24, 55, 0.35);
       transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
     }
 
-    #hero .hero-static-register-btn:hover {
+    .euphoria-floating-register-btn:hover {
       background: #c0102a;
       color: #ffffff !important;
       transform: translateY(-2px);
@@ -2523,9 +2523,6 @@
           </div>
         </div>
         <div class="container tochange">
-          <button type="button" class="hero-static-register-btn d-none d-lg-inline-flex" aria-label="Register Now">
-            Register Now <i class="bi bi-arrow-right-short"></i>
-          </button>
           <div class="row h-100 align-items-m-center justify-content-start">
             <div
               class="container d-lg-none d-lg-flex flex-column justify-content-start align-items-start my-4 styleheaderlogo">
@@ -3471,6 +3468,10 @@
       <div class="share-toggle text-white" id="shareToggleBtn" onclick="toggleShare()">
         <i class="bi bi-share-fill me-2 icon-only"></i> <span class="d-none d-md-inline">Social Media</span>
       </div>
+
+      <button type="button" class="euphoria-floating-register-btn d-none d-lg-inline-flex" id="euphoriaRegisterBtn" aria-label="Register Now">
+        Register Now <i class="bi bi-arrow-right-short"></i>
+      </button>
     </div>
     <!-- <button class="campus-tour-btn" onclick="window.open('./app-files', '_blank')">Campus Tour</button> -->
 
@@ -3737,6 +3738,22 @@
         icons.classList.toggle("show");
         toggleBtn.classList.toggle("collapsed");
       }
+
+      function positionEuphoriaRegisterButton() {
+        const shareButton = document.getElementById("shareToggleBtn");
+        const registerButton = document.getElementById("euphoriaRegisterBtn");
+        if (!shareButton || !registerButton) return;
+
+        const rect = shareButton.getBoundingClientRect();
+        const gap = 8;
+        const left = Math.max(8, rect.right - registerButton.offsetWidth);
+        registerButton.style.left = `${left}px`;
+        registerButton.style.top = `${rect.bottom + gap}px`;
+      }
+
+      document.addEventListener("DOMContentLoaded", positionEuphoriaRegisterButton);
+      window.addEventListener("resize", positionEuphoriaRegisterButton);
+      window.addEventListener("scroll", positionEuphoriaRegisterButton, { passive: true });
 
       function toggleBrochure() {
         const options = document.getElementById("brochureOptions");

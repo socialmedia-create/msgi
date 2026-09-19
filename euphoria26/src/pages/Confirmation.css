@@ -1,0 +1,542 @@
+/* =========================================================
+   CONFIRMATION PAGE — EUPHORIA 2026
+   Two-panel layout: Hero left + Pass card right
+   ========================================================= */
+
+/* ── Page Shell ── */
+.conf-page {
+  min-height: 100vh;
+  background: #040406;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem; /* nav height */
+}
+
+@media (min-width: 900px) {
+  .conf-page {
+    flex-direction: row;
+    padding-top: 0;
+  }
+}
+
+/* Toast */
+.conf-toast {
+  position: fixed;
+  top: 5.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #f5d77f 0%, #d4af64 60%, #b8860b 100%);
+  color: #08060a;
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(212,175,100,0.5);
+  white-space: nowrap;
+  animation: toastIn 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── LEFT HERO PANEL ── */
+.conf-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 2rem 2.5rem;
+  min-height: 320px;
+}
+
+@media (min-width: 900px) {
+  .conf-hero {
+    width: 42%;
+    min-height: 100vh;
+    padding: 4rem 2.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+.conf-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.35) saturate(0.7);
+}
+
+.conf-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(4,4,6,0.85) 0%, rgba(10,8,16,0.75) 100%);
+  z-index: 1;
+}
+
+.conf-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.conf-success-ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(212,175,100,0.12);
+  border: 1.5px solid rgba(212,175,100,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 30px rgba(212,175,100,0.2);
+}
+
+.conf-check-icon { color: #d4af64; }
+
+.conf-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.conf-hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(240,232,216,0.6);
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+}
+
+/* Reg ID box */
+.conf-regid-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1.25rem;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(212,175,100,0.3);
+  margin-bottom: 0.75rem;
+  max-width: 340px;
+}
+
+.conf-regid-label {
+  display: block;
+  font-family: monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(240,232,216,0.45);
+  margin-bottom: 0.2rem;
+}
+
+.conf-regid-value {
+  font-family: monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #d4af64;
+  letter-spacing: 0.08em;
+}
+
+.conf-copy-btn {
+  padding: 0.45rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  color: #d4af64;
+  border: 1px solid rgba(212,175,100,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.conf-copy-btn:hover { background: rgba(212,175,100,0.15); }
+
+.conf-hero-note {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: rgba(240,232,216,0.35);
+  margin-bottom: 2rem;
+}
+
+/* Buttons inside hero (visible on mobile) */
+.conf-actions-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 900px) {
+  .conf-actions-hero { display: none; }
+}
+
+.conf-hero-slogan {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(212,175,100,0.6);
+  letter-spacing: 0.05em;
+}
+
+/* ── RIGHT PANEL ── */
+.conf-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem 3rem;
+  background: #040406;
+}
+
+@media (min-width: 900px) {
+  .conf-right {
+    padding: 2rem 2.5rem 3rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.conf-top-bar {
+  display: none;
+  justify-content: flex-end;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .conf-top-bar { display: flex; }
+}
+
+/* ── PASS CARD ── */
+.pass-card {
+  position: relative;
+  background: #0c0812;
+  border: 1.5px solid rgba(212,175,100,0.35);
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.75rem 1.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.85),
+    0 0 40px rgba(212,175,100,0.1),
+    inset 0 1px 0 rgba(212,175,100,0.12);
+  margin-bottom: 1.5rem;
+}
+
+/* decorative blobs */
+.pass-blob-1 {
+  position: absolute;
+  top: -5rem; right: -5rem;
+  width: 16rem; height: 16rem;
+  background: radial-gradient(circle, rgba(212,175,100,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pass-blob-2 {
+  position: absolute;
+  bottom: -4rem; left: -4rem;
+  width: 12rem; height: 12rem;
+  background: radial-gradient(circle, rgba(212,175,100,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Pass Header */
+.pass-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 1.25rem;
+}
+
+.pass-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pass-sparkle { color: #d4af64; }
+
+.pass-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.14em;
+}
+
+.pass-brand-year {
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: #d4af64;
+  font-weight: 700;
+}
+
+.pass-badge-text {
+  font-family: monospace;
+  font-size: 0.55rem;
+  color: rgba(240,232,216,0.3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .pass-badge-text { display: block; }
+}
+
+.pass-badge {
+  padding: 0.28rem 0.7rem;
+  border-radius: 9999px;
+  background: rgba(212,175,100,0.1);
+  border: 1px solid rgba(212,175,100,0.35);
+  color: #d4af64;
+  font-family: monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Pass Body */
+.pass-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 480px) {
+  .pass-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Details column */
+.pass-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.pass-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  gap: 0.75rem;
+}
+
+.pass-row-key {
+  font-family: monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #d4af64;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pass-row-val {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: #fff;
+  text-align: right;
+  word-break: break-word;
+}
+
+.pass-row-event {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* QR column */
+.pass-qr-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pass-qr-frame {
+  background: #fff;
+  padding: 0.6rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,100,0.25);
+  display: inline-flex;
+}
+
+.pass-qr-id {
+  font-family: monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #d4af64;
+  letter-spacing: 0.04em;
+  text-align: center;
+  max-width: 120px;
+  word-break: break-all;
+}
+
+/* Pass Footer */
+.pass-footer {
+  margin-top: 1.1rem;
+}
+
+.pass-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+}
+
+.pass-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.pass-footer-slogan {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.68rem;
+  font-style: italic;
+  color: #d4af64;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ── Buttons ── */
+.conf-btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #f5d77f 0%, #d4af64 60%, #b8860b 100%);
+  color: #08060a;
+  border: 1px solid #ffe49e;
+  padding: 0.8rem 1.75rem;
+  border-radius: 9999px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  box-shadow: 0 4px 18px rgba(212,175,100,0.38);
+  white-space: nowrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.conf-btn-download:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(212,175,100,0.55);
+}
+
+.conf-btn-download:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.conf-btn-download-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(212,175,100,0.1);
+  color: #d4af64;
+  border: 1px solid rgba(212,175,100,0.35);
+  padding: 0.5rem 1.1rem;
+  border-radius: 9999px;
+  font-family: monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.conf-btn-download-sm:hover:not(:disabled) {
+  background: rgba(212,175,100,0.18);
+}
+
+.conf-btn-download-sm:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.conf-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.conf-btn-back:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(212,175,100,0.4);
+}
+
+.conf-btn-back-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.7rem 1.3rem;
+  border-radius: 9999px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.conf-btn-back-sm:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+/* Action row below card */
+.conf-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .conf-action-row { display: none; }
+}

@@ -2232,6 +2232,322 @@
       }
     }
   </style>
+
+<style id="mobile-responsive-overrides">
+/* Mobile/responsive safety overrides — preserves existing desktop design */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, video, iframe, svg {
+  max-width: 100%;
+}
+
+img, video {
+  height: auto;
+}
+
+.container, .container-fluid {
+  width: 100%;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+}
+
+/* Prevent long text/URLs from forcing horizontal scrolling */
+h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
+  overflow-wrap: anywhere;
+}
+
+/* Tablets */
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .story-path,
+  .story-focus-grid,
+  .learning-gallery-grid,
+  .courses-category-grid {
+    width: 100%;
+  }
+
+  .upcoming-events-carousel-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .upcoming-event-slide {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .upcoming-carousel-control.carousel-control-prev {
+    left: 4px !important;
+  }
+
+  .upcoming-carousel-control.carousel-control-next {
+    right: 4px !important;
+  }
+}
+
+/* Phones */
+@media (max-width: 767.98px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container,
+  .container-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Make common Bootstrap/flex rows stack cleanly when they contain
+     fixed-width or oversized children. */
+  .row {
+    --bs-gutter-x: 1rem;
+  }
+
+  .legacy-content,
+  .why-msec-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .legacy-image {
+    min-height: 300px;
+  }
+
+  .legacy-year-badge {
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+  }
+
+  .legacy-year-badge strong {
+    font-size: 2rem;
+  }
+
+  .legacy-year-badge span {
+    font-size: .65rem;
+  }
+
+  .story-hero-image,
+  .story-hero-image img {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .story-hero-overlay {
+    padding: 70px 18px 20px;
+  }
+
+  .story-hero-overlay h3 {
+    font-size: clamp(1.55rem, 8vw, 2.35rem);
+  }
+
+  .story-hero-overlay p {
+    font-size: .9rem;
+  }
+
+  .story-path {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .story-card {
+    min-height: 0 !important;
+  }
+
+  .story-focus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px;
+  }
+
+  .story-focus {
+    min-height: 82px;
+    padding: 12px 7px;
+  }
+
+  .story-focus span {
+    font-size: .58rem;
+  }
+
+  .learning-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .learning-gallery-image {
+    height: auto !important;
+    min-height: 190px;
+    aspect-ratio: 16 / 10;
+  }
+
+  /* Upcoming events */
+  .upcoming-events-carousel-wrapper {
+    margin-top: 25px;
+    padding: 0 10px;
+  }
+
+  #upcomingEventsCarousel {
+    border-radius: 18px;
+  }
+
+  .upcoming-event-slide {
+    min-height: auto !important;
+    padding: 24px 18px 58px !important;
+  }
+
+  .upcoming-event-poster {
+    width: 100%;
+    max-width: 280px;
+    height: auto !important;
+    max-height: 360px;
+    margin: 0 auto;
+  }
+
+  .upcoming-event-slide h3 {
+    font-size: 1.45rem;
+  }
+
+  .upcoming-event-date {
+    font-size: .95rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .upcoming-event-slide p {
+    font-size: .92rem;
+    line-height: 1.6;
+  }
+
+  .upcoming-event-btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .upcoming-carousel-control {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .upcoming-carousel-control.carousel-control-prev {
+    left: 2px !important;
+  }
+
+  .upcoming-carousel-control.carousel-control-next {
+    right: 2px !important;
+  }
+
+  /* Testimonials */
+  .testimonial-grid-card {
+    padding: 24px 20px;
+  }
+
+  .testimonial-card-header {
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .testimonial-card-header .badge-tag {
+    max-width: 75%;
+  }
+
+  .testimonial-author-wrap {
+    align-items: flex-start;
+  }
+
+  .testimonial-author-info {
+    min-width: 0;
+  }
+
+  /* Courses/cards */
+  .course-image-top {
+    height: 200px;
+  }
+
+  .course-card-body,
+  .featured-post-body {
+    padding: 20px;
+  }
+
+  .course-card-body h3,
+  .featured-post-body h3 {
+    font-size: 1.15rem;
+  }
+
+  .course-btn-action,
+  .explore-all-courses-btn,
+  .featured-post-cta-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .courses-category-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Any tables should remain readable without pushing the page wider. */
+  table {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Form controls and buttons should fit the viewport. */
+  input, select, textarea, button {
+    max-width: 100%;
+  }
+
+  /* Prevent embedded media from overflowing. */
+  iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .container,
+  .container-fluid {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .story-focus-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .story-focus {
+    min-height: 70px;
+  }
+
+  .legacy-year-badge {
+    gap: 9px;
+    padding: 10px 12px;
+  }
+
+  .legacy-year-badge strong {
+    font-size: 1.75rem;
+  }
+
+  .upcoming-event-slide {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .upcoming-event-poster {
+    max-width: 240px;
+  }
+}
+</style>
+
 </head>
 
 

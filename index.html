@@ -3210,28 +3210,26 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
             <!-- Controls Inside Card -->
             <button class="carousel-control-prev upcoming-carousel-control" type="button"
               data-bs-target="#upcomingEventsCarousel" data-bs-slide="prev"
-              onclick="const c = bootstrap.Carousel.getOrCreateInstance(document.getElementById('upcomingEventsCarousel')); c.prev();"
               aria-label="Previous Event">
               <i class="bi bi-chevron-left"></i>
             </button>
 
             <button class="carousel-control-next upcoming-carousel-control" type="button"
               data-bs-target="#upcomingEventsCarousel" data-bs-slide="next"
-              onclick="const c = bootstrap.Carousel.getOrCreateInstance(document.getElementById('upcomingEventsCarousel')); c.next();"
               aria-label="Next Event">
               <i class="bi bi-chevron-right"></i>
             </button>
 
-            <!-- Indicators for 5 slides -->
+            <!-- Indicators for 4 slides -->
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Event 1: International Conference"></button>
+              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="1"
+                aria-label="Event 2: Alumni Meet"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="2"
-                aria-label="Event 3: Alumni Meet"></button>
+                aria-label="Event 3: 5TH Research Summit"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="3"
-                aria-label="Event 4: 5TH Research Summit"></button>
-              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="4"
-                aria-label="Event 5: IAICRIES 2026"></button>
+                aria-label="Event 4: IAICRIES 2026"></button>
             </div>
 
             <div class="carousel-inner">

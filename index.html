@@ -2178,53 +2178,6 @@
       }
     }
 
-    /* Euphoria 2026 Register Now button below Social Media */
-    .euphoria-floating-register-btn {
-      position: fixed;
-      z-index: 1055;
-      pointer-events: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 26px;
-      border: 0;
-      border-radius: 50px;
-      background: #e31837;
-      color: #ffffff !important;
-      font-size: 0.95rem;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 8px 22px rgba(227, 24, 55, 0.35);
-      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .euphoria-floating-register-btn:hover {
-      background: #c0102a;
-      color: #ffffff !important;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(227, 24, 55, 0.45);
-    }
-
-    .euphoria-ticker-item {
-      white-space: nowrap;
-    }
-
-    .euphoria-ticker-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 8px;
-      padding: 3px 12px;
-      border-radius: 50px;
-      background: #e31837;
-      color: #ffffff !important;
-      font-weight: 800;
-      font-size: 0.78rem;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
-    }
 
     @media (prefers-reduced-motion: reduce) {
       #hero .homepage-marquee-track {
@@ -2548,6 +2501,57 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 }
 </style>
 
+
+<style id="requested-header-alignment">
+@media (min-width: 992px) {
+  #header > .container-xl {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #header > .container-xl > .d-flex.flex-column.flex-md-row {
+    width: 100%;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px;
+  }
+
+  #header .mseclogo {
+    flex: 0 0 auto;
+  }
+
+  #header .sitename {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    font-size: clamp(2rem, 2.45vw, 2.65rem) !important;
+    line-height: 1.08 !important;
+    white-space: nowrap;
+  }
+
+  #header .styleheaderspan {
+    line-height: 1.35;
+  }
+
+  #header > .container-xl > .d-flex.flex-column.flex-md-row > .btn.hoverhide:first-child,
+  #header #admissionToggleBtn {
+    flex: 0 0 auto;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #header #admissionToggleBtn {
+    margin-left: 16px !important;
+  }
+
+  #header nav {
+    flex: 0 0 auto;
+  }
+}
+</style>
+
 </head>
 
 
@@ -2818,10 +2822,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
             <div class="homepage-marquee-slide">
               <img src="./assets/img/hero-banners/IAICRIES-2026.png" alt="IAICRIES 2026 National Seminar" loading="eager">
             </div>
-            <div class="homepage-marquee-slide">
-              <img src="./euphoria26-hero-banner.png" alt="Euphoria 2026" loading="eager">
-            </div>
-
             <div class="homepage-marquee-slide" aria-hidden="true">
               <video autoplay muted loop playsinline class="homepage-video">
                 <source src="./assets/videos/Walkthrough (1).mp4" type="video/mp4">
@@ -2832,9 +2832,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
             </div>
             <div class="homepage-marquee-slide" aria-hidden="true">
               <img src="./assets/img/hero-banners/IAICRIES-2026.png" alt="" loading="eager">
-            </div>
-            <div class="homepage-marquee-slide" aria-hidden="true">
-              <img src="./euphoria26-hero-banner.png" alt="" loading="eager">
             </div>
           </div>
         </div>
@@ -2899,10 +2896,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
             🌿 <strong>IAICRIES 2026</strong> &mdash; National Seminar on AI for Climate-Resilient Infrastructure &amp; Environmental Sustainability
             <a class="nh-ticker-link" href="news.html">Learn More <i class="bi bi-arrow-right-short"></i></a>
           </span>
-          <span class="nh-ticker__item euphoria-ticker-item">
-            🎉 <strong>Euphoria 2026</strong> &mdash; Registrations Open
-            <a href="https://euphoria-2k26official.vercel.app/" class="euphoria-ticker-btn">Register Now</a>
-          </span>
           <span class="nh-ticker__item">
             ✨ <strong>Campus Highlights &amp; Events</strong> &mdash; Discover Fests, Workshops &amp; Student Clubs
             <a class="nh-ticker-link" href="news.html">Explore Events <i class="bi bi-arrow-right-short"></i></a>
@@ -2928,10 +2921,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
           <span class="nh-ticker__item">
             🌿 <strong>IAICRIES 2026</strong> &mdash; National Seminar on AI for Climate-Resilient Infrastructure &amp; Environmental Sustainability
             <a class="nh-ticker-link" href="news.html">Learn More <i class="bi bi-arrow-right-short"></i></a>
-          </span>
-          <span class="nh-ticker__item euphoria-ticker-item">
-            🎉 <strong>Euphoria 2026</strong> &mdash; Registrations Open
-            <a href="https://euphoria-2k26official.vercel.app/" class="euphoria-ticker-btn">Register Now</a>
           </span>
           <span class="nh-ticker__item">
             ✨ <strong>Campus Highlights &amp; Events</strong> &mdash; Discover Fests, Workshops &amp; Student Clubs
@@ -3237,8 +3226,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Event 1: International Conference"></button>
-              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="1"
-                aria-label="Event 2: Euphoria"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="2"
                 aria-label="Event 3: Alumni Meet"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="3"
@@ -3268,33 +3255,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
                     <div>
                       <a href="./internationalconference/" target="_blank" class="upcoming-event-btn">
                         <span>Conference Details</span> <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 2: Euphoria -->
-              <div class="carousel-item">
-                <div class="upcoming-event-slide row align-items-center g-4">
-                  <div class="col-lg-5">
-                    <div class="upcoming-poster-box">
-                      <img src="./assets/img/upcoming-euphoria.webp" class="upcoming-event-poster"
-                        alt="Euphoria - 17 and 18 September 2026">
-                    </div>
-                  </div>
-                  <div class="col-lg-7 d-flex flex-column justify-content-center">
-                    <div>
-                      <span class="upcoming-event-badge"><i class="bi bi-music-note-beamed"></i> CULTURAL FEST</span>
-                    </div>
-                    <h3>EUPHORIA 2026</h3>
-                    <div class="upcoming-event-date"><i class="bi bi-clock-history"></i> 17 &amp; 18 September 2026
-                    </div>
-                    <p>Two days of technical innovations, music, dance, and creative celebrations. Unleash your talent
-                      and celebrate the vibrant student culture of MSEC.</p>
-                    <div>
-                      <a href="news.html" class="upcoming-event-btn">
-                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -3785,9 +3745,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
         <i class="bi bi-share-fill me-2 icon-only"></i> <span class="d-none d-md-inline">Social Media</span>
       </div>
 
-      <a href="https://euphoria-2k26official.vercel.app/" class="euphoria-floating-register-btn d-none d-lg-inline-flex" id="euphoriaRegisterBtn" aria-label="Euphoria 2026">
-        Euphoria 2026 <i class="bi bi-arrow-right-short"></i>
-      </a>
     </div>
     <!-- <button class="campus-tour-btn" onclick="window.open('./app-files', '_blank')">Campus Tour</button> -->
 
@@ -4055,21 +4012,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
         toggleBtn.classList.toggle("collapsed");
       }
 
-      function positionEuphoriaRegisterButton() {
-        const shareButton = document.getElementById("shareToggleBtn");
-        const registerButton = document.getElementById("euphoriaRegisterBtn");
-        if (!shareButton || !registerButton) return;
-
-        const rect = shareButton.getBoundingClientRect();
-        const gap = 8;
-        const left = Math.max(8, rect.right - registerButton.offsetWidth);
-        registerButton.style.left = `${left}px`;
-        registerButton.style.top = `${rect.bottom + gap}px`;
-      }
-
-      document.addEventListener("DOMContentLoaded", positionEuphoriaRegisterButton);
-      window.addEventListener("resize", positionEuphoriaRegisterButton);
-      window.addEventListener("scroll", positionEuphoriaRegisterButton, { passive: true });
 
       function toggleBrochure() {
         const options = document.getElementById("brochureOptions");

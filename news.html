@@ -178,6 +178,12 @@
       display: block;
     }
 
+    /* Euphoria 2026: preserve the complete portrait photos inside the existing carousel frame. */
+    .euphoria-carousel .carousel-item img {
+      object-fit: contain;
+      background: #111;
+    }
+
     .highlight-media .carousel-click-area {
       position: absolute;
       inset: 0;
@@ -568,7 +574,61 @@
         </div>
 
         <div class="row g-4">
-          <!-- 1. Aarambam 2026 -->
+          <!-- 1. Euphoria 2026 -->
+          <div class="col-lg-6">
+            <article class="highlight-card h-100">
+              <div class="highlight-media">
+                <div id="euphoriaCarousel" class="carousel slide euphoria-carousel" data-bs-ride="carousel" data-bs-interval="3200">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="assets/img/highlights/events/euphoria/euphoria-01.jpg"
+                        alt="Euphoria 2026 stage performance photograph 1">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/highlights/events/euphoria/euphoria-02.jpg"
+                        alt="Euphoria 2026 stage performance photograph 2" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/highlights/events/euphoria/euphoria-03.jpg"
+                        alt="Euphoria 2026 dance performance photograph" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/highlights/events/euphoria/euphoria-04.jpg"
+                        alt="Euphoria 2026 traditional performance photograph" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/highlights/events/euphoria/euphoria-05.jpg"
+                        alt="Euphoria 2026 live music performance photograph" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="assets/img/highlights/events/euphoria/euphoria-06.jpg"
+                        alt="Euphoria 2026 audience photograph" loading="lazy">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#euphoriaCarousel"
+                    data-bs-slide="prev" aria-label="Previous Euphoria 2026 image">
+                    <span class="carousel-control-prev-icon"></span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#euphoriaCarousel"
+                    data-bs-slide="next" aria-label="Next Euphoria 2026 image">
+                    <span class="carousel-control-next-icon"></span>
+                  </button>
+                  <div class="carousel-click-area" data-bs-toggle="modal" data-bs-target="#euphoriaModal" role="button"
+                    tabindex="0" aria-label="Open Euphoria 2026 description"></div>
+                </div>
+              </div>
+              <div class="highlight-content">
+                <span class="highlight-tag">Cultural & Performing Arts</span>
+                <h3>Euphoria 2026</h3>
+                <p>A vibrant celebration of student creativity through dance, music and stage performances, bringing the MSEC community together.</p>
+                <button type="button" class="btn highlight-btn" data-bs-toggle="modal" data-bs-target="#euphoriaModal">
+                  View Description
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- 2. Aarambam 2026 -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media">
@@ -633,7 +693,7 @@
             </article>
           </div>
 
-          <!-- 2. KRS Memorial Trophy -->
+          <!-- 3. KRS Memorial Trophy -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media" data-bs-toggle="modal" data-bs-target="#krsModal" role="button" tabindex="0"
@@ -651,7 +711,7 @@
             </article>
           </div>
 
-          <!-- 3. Waste to Wealth -->
+          <!-- 4. Waste to Wealth -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media" data-bs-toggle="modal" data-bs-target="#wasteModal" role="button"
@@ -669,7 +729,7 @@
             </article>
           </div>
 
-          <!-- 4. Inauguration of MSEC Clubs 2026 -->
+          <!-- 5. Inauguration of MSEC Clubs 2026 -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media">
@@ -742,7 +802,7 @@
             </article>
           </div>
 
-          <!-- 5. Freedom 250 -->
+          <!-- 6. Freedom 250 -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media">
@@ -786,7 +846,7 @@
             </article>
           </div>
 
-          <!-- 6. Future of Autonomy in Space -->
+          <!-- 7. Future of Autonomy in Space -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media">
@@ -838,7 +898,7 @@
             </article>
           </div>
 
-          <!-- 7. Student Induction Program (SIP) -->
+          <!-- 8. Student Induction Program (SIP) -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media">
@@ -898,7 +958,7 @@
             </article>
           </div>
 
-          <!-- 8. Smart India Hackathon (SIH) -->
+          <!-- 9. Smart India Hackathon (SIH) -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media">
@@ -937,7 +997,7 @@
             </article>
           </div>
 
-          <!-- 9. Graduation Day 2026 -->
+          <!-- 10. Graduation Day 2026 -->
           <div class="col-lg-6">
             <article class="highlight-card h-100">
               <div class="highlight-media">
@@ -982,6 +1042,24 @@
         </div>
       </div>
     </section><!-- /Highlights Section -->
+
+    <!-- Euphoria 2026 Description Modal -->
+    <div class="modal fade highlight-modal" id="euphoriaModal" tabindex="-1" aria-labelledby="euphoriaModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="euphoriaModalLabel">Euphoria 2026</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h5>Celebrating Student Creativity & Performance</h5>
+            <p>Euphoria 2026 brings together the energy and creativity of students through a lively mix of dance, music and stage performances.</p>
+            <p>The event showcases teamwork, expression and the many talents of the MSEC student community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Aarambam 2026 Description Modal -->
     <div class="modal fade highlight-modal" id="aarambamModal" tabindex="-1" aria-labelledby="aarambamModalLabel"

@@ -2580,6 +2580,43 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 }
 </style>
 
+
+<style id="blue-theme-overrides">
+  /* Match the announcement ticker to the navy blue used in the reference section */
+  .nh-ticker {
+    background: #0b2442 !important;
+    color: #ffffff !important;
+  }
+
+  .nh-ticker__track,
+  .nh-ticker__scroller,
+  .nh-ticker__item {
+    color: #ffffff !important;
+  }
+
+  .nh-ticker-link {
+    /* Keep the existing red action buttons while changing the ticker itself to navy */
+    color: #ffffff !important;
+  }
+
+  /* AI assistant: apply the same navy to the floating assistant shell/border */
+  .msec-ai-theme {
+    background-color: #0b2442 !important;
+    border-color: #0b2442 !important;
+    box-shadow: 0 8px 24px rgba(11, 36, 66, 0.35) !important;
+  }
+
+  .msec-ai-theme input,
+  .msec-ai-theme textarea {
+    border-color: #0b2442 !important;
+    outline-color: #0b2442 !important;
+  }
+
+  .msec-ai-theme button {
+    border-color: #0b2442 !important;
+  }
+</style>
+
 </head>
 
 
@@ -4257,6 +4294,56 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 
 
     <script async src="https://www.instagram.com/embed.js"></script>
+
+<script id="msec-ai-blue-theme">
+(function () {
+  const BLUE = "#0b2442";
+
+  function themeAssistant() {
+    const inputs = Array.from(document.querySelectorAll('input[placeholder*="Ask AI" i], textarea[placeholder*="Ask AI" i]'));
+    inputs.forEach(function (input) {
+      input.style.setProperty("border-color", BLUE, "important");
+      input.style.setProperty("outline-color", BLUE, "important");
+
+      let el = input.parentElement;
+      let candidate = null;
+
+      for (let i = 0; el && i < 7; i++, el = el.parentElement) {
+        const rect = el.getBoundingClientRect();
+        const cs = getComputedStyle(el);
+        if (
+          (cs.position === "fixed" || cs.position === "sticky" || rect.width >= 280) &&
+          rect.width >= 280 &&
+          rect.height >= 45
+        ) {
+          candidate = el;
+          if (cs.position === "fixed") break;
+        }
+      }
+
+      if (candidate) {
+        candidate.classList.add("msec-ai-theme");
+        candidate.style.setProperty("border-color", BLUE, "important");
+        candidate.style.setProperty("box-shadow", "0 8px 24px rgba(11, 36, 66, 0.35)", "important");
+
+        candidate.querySelectorAll("button").forEach(function (btn) {
+          btn.style.setProperty("border-color", BLUE, "important");
+        });
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", themeAssistant);
+  } else {
+    themeAssistant();
+  }
+
+  const observer = new MutationObserver(themeAssistant);
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
+
 </body>
 
 </html>

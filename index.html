@@ -2552,69 +2552,179 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 }
 </style>
 
-<style id="second-image-header-colors">
-/* Header palette matched to the second reference image */
-#header {
-  background: #0b2442 !important;
+
+<style id="mobile-heading-alignment-fix">
+/* Mobile layout refinement: keeps the existing desktop design intact. */
+@media (max-width: 767.98px) {
+  /* Keep every section heading inside the viewport and visually centered. */
+  .section-title,
+  .section-title.text-center,
+  .upcoming-events-section .section-title,
+  .testimonials-section .section-title,
+  .why-msec-section .section-title,
+  .learn-beyond-classroom .section-title,
+  .featured-programs-section .section-title,
+  .featured-posts .section-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    text-align: center !important;
+  }
+
+  .section-title h2,
+  .why-msec-section .section-title h2,
+  .upcoming-events-section .section-title h2,
+  .testimonials-section .section-title h2,
+  .learn-beyond-classroom .section-title h2,
+  .featured-programs-section .section-title h2,
+  .featured-posts .section-title h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: clamp(1.85rem, 8vw, 2.55rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    text-wrap: balance;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .section-title h2::before,
+  .section-title h2::after {
+    max-width: 54px;
+  }
+
+  .upcoming-events-eyebrow,
+  .testimonials-eyebrow,
+  .section-title .eyebrow,
+  .section-title > span:first-child {
+    display: block !important;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.35 !important;
+  }
+
+  .section-title p,
+  .upcoming-events-section .section-title p,
+  .testimonials-section .section-title p,
+  .why-msec-section .section-title p,
+  .why-msec-section .section-title .lead {
+    width: 100% !important;
+    max-width: 680px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Learn Beyond the Classroom title in particular: avoid awkward 3-line breaks. */
+  .learn-beyond-classroom .section-title h2 {
+    max-width: 340px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Story/event/card headings stay inside their cards. */
+  .story-hero-overlay h3,
+  .story-card h3,
+  .learning-gallery-heading h3,
+  .learning-gallery-content h4,
+  .upcoming-event-slide h3,
+  .testimonial-grid-card h3,
+  .featured-post-body h3,
+  .course-card-body h3 {
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    line-height: 1.25 !important;
+  }
+
+  .upcoming-event-slide h3,
+  .testimonial-grid-card h3,
+  .featured-post-body h3 {
+    text-align: center;
+  }
+
+  /* Keep carousel/event content centered and prevent side clipping. */
+  .upcoming-events-carousel-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .upcoming-event-slide {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center;
+  }
+
+  /* Floating controls: separate them so they do not cover headings/content. */
+  .result-btn {
+    max-width: calc(100vw - 20px) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    left: 10px !important;
+    right: auto !important;
+    bottom: 78px !important;
+    z-index: 10000 !important;
+  }
+
+  .brochure-container {
+    right: 0 !important;
+    bottom: 138px !important;
+    z-index: 10001 !important;
+  }
+
+  .share-wrapper {
+    right: 10px !important;
+    bottom: 138px !important;
+    z-index: 9999 !important;
+  }
+
+  /* If the AI assistant is present as a fixed widget, keep it centered and compact. */
+  #ai-assistant,
+  #aiAssistant,
+  .ai-assistant,
+  .ai-chat-widget,
+  .ai-widget,
+  .ask-ai-widget,
+  [class*="ask-ai"] {
+    max-width: calc(100vw - 28px) !important;
+    box-sizing: border-box !important;
+  }
 }
 
-#header .sitename,
-#header .styleheaderspan,
-#header .stylebtn,
-#header .stylebtn i,
-#header nav,
-#header nav a {
-  color: #ffffff !important;
+@media (max-width: 380px) {
+  .section-title h2,
+  .why-msec-section .section-title h2,
+  .upcoming-events-section .section-title h2,
+  .testimonials-section .section-title h2,
+  .featured-programs-section .section-title h2,
+  .featured-posts .section-title h2 {
+    font-size: 1.72rem !important;
+    line-height: 1.14 !important;
+  }
+
+  .learn-beyond-classroom .section-title h2 {
+    max-width: 300px !important;
+    font-size: 1.82rem !important;
+  }
 }
-
-#header .ccode {
-  color: #e31837 !important;
-}
-
-#header .stylebtn:hover {
-  color: #ffffff !important;
-}
-
-#header .btn.hoverhide {
-  color: #243f5a !important;
-}
-</style>
-
-
-<style id="blue-theme-overrides">
-  /* Match the announcement ticker to the navy blue used in the reference section */
-  .nh-ticker {
-    background: #0b2442 !important;
-    color: #ffffff !important;
-  }
-
-  .nh-ticker__track,
-  .nh-ticker__scroller,
-  .nh-ticker__item {
-    color: #ffffff !important;
-  }
-
-  .nh-ticker-link {
-    /* Keep the existing red action buttons while changing the ticker itself to navy */
-    color: #ffffff !important;
-  }
-
-  /* AI assistant: apply the same navy to the floating assistant shell/border */
-  .msec-ai-theme {
-    background-color: #0b2442 !important;
-    border-color: #0b2442 !important;
-    box-shadow: 0 8px 24px rgba(11, 36, 66, 0.35) !important;
-  }
-
-  .msec-ai-theme input,
-  .msec-ai-theme textarea {
-    border-color: #0b2442 !important;
-    outline-color: #0b2442 !important;
-  }
-
-  .msec-ai-theme button {
-    border-color: #0b2442 !important;
-  }
 </style>
 
 </head>
@@ -2884,6 +2994,9 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
             <div class="homepage-marquee-slide">
               <img src="./assets/img/hero-banners/ICTAGI-2026.jpeg" alt="ICTAGI 2026 International Conference" loading="eager">
             </div>
+            <div class="homepage-marquee-slide">
+              <img src="./assets/img/hero-banners/IAICRIES-2026.png" alt="IAICRIES 2026 National Seminar" loading="eager">
+            </div>
             <div class="homepage-marquee-slide" aria-hidden="true">
               <video autoplay muted loop playsinline class="homepage-video">
                 <source src="./assets/videos/Walkthrough (1).mp4" type="video/mp4">
@@ -2891,6 +3004,9 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
             </div>
             <div class="homepage-marquee-slide" aria-hidden="true">
               <img src="./assets/img/hero-banners/ICTAGI-2026.jpeg" alt="" loading="eager">
+            </div>
+            <div class="homepage-marquee-slide" aria-hidden="true">
+              <img src="./assets/img/hero-banners/IAICRIES-2026.png" alt="" loading="eager">
             </div>
           </div>
         </div>
@@ -2952,6 +3068,10 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
             <a class="nh-ticker-link" href="./internationalconference/">Learn More <i class="bi bi-arrow-right-short"></i></a>
           </span>
           <span class="nh-ticker__item">
+            🌿 <strong>IAICRIES 2026</strong> &mdash; National Seminar on AI for Climate-Resilient Infrastructure &amp; Environmental Sustainability
+            <a class="nh-ticker-link" href="news.html">Learn More <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item">
             ✨ <strong>Campus Highlights &amp; Events</strong> &mdash; Discover Fests, Workshops &amp; Student Clubs
             <a class="nh-ticker-link" href="news.html">Explore Events <i class="bi bi-arrow-right-short"></i></a>
           </span>
@@ -2972,6 +3092,10 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
           <span class="nh-ticker__item">
             🌐 <strong>International Conference 2026</strong> &mdash; Connecting Global Researchers &amp; Industry Leaders
             <a class="nh-ticker-link" href="./internationalconference/">Learn More <i class="bi bi-arrow-right-short"></i></a>
+          </span>
+          <span class="nh-ticker__item">
+            🌿 <strong>IAICRIES 2026</strong> &mdash; National Seminar on AI for Climate-Resilient Infrastructure &amp; Environmental Sustainability
+            <a class="nh-ticker-link" href="news.html">Learn More <i class="bi bi-arrow-right-short"></i></a>
           </span>
           <span class="nh-ticker__item">
             ✨ <strong>Campus Highlights &amp; Events</strong> &mdash; Discover Fests, Workshops &amp; Student Clubs
@@ -3271,7 +3395,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
               <i class="bi bi-chevron-right"></i>
             </button>
 
-            <!-- Indicators for 3 slides -->
+            <!-- Indicators for 4 slides -->
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Event 1: International Conference"></button>
@@ -3279,6 +3403,8 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
                 aria-label="Event 2: Alumni Meet"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="2"
                 aria-label="Event 3: 5TH Research Summit"></button>
+              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="3"
+                aria-label="Event 4: IAICRIES 2026"></button>
             </div>
 
             <div class="carousel-inner">
@@ -3359,7 +3485,31 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
                 </div>
               </div>
 
-              
+              <!-- Slide 5: IAICRIES 2026 -->
+              <div class="carousel-item">
+                <div class="upcoming-event-slide row align-items-center g-4">
+                  <div class="col-lg-5">
+                    <div class="upcoming-poster-box">
+                      <img src="./assets/img/IAICRIES 26.png" class="upcoming-event-poster"
+                        alt="IAICRIES 2026 - National Seminar on Integrating Artificial Intelligence for Climate-Resilient Infrastructure & Environmental Sustainability">
+                    </div>
+                  </div>
+                  <div class="col-lg-7 d-flex flex-column justify-content-center">
+                    <div>
+                      <span class="upcoming-event-badge"><i class="bi bi-globe2"></i> NATIONAL SEMINAR</span>
+                    </div>
+                    <h3>IAICRIES 2026</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-calendar-event"></i> 29 &amp; 30 September 2026</div>
+                    <p><strong>National Seminar on Integrating Artificial Intelligence (AI) for Climate-Resilient Infrastructure &amp; Environmental Sustainability.</strong></p>
+                    <p>Keynote sessions by eminent experts, poster competition, and quiz competition.</p>
+                    <div>
+                      <a href="news.html" class="upcoming-event-btn">
+                        <span>Event Details</span> <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
             </div>
 
@@ -4294,56 +4444,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 
 
     <script async src="https://www.instagram.com/embed.js"></script>
-
-<script id="msec-ai-blue-theme">
-(function () {
-  const BLUE = "#0b2442";
-
-  function themeAssistant() {
-    const inputs = Array.from(document.querySelectorAll('input[placeholder*="Ask AI" i], textarea[placeholder*="Ask AI" i]'));
-    inputs.forEach(function (input) {
-      input.style.setProperty("border-color", BLUE, "important");
-      input.style.setProperty("outline-color", BLUE, "important");
-
-      let el = input.parentElement;
-      let candidate = null;
-
-      for (let i = 0; el && i < 7; i++, el = el.parentElement) {
-        const rect = el.getBoundingClientRect();
-        const cs = getComputedStyle(el);
-        if (
-          (cs.position === "fixed" || cs.position === "sticky" || rect.width >= 280) &&
-          rect.width >= 280 &&
-          rect.height >= 45
-        ) {
-          candidate = el;
-          if (cs.position === "fixed") break;
-        }
-      }
-
-      if (candidate) {
-        candidate.classList.add("msec-ai-theme");
-        candidate.style.setProperty("border-color", BLUE, "important");
-        candidate.style.setProperty("box-shadow", "0 8px 24px rgba(11, 36, 66, 0.35)", "important");
-
-        candidate.querySelectorAll("button").forEach(function (btn) {
-          btn.style.setProperty("border-color", BLUE, "important");
-        });
-      }
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", themeAssistant);
-  } else {
-    themeAssistant();
-  }
-
-  const observer = new MutationObserver(themeAssistant);
-  observer.observe(document.documentElement, { childList: true, subtree: true });
-})();
-</script>
-
 </body>
 
 </html>

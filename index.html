@@ -2727,6 +2727,241 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 }
 </style>
 
+
+<style id="final-mobile-ui-refinements">
+/* ============================================================
+   FINAL MOBILE UI REFINEMENTS
+   - College logo sits to the LEFT of the college name
+   - Ask AI uses the same navy header colour
+   - Share / Brochure floating buttons no longer overlap
+   - TNEA code uses the site navy theme on mobile
+   - Section headings are consistently centered on mobile
+   ============================================================ */
+
+@media (max-width: 767.98px) {
+
+  /* ---------- Mobile Header: Logo + College Name ---------- */
+  #header {
+    background: #0b2442 !important;
+    padding: 14px 10px 18px !important;
+    min-height: auto !important;
+  }
+
+  #header > .container-xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: 68px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 10px !important;
+    row-gap: 10px !important;
+    align-items: center !important;
+  }
+
+  #header > .container-xl > .d-flex.flex-column.flex-md-row {
+    display: contents !important;
+  }
+
+  #header > .container-xl > .d-flex.flex-column.flex-md-row > a:first-of-type {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 68px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  #header .mseclogo {
+    width: 62px !important;
+    height: 62px !important;
+    max-width: 62px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  #header > .container-xl > .d-flex.flex-column.flex-md-row > div.d-flex.flex-column {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: left !important;
+  }
+
+  #header .logo {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  #header .sitename {
+    width: 100% !important;
+    margin: 0 !important;
+    font-size: clamp(1rem, 4.8vw, 1.25rem) !important;
+    line-height: 1.15 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  #header .styleheaderspan {
+    width: 100% !important;
+    display: block !important;
+    padding: 0 !important;
+    margin-top: 3px !important;
+    font-size: 0.67rem !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+  }
+
+  #header > .container-xl > .d-flex.flex-column.flex-md-row > nav {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  #header nav .container {
+    width: auto !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  #header .stylebtn {
+    color: #ffffff !important;
+    background: transparent !important;
+    border: 0 !important;
+    font-size: 1.15rem !important;
+    padding: 2px 10px !important;
+    margin: 0 auto !important;
+  }
+
+  /* ---------- TNEA code ---------- */
+  .stylecodebtn {
+    background: #0b2442 !important;
+    color: #ffffff !important;
+    border: 2px solid #e31837 !important;
+    box-shadow: 0 8px 22px rgba(11, 36, 66, 0.22) !important;
+  }
+
+  .stylecodebtn .ccode,
+  .stylecodebtn span {
+    color: #ffffff !important;
+  }
+
+  /* ---------- Floating Share / Brochure buttons ---------- */
+  .brochure-container {
+    right: 0 !important;
+    bottom: 124px !important;
+    z-index: 10002 !important;
+  }
+
+  .share-wrapper {
+    right: 0 !important;
+    bottom: 190px !important;
+    z-index: 10001 !important;
+  }
+
+  .brochure-btn,
+  .share-toggle {
+    box-sizing: border-box !important;
+    min-height: 54px !important;
+    border-radius: 12px 0 0 12px !important;
+  }
+
+  /* Keep the expanded social icons inside the viewport. */
+  .share-wrapper .social-icons {
+    right: 0 !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+
+  /* ---------- Ask AI widget ---------- */
+  input[placeholder="Ask AI"],
+  textarea[placeholder="Ask AI"] {
+    background: #0b2442 !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  input[placeholder="Ask AI"]::placeholder,
+  textarea[placeholder="Ask AI"]::placeholder {
+    color: rgba(255, 255, 255, 0.78) !important;
+    opacity: 1 !important;
+  }
+
+  /* ---------- Consistent mobile section-heading alignment ---------- */
+  .section-title,
+  .section-title.text-center,
+  .upcoming-events-section .section-title,
+  .testimonials-section .section-title,
+  .why-msec-section .section-title,
+  .learn-beyond-classroom .section-title,
+  .featured-programs-section .section-title,
+  .featured-posts .section-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    text-align: center !important;
+  }
+
+  .section-title h2,
+  .why-msec-section .section-title h2,
+  .upcoming-events-section .section-title h2,
+  .testimonials-section .section-title h2,
+  .learn-beyond-classroom .section-title h2,
+  .featured-programs-section .section-title h2,
+  .featured-posts .section-title h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    line-height: 1.12 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .section-title > span,
+  .upcoming-events-eyebrow,
+  .testimonials-eyebrow,
+  .featured-posts-eyebrow,
+  .courses-eyebrow {
+    display: block !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .section-title p,
+  .upcoming-events-section .section-title p,
+  .testimonials-section .section-title p,
+  .why-msec-section .section-title p,
+  .why-msec-section .section-title .lead,
+  .featured-programs-section .section-title p,
+  .featured-posts .section-title p {
+    width: 100% !important;
+    max-width: 680px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+}
+</style>
+
 </head>
 
 

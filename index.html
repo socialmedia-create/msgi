@@ -2962,6 +2962,98 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 }
 </style>
 
+
+
+  <style id="mindspark-popup-styles">
+    .mindspark-popup {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(4, 17, 32, 0.82);
+      backdrop-filter: blur(6px);
+    }
+
+    .mindspark-popup.show {
+      display: flex;
+      animation: mindsparkFadeIn .25s ease;
+    }
+
+    .mindspark-popup-dialog {
+      position: relative;
+      width: min(94vw, 760px);
+      max-height: 94vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mindspark-popup-image {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.45);
+    }
+
+    .mindspark-popup-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      border: 2px solid rgba(255,255,255,.8);
+      border-radius: 50%;
+      background: #e31837;
+      color: #fff;
+      font-size: 1.45rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,0,0,.3);
+    }
+
+    .mindspark-popup-close:hover {
+      background: #c0102a;
+      transform: scale(1.05);
+    }
+
+    @keyframes mindsparkFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 575px) {
+      .mindspark-popup {
+        padding: 10px;
+      }
+
+      .mindspark-popup-dialog {
+        width: 96vw;
+      }
+
+      .mindspark-popup-image {
+        max-height: 88vh;
+        border-radius: 10px;
+      }
+
+      .mindspark-popup-close {
+        top: -6px;
+        right: -2px;
+        width: 38px;
+        height: 38px;
+      }
+    }
+  </style>
+
 </head>
 
 
@@ -3630,7 +3722,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
               <i class="bi bi-chevron-right"></i>
             </button>
 
-            <!-- Indicators for 4 slides -->
+            <!-- Indicators for 5 slides -->
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Event 1: International Conference"></button>
@@ -3640,6 +3732,8 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
                 aria-label="Event 3: 5TH Research Summit"></button>
               <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="3"
                 aria-label="Event 4: IAICRIES 2026"></button>
+              <button type="button" data-bs-target="#upcomingEventsCarousel" data-bs-slide-to="4"
+                aria-label="Event 5: MindSpark 26"></button>
             </div>
 
             <div class="carousel-inner">
@@ -3740,6 +3834,32 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
                     <div>
                       <a href="news.html" class="upcoming-event-btn">
                         <span>Event Details</span> <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 5: MindSpark 26 -->
+              <div class="carousel-item">
+                <div class="upcoming-event-slide row align-items-center g-4">
+                  <div class="col-lg-5">
+                    <div class="upcoming-poster-box">
+                      <img src="./assets/img/mindspark26.jpeg" class="upcoming-event-poster"
+                        alt="MindSpark 26 - Inter-School Quiz Championship">
+                    </div>
+                  </div>
+                  <div class="col-lg-7 d-flex flex-column justify-content-center">
+                    <div>
+                      <span class="upcoming-event-badge"><i class="bi bi-patch-question-fill"></i> INTER-SCHOOL QUIZ</span>
+                    </div>
+                    <h3>MindSpark 26</h3>
+                    <div class="upcoming-event-date"><i class="bi bi-calendar-event"></i> 24th October 2026</div>
+                    <p><strong>The Grand Quiz &amp; Award Gala</strong> — an Inter-School Quiz Championship at the MSGI Campus, Kodambakkam, Chennai-24.</p>
+                    <p>Honouring the principals of leading schools, with exciting prizes including laptops, tablets, PlayStations, tech gadgets and more.</p>
+                    <div>
+                      <a href="#" class="upcoming-event-btn mindspark-popup-trigger">
+                        <span>View Poster</span> <i class="bi bi-arrow-right"></i>
                       </a>
                     </div>
                   </div>
@@ -4258,6 +4378,19 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
   <div id="preloader"></div> -->
 
 
+
+
+    <!-- MindSpark 26 Opening Popup -->
+    <div id="mindsparkPopup" class="mindspark-popup" role="dialog" aria-modal="true"
+      aria-label="MindSpark 26 event poster">
+      <div class="mindspark-popup-dialog">
+        <button type="button" class="mindspark-popup-close" id="mindsparkPopupClose"
+          aria-label="Close MindSpark 26 poster">&times;</button>
+        <img src="./assets/img/mindspark26.jpeg" class="mindspark-popup-image"
+          alt="MindSpark 26 - Inter-School Quiz Championship">
+      </div>
+    </div>
+
     <!-- Vendor JS Files -->
     <!-- 1. Isotope (deferred) -->
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
@@ -4679,6 +4812,50 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, button {
 
 
     <script async src="https://www.instagram.com/embed.js"></script>
+
+
+    <script>
+      // MindSpark 26 poster popup: opens automatically on page load.
+      window.addEventListener('load', function () {
+        const popup = document.getElementById('mindsparkPopup');
+        const closeBtn = document.getElementById('mindsparkPopupClose');
+        const triggers = document.querySelectorAll('.mindspark-popup-trigger');
+
+        if (!popup) return;
+
+        const openPopup = function () {
+          popup.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        };
+
+        const closePopup = function () {
+          popup.classList.remove('show');
+          document.body.style.overflow = '';
+        };
+
+        setTimeout(openPopup, 700);
+
+        closeBtn?.addEventListener('click', closePopup);
+
+        popup.addEventListener('click', function (event) {
+          if (event.target === popup) closePopup();
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && popup.classList.contains('show')) {
+            closePopup();
+          }
+        });
+
+        triggers.forEach(function (trigger) {
+          trigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            openPopup();
+          });
+        });
+      });
+    </script>
+
 </body>
 
 </html>

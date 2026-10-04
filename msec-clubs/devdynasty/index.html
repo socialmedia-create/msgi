@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEV DYNASTY — Official 2026–27 Digital Universe | MSEC</title>
+  <meta name="description" content="Dev Dynasty 2026–27 official web application development community at MSEC. An interactive digital technology universe connecting vision, mission, leadership, and events through light, motion, and code." />
+  
+  <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono, Caveat for handwritten annotations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bright-theme">
+  <!-- Custom Creative Cursor Elements -->
+  <div id="cursor-dot" class="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+  <div id="cursor-energy-grab" class="cursor-energy-grab" aria-hidden="true">
+    <svg viewBox="0 0 40 40" class="grab-icon">
+      <circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="6,4"/>
+      <polygon points="20,6 23,15 32,15 25,21 28,30 20,24 12,30 15,21 8,15 17,15" fill="currentColor"/>
+    </svg>
+  </div>
+  <div id="cursor-drag-trail" class="cursor-drag-trail" aria-hidden="true"></div>
+
+  <!-- Ambient Video & Interactive Code Typing Canvas Background -->
+  <div class="bg-video-wrapper" aria-hidden="true">
+    <video id="bg-video" class="bg-video" autoplay loop muted playsinline>
+      <source src="assets/videos/web.mp4" type="video/mp4" />
+    </video>
+    <div class="bg-video-overlay"></div>
+  </div>
+  <canvas id="ambient-canvas" class="ambient-canvas"></canvas>
+
+  <!-- ================================================================= -->
+  <!-- FLOATING CONTACT DOCK — always-visible brand connection panel      -->
+  <!-- ================================================================= -->
+  <aside class="floating-contact-dock" id="floating-contact-dock" aria-label="Contact Dev Dynasty">
+
+    <!-- Vertical label -->
+    <span class="fcd-label" aria-hidden="true">CONNECT</span>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/msec-devdynasty/"
+       class="fcd-link fcd-linkedin"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Dev Dynasty on LinkedIn"
+       title="LinkedIn">
+      <span class="fcd-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      </span>
+      <span class="fcd-tooltip">LinkedIn</span>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/msec_devdynasty"
+       class="fcd-link fcd-instagram"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Dev Dynasty on Instagram"
+       title="Instagram">
+      <span class="fcd-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+        </svg>
+      </span>
+      <span class="fcd-tooltip">@msec_devdynasty</span>
+    </a>
+
+    <!-- Gmail -->
+    <a href="mailto:msec.devdynastyclub@gmail.com"
+       class="fcd-link fcd-gmail"
+       aria-label="Email Dev Dynasty"
+       title="Gmail">
+      <span class="fcd-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+        </svg>
+      </span>
+      <span class="fcd-tooltip">msec.devdynastyclub@gmail.com</span>
+    </a>
+
+    <!-- Decorative line -->
+    <span class="fcd-line" aria-hidden="true"></span>
+
+  </aside>
+
+  <!-- Sticky Modern Creative HUD / Floating Radial Nav Anchor -->
+  <header class="hud-header">
+    <div class="hud-brand" id="hud-brand-btn" role="button" tabindex="0" aria-label="Dev Dynasty Home">
+      <div class="hud-logo-mini">
+        <img src="assets/logo/dev_dynasty_logo.png" alt="Dev Dynasty Logo" class="mini-logo-img" />
+        <span class="mini-pulse-ring"></span>
+      </div>
+      <div class="hud-brand-text">
+        <span class="brand-name">DEV DYNASTY</span>
+        <span class="brand-sub">2026–27 • MSEC</span>
+      </div>
+    </div>
+
+    <!-- Center Interactive Ray Quick-Dial -->
+    <nav class="hud-nav" aria-label="Main Navigation">
+      <button class="nav-pill" data-target="hero" aria-label="Go to Core"><span class="pill-dot"></span>Core</button>
+      <button class="nav-pill" data-target="vision" aria-label="Go to Vision"><span class="pill-dot"></span>Vision</button>
+      <button class="nav-pill" data-target="mission" aria-label="Go to Mission"><span class="pill-dot"></span>Mission</button>
+      <button class="nav-pill" data-target="objective" aria-label="Go to Objective"><span class="pill-dot"></span>Objective</button>
+      <button class="nav-pill" data-target="office-bearers" aria-label="Go to Office Bearers"><span class="pill-dot"></span>Office Bearers</button>
+      <button class="nav-pill" data-target="events" aria-label="Go to Events"><span class="pill-dot"></span>Events</button>
+    </nav>
+
+    <!-- Right Controls -->
+    <div class="hud-actions">
+      <button id="audio-fx-toggle" class="hud-icon-btn" aria-label="Toggle Atmosphere Effects" title="Atmospheric SFX Synthesizer">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+        <span class="btn-label">SFX: ON</span>
+      </button>
+      <button id="radial-orbit-btn" class="hud-orb-btn" aria-label="Open Radial Ray Portal" title="Radial Ray Orb">
+        <div class="orb-inner">
+          <span class="orb-core"></span>
+          <span class="orb-ray ray-1"></span>
+          <span class="orb-ray ray-2"></span>
+          <span class="orb-ray ray-3"></span>
+          <span class="orb-ray ray-4"></span>
+          <span class="orb-ray ray-5"></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- Floating Radial Menu Overlay -->
+  <div id="radial-portal-overlay" class="radial-portal-overlay" aria-hidden="true">
+    <div class="radial-portal-backdrop" id="radial-portal-close"></div>
+    <div class="radial-portal-container">
+      <div class="radial-center-node">
+        <img src="assets/logo/dev_dynasty_logo.png" alt="Dev Dynasty Emblem" />
+        <span class="radial-center-title">SELECT RAY</span>
+      </div>
+      <div class="radial-branches">
+        <button class="radial-branch-btn" data-target="vision" style="--angle: -72deg;">
+          <span class="branch-laser"></span>
+          <span class="branch-label"><span class="num">01</span> VISION</span>
+        </button>
+        <button class="radial-branch-btn" data-target="mission" style="--angle: 0deg;">
+          <span class="branch-laser"></span>
+          <span class="branch-label"><span class="num">02</span> MISSION</span>
+        </button>
+        <button class="radial-branch-btn" data-target="objective" style="--angle: 72deg;">
+          <span class="branch-laser"></span>
+          <span class="branch-label"><span class="num">03</span> OBJECTIVE</span>
+        </button>
+        <button class="radial-branch-btn" data-target="office-bearers" style="--angle: 144deg;">
+          <span class="branch-laser"></span>
+          <span class="branch-label"><span class="num">04</span> OFFICE BEARERS</span>
+        </button>
+        <button class="radial-branch-btn" data-target="events" style="--angle: 216deg;">
+          <span class="branch-laser"></span>
+          <span class="branch-label"><span class="num">05</span> EVENTS</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN EXPERIENCE CONTAINER -->
+  <main id="main-content" class="universe-container">
+
+    <!-- ================================================================= -->
+    <!-- 1. HERO SECTION : PROMINENT BRAND CORE & 3D INTERACTIVE COMMUNITY -->
+    <!-- ================================================================= -->
+    <section id="hero" class="hero-section hero-3d-experience" aria-label="Dev Dynasty - Interactive 3D Technology & Community Hero">
+      <div class="hero-backdrop-pattern">
+        <div class="hero-radial-glow"></div>
+        <div class="hero-tech-grid"></div>
+        <div class="hero-ambient-orb orb-1"></div>
+        <div class="hero-ambient-orb orb-2"></div>
+        <!-- Minimal Ambient Canvas -->
+        <canvas id="hero-ambient-canvas" class="hero-ambient-canvas"></canvas>
+        <!-- Editorial Brand Watermark — background layer only -->
+        <div class="hero-brand-watermark" id="hero-brand-watermark" aria-hidden="true">
+          <img src="assets/logo/dev_dynasty_logo.png" alt="" class="hero-watermark-img" draggable="false" />
+        </div>
+      </div>
+
+      <!-- Main Two-Column Editorial Hero Grid -->
+      <div class="hero-stage-container" id="hero-stage">
+        
+        <!-- Left Brand & Identity Core Column -->
+        <div class="hero-brand-column">
+          
+          <!-- 1. OFFICIAL DEV DYNASTY LOGO (PROMINENT ~165px ON TRANSLUCENT GLASS DISC) -->
+          <div class="hero-logo-showcase" id="hero-logo-showcase">
+            <div class="logo-glass-disc" id="hero-logo-disc">
+              <div class="disc-glow-ring"></div>
+              <div class="disc-reflection"></div>
+              <img 
+                src="assets/logo/dev_dynasty_logo.png" 
+                alt="Official Dev Dynasty Emblem" 
+                class="official-prominent-logo" 
+                id="hero-official-logo"
+              />
+            </div>
+          </div>
+
+          <!-- 2. HERO TYPOGRAPHY & IDENTITY -->
+          <div class="hero-identity-group">
+            <h1 class="hero-title-main">DEV DYNASTY</h1>
+
+            <div class="hero-tagline-statement">
+              <span class="tag-accent">WHERE STUDENTS</span>
+              <span class="tag-action">BUILD • CREATE • COMPETE • LEAD</span>
+            </div>
+
+            <div class="hero-institutional-details">
+              <span class="inst-club">WEB APPLICATION DEVELOPMENT & E-SPORTS CLUB</span>
+              <span class="inst-divider">·</span>
+              <span class="inst-dept">DEPARTMENT OF INFORMATION TECHNOLOGY</span>
+              <span class="inst-divider">·</span>
+              <span class="inst-college">MEENAKSHI SUNDARARAJAN ENGINEERING COLLEGE</span>
+              <span class="inst-session-badge">2026–27</span>
+            </div>
+          </div>
+
+          <!-- 3. MAGNETIC PRIMARY CTA -->
+          <div class="hero-cta-actions">
+            <a href="#vision" class="hero-magnetic-cta" id="hero-explore-cta">
+              <span class="cta-label">EXPLORE DEV DYNASTY</span>
+              <span class="cta-arrow">→</span>
+              <span class="cta-sheen"></span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Photograph Showcase Column -->
+        <div class="hero-showcase-column">
+          
+            <!-- The Real Dev Dynasty Community Glass Frame -->
+            <div class="photo-glass-frame" id="hero-photo-frame">
+              <div class="glass-frame-reflection"></div>
+              <div class="glass-frame-border-light"></div>
+              
+              <div class="glass-photo-wrapper">
+                <img 
+                  src="assets/photos/dev_dynasty_team_hero.jpg" 
+                  alt="Dev Dynasty Official Team and Mentors - Department of Information Technology, Meenakshi Sundararajan Engineering College" 
+                  class="hero-community-photo" 
+                  id="hero-community-image" 
+                />
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- UNFOLDING STORYTELLING CONTENT SURFACES (EMERGE FROM HERO) -->
+      <!-- =============================================================== -->
+      <div id="story-overlay-backdrop" class="story-overlay-backdrop" aria-hidden="true"></div>
+
+      <!-- 01 — VISION STORY SURFACE -->
+      <div id="story-surface-vision" class="story-surface surface-vision" aria-hidden="true">
+        <button class="story-close-btn" data-close-story aria-label="Return to Overview">
+          <span class="close-icon">←</span>
+          <span class="close-label">RETURN TO HERO</span>
+        </button>
+
+        <div class="story-surface-inner">
+          <div class="story-horizon-fx">
+            <div class="horizon-sweep-glow"></div>
+            <div class="horizon-perspective-grid"></div>
+          </div>
+
+          <div class="story-header-block">
+            <span class="story-badge">01 // FUTURE · DIRECTION · GROWTH</span>
+            <h2 class="story-main-title">Our Vision</h2>
+          </div>
+
+          <blockquote class="story-quote-card">
+            <p class="story-quote-text">
+              “To become the most impactful student-led technology community in MSEC — a launchpad where passionate learners transform into industry-ready innovators, problem solvers, and future tech leaders who drive meaningful change through code, collaboration, and creativity.”
+            </p>
+          </blockquote>
+
+          <div class="story-pillars-row">
+            <div class="story-pillar-item">
+              <span class="pillar-num">01</span>
+              <h3 class="pillar-name">Code</h3>
+              <p class="pillar-desc">Transforming ideas into robust real-world apps with production rigor.</p>
+            </div>
+            <div class="story-pillar-item">
+              <span class="pillar-num">02</span>
+              <h3 class="pillar-name">Collaboration</h3>
+              <p class="pillar-desc">Synergy across peers, cross-functional teams, and faculty mentors.</p>
+            </div>
+            <div class="story-pillar-item">
+              <span class="pillar-num">03</span>
+              <h3 class="pillar-name">Creativity</h3>
+              <p class="pillar-desc">Unlocking breakthrough engineering designs and user experiences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 — MISSION STORY SURFACE -->
+      <div id="story-surface-mission" class="story-surface surface-mission" aria-hidden="true">
+        <button class="story-close-btn" data-close-story aria-label="Return to Overview">
+          <span class="close-icon">←</span>
+          <span class="close-label">RETURN TO HERO</span>
+        </button>
+
+        <div class="story-surface-inner">
+          <div class="story-header-block">
+            <span class="story-badge">02 // MOVEMENT · EXECUTION · MOMENTUM</span>
+            <h2 class="story-main-title">Four Strategic Pathways</h2>
+          </div>
+
+          <div class="story-pathways-grid">
+            <div class="story-pathway-card">
+              <span class="path-badge">PATHWAY 01</span>
+              <h3 class="path-title">Academic to Industry Bridge</h3>
+              <p class="path-desc">Bridge the gap between academic learning and real-world industry expectations through hands-on events, workshops, and mentorship.</p>
+            </div>
+
+            <div class="story-pathway-card">
+              <span class="path-badge">PATHWAY 02</span>
+              <h3 class="path-title">Placement-Ready Mastery</h3>
+              <p class="path-desc">Equip students with placement-ready skills in DSA, software development, and collaborative problem-solving.</p>
+            </div>
+
+            <div class="story-pathway-card">
+              <span class="path-badge">PATHWAY 03</span>
+              <h3 class="path-title">Hackathons & Competitions</h3>
+              <p class="path-desc">Empower students to excel in national hackathons, coding leagues, and flagship corporate competitions hosted by top tech firms.</p>
+            </div>
+
+            <div class="story-pathway-card">
+              <span class="path-badge">PATHWAY 04</span>
+              <h3 class="path-title">Industry & Alumni Pathways</h3>
+              <p class="path-desc">Create networking pathways that connect students directly with industry professionals, recruiters, and alumni.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 — OBJECTIVE STORY SURFACE -->
+      <div id="story-surface-objective" class="story-surface surface-objective" aria-hidden="true">
+        <button class="story-close-btn" data-close-story aria-label="Return to Overview">
+          <span class="close-icon">←</span>
+          <span class="close-label">RETURN TO HERO</span>
+        </button>
+
+        <div class="story-surface-inner">
+          <div class="story-header-block">
+            <span class="story-badge">03 // FOCUS · PRECISION · PURPOSE</span>
+            <h2 class="story-main-title">Club Objective & Triad</h2>
+          </div>
+
+          <div class="objective-statement-box">
+            <p class="objective-statement-lead">
+              “To empower students through Web Development, Innovation, and E-Sports Collaboration while developing industry-ready skills, creativity, and teamwork among future tech leaders.”
+            </p>
+          </div>
+
+          <div class="objective-triad-flow">
+            <div class="triad-col inputs">
+              <span class="triad-head">CORE CATALYSTS</span>
+              <div class="triad-pill">Web Development</div>
+              <div class="triad-pill">Innovation</div>
+              <div class="triad-pill">E-Sports Collaboration</div>
+            </div>
+
+            <div class="triad-arrow">
+              <span class="arrow-line"></span>
+              <span class="arrow-label">SYNTHESIS</span>
+            </div>
+
+            <div class="triad-col outputs">
+              <span class="triad-head">IMPACT OUTCOMES</span>
+              <div class="triad-pill highlight">Industry-Ready Skills</div>
+              <div class="triad-pill highlight">Creativity</div>
+              <div class="triad-pill highlight">High-Velocity Teamwork</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 — OFFICE BEARERS STORY SURFACE -->
+      <div id="story-surface-office-bearers" class="story-surface surface-bearers" aria-hidden="true">
+        <button class="story-close-btn" data-close-story aria-label="Return to Overview">
+          <span class="close-icon">←</span>
+          <span class="close-label">RETURN TO HERO</span>
+        </button>
+
+        <div class="story-surface-inner">
+          <div class="story-header-block">
+            <span class="story-badge">04 // PEOPLE · LEADERSHIP · COLLABORATION</span>
+            <h2 class="story-main-title">Executive Leadership Council</h2>
+            <p class="story-subtext">The 2026–27 official team steering Dev Dynasty's vision and technological initiatives.</p>
+          </div>
+
+          <div class="story-leadership-grid">
+            <!-- 1. President -->
+            <div class="story-leader-card">
+              <div class="leader-avatar-wrap">
+                <img src="assets/photos/nithish_balaguru_president.png" alt="Nithish Balaguru S - President" class="leader-img" />
+                <span class="leader-role-tag">PRESIDENT</span>
+              </div>
+              <h3 class="leader-name">Nithish Balaguru S</h3>
+            </div>
+
+            <!-- 2. Vice President -->
+            <div class="story-leader-card">
+              <div class="leader-avatar-wrap">
+                <img src="assets/photos/aafiya_sheerin_vice_president.png" alt="Aafiya Sheerin S - Vice President" class="leader-img" />
+                <span class="leader-role-tag">VICE PRESIDENT</span>
+              </div>
+              <h3 class="leader-name">Aafiya Sheerin S</h3>
+            </div>
+
+            <!-- 3. Secretary -->
+            <div class="story-leader-card">
+              <div class="leader-avatar-wrap">
+                <img src="assets/photos/anandha_sabari_secretary.png" alt="Anandha Sabari R - Secretary" class="leader-img" />
+                <span class="leader-role-tag">SECRETARY</span>
+              </div>
+              <h3 class="leader-name">Anandha Sabari R</h3>
+            </div>
+
+            <!-- 4. Treasurer -->
+            <div class="story-leader-card">
+              <div class="leader-avatar-wrap">
+                <img src="assets/photos/aswin_g_treasurer.png" alt="Aswin G - Treasurer" class="leader-img" />
+                <span class="leader-role-tag">TREASURER</span>
+              </div>
+              <h3 class="leader-name">Aswin G</h3>
+            </div>
+
+            <!-- 5. Joint Secretary -->
+            <div class="story-leader-card">
+              <div class="leader-avatar-wrap">
+                <img src="assets/photos/shwetha_v_joint_secretary.png" alt="Shweta V - Joint Secretary" class="leader-img" />
+                <span class="leader-role-tag">JOINT SECRETARY</span>
+              </div>
+              <h3 class="leader-name">Shweta V</h3>
+            </div>
+
+            <!-- 6. Joint Treasurer -->
+            <div class="story-leader-card">
+              <div class="leader-avatar-wrap">
+                <img src="assets/photos/ajay_s_joint_treasurer.png" alt="Ajay S - Joint Treasurer" class="leader-img" />
+                <span class="leader-role-tag">JOINT TREASURER</span>
+              </div>
+              <h3 class="leader-name">Ajay S</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 — EVENTS STORY SURFACE -->
+      <div id="story-surface-events" class="story-surface surface-events" aria-hidden="true">
+        <button class="story-close-btn" data-close-story aria-label="Return to Overview">
+          <span class="close-icon">←</span>
+          <span class="close-label">RETURN TO HERO</span>
+        </button>
+
+        <div class="story-surface-inner">
+          <div class="story-header-block">
+            <span class="story-badge">05 // ACTIVITY · PROGRESSION · EXPERIENCE</span>
+            <h2 class="story-main-title">Living Event Timeline</h2>
+            <p class="story-subtext">5 official milestones conducted throughout the 2026–27 digital universe.</p>
+          </div>
+
+          <div class="story-timeline-stream">
+            <!-- Event 01 -->
+            <div class="timeline-story-node active" data-story-event="0">
+              <div class="tsn-marker">
+                <span class="tsn-num">01</span>
+                <span class="tsn-date">31/07/26</span>
+              </div>
+              <div class="tsn-card">
+                <h3 class="tsn-title">Code Debugging Challenge</h3>
+                <p class="tsn-desc">Participants identify and fix syntax/logical bugs within time-attack rounds testing problem-solving mastery.</p>
+                <div class="tsn-photo-wrap">
+                  <img src="assets/events/code_debugging_event.jpg" alt="Code Debugging Challenge" class="tsn-photo" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Event 02 -->
+            <div class="timeline-story-node" data-story-event="1">
+              <div class="tsn-marker">
+                <span class="tsn-num">02</span>
+                <span class="tsn-date">24/08/26</span>
+              </div>
+              <div class="tsn-card">
+                <h3 class="tsn-title">Web Incognito</h3>
+                <p class="tsn-desc">Blind web development showdown where developers build full UI screens purely through code without real-time browser preview.</p>
+                <div class="tsn-photo-wrap">
+                  <img src="assets/events/web_incognito_event.jpg" alt="Web Incognito Official Poster" class="tsn-photo" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Event 03 -->
+            <div class="timeline-story-node" data-story-event="2">
+              <div class="tsn-marker">
+                <span class="tsn-num">03</span>
+                <span class="tsn-date">02/09/26</span>
+              </div>
+              <div class="tsn-card">
+                <h3 class="tsn-title">Game Storm</h3>
+                <p class="tsn-desc">Competitive esports tournament and multiplayer showdown testing strategy, reflexes, and collaborative teamwork.</p>
+                <div class="tsn-photo-wrap">
+                  <img src="assets/events/gamestorm_cover.jpg" alt="Game Storm" class="tsn-photo" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Event 04 -->
+            <div class="timeline-story-node" data-story-event="3">
+              <div class="tsn-marker">
+                <span class="tsn-num">04</span>
+                <span class="tsn-date">17/09/26</span>
+              </div>
+              <div class="tsn-card">
+                <h3 class="tsn-title">Play Craft Workshop</h3>
+                <p class="tsn-desc">Game designing workshop conducted by educational experts, exploring hands-on 3D game creation and development pipelines using Unity and Unreal Engine.</p>
+                <div class="tsn-photo-wrap">
+                  <video class="tsn-video" poster="assets/events/play_craft_poster.jpg" autoplay loop muted playsinline preload="auto" style="width:100%; height:100%; object-fit:cover; border-radius:12px; display:block;">
+                    <source src="assets/events/play_craft_workshop.mp4?v=2" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event 05 -->
+            <div class="timeline-story-node" data-story-event="4">
+              <div class="tsn-marker">
+                <span class="tsn-num">05</span>
+                <span class="tsn-date">25/09/26</span>
+              </div>
+              <div class="tsn-card">
+                <h3 class="tsn-title">Game A Thon</h3>
+                <p class="tsn-desc">High-octane game development hackathon where student teams design, engineer, and pitch playable web games from scratch.</p>
+                <div class="tsn-photo-wrap">
+                  <img src="assets/events/code_debugging_photo.png" alt="Game A Thon" class="tsn-photo" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 2. VISION SECTION : EXACT TEXT & ANIMATED HIGHLIGHT REVEAL -->
+    <!-- ================================================================= -->
+    <section id="vision" class="universe-section vision-section" aria-label="Official Vision">
+      <div class="section-tech-grid"></div>
+      <div class="section-ray-stream stream-top-left"></div>
+
+      <div class="section-container">
+        <div class="section-header-pill">
+          <span class="pill-index">01</span>
+          <span class="pill-category">OUR GUIDING LIGHT</span>
+        </div>
+
+        <div class="vision-grid-layout">
+          <!-- Left Column: Big Artistic Vision Display -->
+          <div class="vision-content-card glass-panel" id="vision-quote-box">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-br"></div>
+            
+            <div class="vision-badge-row">
+              <span class="tech-tag">OFFICIAL VISION</span>
+              <span class="stamp-tag">DEV DYNASTY 2026–27</span>
+            </div>
+
+            <h2 class="section-main-heading">Vision</h2>
+
+            <!-- Exact Quote from PDF -->
+            <blockquote class="official-vision-quote" id="official-vision-text">
+              <p class="quote-paragraph">
+                “To become the most impactful student-led technology community in MSEC — a launchpad where passionate learners transform into industry-ready innovators, problem solvers, and future tech leaders who drive meaningful change through code, collaboration, and creativity.”
+              </p>
+            </blockquote>
+
+            <!-- Handwritten Annotation Accent -->
+            <div class="handwritten-annotation vision-handnote" style="--rotation: -2.5deg;">
+              <span class="hand-pin">◆</span>
+              <span class="hand-text">MSEC Student-Led Tech Community • Official 2026–27</span>
+            </div>
+
+            <!-- Interactive Pillar Chips -->
+            <div class="vision-pillars-shelf">
+              <div class="pillar-chip" data-pillar="code">
+                <span class="chip-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </span>
+                <span class="chip-title">Code</span>
+                <span class="chip-desc">Transforming ideas into robust real-world apps</span>
+              </div>
+              <div class="pillar-chip" data-pillar="collaboration">
+                <span class="chip-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="chip-title">Collaboration</span>
+                <span class="chip-desc">Synergy across peers, mentors & departments</span>
+              </div>
+              <div class="pillar-chip" data-pillar="creativity">
+                <span class="chip-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </span>
+                <span class="chip-title">Creativity</span>
+                <span class="chip-desc">Unlocking futuristic designs & innovative solutions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Vision Video Showcase -->
+          <div class="vision-video-panel glass-panel" id="vision-video-container">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="vision-video-wrapper">
+              <video 
+                class="vision-media-player" 
+                id="vision-video-player"
+                autoplay 
+                loop 
+                muted 
+                playsinline
+                preload="auto"
+              >
+                <source src="assets/videos/web.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <button class="video-sound-toggle" id="vision-sound-toggle" aria-label="Toggle Sound" title="Toggle Audio">
+                <svg id="sound-icon-muted" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                <svg id="sound-icon-unmuted" viewBox="0 0 24 24" style="display:none;"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. MISSION SECTION : 4 INTERACTIVE PATHWAYS / CIRCUITS -->
+    <!-- ================================================================= -->
+    <section id="mission" class="universe-section mission-section" aria-label="Official Mission">
+      <div class="section-tech-grid"></div>
+
+      <div class="section-container">
+        <div class="section-header-pill">
+          <span class="pill-index">02</span>
+          <span class="pill-category">STRATEGIC PATHWAYS</span>
+        </div>
+
+        <div class="section-title-wrap">
+          <h2 class="section-main-heading">Mission</h2>
+          <p class="section-subtext">Four foundational pathways engineering student excellence, placement mastery, and breakthrough innovation.</p>
+        </div>
+
+        <!-- 4 Interactive Circuit Pathways -->
+        <div class="mission-pathways-container" id="mission-pathways-shelf">
+          
+          <!-- Path 1 -->
+          <div class="mission-path-card glass-panel" data-path="1">
+            <div class="path-laser-track">
+              <div class="path-photon-pulse"></div>
+            </div>
+            <div class="path-index-badge">
+              <span class="path-num">01</span>
+              <span class="path-ray-type">BRIDGE PATHWAY</span>
+            </div>
+            <div class="path-icon-orb">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19h16M4 15h16M4 11h16M4 7h16"></path>
+                <circle cx="12" cy="11" r="3"></circle>
+              </svg>
+            </div>
+            <div class="path-content">
+              <h3 class="path-heading">Academic to Industry Bridge</h3>
+              <p class="path-official-text">
+                Bridge the gap between academic learning and real-world industry expectations through hands-on events, workshops, and mentorship.
+              </p>
+            </div>
+            <div class="path-interactive-footer">
+              <span class="path-tag">Hands-on Workshops</span>
+              <span class="path-tag">Industry Mentorship</span>
+            </div>
+          </div>
+
+          <!-- Path 2 -->
+          <div class="mission-path-card glass-panel" data-path="2">
+            <div class="path-laser-track">
+              <div class="path-photon-pulse"></div>
+            </div>
+            <div class="path-index-badge">
+              <span class="path-num">02</span>
+              <span class="path-ray-type">DEVELOPMENT PATHWAY</span>
+            </div>
+            <div class="path-icon-orb">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+                <line x1="14" y1="4" x2="10" y2="20"></line>
+              </svg>
+            </div>
+            <div class="path-content">
+              <h3 class="path-heading">Placement-Ready Mastery</h3>
+              <p class="path-official-text">
+                Equip students with placement-ready skills in DSA, software development, and collaborative problem-solving.
+              </p>
+            </div>
+            <div class="path-interactive-footer">
+              <span class="path-tag">DSA & Code Skills</span>
+              <span class="path-tag">Collaborative Problem Solving</span>
+            </div>
+          </div>
+
+          <!-- Path 3 -->
+          <div class="mission-path-card glass-panel" data-path="3">
+            <div class="path-laser-track">
+              <div class="path-photon-pulse"></div>
+            </div>
+            <div class="path-index-badge">
+              <span class="path-num">03</span>
+              <span class="path-ray-type">INNOVATION PATHWAY</span>
+            </div>
+            <div class="path-icon-orb">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="path-content">
+              <h3 class="path-heading">Hackathons & Competitions</h3>
+              <p class="path-official-text">
+                Empower students to excel in high-stakes hackathons, ideathons, and flagship competitions hosted by leading corporate tech companies.
+              </p>
+            </div>
+            <div class="path-interactive-footer">
+              <span class="path-tag">Flagship Corporate Competitions</span>
+              <span class="path-tag">National Hackathons</span>
+            </div>
+          </div>
+
+          <!-- Path 4 -->
+          <div class="mission-path-card glass-panel" data-path="4">
+            <div class="path-laser-track">
+              <div class="path-photon-pulse"></div>
+            </div>
+            <div class="path-index-badge">
+              <span class="path-num">04</span>
+              <span class="path-ray-type">NETWORK PATHWAY</span>
+            </div>
+            <div class="path-icon-orb">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+            </div>
+            <div class="path-content">
+              <h3 class="path-heading">Industry & Alumni Pathways</h3>
+              <p class="path-official-text">
+                Create networking pathways that connect students directly with industry professionals, recruiters, and alumni.
+              </p>
+            </div>
+            <div class="path-interactive-footer">
+              <span class="path-tag">Direct Recruiter Links</span>
+              <span class="path-tag">Alumni Mentorship</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. CLUB OBJECTIVE SECTION : DYNAMIC TRIAD REACTOR -->
+    <!-- ================================================================= -->
+    <section id="objective" class="universe-section objective-section" aria-label="Club Objective">
+      <div class="section-tech-grid"></div>
+
+      <div class="section-container">
+        <div class="section-title-wrap">
+          <h2 class="section-main-heading">Club Objective</h2>
+        </div>
+
+        <!-- Objective Main Card -->
+        <div class="objective-hero-banner glass-panel">
+          <div class="objective-official-statement">
+            <span class="quote-mark">“</span>
+            <p class="statement-text">
+              To empower students through web development, innovation, and e-sports collaboration while developing industry-ready skills, creativity, and teamwork among future tech leaders.
+            </p>
+            <span class="quote-mark right">”</span>
+          </div>
+
+          <!-- Interactive Synthesis Reactor -->
+          <div class="reactor-schematic-grid" id="objective-reactor">
+            
+            <!-- Left Inputs: 3 Catalysts -->
+            <div class="reactor-side inputs-side">
+              <div class="reactor-node catalyst-node" data-catalyst="webdev">
+                <div class="node-indicator"></div>
+                <span class="node-name">Web Development</span>
+              </div>
+
+              <div class="reactor-node catalyst-node" data-catalyst="innovation">
+                <div class="node-indicator"></div>
+                <span class="node-name">Innovation</span>
+              </div>
+
+              <div class="reactor-node catalyst-node" data-catalyst="esports">
+                <div class="node-indicator"></div>
+                <span class="node-name">E-Sports Collaboration</span>
+              </div>
+            </div>
+
+            <!-- Center Reactor Core -->
+            <div class="reactor-center">
+              <div class="reactor-core-cylinder">
+                <div class="cylinder-glow"></div>
+                <div class="cylinder-logo">
+                  <img src="assets/logo/dev_dynasty_logo.png" alt="Dev Dynasty Reactor" />
+                </div>
+              </div>
+              <div class="reactor-laser-bridge">
+                <div class="laser-beam beam-in"></div>
+                <div class="laser-beam beam-out"></div>
+              </div>
+            </div>
+
+            <!-- Right Outputs: 3 Outcomes -->
+            <div class="reactor-side outputs-side">
+              <div class="reactor-node outcome-node" data-outcome="skills">
+                <div class="node-indicator"></div>
+                <span class="node-name">Industry-Ready Skills</span>
+              </div>
+
+              <div class="reactor-node outcome-node" data-outcome="creativity">
+                <div class="node-indicator"></div>
+                <span class="node-name">Creativity</span>
+              </div>
+
+              <div class="reactor-node outcome-node" data-outcome="teamwork">
+                <div class="node-indicator"></div>
+                <span class="node-name">Teamwork</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="handwritten-annotation reactor-handnote" style="--rotation: 2deg;">
+            <span class="hand-pin">◆</span>
+            <span class="hand-text">Catalyzing Student Potential into Future Tech Leadership!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. OFFICE BEARERS SECTION : LEADERSHIP COUNCIL -->
+    <!-- ================================================================= -->
+    <section id="office-bearers" class="universe-section bearers-section" aria-label="Office Bearers">
+      <div class="section-tech-grid"></div>
+
+      <div class="section-container">
+        <div class="section-header-pill">
+          <span class="pill-index">04</span>
+          <span class="pill-category">LEADERSHIP COUNCIL</span>
+        </div>
+
+        <div class="section-title-wrap">
+          <h2 class="section-main-heading">Office Bearers</h2>
+          <p class="section-subtext">The official 2026–27 executive leadership orchestrating Dev Dynasty's vision and impact.</p>
+        </div>
+
+        <!-- 6 Office Bearers Grid (Using Exact Photos and Details from PDF) -->
+        <div class="bearers-grid" id="bearers-grid-view">
+          
+          <!-- 1. President: Nithish Balaguru S -->
+          <div class="bearer-card glass-panel" data-role="president" data-id="1">
+            <div class="bearer-photo-frame">
+              <div class="photo-glow-rim"></div>
+              <img src="assets/photos/nithish_balaguru_president.png" alt="Nithish Balaguru S - President" class="bearer-actual-photo" />
+              <span class="role-ribbon role-pres">PRESIDENT</span>
+            </div>
+            <div class="bearer-details">
+              <h3 class="bearer-name">Nithish Balaguru S</h3>
+            </div>
+          </div>
+
+          <!-- 2. Vice President: Aafiya Sheerin S -->
+          <div class="bearer-card glass-panel" data-role="vice-president" data-id="2">
+            <div class="bearer-photo-frame">
+              <div class="photo-glow-rim"></div>
+              <img src="assets/photos/aafiya_sheerin_vice_president.png" alt="Aafiya Sheerin S - Vice President" class="bearer-actual-photo" />
+              <span class="role-ribbon role-vp">VICE PRESIDENT</span>
+            </div>
+            <div class="bearer-details">
+              <h3 class="bearer-name">Aafiya Sheerin S</h3>
+            </div>
+          </div>
+
+          <!-- 3. Secretary: Anandha Sabari R -->
+          <div class="bearer-card glass-panel" data-role="secretary" data-id="3">
+            <div class="bearer-photo-frame">
+              <div class="photo-glow-rim"></div>
+              <img src="assets/photos/anandha_sabari_secretary.png" alt="Anandha Sabari R - Secretary" class="bearer-actual-photo" />
+              <span class="role-ribbon role-sec">SECRETARY</span>
+            </div>
+            <div class="bearer-details">
+              <h3 class="bearer-name">Anandha Sabari R</h3>
+            </div>
+          </div>
+
+          <!-- 4. Treasurer: Aswin G -->
+          <div class="bearer-card glass-panel" data-role="treasurer" data-id="4">
+            <div class="bearer-photo-frame">
+              <div class="photo-glow-rim"></div>
+              <img src="assets/photos/aswin_g_treasurer.png" alt="Aswin G - Treasurer" class="bearer-actual-photo" />
+              <span class="role-ribbon role-treas">TREASURER</span>
+            </div>
+            <div class="bearer-details">
+              <h3 class="bearer-name">Aswin G</h3>
+            </div>
+          </div>
+
+          <!-- 5. Joint Secretary: Shweta V -->
+          <div class="bearer-card glass-panel" data-role="joint-secretary" data-id="5">
+            <div class="bearer-photo-frame">
+              <div class="photo-glow-rim"></div>
+              <img src="assets/photos/shwetha_v_joint_secretary.png" alt="Shweta V - Joint Secretary" class="bearer-actual-photo" />
+              <span class="role-ribbon role-jsec">JOINT SECRETARY</span>
+            </div>
+            <div class="bearer-details">
+              <h3 class="bearer-name">Shweta V</h3>
+            </div>
+          </div>
+
+          <!-- 6. Joint Treasurer: Ajay S -->
+          <div class="bearer-card glass-panel" data-role="joint-treasurer" data-id="6">
+            <div class="bearer-photo-frame">
+              <div class="photo-glow-rim"></div>
+              <img src="assets/photos/ajay_s_joint_treasurer.png" alt="Ajay S - Joint Treasurer" class="bearer-actual-photo" />
+              <span class="role-ribbon role-jtreas">JOINT TREASURER</span>
+            </div>
+            <div class="bearer-details">
+              <h3 class="bearer-name">Ajay S</h3>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Constellation Network Canvas Container -->
+        <div class="bearers-constellation-container hidden" id="bearers-constellation-view">
+          <canvas id="constellation-canvas" class="constellation-canvas"></canvas>
+          <div class="constellation-hud">
+            <span class="constellation-tip">Move cursor near any leader node to illuminate laser neural links and pull their gravitational field</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 6. CONDUCTED EVENTS : 5-STATION QUANTUM TIMELINE & SANDBOXES -->
+    <!-- ================================================================= -->
+    <section id="events" class="universe-section events-section" aria-label="Conducted Events">
+      <div class="section-tech-grid"></div>
+
+      <div class="section-container">
+        <div class="section-header-pill">
+          <span class="pill-index">05</span>
+          <span class="pill-category">OFFICIAL CONDUCTED EVENTS</span>
+        </div>
+
+        <div class="section-title-wrap">
+          <h2 class="section-main-heading">Events Timeline</h2>
+          <p class="section-subtext">Explore the 5 official high-impact events conducted across the 2026–27 academic journey.</p>
+        </div>
+
+        <!-- Event Horizontal Dial / Timeline Ribbon -->
+        <div class="events-timeline-ribbon">
+          <div class="timeline-track-laser">
+            <div class="timeline-active-glow" id="timeline-glow-bar"></div>
+          </div>
+          
+          <div class="timeline-stops">
+            <button class="timeline-stop active" data-event-idx="0">
+              <span class="stop-marker"><span class="stop-dot"></span></span>
+              <span class="stop-date">31/07/26</span>
+              <span class="stop-title">Code Debugging</span>
+            </button>
+            <button class="timeline-stop" data-event-idx="1">
+              <span class="stop-marker"><span class="stop-dot"></span></span>
+              <span class="stop-date">24/08/26</span>
+              <span class="stop-title">Web Incognito</span>
+            </button>
+            <button class="timeline-stop" data-event-idx="2">
+              <span class="stop-marker"><span class="stop-dot"></span></span>
+              <span class="stop-date">02/09/26</span>
+              <span class="stop-title">Game Storm</span>
+            </button>
+            <button class="timeline-stop" data-event-idx="3">
+              <span class="stop-marker"><span class="stop-dot"></span></span>
+              <span class="stop-date">17/09/26</span>
+              <span class="stop-title">Play Craft</span>
+            </button>
+            <button class="timeline-stop" data-event-idx="4">
+              <span class="stop-marker"><span class="stop-dot"></span></span>
+              <span class="stop-date">25/09/26</span>
+              <span class="stop-title">Game A Thon</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Event Stage Card Showcase (Tabs with customized personalities) -->
+        <div class="event-stage-showcase">
+
+          <!-- EVENT 01: Code Debugging Challenge -->
+          <article class="event-card-stage active" id="event-stage-0" data-event="debugging">
+            <div class="event-stage-grid">
+              <div class="event-meta-pane glass-panel">
+                <div class="event-index-tag">
+                  <span class="tag-num">EVENT 01</span>
+                  <span class="tag-date">31/07/26</span>
+                </div>
+                <h3 class="event-display-title">Code Debugging Challenge</h3>
+                <div class="event-official-badge">OFFICIAL CONDUCTED EVENT</div>
+                
+                <p class="event-official-description">
+                  Participants are given faulty code and must identify and fix errors within a limited time. This event tests problem-solving ability, debugging skills, and understanding of programming concepts.
+                </p>
+
+                <div class="event-feature-pills">
+                  <span class="feature-pill">Syntax & Logic Fixes</span>
+                  <span class="feature-pill">Time-Attack Debugging</span>
+                  <span class="feature-pill">Algorithmic Thinking</span>
+                </div>
+              </div>
+
+              <!-- Live Event Photo Showcase -->
+              <div class="event-interactive-pane glass-panel">
+                <div class="pane-header">
+                  <div class="header-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="pane-title">LIVE EVENT ARENA // 31-07-2026</span>
+                </div>
+                <div class="event-showcase-pane">
+                  <div class="event-full-photo-frame">
+                    <img src="assets/events/code_debugging_event.jpg" alt="Code Debugging Challenge Workstations and Kahoot Arena at MSEC" class="event-full-photo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- EVENT 02: Web Incognito -->
+          <article class="event-card-stage" id="event-stage-1" data-event="web-incognito">
+            <div class="event-stage-grid">
+              <div class="event-meta-pane glass-panel">
+                <div class="event-index-tag">
+                  <span class="tag-num">EVENT 02</span>
+                  <span class="tag-date">24/08/26</span>
+                </div>
+                <h3 class="event-display-title">Web Incognito</h3>
+                <div class="event-official-badge">OFFICIAL CONDUCTED EVENT</div>
+                
+                <p class="event-official-description">
+                  Frontend Challenge where participants designed themed UI layouts while navigating surprise real-time CSS & script sabotages injected live into their workstations.
+                </p>
+
+                <div class="event-feature-pills">
+                  <span class="feature-pill">Stealth UI Creation</span>
+                  <span class="feature-pill">Real-time Sabotage Injection</span>
+                  <span class="feature-pill">Pure Frontend Mastery</span>
+                </div>
+              </div>
+
+              <!-- Live Event Video Showcase -->
+              <div class="event-interactive-pane glass-panel">
+                <div class="pane-header">
+                  <div class="header-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="pane-title">LIVE EVENT ARENA HIGHLIGHTS // 24-08-2026</span>
+                </div>
+                <div class="event-showcase-pane">
+                  <div class="event-full-photo-frame event-video-frame">
+                    <video class="event-full-video" controls autoplay loop muted playsinline preload="metadata">
+                      <source src="assets/events/web_incognito_video.mp4" type="video/mp4" />
+                      <source src="assets/events/web_incognito_video.mov" type="video/quicktime" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- EVENT 03: Game Storm -->
+          <article class="event-card-stage" id="event-stage-2" data-event="game-storm">
+            <div class="event-stage-grid">
+              <div class="event-meta-pane glass-panel">
+                <div class="event-index-tag">
+                  <span class="tag-num">EVENT 03</span>
+                  <span class="tag-date">02/09/26</span>
+                </div>
+                <h3 class="event-display-title">Game Storm</h3>
+                <div class="event-official-badge">OFFICIAL CONDUCTED EVENT</div>
+                
+                <p class="event-official-description">
+                  Esports Events like FreeFire, E football and Ludo was conducted and whole campus became an arena.
+                </p>
+
+                <div class="event-feature-pills">
+                  <span class="feature-pill">FreeFire Battleground</span>
+                  <span class="feature-pill">E Football Tournament</span>
+                  <span class="feature-pill">Strategic Ludo Arena</span>
+                </div>
+
+                <!-- Game Arenas Overview Shelf -->
+                <div class="gamestorm-arenas-container">
+                  <div class="gamestorm-arena-card">
+                    <div class="arena-card-badge fire">FREE FIRE</div>
+                    <div class="arena-card-desc">4v4 Clash Squad battle royale tactic battles & survival combat</div>
+                  </div>
+                  <div class="gamestorm-arena-card">
+                    <div class="arena-card-badge football">E FOOTBALL</div>
+                    <div class="arena-card-desc">1v1 precision digital football tournament & championship bracket</div>
+                  </div>
+                  <div class="gamestorm-arena-card">
+                    <div class="arena-card-badge ludo">LUDO KING</div>
+                    <div class="arena-card-desc">Strategic rapid board showdowns testing patience and quick tactics</div>
+                  </div>
+                </div>
+
+                <div class="event-specs-footer">
+                  <div class="spec-item">
+                    <span class="spec-label">FORMAT</span>
+                    <span class="spec-val">Elimination Brackets</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">ATMOSPHERE</span>
+                    <span class="spec-val">High-Energy Arena</span>
+                  </div>
+                  <div class="spec-item">
+                    <span class="spec-label">CAMPUS IMPACT</span>
+                    <span class="spec-val">100% Student Synergy</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Event Video Showcase -->
+              <div class="event-interactive-pane glass-panel">
+                <div class="pane-header">
+                  <div class="header-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="pane-title">LIVE EVENT ARENA HIGHLIGHTS // 02-09-2026</span>
+                </div>
+                <div class="event-showcase-pane">
+                  <div class="event-full-photo-frame event-video-frame">
+                    <video class="event-full-video" controls autoplay loop muted playsinline preload="metadata">
+                      <source src="assets/events/game_storm_video.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- EVENT 04: Play Craft Workshop -->
+          <article class="event-card-stage" id="event-stage-3" data-event="workshops">
+            <div class="event-stage-grid">
+              <div class="event-meta-pane glass-panel">
+                <div class="event-index-tag">
+                  <span class="tag-num">EVENT 04</span>
+                  <span class="tag-date">17/09/26</span>
+                </div>
+                <h3 class="event-display-title">Play Craft Workshop</h3>
+                <div class="event-official-badge">OFFICIAL CONDUCTED WORKSHOP</div>
+                
+                <p class="event-official-description">
+                  Game designing workshop conducted by educational experts, exploring hands-on 3D game creation and development pipelines using Unity and Unreal Engine.
+                </p>
+
+                <div class="event-feature-pills">
+                  <span class="feature-pill">Play Craft Workshop</span>
+                  <span class="feature-pill">Unity 3D Game Design</span>
+                  <span class="feature-pill">Unreal Engine Pipelines</span>
+                  <span class="feature-pill">Educational Experts</span>
+                  <span class="feature-pill">Hands-on Game Architecture</span>
+                </div>
+              </div>
+
+              <!-- Live Workshop Video Showcase -->
+              <div class="event-interactive-pane glass-panel">
+                <div class="pane-header">
+                  <div class="header-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="pane-title">PLAY CRAFT WORKSHOP RECORDING // 17-09-2026</span>
+                </div>
+                <div class="event-showcase-pane">
+                  <div class="event-full-photo-frame event-video-frame">
+                    <video class="event-full-video" poster="assets/events/play_craft_poster.jpg" autoplay loop muted playsinline preload="auto">
+                      <source src="assets/events/play_craft_workshop.mp4?v=2" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- EVENT 05: Game A Thon -->
+          <article class="event-card-stage" id="event-stage-4" data-event="game-a-thon">
+            <div class="event-stage-grid">
+              <div class="event-meta-pane glass-panel">
+                <div class="event-index-tag">
+                  <span class="tag-num">EVENT 05</span>
+                  <span class="tag-date">25/09/26</span>
+                </div>
+                <h3 class="event-display-title">Game A Thon</h3>
+                <div class="event-official-badge">OFFICIAL CONDUCTED EVENT</div>
+                
+                <p class="event-official-description">
+                  Focused on building interactive games with modern game engines and computer vision — featuring <strong>Unity</strong>, <strong>Unreal Engine</strong>, <strong>Godot</strong>, and <strong>OpenCV</strong> for innovative gesture-controlled and vision-based gaming mechanics.
+                </p>
+
+                <div class="event-feature-pills">
+                  <span class="feature-pill">Unity 3D & 2D</span>
+                  <span class="feature-pill">Unreal Engine</span>
+                  <span class="feature-pill">Godot Engine</span>
+                  <span class="feature-pill">OpenCV Computer Vision</span>
+                  <span class="feature-pill">Gesture-Controlled Gaming</span>
+                </div>
+              </div>
+
+              <!-- Game Engines & Vision Ecosystem Showcase -->
+              <div class="event-interactive-pane glass-panel">
+                <div class="pane-header">
+                  <div class="header-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="pane-title">GAME DEV ENGINE MATRIX // 25-09-2026</span>
+                </div>
+                <div class="game-engines-grid">
+                  <div class="engine-card">
+                    <div class="engine-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+                    <div class="engine-info">
+                      <h4>Unity 3D & 2D</h4>
+                      <p>Physics engines, shaders & cross-platform deployment</p>
+                    </div>
+                  </div>
+                  <div class="engine-card">
+                    <div class="engine-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <div class="engine-info">
+                      <h4>Unreal Engine</h4>
+                      <p>High-fidelity rendering & Blueprint visual scripting</p>
+                    </div>
+                  </div>
+                  <div class="engine-card">
+                    <div class="engine-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+                    <div class="engine-info">
+                      <h4>Godot Engine</h4>
+                      <p>Lightweight node architecture & GDScript workflows</p>
+                    </div>
+                  </div>
+                  <div class="engine-card">
+                    <div class="engine-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                    <div class="engine-info">
+                      <h4>OpenCV Computer Vision</h4>
+                      <p>Real-time optical flow & gesture tracking input</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 7. CONVERGENCE FINALE & RETURN TO ORIGIN -->
+    <!-- ================================================================= -->
+    <section id="convergence" class="universe-section convergence-section" aria-label="Universe Convergence">
+      <div class="section-tech-grid"></div>
+
+      <div class="section-container finale-container">
+        <div class="finale-rays-converge-visual">
+          <div class="converge-glow-orb">
+            <img src="assets/logo/dev_dynasty_logo.png" alt="Dev Dynasty Core" class="finale-logo" />
+            <div class="orbit-light-ring"></div>
+          </div>
+        </div>
+
+        <h2 class="finale-title">DEV DYNASTY – 2026–27</h2>
+        <p class="finale-desc">
+          Empowering the next generation of innovators, developers, and leaders at <strong>Meenakshi Sundararajan Engineering College (MSEC)</strong>.
+        </p>
+
+        <!-- Official Credits & Academic Note -->
+        <footer class="universe-footer">
+          <div class="footer-top-divider"></div>
+          <div class="footer-meta-grid">
+            <div class="meta-col">
+              <span class="meta-head">COMMUNITY</span>
+              <span class="meta-val">DEV DYNASTY (Web App Development & Esports Club)</span>
+            </div>
+            <div class="meta-col">
+              <span class="meta-head">INSTITUTION</span>
+              <span class="meta-val">Meenakshi Sundararajan Engineering College (MSEC)</span>
+            </div>
+            <div class="meta-col">
+              <span class="meta-head">ACADEMIC PERIOD</span>
+              <span class="meta-val">2026–2027</span>
+            </div>
+          </div>
+          <div class="footer-bottom-line">
+            <p>© 2026–27 DEV DYNASTY • Handcrafted Digital Universe • All Rights Reserved.</p>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Three.js Library for High Performance 3D Interactive Background Canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Interactive Ray Light Particle Engine & UI Logic -->
+  <script src="script.js"></script>
+
+</body>
+</html>

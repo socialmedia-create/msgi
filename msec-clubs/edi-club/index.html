@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDI CLUB | Entrepreneurship Development & Innovation Club • Meenakshi Sundararajan Engineering College</title>
+  <meta name="description" content="Official website of EDI Club - Entrepreneurship Development & Innovation Club, Meenakshi Sundararajan Engineering College, Kodambakkam, Chennai - 024. Think. Innovate. Build. Lead.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="images/edi-logo.jpg">
+  
+  <!-- Google Fonts: Inter & Montserrat & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            amber: {
+              50: '#FFFDF5',
+              100: '#FFF9E5',
+              200: '#FFF0BE',
+              300: '#FFE285',
+              400: '#EFC94C',
+              500: '#D4AF37', /* Primary Gold */
+              600: '#B8860B', /* Darker Accent Gold */
+              700: '#8A6508',
+              800: '#684B05',
+              900: '#473302',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Montserrat', 'Inter', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 dark:bg-[#08090C] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative selection:bg-amber-400 selection:text-slate-900">
+
+  <!-- =========================================================================
+       1. NAVIGATION BAR
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 dark:bg-[#08090C]/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800" id="main-navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo + Club Title -->
+        <a href="#home" class="flex items-center space-x-3 group">
+          <div class="w-11 h-11 rounded-full p-1 bg-white dark:bg-slate-900 border-2 border-amber-400 dark:border-amber-600 flex items-center justify-center shadow-sm overflow-hidden group-hover:scale-105 transition-transform">
+            <img src="images/edi-logo.jpg" alt="EDI Club Emblem" class="w-full h-full object-contain rounded-full">
+          </div>
+          <div>
+            <div class="flex items-center space-x-1.5">
+              <span class="font-heading font-extrabold text-lg tracking-wider text-slate-900 dark:text-white">EDI</span>
+              <span class="font-heading font-bold text-lg tracking-wider text-amber-600 dark:text-amber-400">CLUB</span>
+            </div>
+            <p class="text-[10px] font-medium text-slate-500 dark:text-slate-400 tracking-tight hidden sm:block">
+              Meenakshi Sundararajan Engineering College
+            </p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden xl:flex items-center space-x-6 text-xs font-semibold tracking-wide">
+          <a href="#home" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Home</a>
+          <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">About</a>
+          <a href="#vision-mission" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Vision & Mission</a>
+          <a href="#what-we-do" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">What We Do</a>
+          <a href="#activities" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Activities</a>
+          <a href="#journey" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Process</a>
+          <a href="#impact" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Impact</a>
+          <a href="#team" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Team</a>
+          <a href="#gallery" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Gallery</a>
+          <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right Side Actions: Theme Switcher & Join Button -->
+        <div class="flex items-center space-x-3">
+          <!-- Theme Toggle Button -->
+          <button 
+            id="theme-toggle-btn"
+            type="button" 
+            aria-label="Toggle Dark / Light Theme" 
+            class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:border-amber-400 transition-all focus:outline-none"
+          >
+            <span id="theme-icon"></span>
+          </button>
+
+          <!-- Join Button -->
+          <button 
+            onclick="openJoinModal()"
+            class="btn-gold-primary px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide flex items-center space-x-2"
+          >
+            <span>Join the Journey</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+
+          <!-- Mobile Hamburger Button -->
+          <button 
+            id="mobile-menu-btn" 
+            aria-label="Open Navigation Menu"
+            aria-expanded="false"
+            class="xl:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden xl:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#08090C]/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2 text-sm font-semibold shadow-lg">
+      <a href="#home" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">Home</a>
+      <a href="#about" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">About</a>
+      <a href="#vision-mission" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">Vision & Mission</a>
+      <a href="#what-we-do" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">What We Do</a>
+      <a href="#activities" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">Activities & Initiatives</a>
+      <a href="#journey" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">From Idea to Impact</a>
+      <a href="#impact" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">Impact Metrics</a>
+      <a href="#team" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">Our Team</a>
+      <a href="#gallery" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">Gallery</a>
+      <a href="#contact" class="nav-link block py-2 px-3 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-slate-800">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. HERO SECTION
+       ========================================================================= -->
+  <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-grid-pattern">
+    <!-- Ambient gold glows -->
+    <div class="ambient-gold-glow -top-40 left-1/2 -translate-x-1/2 opacity-70 dark:opacity-40"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+
+      <!-- Small Club Label -->
+      <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full gold-badge text-xs font-mono font-bold tracking-wider mb-6 animate-pulse-glow">
+        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+        <span>EDI CLUB | INNOVATION • ENTREPRENEURSHIP • IMPACT</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold font-heading text-slate-950 dark:text-white tracking-tight mb-6 max-w-4xl mx-auto">
+        Think. Innovate. <br class="hidden sm:inline">
+        <span class="text-gold-gradient">Build. Lead.</span>
+      </h1>
+
+      <!-- Supporting Text -->
+      <p class="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+        Empowering students to transform ideas into meaningful solutions through innovation, entrepreneurship, collaboration and real-world experiences.
+      </p>
+
+      <!-- Primary & Secondary Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-16">
+        <a href="#activities" class="btn-gold-primary w-full sm:w-auto px-7 py-3.5 rounded-xl text-sm font-bold tracking-wide text-center shadow-lg">
+          Explore Our Activities
+        </a>
+        <a href="#vision-mission" class="btn-gold-outline w-full sm:w-auto px-7 py-3.5 rounded-xl text-sm font-bold tracking-wide text-center">
+          Discover Our Vision
+        </a>
+      </div>
+
+      <!-- Innovation Quick Badges Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto pt-4 border-t border-slate-200 dark:border-slate-800">
+        <div class="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-bold text-slate-900 dark:text-white">Ideation</div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400">Structured Sprints</div>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-bold text-slate-900 dark:text-white">Prototyping</div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400">Maker Mindset</div>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-bold text-slate-900 dark:text-white">Mentorship</div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400">Industry Leaders</div>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <div class="text-left">
+            <div class="text-xs font-bold text-slate-900 dark:text-white">Incubation</div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400">Demo Showcases</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="mt-12 flex justify-center">
+        <a href="#about" aria-label="Scroll Down to About Section" class="animate-bounce p-2 rounded-full border border-slate-200 dark:border-slate-800 text-slate-400 hover:text-amber-500 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. ABOUT EDI CLUB SECTION
+       ========================================================================= -->
+  <section id="about" class="py-20 bg-white dark:bg-[#0B0D13] border-t border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Institutional Ecosystem
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          About EDI Club
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          EDI Club is a student-driven platform dedicated to nurturing entrepreneurial thinking, innovation and problem-solving. The club provides students with opportunities to explore ideas, collaborate across disciplines, develop practical skills and transform concepts into real-world solutions.
+        </p>
+      </div>
+
+      <!-- 4 Core Pillars Container -->
+      <div id="about-pillars-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CLUB MILESTONES: OFFICIAL INAUGURATION & LIVE SESSIONS
+       ========================================================================= -->
+  <section class="py-16 bg-slate-100/70 dark:bg-[#0E1017] border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+            Campus Milestones
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-950 dark:text-white mt-1">
+            Inauguration & Live Sessions
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+            Glimpses from the official launch and hands-on ideation sessions held at Meenakshi Sundararajan Engineering College.
+          </p>
+        </div>
+        <a href="#gallery" class="text-xs font-bold text-amber-700 dark:text-amber-400 hover:underline flex items-center gap-1">
+          <span>View All in Gallery</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Photo 1: Dignitaries on Dais -->
+        <div class="edi-card overflow-hidden group cursor-pointer border border-slate-200 dark:border-slate-800 hover:border-amber-400 transition-all duration-300" onclick="openImageLightbox('images/inauguration_dignitaries.jpg', 'Grand Inauguration Ceremony of EDI Club', 'Faculty Coordinators Professor Latha, Professor Aarthi, Professor Siji with Chief Guests at Meenakshi Sundararajan Engineering College')">
+          <div class="relative h-64 overflow-hidden bg-slate-950">
+            <img src="images/inauguration_dignitaries.jpg" alt="EDI Club Inauguration Dignitaries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-600 text-white shadow-sm">
+              Official Inauguration
+            </span>
+            <div class="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h4 class="font-bold text-sm leading-snug group-hover:text-amber-300 transition-colors">
+                Grand Inauguration Ceremony
+              </h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">
+                Faculty Coordinators Professor Latha, Professor Aarthi, Professor Siji, and Chief Guests presiding on the dais at MSEC.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 2: Keynote Address -->
+        <div class="edi-card overflow-hidden group cursor-pointer border border-slate-200 dark:border-slate-800 hover:border-amber-400 transition-all duration-300" onclick="openImageLightbox('images/inauguration_keynote.jpg', 'Inaugural Keynote Address & Motivational Session', 'Distinguished Guest Speaker delivering keynote session to MSEC students in the auditorium')">
+          <div class="relative h-64 overflow-hidden bg-slate-950">
+            <img src="images/inauguration_keynote.jpg" alt="Inaugural Keynote Address" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-600 text-white shadow-sm">
+              Keynote Address
+            </span>
+            <div class="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h4 class="font-bold text-sm leading-snug group-hover:text-amber-300 transition-colors">
+                Inaugural Keynote Address
+              </h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">
+                Distinguished guest speaker inspiring students on innovation and entrepreneurial problem solving in the auditorium.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 3: Student Ideation & Presentation -->
+        <div class="edi-card overflow-hidden group cursor-pointer border border-slate-200 dark:border-slate-800 hover:border-amber-400 transition-all duration-300" onclick="openImageLightbox('images/event_ideation_pitch.jpg', 'Student Ideation & Problem Solving Pitch', 'Students presenting project ideas at Meenakshi Sundararajan Engineering College, Kodambakkam')">
+          <div class="relative h-64 overflow-hidden bg-slate-950">
+            <img src="images/event_ideation_pitch.jpg" alt="Student Ideation Pitch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-amber-600 text-white shadow-sm">
+              Conducted Event
+            </span>
+            <div class="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h4 class="font-bold text-sm leading-snug group-hover:text-amber-300 transition-colors">
+                Student Ideation & Project Pitch
+              </h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-2">
+                Interactive student presentation and faculty review session conducted at MSEC, Kodambakkam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. VISION & MISSION SECTION (Inspired by Uploaded Posters)
+       ========================================================================= -->
+  <section id="vision-mission" class="py-24 bg-slate-50 dark:bg-[#08090C] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Guiding Principles
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          Our Vision & Mission
+        </h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+          Rooted in purposeful innovation, multidisciplinary collaboration, and relentless execution.
+        </p>
+      </div>
+
+      <!-- Vision Card Block -->
+      <div class="edi-card-gold-accent p-8 md:p-12 mb-12 shadow-md">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-8">
+          <div>
+            <span class="text-xs font-mono font-bold tracking-widest text-amber-700 dark:text-amber-400 uppercase">
+              Strategic Foundation
+            </span>
+            <h3 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white tracking-wide mt-1">
+              OUR VISION
+            </h3>
+          </div>
+          <!-- Poster Preview Modal Opener -->
+          <button 
+            onclick="openPosterModal('vision')"
+            class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs font-semibold bg-amber-100 dark:bg-amber-950/70 border border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-300 hover:scale-105 transition-transform"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+            <span>View Official Vision Poster</span>
+          </button>
+        </div>
+
+        <!-- Vision Statement with Gold Highlights -->
+        <blockquote class="text-lg sm:text-2xl font-medium text-slate-800 dark:text-slate-200 leading-relaxed mb-10 border-l-4 border-l-amber-500 pl-4 sm:pl-6 py-2">
+          "To cultivate a thriving ecosystem of <span class="text-amber-700 dark:text-amber-400 font-bold">entrepreneurial thinkers</span> and <span class="text-amber-700 dark:text-amber-400 font-bold">innovators</span> — empowering students to become <span class="text-amber-700 dark:text-amber-400 font-bold">visionary problem-solvers</span>, <span class="text-amber-700 dark:text-amber-400 font-bold">industry-ready developers</span>, and <span class="text-amber-700 dark:text-amber-400 font-bold">future tech leaders</span> who drive meaningful change."
+        </blockquote>
+
+        <!-- 4 Pillars of Vision -->
+        <div id="vision-pillars-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+      <!-- Mission Card Block -->
+      <div class="edi-card-gold-accent p-8 md:p-12 shadow-md">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-8">
+          <div>
+            <span class="text-xs font-mono font-bold tracking-widest text-amber-700 dark:text-amber-400 uppercase">
+              Action Roadmap
+            </span>
+            <h3 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white tracking-wide mt-1">
+              OUR MISSION
+            </h3>
+          </div>
+          <!-- Poster Preview Modal Opener -->
+          <button 
+            onclick="openPosterModal('mission')"
+            class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs font-semibold bg-amber-100 dark:bg-amber-950/70 border border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-300 hover:scale-105 transition-transform"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+            <span>View Official Mission Poster</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mb-8">
+          <!-- 3 Mission Points -->
+          <div id="mission-points-container" class="lg:col-span-2 space-y-4">
+            <!-- Rendered via JS -->
+          </div>
+
+          <!-- Mission Callouts (Collaborate, Innovate, Empower, Impact) -->
+          <div id="mission-callouts-container" class="grid grid-cols-2 gap-3">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. WHAT WE DO
+       ========================================================================= -->
+  <section id="what-we-do" class="py-20 bg-white dark:bg-[#0B0D13] border-t border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Key Verticals
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          What We Do
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          Empowering innovators through structured ideation, skill acquisition, hackathons, and institutional mentorship.
+        </p>
+      </div>
+
+      <div id="what-we-do-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. ACTIVITIES & INITIATIVES (Official Planned Events)
+       ========================================================================= -->
+  <section id="activities" class="py-24 bg-slate-50 dark:bg-[#08090C]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          IIC / Calendar of Events
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-3">
+          ACTIVITIES & INITIATIVES
+        </h2>
+        <p class="text-base text-amber-700 dark:text-amber-400 font-medium mb-3 italic">
+          "Building an ecosystem where ideas move from inspiration to implementation."
+        </p>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          Explore our planned flagship sessions, workshops, boot camps, and hackathons. Click any event card to view full objectives and outcomes.
+        </p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div id="activities-filter" class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Activities Grid -->
+      <div id="activities-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. CELEBRATION ACTIVITIES
+       ========================================================================= -->
+  <section id="celebrations" class="py-20 bg-white dark:bg-[#0B0D13] border-t border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Milestones & Observances
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          CELEBRATION ACTIVITIES
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Commemorating institutional innovation, national entrepreneurship, and visionary education.
+        </p>
+      </div>
+
+      <div id="celebrations-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. FROM IDEA TO IMPACT (Journey Process)
+       ========================================================================= -->
+  <section id="journey" class="py-24 bg-slate-50 dark:bg-[#08090C] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Structured Innovation Methodology
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          FROM IDEA TO IMPACT
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Our six-step innovation lifecycle designed to guide students from raw observation to impactful deployment.
+        </p>
+      </div>
+
+      <div id="journey-container" class="timeline-track grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. IMPACT / STATISTICS SECTION
+       ========================================================================= -->
+  <section id="impact" class="py-20 bg-white dark:bg-[#0B0D13] border-t border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Ecosystem Progress
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          OUR MEASURABLE IMPACT
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Tracking participation, workshops, ideation pipelines, and showcases as we scale the club.
+        </p>
+      </div>
+
+      <div id="stats-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. TEAM SECTION
+       ========================================================================= -->
+  <section id="team" class="py-24 bg-slate-50 dark:bg-[#08090C]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          People Behind The Vision
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          OUR TEAM
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Guided by dedicated faculty coordinators and spearheaded by enthusiastic student leaders at Meenakshi Sundararajan Engineering College.
+        </p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div id="team-filter" class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Team Grid -->
+      <div id="team-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       11. GALLERY SECTION
+       ========================================================================= -->
+  <section id="gallery" class="py-20 bg-white dark:bg-[#0B0D13] border-t border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Visual Memories
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          INNOVATION IN ACTION
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Moments of discovery, prototype pitching, collaborative hackathons, and campus celebrations.
+        </p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div id="gallery-filter" class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       12. WHY JOIN EDI CLUB
+       ========================================================================= -->
+  <section id="why-join" class="py-24 bg-slate-50 dark:bg-[#08090C]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Student Benefits
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          WHY JOIN EDI CLUB?
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Transform your collegiate journey into an entrepreneurial launchpad.
+        </p>
+      </div>
+
+      <div id="why-join-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       13. CALL TO ACTION SECTION
+       ========================================================================= -->
+  <section id="cta" class="py-20 bg-gradient-to-b from-slate-900 to-black text-white relative overflow-hidden">
+    <div class="ambient-gold-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <div class="w-14 h-14 rounded-full gold-badge mx-auto flex items-center justify-center mb-6 overflow-hidden p-1">
+        <img src="images/edi-logo.jpg" alt="EDI Logo" class="w-8 h-8 object-contain rounded-full">
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold font-heading tracking-tight mb-4 text-white">
+        Have an idea worth building?
+      </h2>
+      <p class="text-base sm:text-lg text-slate-300 max-w-xl mx-auto mb-10">
+        Your next idea could be the beginning of something meaningful. Join fellow innovators, builders, and future tech leaders.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#activities" class="btn-gold-outline w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-bold tracking-wide">
+          Explore Activities
+        </a>
+        <button onclick="openJoinModal()" class="btn-gold-primary w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-bold tracking-wide">
+          Join EDI Club
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       14. CONTACT SECTION
+       ========================================================================= -->
+  <section id="contact" class="py-24 bg-white dark:bg-[#0B0D13] border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+          Get in Touch
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-950 dark:text-white mt-2 mb-4">
+          CONNECT WITH EDI CLUB
+        </h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-amber-600 to-amber-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Have queries regarding events, partnerships, or joining the club? Reach out below.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <!-- Contact Information Block -->
+        <div class="space-y-6">
+          <div class="edi-card p-6 border border-slate-200 dark:border-slate-800">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">
+              Club Office & Secretariat
+            </h3>
+            
+            <div class="space-y-4 text-xs sm:text-sm">
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-slate-900 dark:text-white">Institution</div>
+                  <div class="text-slate-600 dark:text-slate-300">Meenakshi Sundararajan Engineering College</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-slate-900 dark:text-white">Location & Campus</div>
+                  <div class="text-slate-600 dark:text-slate-300">Kodambakkam, Chennai - 024</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center flex-shrink-0">
+                  <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-bold text-slate-900 dark:text-white">Official Email</div>
+                  <div class="text-amber-700 dark:text-amber-400 font-mono">edi.club@msec.edu.in</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links Placeholders -->
+            <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center space-x-4">
+              <span class="text-xs font-semibold text-slate-500">Connect:</span>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-amber-600 transition-colors">
+                Instagram
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 hover:text-amber-600 transition-colors">
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frontend Contact Form -->
+        <div class="edi-card p-6 sm:p-8 border border-slate-200 dark:border-slate-800">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+            Send an Inquiry
+          </h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">
+            Complete the form below to connect with the student executive team.
+          </p>
+
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label for="contact-name" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Your Full Name</label>
+              <input type="text" id="contact-name" required placeholder="e.g. Alex Sharma" class="w-full px-4 py-2.5 edi-input text-xs sm:text-sm">
+            </div>
+
+            <div>
+              <label for="contact-email" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Email Address</label>
+              <input type="email" id="contact-email" required placeholder="alex@college.edu" class="w-full px-4 py-2.5 edi-input text-xs sm:text-sm">
+            </div>
+
+            <div>
+              <label for="contact-dept" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Department / Year</label>
+              <input type="text" id="contact-dept" required placeholder="e.g. Computer Science, 2nd Year" class="w-full px-4 py-2.5 edi-input text-xs sm:text-sm">
+            </div>
+
+            <div>
+              <label for="contact-msg" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Message / Proposal</label>
+              <textarea id="contact-msg" rows="4" required placeholder="How can EDI Club help you develop your idea or participate in activities?" class="w-full px-4 py-2.5 edi-input text-xs sm:text-sm"></textarea>
+            </div>
+
+            <button type="submit" class="btn-gold-primary w-full py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       15. FOOTER
+       ========================================================================= -->
+  <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-amber-500/60 p-1 flex items-center justify-center overflow-hidden">
+              <img src="images/edi-logo.jpg" alt="EDI Logo" class="w-full h-full object-contain rounded-full">
+            </div>
+            <div>
+              <div class="font-heading font-extrabold text-white text-base tracking-wider">EDI CLUB</div>
+              <div class="text-xs text-amber-400">Entrepreneurship Development & Innovation Club</div>
+            </div>
+          </div>
+          
+          <p class="text-xs text-slate-400 max-w-md leading-relaxed italic">
+            "Think Innovatively. Collaborate Boldly. Build Impactfully. Lead Fearlessly."
+          </p>
+
+          <p class="text-xs text-slate-500 max-w-md leading-relaxed">
+            An official student innovation ecosystem dedicated to experiential entrepreneurship, applied problem solving, and technological leadership.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#home" class="hover:text-amber-400 transition-colors">Home</a></li>
+            <li><a href="#about" class="hover:text-amber-400 transition-colors">About the Club</a></li>
+            <li><a href="#vision-mission" class="hover:text-amber-400 transition-colors">Vision & Mission</a></li>
+            <li><a href="#activities" class="hover:text-amber-400 transition-colors">IIC Activities</a></li>
+            <li><a href="#team" class="hover:text-amber-400 transition-colors">Our Team</a></li>
+            <li><a href="#gallery" class="hover:text-amber-400 transition-colors">Gallery</a></li>
+          </ul>
+        </div>
+
+        <!-- Social & Connectivity -->
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Community</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors">Instagram</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors">LinkedIn</a></li>
+            <li><a href="mailto:edi.club@msec.edu.in" class="hover:text-amber-400 transition-colors">edi.club@msec.edu.in</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© 2026 EDI Club • Meenakshi Sundararajan Engineering College, Kodambakkam, Chennai - 024. All Rights Reserved.</p>
+        <div class="flex items-center space-x-4">
+          <a href="#vision-mission" class="hover:text-slate-300">Vision Statement</a>
+          <span>•</span>
+          <a href="#activities" class="hover:text-slate-300">Activity Calendar</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODALS & DIALOGS
+       ========================================================================= -->
+
+  <!-- 1. Event Details Modal -->
+  <div id="event-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-2xl bg-white dark:bg-[#11131A] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button 
+        id="close-modal-btn" 
+        aria-label="Close Event Modal"
+        class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Modal Content Header -->
+      <div class="mb-6">
+        <div class="flex items-center space-x-2 mb-2">
+          <span id="modal-badge" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800"></span>
+          <span id="modal-category" class="text-xs text-slate-500 dark:text-slate-400 font-semibold"></span>
+        </div>
+        <h3 id="modal-title" class="text-xl sm:text-2xl font-bold font-heading text-slate-900 dark:text-white leading-snug"></h3>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="space-y-5 text-xs sm:text-sm">
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-1">Description</h4>
+          <p id="modal-description" class="text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-1">Purpose & Objective</h4>
+          <p id="modal-purpose" class="text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-1.5">Key Activities Planned</h4>
+          <ul id="modal-activities" class="space-y-1.5"></ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-1.5">Expected Outcomes</h4>
+          <ul id="modal-outcomes" class="space-y-1.5"></ul>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <div>
+            <span class="text-[11px] font-bold text-slate-400 uppercase">Target Participants</span>
+            <p id="modal-target" class="text-slate-700 dark:text-slate-300 font-medium text-xs mt-0.5"></p>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold text-slate-400 uppercase">Schedule Status</span>
+            <p id="modal-date" class="text-amber-700 dark:text-amber-400 font-semibold text-xs mt-0.5"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="mt-8 pt-5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end space-x-3">
+        <button 
+          onclick="closeEventModal()" 
+          class="px-4 py-2 text-xs font-semibold rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+        >
+          Close
+        </button>
+        <button 
+          onclick="showToast('Registration details for this session will be announced soon by the EDI Club committee.'); closeEventModal();" 
+          class="btn-gold-primary px-5 py-2 text-xs font-bold rounded-xl"
+        >
+          Register / Learn More
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. Join the Innovation Journey Modal -->
+  <div id="join-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="relative w-full max-w-lg bg-white dark:bg-[#11131A] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 sm:p-8">
+      <button 
+        id="close-join-modal" 
+        aria-label="Close Join Modal"
+        class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-full gold-badge mx-auto flex items-center justify-center mb-3 overflow-hidden p-1">
+          <img src="images/edi-logo.jpg" alt="EDI Logo" class="w-7 h-7 object-contain rounded-full">
+        </div>
+        <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white">Join the Innovation Journey</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          EDI Club welcomes students from all academic disciplines and engineering domains.
+        </p>
+      </div>
+
+      <div class="space-y-3 mb-6 text-xs text-slate-600 dark:text-slate-300">
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Access hands-on maker boot camps & hackathon sprints</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Mentorship from seasoned founders and patent attorneys</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Institutional support for prototypes, IPR & incubation</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <a 
+          href="#contact" 
+          onclick="closeJoinModal()" 
+          class="btn-gold-primary block w-full py-3 rounded-xl text-center text-xs font-bold tracking-wide"
+        >
+          Connect via Contact Section
+        </a>
+        <button 
+          onclick="showToast('Thank you for your interest! Club member registration drives are conducted at the start of each semester.'); closeJoinModal();" 
+          class="w-full py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+        >
+          View Membership Guidelines
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Official Image Lightbox Modal -->
+  <div id="poster-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="relative max-w-4xl w-full bg-slate-950 rounded-2xl border border-amber-500/40 shadow-2xl p-4 sm:p-6 flex flex-col items-center">
+      <div class="w-full flex items-center justify-between pb-3 px-2 border-b border-neutral-800">
+        <div>
+          <h4 id="poster-modal-title" class="text-sm font-bold font-heading text-white tracking-wide"></h4>
+          <p id="poster-modal-caption" class="text-xs text-amber-400 mt-0.5"></p>
+        </div>
+        <button 
+          onclick="closePosterModal()" 
+          aria-label="Close Lightbox"
+          class="p-1.5 rounded-lg bg-neutral-800 text-neutral-400 hover:text-white transition-colors"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="p-2 w-full max-h-[75vh] flex items-center justify-center overflow-auto my-2">
+        <img id="poster-modal-img" src="" alt="Event / Poster" class="max-h-[70vh] w-auto rounded-xl shadow-2xl object-contain border border-neutral-800">
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Interactive Toast Notification -->
+  <div 
+    id="notification-toast" 
+    class="fixed bottom-6 right-6 z-50 max-w-sm p-4 rounded-xl bg-slate-950 text-white border border-amber-500/50 shadow-2xl transition-all duration-300 transform translate-y-5 opacity-0 pointer-events-none flex items-start space-x-3"
+  >
+    <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+    </div>
+    <div class="text-xs leading-relaxed text-slate-200">
+      <div class="font-bold text-amber-400 mb-0.5">EDI Club Notice</div>
+      <div id="toast-message"></div>
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

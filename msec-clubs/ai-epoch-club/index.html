@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Community</title>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Forces light mode by default
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom CSS */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.21, 0.47, 0.32, 0.98), transform 1s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        .delay-400 {
+            transition-delay: 400ms;
+        }
+
+        .delay-500 {
+            transition-delay: 500ms;
+        }
+
+        /* Custom Cursor */
+        body,
+        a,
+        button,
+        .cursor-pointer {
+            cursor: none !important;
+        }
+
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            mix-blend-mode: difference;
+            color: white;
+        }
+
+        #robot-cursor {
+            transition: transform 0.3s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+        }
+
+        #custom-cursor.hovering #robot-cursor {
+            transform: scale(1.5);
+        }
+
+        /* Springs and Mouth Animations */
+        .spring {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #custom-cursor.clicking .left-spring {
+            transform: translate(20px, 50px) scale(1, 1);
+        }
+
+        #custom-cursor.clicking .right-spring {
+            transform: translate(80px, 50px) scale(1, 1);
+        }
+
+        .mouth {
+            transform-origin: 50% 64px;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #custom-cursor.clicking .mouth {
+            transform: scaleY(3);
+        }
+
+        .eye {
+            transition: all 0.2s;
+        }
+
+        #custom-cursor.clicking .eye {
+            r: 7px;
+        }
+
+        /* Typing Cursor */
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 0.1em;
+            height: 1em;
+            background-color: black;
+            animation: blink 0.75s step-end infinite;
+            vertical-align: text-bottom;
+            margin-left: 0.05em;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-white text-black antialiased font-sans overflow-x-hidden selection:bg-black selection:text-white dark:bg-black dark:text-white dark:selection:bg-white dark:selection:text-black">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor">
+        <svg id="robot-cursor" viewBox="0 0 100 100" width="36" height="36" style="overflow: visible;">
+            <!-- Left Ear Spring -->
+            <g class="spring left-spring" transform="translate(20, 50) scale(0, 1)">
+                <path d="M 0 0 C -10 -15, -15 15, -20 0 C -25 -15, -30 15, -35 0 C -40 -15, -45 15, -50 0" fill="none"
+                    stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                <circle cx="-50" cy="0" r="4" fill="currentColor" />
+            </g>
+            <!-- Right Ear Spring -->
+            <g class="spring right-spring" transform="translate(80, 50) scale(0, 1)">
+                <path d="M 0 0 C 10 -15, 15 15, 20 0 C 25 -15, 30 15, 35 0 C 40 -15, 45 15, 50 0" fill="none"
+                    stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                <circle cx="50" cy="0" r="4" fill="currentColor" />
+            </g>
+
+            <!-- Ear Bases -->
+            <rect x="15" y="40" width="5" height="20" rx="2" fill="currentColor" />
+            <rect x="80" y="40" width="5" height="20" rx="2" fill="currentColor" />
+
+            <!-- Head -->
+            <rect x="20" y="20" width="60" height="60" rx="16" fill="currentColor" />
+
+            <!-- Eyes -->
+            <circle class="eye" cx="35" cy="42" r="5" fill="black" />
+            <circle class="eye" cx="65" cy="42" r="5" fill="black" />
+
+            <!-- Mouth -->
+            <rect class="mouth" x="35" y="62" width="30" height="4" rx="2" fill="black" />
+        </svg>
+    </div>
+
+    <!-- Scroll Progress Animation -->
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 h-1 bg-black dark:bg-white z-[60] w-0 transition-all duration-75"></div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/70 dark:bg-black/70 border-b border-black/5 dark:border-white/5 transition-all">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span class="font-semibold tracking-tight text-lg">AI Community</span>
+            <!-- Register Button removed as requested -->
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-48 pb-32 px-6 flex flex-col items-center justify-center text-center">
+        <img src="images/ai-club-logo.png" alt="AI Club logo" class="w-40 h-40 object-cover rounded-full mb-8">
+        <h1
+            class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] max-w-5xl min-h-[120px] md:min-h-[150px]">
+            <span id="typewriter"></span><span class="typing-cursor"></span>
+        </h1>
+        <p class="fade-in delay-200 mt-8 text-xl text-neutral-500 max-w-2xl font-light tracking-tight">
+            Solving real-world challenges ethically and responsibly through student-driven AI innovation.
+        </p>
+    </section>
+
+    <!-- About / Vision / Mission -->
+    <section class="py-28 md:py-36 px-6 max-w-7xl mx-auto">
+        <div class="fade-in grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div>
+                <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-400 mb-6">The Mission</h2>
+                <p class="text-3xl md:text-4xl font-medium tracking-tight leading-tight">
+                    Learn. Build. Innovate. Lead.<br>
+                    <span class="text-neutral-400">The platform for tomorrow's AI pioneers.</span>
+                </p>
+                <div class="mt-10">
+                    <a href="https://drive.google.com/" target="_blank"
+                        class="interactive-el inline-flex items-center gap-2 text-sm font-medium bg-black text-white px-6 py-3 rounded-full hover:scale-105 transition-transform w-max shadow-xl shadow-black/10">
+                        Monthly Newsletter
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-400 mb-6">Core Objectives</h2>
+                <ul class="space-y-6">
+                    <li class="flex flex-col border-b border-black/5 dark:border-white/5 pb-4">
+                        <span class="text-lg font-semibold tracking-tight">Curiosity</span>
+                        <span class="text-neutral-500 font-light">Question, explore, and continuously learn.</span>
+                    </li>
+                    <li class="flex flex-col border-b border-black/5 dark:border-white/5 pb-4">
+                        <span class="text-lg font-semibold tracking-tight">Creativity</span>
+                        <span class="text-neutral-500 font-light">Design unique AI-powered solutions.</span>
+                    </li>
+                    <li class="flex flex-col border-b border-black/5 dark:border-white/5 pb-4">
+                        <span class="text-lg font-semibold tracking-tight">Collaboration</span>
+                        <span class="text-neutral-500 font-light">Connect ideas, grow stronger together.</span>
+                    </li>
+                    <li class="flex flex-col border-b border-black/5 dark:border-white/5 pb-4">
+                        <span class="text-lg font-semibold tracking-tight">Leadership</span>
+                        <span class="text-neutral-500 font-light">Take initiative. Lead impactful projects.</span>
+                    </li>
+                    <li class="flex flex-col border-b border-black/5 dark:border-white/5 pb-4">
+                        <span class="text-lg font-semibold tracking-tight">Ethics & Responsibility</span>
+                        <span class="text-neutral-500 font-light">Responsible AI for the betterment of society.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="py-28 md:py-36 px-6 max-w-7xl mx-auto">
+        <h2 class="fade-in text-4xl md:text-5xl font-bold tracking-tight mb-16">The Minds Behind.</h2>
+
+        <!-- Faculty - Size reduced to match Office Bearers -->
+        <div
+            class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mb-16 border-b border-black/5 dark:border-white/5 pb-16">
+            <!-- Faculty 1 -->
+            <div class="fade-in">
+                <div
+                    class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[4/5] bg-neutral-100 dark:bg-neutral-900 mb-4">
+                    <img src="images/hod.jpg" alt="Ms. Mathangi Narayanan"
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl font-medium tracking-tight">Ms. Mathangi Narayanan</h3>
+                <p class="text-neutral-500 text-sm tracking-tight">Head of Department</p>
+            </div>
+            <!-- Faculty 2 -->
+            <div class="fade-in delay-100">
+                <div
+                    class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[4/5] bg-neutral-100 dark:bg-neutral-900 mb-4">
+                    <img src="images/reenie.jpg" alt="Ms. Reenie Tanya"
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl font-medium tracking-tight">Ms. Reenie Tanya</h3>
+                <p class="text-neutral-500 text-sm tracking-tight">Faculty Advisor</p>
+            </div>
+        </div>
+
+        <!-- Office Bearers -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
+            <!-- Member 1 -->
+            <div class="fade-in">
+                <div
+                    class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[4/5] bg-neutral-100 dark:bg-neutral-900 mb-4">
+                    <img src="images/prathiksha.jpg" alt="Pratiksha.K"
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl font-medium tracking-tight">Pratiksha.K</h3>
+                <p class="text-neutral-500 text-sm tracking-tight">President</p>
+            </div>
+            <!-- Member 2 -->
+            <div class="fade-in delay-100">
+                <div
+                    class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[4/5] bg-neutral-100 dark:bg-neutral-900 mb-4">
+                    <img src="images/kaushieek.jpg" alt="Kaushieek.P"
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl font-medium tracking-tight">Kaushieek.P</h3>
+                <p class="text-neutral-500 text-sm tracking-tight">Vice President</p>
+            </div>
+            <!-- Member 3 -->
+            <div class="fade-in delay-200">
+                <div
+                    class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[4/5] bg-neutral-100 dark:bg-neutral-900 mb-4">
+                    <img src="images/jayanth.jpg" alt="Jayanth.B"
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl font-medium tracking-tight">Jayanth.B</h3>
+                <p class="text-neutral-500 text-sm tracking-tight">Secretary</p>
+            </div>
+            <!-- Member 4 -->
+            <div class="fade-in delay-300">
+                <div
+                    class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[4/5] bg-neutral-100 dark:bg-neutral-900 mb-4">
+                    <img src="images/preethi.jpg" alt="Preethi.Y"
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl font-medium tracking-tight">Preethi.Y</h3>
+                <p class="text-neutral-500 text-sm tracking-tight">Treasurer</p>
+            </div>
+            <!-- Member 5 -->
+            <div class="fade-in delay-400">
+                <div
+                    class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[4/5] bg-neutral-100 dark:bg-neutral-900 mb-4">
+                    <img src="images/ritesh.jpg" alt="Rithesh"
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl font-medium tracking-tight">Rithesh</h3>
+                <p class="text-neutral-500 text-sm tracking-tight">Joint Secretary</p>
+            </div>
+            <!-- Member 6 -->
+            <div class="fade-in delay-500">
+                <div
+                    class="relative overflow-hidden rounded-2xl md:rounded-3xl aspect-[4/5] bg-neutral-100 dark:bg-neutral-900 mb-4">
+                    <img src="images/afrah.jpg" alt="Afrah"
+                        class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-lg md:text-xl font-medium tracking-tight">Afrah</h3>
+                <p class="text-neutral-500 text-sm tracking-tight">Joint Treasurer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Timeline -->
+    <section class="py-28 md:py-36 px-6 max-w-4xl mx-auto">
+        <h2 class="fade-in text-4xl md:text-5xl font-bold tracking-tight mb-20 text-center">Upcoming Initiatives.</h2>
+
+        <div
+            class="space-y-16 relative before:absolute before:inset-0 before:ml-2 md:before:mx-auto before:-translate-x-px md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-neutral-200 dark:before:via-neutral-800 before:to-transparent">
+
+            <!-- Event 1 -->
+            <div
+                class="fade-in relative flex items-center justify-between md:justify-normal md:even:flex-row-reverse group">
+                <div
+                    class="flex items-center justify-center w-5 h-5 rounded-full border-4 border-white dark:border-black bg-neutral-300 dark:bg-neutral-700 absolute left-0 md:left-1/2 -translate-x-1/2 group-hover:bg-black dark:group-hover:bg-white transition-colors duration-300 z-10">
+                </div>
+                <div onclick="openPosterModal('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800')"
+                    class="interactive-el cursor-pointer relative w-[calc(100%-2rem)] md:w-[calc(50%-3rem)] ml-auto md:ml-0 md:group-even:mr-auto p-6 md:p-8 rounded-3xl border border-transparent hover:border-black/5 dark:hover:border-white/5 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-all duration-500">
+                    <span
+                        class="block text-4xl md:text-5xl font-bold tracking-tighter text-neutral-300 dark:text-neutral-700 mb-4 group-hover:text-black dark:group-hover:text-white transition-colors duration-500">21.08.2026</span>
+
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-4">
+                        <h3
+                            class="text-2xl font-semibold tracking-tight decoration-2 underline-offset-4 group-hover:underline">
+                            AI Lawyers Up</h3>
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); event.preventDefault();"
+                            class="interactive-el relative z-20 inline-flex items-center gap-1 text-sm font-medium bg-black text-white dark:bg-white dark:text-black px-4 py-1.5 rounded-full hover:scale-105 transition-transform w-max">Register
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg></a>
+                    </div>
+
+                    <p class="text-neutral-500 leading-relaxed font-light">An AI-powered debate battle where
+                        participants think fast, argue smart, and defend any side thrown at them.</p>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div
+                class="fade-in relative flex items-center justify-between md:justify-normal md:even:flex-row-reverse group">
+                <div
+                    class="flex items-center justify-center w-5 h-5 rounded-full border-4 border-white dark:border-black bg-neutral-300 dark:bg-neutral-700 absolute left-0 md:left-1/2 -translate-x-1/2 group-hover:bg-black dark:group-hover:bg-white transition-colors duration-300 z-10">
+                </div>
+                <div onclick="openPosterModal('https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&q=80&w=800')"
+                    class="interactive-el cursor-pointer relative w-[calc(100%-2rem)] md:w-[calc(50%-3rem)] ml-auto md:ml-0 md:group-even:mr-auto p-6 md:p-8 rounded-3xl border border-transparent hover:border-black/5 dark:hover:border-white/5 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-all duration-500">
+                    <span
+                        class="block text-4xl md:text-5xl font-bold tracking-tighter text-neutral-300 dark:text-neutral-700 mb-4 group-hover:text-black dark:group-hover:text-white transition-colors duration-500">TBA</span>
+
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-4">
+                        <h3
+                            class="text-2xl font-semibold tracking-tight decoration-2 underline-offset-4 group-hover:underline">
+                            StackMarket</h3>
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); event.preventDefault();"
+                            class="interactive-el relative z-20 inline-flex items-center gap-1 text-sm font-medium bg-black text-white dark:bg-white dark:text-black px-4 py-1.5 rounded-full hover:scale-105 transition-transform w-max">Register
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg></a>
+                    </div>
+
+                    <p class="text-neutral-500 leading-relaxed font-light">A high-stakes tech auction and build
+                        challenge where teams bid for their tech stack, tackle a surprise problem, and build under
+                        pressure.</p>
+                </div>
+            </div>
+
+            <!-- Event 3: Problem Hunt (Added before Data Crisis) -->
+            <div
+                class="fade-in relative flex items-center justify-between md:justify-normal md:even:flex-row-reverse group">
+                <div
+                    class="flex items-center justify-center w-5 h-5 rounded-full border-4 border-white dark:border-black bg-neutral-300 dark:bg-neutral-700 absolute left-0 md:left-1/2 -translate-x-1/2 group-hover:bg-black dark:group-hover:bg-white transition-colors duration-300 z-10">
+                </div>
+                <div onclick="openPosterModal('https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800')"
+                    class="interactive-el cursor-pointer relative w-[calc(100%-2rem)] md:w-[calc(50%-3rem)] ml-auto md:ml-0 md:group-even:mr-auto p-6 md:p-8 rounded-3xl border border-transparent hover:border-black/5 dark:hover:border-white/5 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-all duration-500">
+                    <span
+                        class="block text-4xl md:text-5xl font-bold tracking-tighter text-neutral-300 dark:text-neutral-700 mb-4 group-hover:text-black dark:group-hover:text-white transition-colors duration-500">TBA</span>
+
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-4">
+                        <h3
+                            class="text-2xl font-semibold tracking-tight decoration-2 underline-offset-4 group-hover:underline">
+                            Problem Hunt</h3>
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); event.preventDefault();"
+                            class="interactive-el relative z-20 inline-flex items-center gap-1 text-sm font-medium bg-black text-white dark:bg-white dark:text-black px-4 py-1.5 rounded-full hover:scale-105 transition-transform w-max">Register
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg></a>
+                    </div>
+
+                    <p class="text-neutral-500 leading-relaxed font-light">An ideation and discovery sprint challenging
+                        participants to pinpoint high-impact real-world issues and formulate data-driven AI solutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Event 4: Data Crisis -->
+            <div
+                class="fade-in relative flex items-center justify-between md:justify-normal md:even:flex-row-reverse group">
+                <div
+                    class="flex items-center justify-center w-5 h-5 rounded-full border-4 border-white dark:border-black bg-neutral-300 dark:bg-neutral-700 absolute left-0 md:left-1/2 -translate-x-1/2 group-hover:bg-black dark:group-hover:bg-white transition-colors duration-300 z-10">
+                </div>
+                <div onclick="openPosterModal('https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800')"
+                    class="interactive-el cursor-pointer relative w-[calc(100%-2rem)] md:w-[calc(50%-3rem)] ml-auto md:ml-0 md:group-even:mr-auto p-6 md:p-8 rounded-3xl border border-transparent hover:border-black/5 dark:hover:border-white/5 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-all duration-500">
+                    <span
+                        class="block text-4xl md:text-5xl font-bold tracking-tighter text-neutral-300 dark:text-neutral-700 mb-4 group-hover:text-black dark:group-hover:text-white transition-colors duration-500">TBA</span>
+
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-4">
+                        <h3
+                            class="text-2xl font-semibold tracking-tight decoration-2 underline-offset-4 group-hover:underline">
+                            Data Crisis</h3>
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); event.preventDefault();"
+                            class="interactive-el relative z-20 inline-flex items-center gap-1 text-sm font-medium bg-black text-white dark:bg-white dark:text-black px-4 py-1.5 rounded-full hover:scale-105 transition-transform w-max">Register
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg></a>
+                    </div>
+
+                    <p class="text-neutral-500 leading-relaxed font-light">A two-round technical battle where teams
+                        crack Python challenges, uncover hidden patterns in messy data, and build the best ML solution
+                        under pressure.</p>
+                </div>
+            </div>
+
+            <!-- Event 5: Neural Network Nights -->
+            <div
+                class="fade-in relative flex items-center justify-between md:justify-normal md:even:flex-row-reverse group">
+                <div
+                    class="flex items-center justify-center w-5 h-5 rounded-full border-4 border-white dark:border-black bg-neutral-300 dark:bg-neutral-700 absolute left-0 md:left-1/2 -translate-x-1/2 group-hover:bg-black dark:group-hover:bg-white transition-colors duration-300 z-10">
+                </div>
+                <div onclick="openPosterModal('https://images.unsplash.com/photo-1558442074-3c19857bc1dc?auto=format&fit=crop&q=80&w=800')"
+                    class="interactive-el cursor-pointer relative w-[calc(100%-2rem)] md:w-[calc(50%-3rem)] ml-auto md:ml-0 md:group-even:mr-auto p-6 md:p-8 rounded-3xl border border-transparent hover:border-black/5 dark:hover:border-white/5 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-all duration-500">
+                    <span
+                        class="block text-4xl md:text-5xl font-bold tracking-tighter text-neutral-300 dark:text-neutral-700 mb-4 group-hover:text-black dark:group-hover:text-white transition-colors duration-500">TBA</span>
+
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-4">
+                        <h3
+                            class="text-2xl font-semibold tracking-tight decoration-2 underline-offset-4 group-hover:underline">
+                            Neural Network Nights</h3>
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); event.preventDefault();"
+                            class="interactive-el relative z-20 inline-flex items-center gap-1 text-sm font-medium bg-black text-white dark:bg-white dark:text-black px-4 py-1.5 rounded-full hover:scale-105 transition-transform w-max">Register
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg></a>
+                    </div>
+
+                    <p class="text-neutral-500 leading-relaxed font-light">An overnight hackathon focusing on generative
+                        models and innovative AI applications.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Completed Events Gallery -->
+    <section class="py-28 md:py-36 px-6 max-w-7xl mx-auto overflow-hidden">
+        <h2 class="fade-in text-4xl md:text-5xl font-bold tracking-tight mb-16">Past Triumphs.</h2>
+
+        <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar fade-in">
+            <!-- Image 1 -->
+            <div
+                class="interactive-el min-w-[85vw] md:min-w-[600px] h-[500px] snap-center shrink-0 rounded-3xl overflow-hidden group cursor-pointer relative">
+                <img src="images/past-triumph-1.jpeg"
+                    alt="Event"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div
+                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+            </div>
+            <!-- Image 2 -->
+            <div
+                class="interactive-el min-w-[85vw] md:min-w-[600px] h-[500px] snap-center shrink-0 rounded-3xl overflow-hidden group cursor-pointer relative">
+                <img src="images/past-triumph-2.jpeg"
+                    alt="Event"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div
+                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+            </div>
+            <!-- Image 3 -->
+            <div
+                class="interactive-el min-w-[85vw] md:min-w-[600px] h-[500px] snap-center shrink-0 rounded-3xl overflow-hidden group cursor-pointer relative">
+                <img src="images/past-triumph-3.jpeg"
+                    alt="Event"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div
+                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+            </div>
+            <!-- Image 4 -->
+            <div
+                class="interactive-el min-w-[85vw] md:min-w-[600px] h-[500px] snap-center shrink-0 rounded-3xl overflow-hidden group cursor-pointer relative">
+                <img src="images/past-triumph-4.jpeg"
+                    alt="Event"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div
+                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+            </div>
+            <!-- Image 5 -->
+            <div
+                class="interactive-el min-w-[85vw] md:min-w-[600px] h-[500px] snap-center shrink-0 rounded-3xl overflow-hidden group cursor-pointer relative">
+                <img src="images/past-triumph-5.jpeg"
+                    alt="Event"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div
+                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+            </div>
+            <!-- Image 6 -->
+            <div
+                class="interactive-el min-w-[85vw] md:min-w-[600px] h-[500px] snap-center shrink-0 rounded-3xl overflow-hidden group cursor-pointer relative">
+                <img src="images/past-triumph-6.jpeg"
+                    alt="Event"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                <div
+                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-black/5 dark:border-white/5 text-center px-6">
+        <p class="text-neutral-400 text-sm tracking-tight">&copy; 2026 AI Community. All rights reserved.</p>
+    </footer>
+
+    <!-- Event Poster Modal -->
+    <div id="poster-modal-backdrop" onclick="closePosterModal()"
+        class="fixed inset-0 bg-white/90 dark:bg-black/90 backdrop-blur-xl z-[60] opacity-0 pointer-events-none transition-opacity duration-500">
+    </div>
+    <div id="poster-modal-content"
+        class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl z-[70] p-6 opacity-0 pointer-events-none transition-all duration-500 scale-95 flex flex-col items-center">
+        <button onclick="closePosterModal()"
+            class="interactive-el absolute -top-12 right-0 md:-right-12 text-black dark:text-white hover:scale-110 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <img id="poster-img" src="" alt="Event Poster"
+            class="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl">
+    </div>
+
+    <!-- Scripts for Logic & Animations -->
+    <script>
+        // Typing Animation Logic
+        const typewriterEl = document.getElementById('typewriter');
+        const textToType = "Intelligence,       Empowering                Humanity.";
+        let charIndex = 0;
+        let isTag = false;
+
+        function typeWriter() {
+            if (charIndex < textToType.length) {
+                if (textToType.charAt(charIndex) === '<') {
+                    isTag = true;
+                }
+                if (isTag) {
+                    typewriterEl.innerHTML += textToType.charAt(charIndex);
+                    if (textToType.charAt(charIndex) === '>') {
+                        isTag = false;
+                    }
+                    charIndex++;
+                    typeWriter();
+                } else {
+                    typewriterEl.innerHTML += textToType.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+        }
+        setTimeout(typeWriter, 300);
+
+        // Custom Cursor Logic
+        const cursor = document.getElementById('custom-cursor');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            let dx = mouseX - cursorX;
+            let dy = mouseY - cursorY;
+            cursorX += dx * 0.15;
+            cursorY += dy * 0.15;
+            cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        document.querySelectorAll('a, button, .interactive-el').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hovering');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hovering');
+            });
+        });
+
+        // Robot Cursor Click Animations
+        document.addEventListener('mousedown', (e) => {
+            if (e.button === 0 || e.button === 2) {
+                cursor.classList.add('clicking');
+            }
+        });
+        document.addEventListener('mouseup', (e) => {
+            if (e.button === 0 || e.button === 2) {
+                cursor.classList.remove('clicking');
+            }
+        });
+
+        // Scroll Progress Logic
+        window.addEventListener('scroll', () => {
+            const scrollPx = document.documentElement.scrollTop;
+            const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = `${scrollPx / winHeightPx * 100}%`;
+            document.getElementById('scroll-progress').style.width = scrolled;
+        });
+
+        // Event Poster Modal Logic
+        const posterModalBackdrop = document.getElementById('poster-modal-backdrop');
+        const posterModalContent = document.getElementById('poster-modal-content');
+        const posterImg = document.getElementById('poster-img');
+
+        function openPosterModal(imgSrc) {
+            posterImg.src = imgSrc;
+            posterModalBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+            posterModalBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+
+            posterModalContent.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
+            posterModalContent.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePosterModal() {
+            posterModalBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            posterModalBackdrop.classList.add('opacity-0', 'pointer-events-none');
+
+            posterModalContent.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+            posterModalContent.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+
+            document.body.style.overflow = '';
+        }
+
+        // Scroll Animation Logic (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

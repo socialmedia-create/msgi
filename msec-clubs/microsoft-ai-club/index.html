@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft AI Club | Innovate • Analyze • Connect</title>
+    <meta name="description"
+        content="Microsoft AI Club of the Department of AI&DS — a student-led community exploring Artificial Intelligence, Data Science, and Microsoft technologies.">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Instant Theme Synchronization (Prevents flash & syncs preloader immediately) -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('msc_theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = saved ? saved : (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { }
+        })();
+    </script>
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+    <!-- Modern Smooth Custom Cursor (Pure Vector Pointer Finger) -->
+    <div class="custom-cursor-dot" id="cursor-dot" aria-hidden="true">
+        <svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="cursorHandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="52%" stop-color="#8ED8FF" />
+                    <stop offset="100%" stop-color="#0078D4" />
+                </linearGradient>
+            </defs>
+            <polygon points="8.40,29.50 5.28,20.36 2.40,16.23 1.68,14.16 2.40,12.39 3.84,11.80 6.96,14.46 6.72,3.54 7.44,0.89 9.12,0.00 10.80,1.18 11.52,3.54 11.76,11.21 18.48,10.03 20.16,10.91 20.88,12.98 22.80,12.98 24.00,14.75 23.76,16.82 23.04,23.01 21.84,27.14 19.44,29.50" fill="url(#cursorHandGrad)" stroke="url(#cursorHandGrad)" stroke-width="0.8" stroke-linejoin="round" stroke-linecap="round" />
+        </svg>
+    </div>
+
+    <!-- Microsoft AI Club preloader -->
+    <div id="site-preloader" class="site-preloader" aria-hidden="true">
+        <div class="preloader-content">
+            <div class="preloader-emblem-wrap">
+                <div class="preloader-orbital-ring ring-inner"></div>
+                <div class="preloader-orbital-ring ring-middle">
+                    <span class="satellite-dot"></span>
+                </div>
+                <div class="preloader-orbital-ring ring-outer">
+                    <span class="crosshair-marker ch-top">+</span>
+                    <span class="crosshair-marker ch-bottom">+</span>
+                    <span class="crosshair-marker ch-left">+</span>
+                    <span class="crosshair-marker ch-right">+</span>
+                </div>
+                <div class="emblem-aura"></div>
+                <img src="images/logo.png" alt="Microsoft AI Club" class="preloader-logo">
+            </div>
+
+            <div class="preloader-text-group">
+                <h2 class="preloader-brand">
+                    <span class="preloader-text-white">Microsoft</span> <span class="text-gradient-gold">AI Club</span>
+                </h2>
+                <div class="preloader-motto">
+                    <span>INNOVATE</span>
+                    <span class="motto-bullet">✳</span>
+                    <span>ANALYZE</span>
+                    <span class="motto-bullet">✳</span>
+                    <span>CONNECT</span>
+                </div>
+            </div>
+
+            <!-- Club loading progress -->
+            <div class="preloader-progress-wrap">
+                <div class="preloader-progress-track">
+                    <div class="preloader-progress-fill" id="preloader-bar">
+                        <span class="laser-shimmer"></span>
+                    </div>
+                </div>
+                <span class="preloader-counter" id="preloader-counter">0%</span>
+            </div>
+            <div class="preloader-status-text" id="preloader-status">INITIALIZING NEURAL CORE...</div>
+        </div>
+    </div>
+
+    <!-- Club announcement ribbon (flows across screen, scrolls naturally out of view) -->
+    <div class="announcement-ribbon" id="announcement-ribbon">
+        <span class="ribbon-dot">●</span>
+        <span>INNOVATE. ANALYZE. CONNECT.</span>
+        <span class="ribbon-star">✳</span>
+        <span>DEPARTMENT OF AI&amp;DS</span>
+    </div>
+
+    <!-- Sticky Full-Width Glass Navigation Header -->
+    <header class="site-header" id="site-header">
+        <nav class="site-nav" id="navbar">
+            <div class="container nav-container">
+                <a href="#home" class="nav-brand">
+                    <img src="images/logo.png" alt="Microsoft AI Club Logo" class="nav-logo">
+                    <div class="nav-title-group">
+                        <h2>Microsoft AI Club</h2>
+                        <span>INNOVATE • ANALYZE • CONNECT</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links">
+                    <li class="nav-pill-slider" id="nav-pill-slider" aria-hidden="true"></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#events" class="nav-link">Events</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#team" class="nav-link">Team</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Light or Dark Theme"
+                        title="Toggle Light/Dark Theme">
+                        <span class="theme-icon">☾</span>
+                    </button>
+                    <a href="#contact" class="btn btn-primary btn-sm nav-cta-btn">Join Club</a>
+                    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Microsoft AI Club hero -->
+    <section class="hero hero-expressive section-backdrop-blue" id="home">
+        <canvas id="neural-canvas"></canvas>
+        <div class="container">
+            <div class="hero-grid-2col">
+                <!-- Left Column: Editorial Display Typography & Pill Actions -->
+                <div class="hero-col-left">
+                    <span class="hero-eyebrow-line">—— INNOVATE. ANALYZE. CONNECT.</span>
+                    <h1 class="hero-display-title">
+                        Where intelligence<br>
+                        <span class="hero-title-accent">meets curiosity.</span><span class="hero-star-sparkle">✳</span>
+                    </h1>
+                    <p class="hero-editorial-sub">
+                        A student-led creative playground where AI meets engineering, experiments become breakthrough
+                        experiences, and ordinary ideas get a little extraordinary.
+                    </p>
+                    <div class="hero-btn-actions">
+                        <a href="#events" class="btn-pill-solid">Explore the club ↗</a>
+                        <a href="#about" class="btn-pill-ghost">Our identity ↓</a>
+                    </div>
+                    <div class="hero-meta-strip">
+                        <div class="curiosity-pill">
+                            <span>✦</span> Intelligence starts with curiosity
+                        </div>
+                        <span class="est-tag">DEPARTMENT OF AI&amp;DS • MICROSOFT AI CLUB</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Layered Creative Stage with Tilted Cards & Orbits -->
+                <div class="hero-col-right">
+                    <div class="creative-stage-wrap">
+                        <!-- Ambient Glowing Gradient Disc -->
+                        <div class="stage-glow-disc"></div>
+
+                        <!-- Fine SVG Orbit Rings -->
+                        <svg class="stage-orbit-svg" viewBox="0 0 400 400" fill="none">
+                            <ellipse cx="200" cy="200" rx="170" ry="110" transform="rotate(-25 200 200)"
+                                stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.45" />
+                            <ellipse cx="200" cy="200" rx="140" ry="170" transform="rotate(22 200 200)"
+                                stroke="currentColor" stroke-width="1.2" opacity="0.3" />
+                        </svg>
+
+                        <!-- Conversational AI illustration -->
+                        <div class="stage-center-stamp">
+                            <div class="chatbot-illustration" aria-hidden="true">
+                                <span class="bot-antenna"></span>
+                                <span class="bot-head">
+                                    <span class="bot-eye"></span>
+                                    <span class="bot-eye"></span>
+                                    <span class="bot-mouth"></span>
+                                </span>
+                                <span class="bot-body">
+                                    <span class="bot-panel"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Side card: learning -->
+                        <div class="tilted-stage-card card-lilac-tilt">
+                            <div class="stage-card-eyebrow">CLUB SIGNAL Nº 01</div>
+                            <div class="abstract-vector-shapes">
+                                <div class="vector-blob-1"></div>
+                                <div class="vector-blob-2"></div>
+                                <div class="vector-blob-3"></div>
+                            </div>
+                            <div class="stage-card-caption">learn deeply.<br>build responsibly.</div>
+                        </div>
+
+                        <!-- Side card: community -->
+                        <div class="tilted-stage-card card-yellow-tilt">
+                            <div class="stage-card-eyebrow">AI&amp;DS / OPEN MODE</div>
+                            <div class="stage-card-smiley">✦</div>
+                            <div class="stage-card-caption">ideas connect here.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Club focus marquee -->
+    <div class="angled-marquee-band">
+        <div class="marquee-track">
+            <span>● MICROSOFT AI CLUB</span>
+            <span>✳ ARTIFICIAL INTELLIGENCE</span>
+            <span>● DATA SCIENCE</span>
+            <span>✳ RESPONSIBLE INNOVATION</span>
+            <span>● LEARN. BUILD. SHARE.</span>
+            <span>✳ DEPARTMENT OF AI&amp;DS</span>
+            <span>● CONNECT. EXPLORE. LEAD.</span>
+            <!-- Duplicated seamless loop -->
+            <span>● MICROSOFT AI CLUB</span>
+            <span>✳ ARTIFICIAL INTELLIGENCE</span>
+            <span>● DATA SCIENCE</span>
+            <span>✳ RESPONSIBLE INNOVATION</span>
+            <span>● LEARN. BUILD. SHARE.</span>
+            <span>✳ DEPARTMENT OF AI&amp;DS</span>
+            <span>● CONNECT. EXPLORE. LEAD.</span>
+        </div>
+    </div>
+
+    <!-- About Microsoft AI Club -->
+    <section class="section about-expressive section-backdrop-white" id="about">
+        <div class="container">
+            <!-- Split Header -->
+            <div class="about-header-split">
+                <div class="about-header-left">
+                    <span class="section-eyebrow">—— A BIT ABOUT US</span>
+                    <h2 class="display-split-title">
+                        Intelligence with<br>
+                        <span class="serif-italic-accent">purpose.</span>
+                    </h2>
+                </div>
+                <div class="about-header-right">
+                    <p class="about-intro-text">
+                        We're the <strong>Microsoft AI Club</strong> of the Department of AI&amp;DS — a student-led
+                        community where curiosity becomes capability through Artificial Intelligence, Data Science, and
+                        Microsoft technologies.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3 Signature Oversized Pastel Color-Block Cards -->
+            <div class="pastel-cards-trio">
+                <!-- 01 / OUR WHY (Lilac) -->
+                <div class="pastel-card block-lilac">
+                    <div class="block-top">
+                        <span class="block-num">01 / OUR WHY</span>
+                        <span class="block-icon">✳</span>
+                    </div>
+                    <div>
+                        <h3 class="block-title">Curiosity becomes capability.</h3>
+                        <p class="block-desc">
+                            We create a welcoming space to explore neural models, machine learning frameworks, creative
+                            computing and the joy of training intelligent systems from scratch.
+                        </p>
+                    </div>
+                    <div class="block-footer">
+                        <a href="#objectives" class="block-link">Curiosity first →</a>
+                    </div>
+                </div>
+
+                <!-- 02 / OUR ENERGY (Pink) -->
+                <div class="pastel-card block-pink">
+                    <div class="block-top">
+                        <span class="block-num">02 / OUR ENERGY</span>
+                        <span class="block-icon">♡</span>
+                    </div>
+                    <div>
+                        <h3 class="block-title">Learn together. Build for real.</h3>
+                        <p class="block-desc">
+                            From deep learning hackathons to collaborative code jams, we turn abstract mathematical
+                            concepts into working software people can test, deploy, and remember.
+                        </p>
+                    </div>
+                    <div class="block-footer">
+                        <div class="block-tags">
+                            <span class="mini-pill">Experiment</span>
+                            <span class="mini-pill">Collaborate</span>
+                            <span class="mini-pill">Deploy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 / OUR BELIEF (Lime) -->
+                <div class="pastel-card block-lime">
+                    <div class="block-top">
+                        <span class="block-num">03 / OUR BELIEF</span>
+                        <span class="block-icon">✹</span>
+                    </div>
+                    <div>
+                        <h3 class="block-title">Many minds. One connected club.</h3>
+                        <p class="block-desc">
+                            Different perspectives make better work. Bring your curiosity, your domain knowledge, your
+                            coding background and your wonderfully ambitious ideas.
+                        </p>
+                    </div>
+                    <div class="block-footer">
+                        <a href="#team" class="block-link">Find your cohort ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision & Mission Editorial Row -->
+            <div class="vm-editorial-row" id="vision">
+                <div class="vm-editorial-card vision-editorial">
+                    <span class="vm-editorial-tag">01 / VISION</span>
+                    <h3 class="vm-editorial-title">Make intelligence useful, responsible, and human.</h3>
+                    <blockquote class="vm-quote">
+                        "To be a bold, welcoming community that turns curiosity into meaningful progress—empowering
+                        students to explore AI and Data Science, lead with imagination, and create technology that makes
+                        a real difference."
+                    </blockquote>
+                </div>
+
+                <div class="vm-editorial-card mission-editorial">
+                    <span class="vm-editorial-tag">02 / MISSION</span>
+                    <h3 class="vm-editorial-title">Learn together. Build boldly. Share what matters.</h3>
+                    <blockquote class="vm-quote">
+                        "To give every member a place to learn by doing through workshops, challenges, seminars,
+                        projects, and outreach. We build practical skills in AI and Data Science, encourage thoughtful
+                        experimentation, celebrate different perspectives, and prepare one another to shape the future
+                        with confidence."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core club objectives -->
+    <section class="section objectives section-backdrop-blue" id="objectives">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-layer-group"></i> 9 Club Pillars</span>
+                <h2 class="section-title">What We <span class="serif-italic text-gradient-gold">Stand For &amp;
+                        Build.</span></h2>
+                <p class="section-subtitle">
+                    Nine grounded, student-driven focus areas that guide every workshop, project, challenge, and peer
+                    collaboration across our Microsoft AI Club community.
+                </p>
+            </div>
+
+            <div class="objectives-grid">
+                <!-- Pillar 01 -->
+                <div class="objective-card obj-color-azure">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">01</span>
+                            <span class="obj-figma-tag">◇ Core.Foundations</span>
+                        </div>
+                        <div class="obj-icon"><i class="fas fa-brain"></i></div>
+                    </div>
+                    <h3 class="obj-title">Foundational AI Literacy</h3>
+                    <p class="obj-desc">
+                        Demystifying core concepts in Python, Machine Learning, Data Analytics, and Prompt Engineering
+                        through beginner-accessible student workshops.
+                    </p>
+                </div>
+
+                <!-- Pillar 02 -->
+                <div class="objective-card obj-color-blue">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">02</span>
+                            <span class="obj-figma-tag">◇ Azure.Student</span>
+                        </div>
+                        <div class="obj-icon"><i class="fab fa-microsoft"></i></div>
+                    </div>
+                    <h3 class="obj-title">Microsoft Tech Ecosystem</h3>
+                    <p class="obj-desc">
+                        Hands-on practice using Microsoft Learn modules, Azure student credits, GitHub Copilot, VS Code,
+                        and Power Platform developer tools.
+                    </p>
+                </div>
+
+                <!-- Pillar 03 -->
+                <div class="objective-card obj-color-amber">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">03</span>
+                            <span class="obj-figma-tag">◇ Problem.Hunt</span>
+                        </div>
+                        <div class="obj-icon"><i class="fas fa-compass"></i></div>
+                    </div>
+                    <h3 class="obj-title">Field Problem Discovery</h3>
+                    <p class="obj-desc">
+                        Active problem-scouting events like Problem Hunt where students spot real campus friction and
+                        structure meaningful problem statements.
+                    </p>
+                </div>
+
+                <!-- Pillar 04 -->
+                <div class="objective-card obj-color-violet">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">04</span>
+                            <span class="obj-figma-tag">◇ Rapid.Build</span>
+                        </div>
+                        <div class="obj-icon"><i class="fas fa-cubes-stacked"></i></div>
+                    </div>
+                    <h3 class="obj-title">Rapid Prototyping Sprints</h3>
+                    <p class="obj-desc">
+                        Turning quick ideas into testable proofs-of-concept using low-code tools, APIs, and agile
+                        sprints like our Build Without Building challenge.
+                    </p>
+                </div>
+
+                <!-- Pillar 05 -->
+                <div class="objective-card obj-color-rose">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">05</span>
+                            <span class="obj-figma-tag">◇ Project.Teams</span>
+                        </div>
+                        <div class="obj-icon"><i class="fas fa-laptop-code"></i></div>
+                    </div>
+                    <h3 class="obj-title">Student Project Cohorts</h3>
+                    <p class="obj-desc">
+                        Small collaborative teams pairing seniors with juniors to build real AI applications and publish
+                        documented GitHub repositories.
+                    </p>
+                </div>
+
+                <!-- Pillar 06 -->
+                <div class="objective-card obj-color-emerald">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">06</span>
+                            <span class="obj-figma-tag">◇ Hack.Arena</span>
+                        </div>
+                        <div class="obj-icon"><i class="fas fa-bolt"></i></div>
+                    </div>
+                    <h3 class="obj-title">Hackathons &amp; Speed Sprints</h3>
+                    <p class="obj-desc">
+                        Internal club hackathons, fast-paced coding showdowns like Lag Wars, and inter-college tech
+                        competition prep.
+                    </p>
+                </div>
+
+                <!-- Pillar 07 -->
+                <div class="objective-card obj-color-lime">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">07</span>
+                            <span class="obj-figma-tag">◇ Peer.Circle</span>
+                        </div>
+                        <div class="obj-icon"><i class="fas fa-user-group"></i></div>
+                    </div>
+                    <h3 class="obj-title">Peer Mentorship &amp; Doubt Circles</h3>
+                    <p class="obj-desc">
+                        Senior-to-junior guidance, lab support, code reviews, and weekly discussion circles where no
+                        question is too elementary.
+                    </p>
+                </div>
+
+                <!-- Pillar 08 -->
+                <div class="objective-card obj-color-peach">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">08</span>
+                            <span class="obj-figma-tag">◇ Career.Launch</span>
+                        </div>
+                        <div class="obj-icon"><i class="fas fa-id-badge"></i></div>
+                    </div>
+                    <h3 class="obj-title">Portfolio &amp; Career Prep</h3>
+                    <p class="obj-desc">
+                        Student resume workshops, LinkedIn &amp; GitHub profile tuning, mock technical interviews, and
+                        alumni AMA sessions.
+                    </p>
+                </div>
+
+                <!-- Pillar 09 -->
+                <div class="objective-card obj-color-teal">
+                    <div class="obj-top">
+                        <div class="obj-badge-wrap">
+                            <span class="obj-num">09</span>
+                            <span class="obj-figma-tag">◇ Ethics.First</span>
+                        </div>
+                        <div class="obj-icon"><i class="fas fa-shield-halved"></i></div>
+                    </div>
+                    <h3 class="obj-title">Responsible AI &amp; Digital Ethics</h3>
+                    <p class="obj-desc">
+                        Grounded student discussions around algorithmic fairness, data privacy, deepfakes, copyright,
+                        and building ethical AI solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Graphic Poster Section (Screenshots 3 & 4) -->
+    <section class="section events-poster-section section-backdrop-white" id="events">
+        <div class="container">
+            <!-- Split Header -->
+            <div class="events-header-split">
+                <div class="events-header-left">
+                    <span class="section-eyebrow">—— WHAT WE GET UP TO</span>
+                    <h2 class="display-split-title">
+                        Made of moments<br>
+                        <span class="serif-italic-accent">and experiments.</span>
+                    </h2>
+                </div>
+                <div class="events-header-right">
+                    <p class="events-intro-text">
+                        A look at the challenges, conversations, workshops, and outreach initiatives that bring our
+                        community to life.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Club event filters -->
+            <div class="filter-group-expressive">
+                <button class="filter-chip event-filter-chip active" data-filter="all">All events
+                    <span>09</span></button>
+                <button class="filter-chip event-filter-chip" data-filter="challenge">Challenges
+                    <span>03</span></button>
+                <button class="filter-chip event-filter-chip" data-filter="non-technical">Non-technical
+                    <span>03</span></button>
+                <button class="filter-chip event-filter-chip" data-filter="workshop">Workshops <span>02</span></button>
+                <button class="filter-chip event-filter-chip" data-filter="outreach">Outreach <span>01</span></button>
+            </div>
+
+            <!-- 9 club event cards -->
+            <div class="events-poster-grid">
+                <!-- 01 BUILD WITHOUT BUILDING (Warm Golden Sand) -->
+                <article class="event-poster-card event-card" data-category="challenge">
+                    <div class="poster-canvas poster-color-1">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">01 — CREATIVE CHALLENGE</div>
+                        <div class="poster-headline">BUILD<br>WITHOUT<br>BUILDING</div>
+                        <div class="poster-graphic-loop">
+                            <svg viewBox="0 0 120 120" fill="none">
+                                <ellipse cx="60" cy="60" rx="48" ry="26" transform="rotate(-30 60 60)"
+                                    stroke="currentColor" stroke-width="2" />
+                                <ellipse cx="60" cy="60" rx="30" ry="46" transform="rotate(40 60 60)" fill="#FFD5BD"
+                                    opacity="0.75" />
+                            </svg>
+                        </div>
+                        <div class="poster-date">01 — CHALLENGE</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">CHALLENGE</span>
+                            <a href="#gallery" class="meta-arrow-circle" aria-label="View event gallery">↗</a>
+                        </div>
+                        <h3 class="poster-title">Build Without Building</h3>
+                        <p class="poster-desc">Turn a bold idea into a testable concept using rapid ideation, no-code
+                            tools, and clear storytelling.</p>
+
+                        <div class="event-photos-strip">
+                            <div class="event-photo-avatars" title="Event glimpse available">
+                                <img src="images/build-without-building-1.png" alt="Build Without Building photo 1"
+                                    class="avatar-thumb" data-lightbox="images/build-without-building-1.png"
+                                    data-caption="Build Without Building · Lab Cohort &amp; Faculty Mentors">
+                                <img src="images/build-without-building-2.png" alt="Build Without Building photo 2"
+                                    class="avatar-thumb" data-lightbox="images/build-without-building-2.png"
+                                    data-caption="Build Without Building · Concept &amp; Prototype Teams">
+                                <img src="images/build-without-building-3.png" alt="Build Without Building photo 3"
+                                    class="avatar-thumb" data-lightbox="images/build-without-building-3.png"
+                                    data-caption="Build Without Building · Innovation Teams &amp; Mentorship">
+                            </div>
+                            <a href="#gallery" class="event-photo-link"
+                                data-open-event-gallery="build-without-building">
+                                <span><i class="fas fa-camera"></i> Event Glimpse</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 02 UNWIRED (Frosted Ice Blue) -->
+                <article class="event-poster-card event-card" data-category="challenge">
+                    <div class="poster-canvas poster-color-2">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">02 — CREATIVE CHALLENGE</div>
+                        <div class="poster-headline">UNWIRED</div>
+                        <div class="poster-graphic-ring" aria-hidden="true">
+                            <svg viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="22" stroke="currentColor" stroke-width="2" />
+                                <circle cx="48" cy="18" r="4" fill="#0078D4" />
+                            </svg>
+                        </div>
+                        <div class="poster-graphic-soundwave poster-soundwave-blue" aria-hidden="true">
+                            <span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="poster-date">02 — CHALLENGE</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">CHALLENGE</span>
+                            <a href="#contact" class="meta-arrow-circle" aria-label="Details">↗</a>
+                        </div>
+                        <h3 class="poster-title">Unwired</h3>
+                        <p class="poster-desc">Step away from the usual playbook and solve an open-ended problem with
+                            limited instructions and fresh perspectives.</p>
+                    </div>
+                </article>
+
+                <!-- 03 LAG WARS (Arctic Glacier Cyan) -->
+                <article class="event-poster-card event-card" data-category="challenge">
+                    <div class="poster-canvas poster-color-3">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">03 — FAST-PACED CHALLENGE</div>
+                        <div class="poster-headline">LAG<br>WARS</div>
+                        <div class="poster-graphic-ellipses">
+                            <svg viewBox="0 0 120 120" fill="none">
+                                <ellipse cx="60" cy="60" rx="50" ry="24" transform="rotate(35 60 60)"
+                                    stroke="currentColor" stroke-width="1.5" />
+                                <ellipse cx="60" cy="60" rx="50" ry="24" transform="rotate(-35 60 60)"
+                                    stroke="currentColor" stroke-width="1.5" />
+                            </svg>
+                            <span class="why-not-badge">WHY NOT?</span>
+                        </div>
+                        <div class="poster-date">03 — CHALLENGE</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">CHALLENGE</span>
+                            <a href="#contact" class="meta-arrow-circle" aria-label="Details">↗</a>
+                        </div>
+                        <h3 class="poster-title">Lag Wars</h3>
+                        <p class="poster-desc">Race through playful problem-solving rounds where speed, strategy, and
+                            collaboration matter more than technical experience.</p>
+                    </div>
+                </article>
+
+                <!-- 04 HUMAN.EXE (Marigold Sunshine Yellow) -->
+                <article class="event-poster-card event-card" data-category="non-technical">
+                    <div class="poster-canvas poster-color-4">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">04 — OPEN CONVERSATION</div>
+                        <div class="poster-headline">HUMAN<br>.EXE</div>
+                        <div class="poster-stickers">
+                            <span class="stk">🤖</span>
+                            <span class="stk">⚡</span>
+                            <span class="stk">💡</span>
+                        </div>
+                        <div class="poster-date">04 — NON-TECHNICAL</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">NON-TECHNICAL</span>
+                            <a href="#contact" class="meta-arrow-circle" aria-label="Details">↗</a>
+                        </div>
+                        <h3 class="poster-title">Human.exe</h3>
+                        <p class="poster-desc">A non-technical conversation about identity, habits, and what makes us
+                            human in an increasingly digital world.</p>
+                    </div>
+                </article>
+
+                <!-- 05 AI ROULETTE (Lavender Dusk) -->
+                <article class="event-poster-card event-card" data-category="non-technical">
+                    <div class="poster-canvas poster-color-5">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">05 — INTERACTIVE EXPERIENCE</div>
+                        <div class="poster-headline">AI<br>ROULETTE</div>
+                        <div class="poster-quad-icons">
+                            <span class="quad-btn">✦</span>
+                            <span class="quad-btn">↗</span>
+                            <span class="quad-btn">◒</span>
+                            <span class="quad-btn">✳</span>
+                        </div>
+                        <div class="poster-date">05 — NON-TECHNICAL</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">NON-TECHNICAL</span>
+                            <a href="#contact" class="meta-arrow-circle" aria-label="Details">↗</a>
+                        </div>
+                        <h3 class="poster-title">AI Roulette</h3>
+                        <p class="poster-desc">Spin through surprising questions and scenarios to explore AI myths,
+                            everyday choices, and the stories we tell about technology.</p>
+                    </div>
+                </article>
+
+                <!-- 06 HUMAN // MACHINE (Seafoam Jade Mint) -->
+                <article class="event-poster-card event-card" data-category="non-technical">
+                    <div class="poster-canvas poster-color-6">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">06 — GUIDED DIALOGUE</div>
+                        <div class="poster-headline">HUMAN<br>//<br>MACHINE</div>
+                        <div class="poster-starburst">
+                            <svg viewBox="0 0 100 100" fill="#f43f5e" opacity="0.65">
+                                <path
+                                    d="M50 0L54 35L85 15L65 46L100 50L65 54L85 85L54 65L50 100L46 65L15 85L35 54L0 50L35 46L15 15L46 35Z" />
+                            </svg>
+                        </div>
+                        <div class="poster-date">06 — NON-TECHNICAL</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">NON-TECHNICAL</span>
+                            <a href="#contact" class="meta-arrow-circle" aria-label="Details">↗</a>
+                        </div>
+                        <h3 class="poster-title">Human // Machine</h3>
+                        <p class="poster-desc">A welcoming, non-technical discussion on creativity, judgment, and how
+                            people and machines can work better together.</p>
+                    </div>
+                </article>
+
+                <!-- 07 UNCHARTED INTELLIGENCE (Blush Rose Petal) -->
+                <article class="event-poster-card event-card" data-category="workshop">
+                    <div class="poster-canvas poster-color-7">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">07 — GUIDED SEMINAR</div>
+                        <div class="poster-headline">UNCHARTED<br>INTELLIGENCE</div>
+                        <div class="poster-graphic-loop">
+                            <svg viewBox="0 0 120 120" fill="none">
+                                <ellipse cx="60" cy="60" rx="48" ry="26" transform="rotate(-30 60 60)"
+                                    stroke="currentColor" stroke-width="2" />
+                                <ellipse cx="60" cy="60" rx="30" ry="46" transform="rotate(40 60 60)" fill="#FDA4AF"
+                                    opacity="0.65" />
+                            </svg>
+                        </div>
+                        <div class="poster-date">07 — WORKSHOP</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">WORKSHOP</span>
+                            <a href="#contact" class="meta-arrow-circle" aria-label="Details">↗</a>
+                        </div>
+                        <h3 class="poster-title">Uncharted Intelligence</h3>
+                        <p class="poster-desc">A seminar exploring the possibilities, limits, and responsible choices
+                            behind emerging forms of intelligence.</p>
+                    </div>
+                </article>
+
+                <!-- 08 AFTER THE PROMPT (Cool Ice Violet) -->
+                <article class="event-poster-card event-card" data-category="workshop">
+                    <div class="poster-canvas poster-color-8">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">08 — PRACTICAL WORKSHOP</div>
+                        <div class="poster-headline">AFTER<br>THE<br>PROMPT</div>
+                        <div class="poster-graphic-soundwave poster-soundwave-violet" aria-hidden="true">
+                            <span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="poster-date">08 — WORKSHOP</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">WORKSHOP</span>
+                            <a href="#contact" class="meta-arrow-circle" aria-label="Details">↗</a>
+                        </div>
+                        <h3 class="poster-title">After the Prompt</h3>
+                        <p class="poster-desc">Go beyond writing prompts to examine intent, context, and judgment when
+                            working with AI tools in everyday life.</p>
+                    </div>
+                </article>
+
+                <!-- 09 OUTREACH — THINKX × MINDMIX (Sage Aqua) -->
+                <article class="event-poster-card event-card" data-category="outreach">
+                    <div class="poster-canvas poster-color-9">
+                        <span class="poster-top-tab" aria-hidden="true"></span>
+                        <div class="poster-eyebrow">09 — COMMUNITY INITIATIVE</div>
+                        <div class="poster-headline">THINKX<br>×<br>MINDMIX</div>
+                        <div class="poster-inline-symbols" aria-hidden="true">
+                            <span class="sym">◆</span>
+                            <span class="sym">↗</span>
+                            <span class="sym">✳</span>
+                        </div>
+                        <div class="poster-date">09 — OUTREACH</div>
+                    </div>
+                    <div class="poster-meta">
+                        <div class="meta-row">
+                            <span class="poster-tag">OUTREACH</span>
+                            <a href="#contact" class="meta-arrow-circle" aria-label="Details">↗</a>
+                        </div>
+                        <h3 class="poster-title">Outreach — ThinkX, MindMix</h3>
+                        <p class="poster-desc">A collaborative outreach series connecting the club with ThinkX and
+                            MindMix through shared learning and community conversations.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase / Photo Gallery Section (Screenshot 5) -->
+    <section class="section gallery-expressive-section section-backdrop-blue" id="gallery">
+        <div class="container">
+            <!-- Split Header -->
+            <div class="events-header-split">
+                <div class="events-header-left">
+                    <span class="section-eyebrow">—— LIFE IN THE CLUB</span>
+                    <h2 class="display-split-title">
+                        Signals from our<br>
+                        <span class="serif-italic-accent">club culture.</span>
+                    </h2>
+                </div>
+                <div class="events-header-right">
+                    <p class="events-intro-text">
+                        A visual record of our club activities — from the inauguration on stage to hands-on sessions
+                        like the Build Without Building creative challenge in our AI&amp;DS Lab.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Filter Chips -->
+            <div class="filter-group-expressive">
+                <button class="filter-chip gallery-filter-chip active" data-filter="all">All photos
+                    <span>10</span></button>
+                <button class="filter-chip gallery-filter-chip" data-filter="inauguration">Inauguration
+                    <span>03</span></button>
+                <button class="filter-chip gallery-filter-chip" data-filter="build-without-building">Build Without
+                    Building <span>03</span></button>
+                <button class="filter-chip gallery-filter-chip" data-filter="problem-hunt">Problem Hunt
+                    <span>04</span></button>
+            </div>
+
+            <div class="gallery-masonry-grid inauguration-gallery">
+                <div class="photo-tile tile-tall gallery-card" data-category="inauguration">
+                    <img src="images/inauguration-1.png"
+                        alt="Microsoft AI Club students and faculty gathered on stage during the inauguration on 29 July 2026">
+                    <div class="photo-accent-line" aria-hidden="true"></div>
+                    <div class="photo-event-badge">INAUGURATION</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/inauguration-1.png"
+                        data-caption="Inauguration · On stage, 29 July 2026">
+                        <span>On stage · 29 July 2026</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+                <div class="photo-tile tile-tall gallery-card" data-category="inauguration">
+                    <img src="images/inauguration-2.png"
+                        alt="Microsoft AI Club members and faculty gathered for a group portrait">
+                    <div class="photo-accent-line" aria-hidden="true"></div>
+                    <div class="photo-event-badge">INAUGURATION</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/inauguration-2.png"
+                        data-caption="Inauguration · The founding group">
+                        <span>The founding group</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+                <div class="photo-tile tile-tall gallery-card" data-category="inauguration">
+                    <img src="images/inauguration-3.png"
+                        alt="Microsoft AI Club student representatives and guests seated on the inauguration stage">
+                    <div class="photo-accent-line" aria-hidden="true"></div>
+                    <div class="photo-event-badge">INAUGURATION</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/inauguration-3.png"
+                        data-caption="Inauguration · Shared beginnings">
+                        <span>Shared beginnings</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+
+                <!-- Build Without Building Photos -->
+                <div class="photo-tile tile-tall gallery-card" data-category="build-without-building">
+                    <img src="images/build-without-building-1.png"
+                        alt="Build Without Building cohort and faculty mentors at Data Structures &amp; Design Lab, MSEC">
+                    <div class="photo-accent-line photo-accent-amber" aria-hidden="true"></div>
+                    <div class="photo-event-badge photo-event-bwb">BUILD WITHOUT BUILDING</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/build-without-building-1.png"
+                        data-caption="Build Without Building · Cohort &amp; Faculty Mentors in DS Lab">
+                        <span>Cohort &amp; Mentors · AI&amp;DS Lab</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+                <div class="photo-tile tile-tall gallery-card" data-category="build-without-building">
+                    <img src="images/build-without-building-2.png"
+                        alt="Build Without Building concept &amp; ideation teams at Meenakshi Sundararajan Engineering College">
+                    <div class="photo-accent-line photo-accent-amber" aria-hidden="true"></div>
+                    <div class="photo-event-badge photo-event-bwb">BUILD WITHOUT BUILDING</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/build-without-building-2.png"
+                        data-caption="Build Without Building · Concept &amp; Prototype Teams">
+                        <span>Concept &amp; Prototype Teams</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+                <div class="photo-tile tile-tall gallery-card" data-category="build-without-building">
+                    <img src="images/build-without-building-3.png"
+                        alt="Build Without Building student innovators in lab session">
+                    <div class="photo-accent-line photo-accent-amber" aria-hidden="true"></div>
+                    <div class="photo-event-badge photo-event-bwb">BUILD WITHOUT BUILDING</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/build-without-building-3.png"
+                        data-caption="Build Without Building · Student Innovators &amp; Faculty">
+                        <span>Student Innovators · DS Lab</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+
+                <!-- Problem Hunt Photos -->
+                <div class="photo-tile tile-tall gallery-card" data-category="problem-hunt">
+                    <img src="images/problem-hunt-1.png" alt="Problem Hunt team ideation circle discovery session">
+                    <div class="photo-accent-line photo-accent-cyan" aria-hidden="true"></div>
+                    <div class="photo-event-badge photo-event-problem-hunt">PROBLEM HUNT</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/problem-hunt-1.png"
+                        data-caption="Problem Hunt · Ideation Circles &amp; Problem Discovery">
+                        <span>Ideation Circles &amp; Discovery</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+                <div class="photo-tile tile-tall gallery-card" data-category="problem-hunt">
+                    <img src="images/problem-hunt-2.png" alt="Problem Hunt interdisciplinary group discussion">
+                    <div class="photo-accent-line photo-accent-cyan" aria-hidden="true"></div>
+                    <div class="photo-event-badge photo-event-problem-hunt">PROBLEM HUNT</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/problem-hunt-2.png"
+                        data-caption="Problem Hunt · Interdisciplinary Brainstorming Round">
+                        <span>Interdisciplinary Brainstorming</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+                <div class="photo-tile tile-tall gallery-card" data-category="problem-hunt">
+                    <img src="images/problem-hunt-3.png"
+                        alt="Problem Hunt students drafting problem statements on paper">
+                    <div class="photo-accent-line photo-accent-cyan" aria-hidden="true"></div>
+                    <div class="photo-event-badge photo-event-problem-hunt">PROBLEM HUNT</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/problem-hunt-3.png"
+                        data-caption="Problem Hunt · Drafting Real-World Problem Statements">
+                        <span>Drafting Problem Statements</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+                <div class="photo-tile tile-tall gallery-card" data-category="problem-hunt">
+                    <img src="images/problem-hunt-4.png"
+                        alt="Problem Hunt student pitching Smart Transit solution poster to faculty mentors">
+                    <div class="photo-accent-line photo-accent-cyan" aria-hidden="true"></div>
+                    <div class="photo-event-badge photo-event-problem-hunt">PROBLEM HUNT</div>
+                    <a href="#gallery" class="tile-caption-pill" data-lightbox="images/problem-hunt-4.png"
+                        data-caption="Problem Hunt · Smart Transit Pitch to Faculty Mentors">
+                        <span>Smart Transit Presentation</span>
+                        <span class="caption-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Microsoft AI Club team -->
+    <section class="section team section-backdrop-white" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-user-astronaut"></i> Leadership</span>
+                <h2 class="section-title">One club. <span class="serif-italic text-gradient-gold">Many
+                        perspectives.</span></h2>
+                <p class="section-subtitle">
+                    A student-led community from the Department of AI&amp;DS, guided by mentors who foster curiosity,
+                    craft, and responsible innovation.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>AI&amp;DS minds, connected by purpose.</h3>
+                    <p>
+                        Our student leads and faculty mentors coordinate learning activities, events, projects, and an
+                        inclusive space for members to contribute.
+                    </p>
+                    <button class="team-roster-pill" id="open-team-roster" type="button" aria-haspopup="dialog"
+                        data-cursor="MEET OUR BRAINS ✦">
+                        <div class="team-roster-pill-icon" aria-hidden="true">
+                            <span class="icon-pulse-glow"></span>
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span class="team-roster-pill-title">Meet our Brains</span>
+                        <div class="team-roster-pill-arrow" aria-hidden="true">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </button>
+
+                    <div class="pillar-list">
+                        <div class="pillar-card">
+                            <div class="pillar-icon"
+                                style="background: rgba(0, 120, 212, 0.15); border-color: var(--accent-blue); color: var(--accent-blue);">
+                                ✦
+                            </div>
+                            <div class="pillar-content">
+                                <h4>Student Executive Board</h4>
+                                <p>Microsoft AI Club, Department of AI&amp;DS</p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-card">
+                            <div class="pillar-icon"
+                                style="background: rgba(245, 158, 11, 0.15); border-color: var(--accent-gold); color: var(--accent-gold);">
+                                ✿
+                            </div>
+                            <div class="pillar-content">
+                                <h4>Faculty Coordinators</h4>
+                                <p>Mrs. G Valentina </p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-card">
+                            <div class="pillar-icon"
+                                style="background: rgba(56, 189, 248, 0.15); border-color: var(--accent-cyan); color: var(--accent-cyan);">
+                                ✳
+                            </div>
+                            <div class="pillar-content">
+                                <h4>Department Leadership</h4>
+                                <p>Mrs. Mathangi N <span class="pillar-separator">·</span> Head of Department</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-media">
+                    <div class="media-frame">
+                        <img src="images/inauguration-2.png"
+                            alt="Microsoft AI Club student members and faculty gathered together">
+                    </div>
+                    <div class="media-floating-badge">
+                        <div class="media-badge-text">
+                            <span class="dept-lead-label">DEPARTMENT OF AI&amp;DS</span>
+                            <span class="badge-bullet">✦</span>
+                            <span class="guidance-tag">Student-led · Faculty-guided</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Join Section -->
+    <section class="section contact section-backdrop-blue" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-sparkles"></i> Your next signal</span>
+                <h2 class="section-title">Bring your <span class="serif-italic text-gradient-gold">curiosity.</span>
+                </h2>
+                <p class="section-subtitle">
+                    Join the Microsoft AI Club of AI&amp;DS. Share what you want to learn, build, question, or explore
+                    with us.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <div class="contact-brand-mark">
+                        <img src="images/logo.png" alt="Microsoft AI Club logo">
+                        <span>MICROSOFT AI CLUB<br><strong>DEPARTMENT OF AI&amp;DS</strong></span>
+                    </div>
+                    <span class="contact-kicker">OPEN TO EVERY KIND OF THINKER</span>
+                    <h3>There's room for your <em>idea.</em></h3>
+                    <p class="contact-lead-desc">
+                        No resume needed. Bring a question or your curiosity. We make space for builders, designers, and
+                        innovators of every level.
+                    </p>
+
+                    <!-- Concise 2x2 Info Grid -->
+                    <div class="info-items-grid">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-building-columns"></i>
+                            </div>
+                            <div class="info-text">
+                                <strong>Our chapter</strong>
+                                <p>Dept. of AI&amp;DS</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                            <div class="info-text">
+                                <strong>Tracks</strong>
+                                <p>AI · Data · Design</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-people-group"></i>
+                            </div>
+                            <div class="info-text">
+                                <strong>Culture</strong>
+                                <p>Build boldly together</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-arrow-trend-up"></i>
+                            </div>
+                            <div class="info-text">
+                                <strong>Next steps</strong>
+                                <p>Direct cohort match</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <div class="form-card-heading">
+                        <div>
+                            <span class="contact-kicker">START HERE</span>
+                            <h3>Tell us what’s on your mind.</h3>
+                        </div>
+                        <span class="form-index">01 / 04</span>
+                    </div>
+                    <form class="contact-form" id="contact-form">
+                        <!-- Compact 2-column Name & Email Row -->
+                        <div class="form-row-compact">
+                            <div class="form-group">
+                                <label for="name">Your name</label>
+                                <input type="text" id="name" placeholder="What should we call you?" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your email</label>
+                                <input type="email" id="email" placeholder="you@college.edu" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest">Your starting point</label>
+                            <select id="interest">
+                                <option value="general">I’m curious about AI</option>
+                                <option value="data">Data Science &amp; Machine Learning</option>
+                                <option value="creative">Creative experiments &amp; events</option>
+                                <option value="project">I have a project idea</option>
+                                <option value="community">I want to help the community</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">What’s on your mind?</label>
+                            <textarea id="message" rows="2"
+                                placeholder="A question, an idea, a collaboration, or what you want to learn..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary contact-submit">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Send your signal
+                        </button>
+                    </form>
+                    <p class="form-note"><i class="fas fa-lock"></i> Your note stays within the Microsoft AI Club team.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-brand-header">
+                        <img src="images/logo.png" alt="Microsoft AI Club Emblem" class="footer-logo-img">
+                        <div>
+                            <h3>Microsoft AI Club</h3>
+                            <p
+                                style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-gold); margin-bottom: 0;">
+                                INNOVATE • ANALYZE • CONNECT
+                            </p>
+                        </div>
+                    </div>
+                    <p>
+                        A student-led community of the Department of AI&amp;DS, focused on learning, practical projects,
+                        responsible AI, and collaboration.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Our Mission</a></li>
+                        <li><a href="#vision">Vision & Mission</a></li>
+                        <li><a href="#objectives">Seven Club Pillars</a></li>
+                        <li><a href="#events">Upcoming Events</a></li>
+                        <li><a href="#gallery">Project Showcase</a></li>
+                        <li><a href="#team">Leadership</a></li>
+                        <li><a href="#contact">Join & Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-btn" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-btn" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
+                        A student-led initiative of the Department of AI&amp;DS.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Microsoft AI Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- High-Impact Club Photo Lightbox Modal -->
+    <div id="club-photo-lightbox" class="photo-lightbox" aria-hidden="true" role="dialog" aria-label="Photo preview">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-dialog">
+            <button class="lightbox-close-btn" aria-label="Close photo preview">✕</button>
+            <button class="lightbox-nav-btn lightbox-prev-btn" aria-label="Previous photo">‹</button>
+            <button class="lightbox-nav-btn lightbox-next-btn" aria-label="Next photo">›</button>
+            <div class="lightbox-image-wrap">
+                <img id="lightbox-img" src="" alt="Enlarged gallery photo">
+            </div>
+            <div class="lightbox-footer">
+                <span id="lightbox-category" class="lightbox-category-badge">BUILD WITHOUT BUILDING</span>
+                <p id="lightbox-caption" class="lightbox-caption-text">Caption goes here</p>
+                <span id="lightbox-counter" class="lightbox-counter-text">1 / 6</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Microsoft AI Club leadership hierarchy -->
+    <div id="team-roster-modal" class="team-roster-modal" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="team-roster-title">
+        <div class="team-roster-backdrop" data-roster-close></div>
+        <div class="team-roster-dialog">
+            <div class="team-roster-header">
+                <div class="team-roster-header-info">
+                    <span class="section-tag"><i class="fas fa-brain"></i> Club Leadership</span>
+                    <h2 id="team-roster-title">Meet our <span class="serif-italic text-gradient-gold">Brains.</span>
+                    </h2>
+                </div>
+                <div class="team-roster-header-actions">
+                    <button class="team-roster-close" type="button" aria-label="Close leadership hierarchy"
+                        data-roster-close><i class="fas fa-times" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div class="team-roster-viewport">
+                <!-- High-performance dynamic particle spark canvas -->
+                <canvas id="roster-spark-canvas" class="roster-spark-canvas" aria-hidden="true"></canvas>
+
+                <div class="team-roster-track" id="team-roster-track" tabindex="0">
+                    <!-- 01: Mrs. Mathangi Narayanan -->
+                    <article class="roster-profile is-current" data-roster-index="0">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-09.png"
+                                alt="Mrs. Mathangi Narayanan, Head of Department">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">Head of Department</span>
+                            <h3>Mrs. Mathangi Narayanan</h3>
+                        </div>
+                    </article>
+
+                    <!-- 02: Valentina G -->
+                    <article class="roster-profile is-current" data-roster-index="1">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-08.png" alt="Valentina G, Faculty In-charge">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">Faculty In-charge</span>
+                            <h3>Valentina G</h3>
+                        </div>
+                    </article>
+
+                    <!-- 03: Prince R -->
+                    <article class="roster-profile" data-roster-index="2">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-07.png" alt="Prince R, President">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">President</span>
+                            <h3>Prince R</h3>
+                        </div>
+                    </article>
+
+                    <!-- 04: Gokulakrishnan -->
+                    <article class="roster-profile" data-roster-index="3">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-04.png" alt="Gokulakrishnan, Vice President">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">Vice President</span>
+                            <h3>Gokulakrishnan</h3>
+                        </div>
+                    </article>
+
+                    <!-- 05: Rohith S -->
+                    <article class="roster-profile" data-roster-index="4">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-06.png" alt="Rohith S, Secretary">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">Secretary</span>
+                            <h3>Rohith S</h3>
+                        </div>
+                    </article>
+
+                    <!-- 06: Dhilothi -->
+                    <article class="roster-profile" data-roster-index="5">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-05.png" alt="Dhilothi, Treasurer">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">Treasurer</span>
+                            <h3>Dhilothi</h3>
+                        </div>
+                    </article>
+
+                    <!-- 07: Keerthana A -->
+                    <article class="roster-profile" data-roster-index="6">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-03.png" alt="Keerthana A, Joint Secretary">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">Joint Secretary</span>
+                            <h3>Keerthana A</h3>
+                        </div>
+                    </article>
+
+                    <!-- 08: Mohanaswetha -->
+                    <article class="roster-profile" data-roster-index="7">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-02.png" alt="Mohanaswetha, Joint Treasurer">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">Joint Treasurer</span>
+                            <h3>Mohanaswetha</h3>
+                        </div>
+                    </article>
+
+                    <!-- 09: Umaiyaswaran S -->
+                    <article class="roster-profile" data-roster-index="8">
+                        <div class="roster-profile-image">
+                            <img src="images/leadership/member-01.png" alt="Umaiyaswaran S, Overall Coordinator">
+                        </div>
+                        <div class="roster-profile-copy">
+                            <span class="roster-role">Overall Coordinator</span>
+                            <h3>Umaiyaswaran S</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="team-roster-hint"><i class="fas fa-arrows-up-down"></i> Scroll to swap cards
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interaction Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

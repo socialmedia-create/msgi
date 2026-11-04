@@ -873,9 +873,16 @@ function iconFor(key){
 }
 function renderCards(){
   const root=document.getElementById("centreCards");
-  const centreOrder=["msiic","msciic","ice","mscdc","msccb"];
+  const centreOrder=["msccb","mscdc","msiic","msciic","ice"];
+  const centrePages={
+    msccb:"ccb.html",
+    mscdc:"cdc.html",
+    msiic:"msiic.html",
+    msciic:"msciic.html",
+    ice:"ice.html"
+  };
   root.innerHTML=centreOrder.map(key=>[key,centres[key]]).map(([key,c])=>`
-    <a class="card" href="#centre/${key}">
+    <a class="card" href="${centrePages[key]}" aria-label="Explore ${c.short} centre">
       <div class="card-media">
         <div class="logo-badge">${c.logo ? `<img src="${c.logo}" alt="${c.short} logo">` : `<span>${c.short}</span>`}</div>
         <div class="media-label">${c.accent}</div>
